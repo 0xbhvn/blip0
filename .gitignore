@@ -45,3 +45,4 @@ package-lock.json
 
 # Claude
 CLAUDE.md
+.claude
