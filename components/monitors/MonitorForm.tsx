@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 import { MonitorResponse } from "@/lib/types/monitors";
-import { useMonitorForm } from "@/hooks/useMonitorForm";
+import { useMonitorForm } from "@/hooks";
 import { JsonConfigEditor } from "./JsonConfigEditor";
 import { cn } from "@/lib/utils";
 

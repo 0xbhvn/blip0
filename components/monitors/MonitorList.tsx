@@ -6,7 +6,7 @@ import { Plus } from "lucide-react";
 import { MonitorCard } from "./MonitorCard";
 import { MonitorEmptyState } from "./MonitorEmptyState";
 import { cn } from "@/lib/utils";
-import { useMonitors, useMonitorMutations } from "@/hooks/useMonitors";
+import { useMonitors, useMonitorMutations } from "@/hooks";
 
 interface MonitorListProps {
   variant?: "public" | "owned";
