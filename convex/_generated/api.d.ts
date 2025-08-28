@@ -17,6 +17,7 @@ import type * as auth from "../auth.js";
 import type * as http from "../http.js";
 import type * as messages from "../messages.js";
 import type * as monitors from "../monitors.js";
+import type * as networks from "../networks.js";
 import type * as users from "../users.js";
 
 /**
@@ -32,6 +33,7 @@ declare const fullApi: ApiFromModules<{
   http: typeof http;
   messages: typeof messages;
   monitors: typeof monitors;
+  networks: typeof networks;
   users: typeof users;
 }>;
 export declare const api: FilterApi<

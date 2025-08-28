@@ -6,6 +6,15 @@ import { v } from "convex/values";
 // requires indexes defined on `authTables`.
 export default defineSchema({
   ...authTables,
+  // Extend the users table to add isAdmin field
+  users: defineTable({
+    ...authTables.users.validator.fields,
+    isAdmin: v.optional(v.boolean()),
+  })
+    .index("email", ["email"])
+    .searchIndex("search_users", {
+      searchField: "name",
+    }),
   messages: defineTable({
     userId: v.id("users"),
     body: v.string(),
@@ -74,4 +83,39 @@ export default defineSchema({
     .index("by_user", ["userId"])
     .index("by_user_and_name", ["userId", "name"])
     .index("by_paused", ["paused"]),
+  networks: defineTable({
+    createdBy: v.id("users"), // Admin who created the configuration
+    updatedBy: v.optional(v.id("users")), // Admin who last updated
+
+    // Core fields
+    network_type: v.union(v.literal("EVM"), v.literal("Stellar")),
+    slug: v.string(), // Unique identifier
+    name: v.string(), // Human-readable name
+
+    // RPC configuration
+    rpc_urls: v.array(
+      v.object({
+        type_: v.string(), // "rpc"
+        url: v.object({
+          type: v.union(v.literal("plain"), v.literal("encrypted")),
+          value: v.string(),
+        }),
+        weight: v.number(), // For load balancing
+      }),
+    ),
+
+    // Network-specific fields
+    chain_id: v.optional(v.number()), // EVM only
+    network_passphrase: v.optional(v.string()), // Stellar only
+
+    // Operational parameters
+    block_time_ms: v.number(),
+    confirmation_blocks: v.number(),
+    cron_schedule: v.string(),
+    max_past_blocks: v.number(),
+    store_blocks: v.boolean(),
+  })
+    .index("by_slug", ["slug"])
+    .index("by_network_type", ["network_type"])
+    .index("by_created_by", ["createdBy"]),
 });
