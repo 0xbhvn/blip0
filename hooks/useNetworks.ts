@@ -15,8 +15,12 @@ import { useCallback } from "react";
  * Hook for fetching networks
  */
 export function useNetworks() {
-  const networks = useQuery(api.networks.list) as NetworkResponse[] | undefined;
   const isAdmin = useQuery(api.networks.isCurrentUserAdmin) ?? false;
+
+  // Regular users see only active networks, admins see all
+  const networks = useQuery(
+    isAdmin ? api.networks.listAll : api.networks.list,
+  ) as NetworkResponse[] | undefined;
 
   const isLoading = networks === undefined;
 
