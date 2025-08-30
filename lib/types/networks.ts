@@ -21,6 +21,7 @@ export interface Network {
   network_type: "EVM" | "Stellar";
   slug: string;
   name: string;
+  active?: boolean; // Whether the network is active
 
   // RPC configuration
   rpc_urls: RpcUrl[];
@@ -58,6 +59,7 @@ export const DEFAULT_NETWORK: NetworkCreateInput = {
   network_type: "EVM",
   slug: "",
   name: "",
+  active: false, // New networks are inactive by default
   rpc_urls: [],
   chain_id: undefined,
   network_passphrase: undefined,
