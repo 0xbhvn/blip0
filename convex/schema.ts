@@ -91,6 +91,7 @@ export default defineSchema({
     network_type: v.union(v.literal("EVM"), v.literal("Stellar")),
     slug: v.string(), // Unique identifier
     name: v.string(), // Human-readable name
+    active: v.optional(v.boolean()), // Whether the network is active (default false)
 
     // RPC configuration
     rpc_urls: v.array(
@@ -117,5 +118,7 @@ export default defineSchema({
   })
     .index("by_slug", ["slug"])
     .index("by_network_type", ["network_type"])
-    .index("by_created_by", ["createdBy"]),
+    .index("by_created_by", ["createdBy"])
+    .index("by_active", ["active"])
+    .index("by_active_and_slug", ["active", "slug"]),
 });

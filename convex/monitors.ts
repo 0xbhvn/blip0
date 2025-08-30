@@ -120,6 +120,25 @@ export const create = mutation({
       );
     }
 
+    // Validate that all specified networks exist and are active
+    for (const networkSlug of args.networks) {
+      const network = await ctx.db
+        .query("networks")
+        .withIndex("by_slug", (q) => q.eq("slug", networkSlug))
+        .unique();
+
+      if (!network) {
+        throw new Error(`Network with slug "${networkSlug}" not found`);
+      }
+
+      // Check if network is active (treat undefined as true for backward compatibility)
+      if (network.active === false) {
+        throw new Error(
+          `Network "${networkSlug}" is not active. Please use only active networks.`,
+        );
+      }
+    }
+
     return await ctx.db.insert("monitors", {
       userId,
       ...args,
@@ -209,6 +228,25 @@ export const update = mutation({
       throw new Error(
         "Invalid monitor: name and at least one network are required",
       );
+    }
+
+    // Validate that all specified networks exist and are active
+    for (const networkSlug of updateData.networks) {
+      const network = await ctx.db
+        .query("networks")
+        .withIndex("by_slug", (q) => q.eq("slug", networkSlug))
+        .unique();
+
+      if (!network) {
+        throw new Error(`Network with slug "${networkSlug}" not found`);
+      }
+
+      // Check if network is active (treat undefined as true for backward compatibility)
+      if (network.active === false) {
+        throw new Error(
+          `Network "${networkSlug}" is not active. Please use only active networks.`,
+        );
+      }
     }
 
     await ctx.db.patch(id, updateData);

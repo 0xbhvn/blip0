@@ -14,10 +14,46 @@ async function isAdmin(
   return user?.isAdmin === true;
 }
 
-// Public query - anyone can read network configurations
+// Public query - shows only active networks to everyone
 export const list = query({
   args: {},
   handler: async (ctx) => {
+    // Only show active networks (treat undefined as true for backward compatibility)
+    const networks = await ctx.db
+      .query("networks")
+      .filter((q) =>
+        q.or(q.eq(q.field("active"), true), q.eq(q.field("active"), undefined)),
+      )
+      .collect();
+
+    // Add creator information to each network
+    return Promise.all(
+      networks.map(async (network) => {
+        const creator = await ctx.db.get(network.createdBy);
+        const updater = network.updatedBy
+          ? await ctx.db.get(network.updatedBy)
+          : null;
+        return {
+          ...network,
+          createdByName: creator?.name ?? creator?.email ?? "Unknown",
+          updatedByName: updater
+            ? (updater.name ?? updater.email ?? "Unknown")
+            : null,
+        };
+      }),
+    );
+  },
+});
+
+// Admin query - shows all networks including inactive ones
+export const listAll = query({
+  args: {},
+  handler: async (ctx) => {
+    const userId = await getAuthUserId(ctx);
+    if (!userId || !(await isAdmin(ctx, userId))) {
+      throw new Error("Unauthorized: Admin access required");
+    }
+
     const networks = await ctx.db.query("networks").collect();
 
     // Add creator information to each network
@@ -48,6 +84,14 @@ export const get = query({
       return null;
     }
 
+    // Check if network is active (treat undefined as true for backward compatibility)
+    if (network.active === false) {
+      const userId = await getAuthUserId(ctx);
+      if (!userId || !(await isAdmin(ctx, userId))) {
+        return null; // Non-admins can't see inactive networks
+      }
+    }
+
     const creator = await ctx.db.get(network.createdBy);
     const updater = network.updatedBy
       ? await ctx.db.get(network.updatedBy)
@@ -75,6 +119,14 @@ export const getBySlug = query({
       return null;
     }
 
+    // Check if network is active (treat undefined as true for backward compatibility)
+    if (network.active === false) {
+      const userId = await getAuthUserId(ctx);
+      if (!userId || !(await isAdmin(ctx, userId))) {
+        return null; // Non-admins can't see inactive networks
+      }
+    }
+
     const creator = await ctx.db.get(network.createdBy);
     const updater = network.updatedBy
       ? await ctx.db.get(network.updatedBy)
@@ -95,6 +147,7 @@ export const create = mutation({
     network_type: v.union(v.literal("EVM"), v.literal("Stellar")),
     slug: v.string(),
     name: v.string(),
+    active: v.optional(v.boolean()),
     rpc_urls: v.array(
       v.object({
         type_: v.string(),
@@ -144,6 +197,7 @@ export const create = mutation({
 
     return await ctx.db.insert("networks", {
       ...args,
+      active: args.active ?? false, // Default to false if not specified
       createdBy: userId,
     });
   },
@@ -156,6 +210,7 @@ export const update = mutation({
     network_type: v.union(v.literal("EVM"), v.literal("Stellar")),
     slug: v.string(),
     name: v.string(),
+    active: v.optional(v.boolean()),
     rpc_urls: v.array(
       v.object({
         type_: v.string(),
