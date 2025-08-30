@@ -73,6 +73,15 @@ export function NetworkCard({ network, isAdmin }: NetworkCardProps) {
           <div className="flex items-center gap-2">
             <Badge variant="outline">{network.network_type}</Badge>
             <Badge variant="secondary">{network.slug}</Badge>
+            {network.active === false ? (
+              <Badge variant="destructive" className="text-xs">
+                Inactive
+              </Badge>
+            ) : (
+              <Badge variant="default" className="text-xs">
+                Active
+              </Badge>
+            )}
             {network.store_blocks && (
               <Badge variant="default" className="text-xs">
                 Storing Blocks

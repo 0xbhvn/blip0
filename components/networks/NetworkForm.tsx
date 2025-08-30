@@ -44,6 +44,7 @@ export function NetworkForm({ initialData, mode }: NetworkFormProps) {
       name: initialData.name,
       slug: initialData.slug,
       network_type: initialData.network_type,
+      active: initialData.active,
       chain_id: initialData.chain_id,
       network_passphrase: initialData.network_passphrase,
       rpc_urls: initialData.rpc_urls,
@@ -339,6 +340,17 @@ export function NetworkForm({ initialData, mode }: NetworkFormProps) {
               }
             />
             <Label htmlFor="store_blocks">Store blocks locally</Label>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <Switch
+              id="active"
+              checked={formData.active ?? false}
+              onCheckedChange={(checked) =>
+                setFormData({ ...formData, active: checked })
+              }
+            />
+            <Label htmlFor="active">Network is active</Label>
           </div>
         </CardContent>
       </Card>
