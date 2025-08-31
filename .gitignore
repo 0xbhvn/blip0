@@ -46,3 +46,12 @@ package-lock.json
 # Claude
 CLAUDE.md
 .claude
+
+# Playwright MCP
+.playwright-mcp
+
+# Serena
+.serena
+
+# Design Principles
+DESIGN_PRINCIPLES.md
