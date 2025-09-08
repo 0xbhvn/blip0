@@ -7,7 +7,6 @@ export { MonitorEmptyState } from "./MonitorEmptyState";
 
 // Form components
 export { MonitorForm } from "./MonitorForm";
-export { JsonConfigEditor } from "./JsonConfigEditor";
 
 // Detail page components
 export {
