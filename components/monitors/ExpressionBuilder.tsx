@@ -42,7 +42,10 @@ export function ExpressionBuilder({
   className,
   networkTypes = ["EVM", "Stellar"],
 }: ExpressionBuilderProps) {
-  const [isAdvanced, setIsAdvanced] = useState(!!value);
+  // Visual builder only works for transactions (which have fixed fields)
+  // Events and functions have dynamic parameters based on their signatures
+  const canUseVisualBuilder = type === "transaction";
+  const [isAdvanced, setIsAdvanced] = useState(!canUseVisualBuilder); // Default to text for events/functions
   const [showExamples, setShowExamples] = useState(false);
 
   const examples =
@@ -87,23 +90,34 @@ export function ExpressionBuilder({
               </div>
             </PopoverContent>
           </Popover>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setIsAdvanced(!isAdvanced)}
-          >
-            {isAdvanced ? "Visual" : "Advanced"}
-          </Button>
+          {canUseVisualBuilder && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsAdvanced(!isAdvanced)}
+            >
+              {isAdvanced ? "Visual Builder" : "Text Mode"}
+            </Button>
+          )}
         </div>
       </div>
 
-      {isAdvanced ? (
-        <Input
-          value={value || ""}
-          onChange={(e) => onChange(e.target.value || null)}
-          placeholder={placeholder}
-          className="font-mono text-sm"
-        />
+      {isAdvanced || !canUseVisualBuilder ? (
+        <>
+          <Input
+            value={value || ""}
+            onChange={(e) => onChange(e.target.value || null)}
+            placeholder={placeholder}
+            className="font-mono text-sm"
+          />
+          {type !== "transaction" && (
+            <p className="text-xs text-muted-foreground">
+              {type === "event"
+                ? "Use parameter names from the event signature (e.g., 'value', 'from', 'to' for Transfer events)"
+                : "Use parameter names from the function signature (e.g., 'amount', 'recipient' for transfer functions)"}
+            </p>
+          )}
+        </>
       ) : (
         <VisualExpressionBuilder
           value={value}

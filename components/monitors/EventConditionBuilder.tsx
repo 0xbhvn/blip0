@@ -160,7 +160,7 @@ export function EventConditionBuilder({
                       updateCondition(index, { expression })
                     }
                     type="event"
-                    placeholder="e.g., value > 1000000000000000000"
+                    placeholder="e.g., value > 10000000000 or from == '0x...'"
                   />
                 </div>
               </CardContent>

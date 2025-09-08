@@ -163,7 +163,7 @@ export function FunctionConditionBuilder({
                       updateCondition(index, { expression })
                     }
                     type="function"
-                    placeholder="e.g., amount > 1000000"
+                    placeholder="e.g., out_min > 1000000000 or value > 10000000000"
                   />
                 </div>
               </CardContent>

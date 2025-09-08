@@ -181,21 +181,46 @@ export const EXPRESSION_FIELDS = {
 // Example Expressions
 export const EXAMPLE_EXPRESSIONS = {
   Events: [
-    { label: "Large Transfer", expression: "value > 1000000000000000000" }, // > 1 ETH
-    { label: "Specific Sender", expression: 'from == "0x..."' },
+    {
+      label: "Large Transfer (ERC20)",
+      expression: "value > 1000000000000000000",
+    }, // > 1 ETH worth
+    { label: "Specific Sender", expression: 'from == "0xdeadbeef..."' },
     { label: "Multiple Conditions", expression: "value > 100 AND to != from" },
+    { label: "Contains Pattern", expression: 'message contains "error"' },
+    {
+      label: "Stellar Event (indexed)",
+      expression: "0 > 10000 AND 1.keyA == 'dataX'",
+    }, // Stellar uses indexed params
   ],
   Functions: [
-    { label: "High Value Transfer", expression: "amount > 1000000" },
-    { label: "Specific Recipient", expression: 'recipient == "0x..."' },
+    { label: "High Value Transfer", expression: "amount > 1000000000" },
+    { label: "Large Swap (DEX)", expression: "out_min > 1000000000" }, // From the example
+    { label: "Specific Recipient", expression: 'recipient == "0xabc..."' },
+    {
+      label: "Complex Condition",
+      expression:
+        "(amount > 1000 AND recipient != sender) OR emergency == true",
+    },
   ],
   Transactions: [
-    { label: "Failed Transactions", expression: 'status == "Failed"' },
+    {
+      label: "High Value (EVM)",
+      expression: "transaction.value > 1500000000000000000",
+    }, // > 1.5 ETH
     {
       label: "High Gas Price",
-      expression: "transaction.gasPrice > 100000000000",
+      expression: "transaction.gas_price > 100000000000",
     },
     { label: "Contract Creation", expression: "transaction.to == null" },
+    {
+      label: "Input Data Pattern",
+      expression: 'transaction.input starts_with "0xa9059cbb"',
+    }, // ERC20 transfer
+    {
+      label: "Stellar Transaction",
+      expression: "transaction.ledger >= 123456 AND transaction.value > 500",
+    },
   ],
 } as const;
 
