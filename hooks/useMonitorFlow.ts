@@ -1,5 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
-import { useNodesState, useEdgesState, Node } from "@xyflow/react";
+import {
+  useNodesState,
+  useEdgesState,
+  Node,
+  OnConnect,
+  Connection,
+  addEdge,
+} from "@xyflow/react";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
@@ -114,6 +121,19 @@ export function useMonitorFlow() {
       })),
     );
   }, [setEdges, setNodes]);
+
+  // Handle new connections
+  const onConnect: OnConnect = useCallback(
+    (params: Connection) => {
+      const newEdge = {
+        ...params,
+        type: "networkMonitor",
+        animated: true,
+      } as FlowEdge;
+      setEdges((eds) => addEdge(newEdge, eds));
+    },
+    [setEdges],
+  );
 
   // Layout nodes
   const onLayout = useCallback(
@@ -230,6 +250,7 @@ export function useMonitorFlow() {
     onEdgesChange,
     onNodeClick,
     onPaneClick,
+    onConnect,
     onLayout,
     filterByNetworkType,
     filterByMonitorStatus,
