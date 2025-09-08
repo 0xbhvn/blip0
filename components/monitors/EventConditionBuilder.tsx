@@ -46,7 +46,9 @@ export function EventConditionBuilder({
     if (value === "custom") {
       updateCondition(index, { signature: "" });
     } else {
-      updateCondition(index, { signature: value });
+      // Remove category prefix if present (e.g., "ERC20::Transfer(...)" -> "Transfer(...)")
+      const signature = value.includes("::") ? value.split("::")[1] : value;
+      updateCondition(index, { signature });
     }
   };
 
@@ -88,9 +90,14 @@ export function EventConditionBuilder({
                       </Label>
                       <Select
                         value={
+                          // Find matching signature with category prefix or just the signature
                           allSignatures.find(
                             (s) => s.signature === condition.signature,
-                          )?.signature || "custom"
+                          )
+                            ? `${allSignatures.find((s) => s.signature === condition.signature)?.category}::${condition.signature}`
+                            : condition.signature
+                              ? "custom"
+                              : ""
                         }
                         onValueChange={(value) =>
                           handleSignatureSelect(index, value)
@@ -112,8 +119,8 @@ export function EventConditionBuilder({
                                 {Object.entries(sigs).map(
                                   ([name, signature]) => (
                                     <SelectItem
-                                      key={signature}
-                                      value={signature}
+                                      key={`${category}-${name}`}
+                                      value={`${category}::${signature}`}
                                     >
                                       <span className="font-medium">
                                         {name}
