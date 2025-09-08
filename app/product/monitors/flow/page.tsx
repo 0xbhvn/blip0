@@ -1,7 +1,7 @@
 "use client";
 
 import { PageHeader } from "@/components/PageHeader";
-import { MonitorFlowVisualization } from "@/components/monitors/flow/MonitorFlowVisualization";
+import { MonitorFlowVisualization } from "@/components/monitors/flow";
 
 export default function MonitorFlowPage() {
   return (

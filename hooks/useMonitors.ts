@@ -8,7 +8,7 @@ import {
   MonitorResponse,
   MonitorCreateInput,
   isValidMonitorId,
-} from "@/lib/types/monitors";
+} from "@/lib/types";
 import { useCallback } from "react";
 
 /**

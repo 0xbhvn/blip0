@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Edit, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { MonitorPausedBadge } from "@/components/monitors";
-import { formatMonitorDate } from "@/lib/helpers/monitors";
+import { formatMonitorDate } from "@/lib/helpers";
 import {
   MonitorResponse,
   MonitorAddress,
@@ -21,7 +21,7 @@ import {
   FunctionCondition,
   TransactionCondition,
   TriggerCondition,
-} from "@/lib/types/monitors";
+} from "@/lib/types";
 import { Id } from "@/convex/_generated/dataModel";
 
 interface MonitorDetailHeaderProps {

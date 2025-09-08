@@ -23,3 +23,11 @@ export {
 // Sub-components
 export { MonitorPausedBadge } from "./MonitorPausedBadge";
 export { MonitorStats } from "./MonitorStats";
+
+// Flow visualization components
+export {
+  MonitorFlowVisualization,
+  NetworkNode,
+  MonitorNode,
+  NetworkMonitorEdge,
+} from "./flow";

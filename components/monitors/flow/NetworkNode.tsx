@@ -1,3 +1,5 @@
+"use client";
+
 import { memo } from "react";
 import { Handle, Position, NodeProps } from "@xyflow/react";
 import { Card, CardContent } from "@/components/ui/card";

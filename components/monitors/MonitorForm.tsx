@@ -17,14 +17,14 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { AlertCircle, Eye, EyeOff, Network, Bell } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { MonitorResponse } from "@/lib/types/monitors";
+import { MonitorResponse } from "@/lib/types";
 import { useMonitorForm, useNetworks } from "@/hooks";
 import { AddressInput } from "./AddressInput";
 import { EventConditionBuilder } from "./EventConditionBuilder";
 import { FunctionConditionBuilder } from "./FunctionConditionBuilder";
 import { TransactionConditionBuilder } from "./TransactionConditionBuilder";
-import { TRIGGER_TYPES } from "@/lib/constants/monitors";
-import { getSelectedNetworkTypes } from "@/lib/helpers/monitors";
+import { TRIGGER_TYPES } from "@/lib/constants";
+import { getSelectedNetworkTypes } from "@/lib/helpers";
 import { cn } from "@/lib/utils";
 
 interface MonitorFormProps {

@@ -1,10 +1,12 @@
+"use client";
+
 import { memo } from "react";
 import { Handle, Position, NodeProps } from "@xyflow/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { MonitorResponse } from "@/lib/types/monitors";
-import { formatMonitorDate } from "@/lib/helpers/monitors";
+import { MonitorResponse } from "@/lib/types";
+import { formatMonitorDate } from "@/lib/helpers";
 import {
   Activity,
   PauseCircle,

@@ -2,8 +2,8 @@
 
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { MonitorCreateInput, MonitorResponse } from "@/lib/types/monitors";
-import { DEFAULT_MONITOR_CONFIG } from "@/lib/constants/monitors";
+import { MonitorCreateInput, MonitorResponse } from "@/lib/types";
+import { DEFAULT_MONITOR_CONFIG } from "@/lib/constants";
 import { useMonitorMutations } from "@/hooks";
 
 export function useMonitorForm(monitor?: MonitorResponse) {

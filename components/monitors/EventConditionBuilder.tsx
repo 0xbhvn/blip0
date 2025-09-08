@@ -12,8 +12,8 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { Plus, Trash2, Sparkles } from "lucide-react";
-import { EventCondition } from "@/lib/types/monitors";
-import { COMMON_EVENT_SIGNATURES } from "@/lib/constants/monitors";
+import { EventCondition } from "@/lib/types";
+import { COMMON_EVENT_SIGNATURES } from "@/lib/constants";
 import { ExpressionBuilder } from "./ExpressionBuilder";
 import { cn } from "@/lib/utils";
 

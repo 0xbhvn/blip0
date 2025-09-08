@@ -18,7 +18,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { Plus, Trash2, ChevronDown, FileCode } from "lucide-react";
-import { MonitorAddress } from "@/lib/types/monitors";
+import { MonitorAddress } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 interface AddressInputProps {

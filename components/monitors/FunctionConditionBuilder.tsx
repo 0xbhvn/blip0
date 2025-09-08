@@ -12,8 +12,8 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { Plus, Trash2, Code } from "lucide-react";
-import { FunctionCondition } from "@/lib/types/monitors";
-import { COMMON_FUNCTION_SIGNATURES } from "@/lib/constants/monitors";
+import { FunctionCondition } from "@/lib/types";
+import { COMMON_FUNCTION_SIGNATURES } from "@/lib/constants";
 import { ExpressionBuilder } from "./ExpressionBuilder";
 import { cn } from "@/lib/utils";
 

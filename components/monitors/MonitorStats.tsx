@@ -1,9 +1,9 @@
-import { MonitorResponse } from "@/lib/types/monitors";
+import { MonitorResponse } from "@/lib/types";
 import {
   getNetworksDisplay,
   getContractsCount,
   getTriggersCount,
-} from "@/lib/helpers/monitors";
+} from "@/lib/helpers";
 import { cn } from "@/lib/utils";
 
 interface MonitorStatsProps {

@@ -22,7 +22,7 @@ import {
   EXPRESSION_OPERATORS,
   EXPRESSION_FIELDS,
   EXAMPLE_EXPRESSIONS,
-} from "@/lib/constants/monitors";
+} from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface ExpressionBuilderProps {

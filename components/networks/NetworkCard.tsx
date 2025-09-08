@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Pencil, Trash2, Globe, Cpu, Eye } from "lucide-react";
-import { NetworkResponse } from "@/lib/types/networks";
+import { NetworkResponse } from "@/lib/types";
 import { useNetworkMutations } from "@/hooks/useNetworks";
 import { useRouter } from "next/navigation";
 import Link from "next/link";

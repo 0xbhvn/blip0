@@ -8,7 +8,7 @@ import {
   NetworkResponse,
   NetworkCreateInput,
   isValidNetworkId,
-} from "@/lib/types/networks";
+} from "@/lib/types";
 import { useCallback } from "react";
 
 /**

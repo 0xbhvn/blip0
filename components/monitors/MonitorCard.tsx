@@ -8,13 +8,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MonitorResponse } from "@/lib/types/monitors";
+import { MonitorResponse } from "@/lib/types";
 import { MonitorPausedBadge } from "./MonitorPausedBadge";
 import { MonitorStats } from "./MonitorStats";
 import Link from "next/link";
 import { Edit, Trash2, Eye } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { formatMonitorDate } from "@/lib/helpers/monitors";
+import { formatMonitorDate } from "@/lib/helpers";
 
 interface MonitorCardProps {
   monitor: MonitorResponse;

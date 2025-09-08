@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { Plus, Trash2, Activity } from "lucide-react";
-import { TransactionCondition } from "@/lib/types/monitors";
+import { TransactionCondition } from "@/lib/types";
 import { ExpressionBuilder } from "./ExpressionBuilder";
 import { cn } from "@/lib/utils";
 
