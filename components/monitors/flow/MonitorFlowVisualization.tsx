@@ -21,6 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useMonitorFlow } from "@/hooks/useMonitorFlow";
+import { Id } from "@/convex/_generated/dataModel";
 import NetworkNode from "./NetworkNode";
 import MonitorNode from "./MonitorNode";
 import NetworkMonitorEdge from "./NetworkMonitorEdge";
@@ -46,7 +47,11 @@ const edgeTypes = {
   networkMonitor: NetworkMonitorEdge,
 };
 
-function MonitorFlowContent() {
+interface MonitorFlowContentProps {
+  monitorId?: Id<"monitors">;
+}
+
+function MonitorFlowContent({ monitorId }: MonitorFlowContentProps) {
   const {
     nodes,
     edges,
@@ -59,7 +64,7 @@ function MonitorFlowContent() {
     filterByNetworkType,
     filterByMonitorStatus,
     isLoading,
-  } = useMonitorFlow();
+  } = useMonitorFlow(monitorId);
 
   const reactFlowInstance = useReactFlow();
   const [showGrid, setShowGrid] = useState(true);
@@ -155,23 +160,27 @@ function MonitorFlowContent() {
           <div className="flex flex-col gap-3">
             {/* Layout Controls */}
             <div className="flex gap-2">
-              <Button
-                onClick={() => onLayout("LR")}
-                variant="outline"
-                size="sm"
-                title="Horizontal Layout (Alt+H)"
-              >
-                <ArrowLeftRight className="h-4 w-4" />
-              </Button>
-              <Button
-                onClick={() => onLayout("TB")}
-                variant="outline"
-                size="sm"
-                title="Vertical Layout (Alt+V)"
-              >
-                <ArrowUpDown className="h-4 w-4" />
-              </Button>
-              <div className="h-6 w-px bg-border" />
+              {!monitorId && (
+                <>
+                  <Button
+                    onClick={() => onLayout("LR")}
+                    variant="outline"
+                    size="sm"
+                    title="Horizontal Layout (Alt+H)"
+                  >
+                    <ArrowLeftRight className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    onClick={() => onLayout("TB")}
+                    variant="outline"
+                    size="sm"
+                    title="Vertical Layout (Alt+V)"
+                  >
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                  <div className="h-6 w-px bg-border" />
+                </>
+              )}
               <Button
                 onClick={() => setShowGrid(!showGrid)}
                 variant={showGrid ? "default" : "outline"}
@@ -202,42 +211,50 @@ function MonitorFlowContent() {
               </Button>
             </div>
 
-            {/* Filter Controls */}
-            <div className="flex items-center gap-2">
-              <Filter className="h-4 w-4 text-muted-foreground" />
-              <Select
-                onValueChange={(value) =>
-                  filterByNetworkType(value as "all" | "mainnet" | "testnet")
-                }
-              >
-                <SelectTrigger className="w-[140px]">
-                  <SelectValue placeholder="Network Type" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Networks</SelectItem>
-                  <SelectItem value="mainnet">Mainnet</SelectItem>
-                  <SelectItem value="testnet">Testnet</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+            {/* Filter Controls - only show when not viewing single monitor */}
+            {!monitorId && (
+              <>
+                <div className="flex items-center gap-2">
+                  <Filter className="h-4 w-4 text-muted-foreground" />
+                  <Select
+                    onValueChange={(value) =>
+                      filterByNetworkType(
+                        value as "all" | "mainnet" | "testnet",
+                      )
+                    }
+                  >
+                    <SelectTrigger className="w-[140px]">
+                      <SelectValue placeholder="Network Type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Networks</SelectItem>
+                      <SelectItem value="mainnet">Mainnet</SelectItem>
+                      <SelectItem value="testnet">Testnet</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
 
-            <div className="flex items-center gap-2">
-              <Filter className="h-4 w-4 text-muted-foreground" />
-              <Select
-                onValueChange={(value) =>
-                  filterByMonitorStatus(value as "all" | "active" | "paused")
-                }
-              >
-                <SelectTrigger className="w-[140px]">
-                  <SelectValue placeholder="Monitor Status" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Monitors</SelectItem>
-                  <SelectItem value="active">Active</SelectItem>
-                  <SelectItem value="paused">Paused</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+                <div className="flex items-center gap-2">
+                  <Filter className="h-4 w-4 text-muted-foreground" />
+                  <Select
+                    onValueChange={(value) =>
+                      filterByMonitorStatus(
+                        value as "all" | "active" | "paused",
+                      )
+                    }
+                  >
+                    <SelectTrigger className="w-[140px]">
+                      <SelectValue placeholder="Monitor Status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Monitors</SelectItem>
+                      <SelectItem value="active">Active</SelectItem>
+                      <SelectItem value="paused">Paused</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </>
+            )}
           </div>
         </Card>
       </Panel>
@@ -366,10 +383,16 @@ function MonitorFlowContent() {
   );
 }
 
-export function MonitorFlowVisualization() {
+interface MonitorFlowVisualizationProps {
+  monitorId?: Id<"monitors">;
+}
+
+export function MonitorFlowVisualization({
+  monitorId,
+}: MonitorFlowVisualizationProps) {
   return (
     <ReactFlowProvider>
-      <MonitorFlowContent />
+      <MonitorFlowContent monitorId={monitorId} />
     </ReactFlowProvider>
   );
 }

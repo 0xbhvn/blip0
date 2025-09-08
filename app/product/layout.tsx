@@ -1,7 +1,7 @@
 import ConvexClientProvider from "@/components/ConvexClientProvider";
 import { cn } from "@/lib/utils";
 import { ChatBubbleIcon, HomeIcon } from "@radix-ui/react-icons";
-import { Shield, FileText, Network, Workflow } from "lucide-react";
+import { Shield, FileText, Network } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
 
@@ -31,10 +31,6 @@ function ProductMenu() {
         <MenuLink href="/product/monitors/my">
           <FileText className="h-4 w-4" />
           My Monitors
-        </MenuLink>
-        <MenuLink href="/product/monitors/flow">
-          <Workflow className="h-4 w-4" />
-          Flow View
         </MenuLink>
         <MenuLink href="/product/networks">
           <Network className="h-4 w-4" />

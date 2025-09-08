@@ -12,7 +12,7 @@ import { MonitorResponse } from "@/lib/types";
 import { MonitorPausedBadge } from "./MonitorPausedBadge";
 import { MonitorStats } from "./MonitorStats";
 import Link from "next/link";
-import { Edit, Trash2, Eye } from "lucide-react";
+import { Edit, Trash2, Eye, Workflow } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { formatMonitorDate } from "@/lib/helpers";
 
@@ -49,6 +49,14 @@ export function MonitorCard({
         <div className={cn("mt-4", isOwned ? "flex gap-2" : "")}>
           {isOwned ? (
             <>
+              <Link
+                href={`/product/monitors/${monitor._id}/flow`}
+                className="flex-1"
+              >
+                <Button variant="default" size="sm" className="w-full">
+                  <Workflow className="mr-2 h-4 w-4" /> View Flow
+                </Button>
+              </Link>
               <Link
                 href={`/product/monitors/${monitor._id}/edit`}
                 className="flex-1"

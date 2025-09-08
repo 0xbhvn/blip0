@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useMemo } from "react";
 import {
   useNodesState,
   useEdgesState,
@@ -18,7 +18,7 @@ import {
   FlowEdge,
 } from "@/lib/helpers";
 
-export function useMonitorFlow() {
+export function useMonitorFlow(monitorId?: Id<"monitors">) {
   const [nodes, setNodes, onNodesChange] = useNodesState<FlowNode>([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<FlowEdge>([]);
   const [selectedNode, setSelectedNode] = useState<string | null>(null);
@@ -26,12 +26,34 @@ export function useMonitorFlow() {
 
   // Fetch data from Convex
   const networks = useQuery(api.networks.list);
-  const monitors = useQuery(api.monitors.list);
+  const allMonitors = useQuery(api.monitors.list);
+  const singleMonitor = useQuery(
+    api.monitors.get,
+    monitorId ? { id: monitorId } : "skip",
+  );
+
+  // Use single monitor if ID provided, otherwise use all monitors
+  const monitors = useMemo(() => {
+    if (monitorId && singleMonitor) {
+      return [singleMonitor];
+    }
+    return allMonitors;
+  }, [monitorId, singleMonitor, allMonitors]);
 
   // Generate and layout flow data when data changes
   useEffect(() => {
     if (networks && monitors) {
-      const networkData: NetworkData[] = networks.map((network) => ({
+      // Filter networks if we're showing a single monitor
+      let filteredNetworks = networks;
+      if (monitorId && monitors.length === 1 && monitors[0]) {
+        // monitor.networks contains network slugs, not IDs
+        const connectedNetworkSlugs = new Set(monitors[0].networks || []);
+        filteredNetworks = networks.filter((n) =>
+          connectedNetworkSlugs.has(n.slug),
+        );
+      }
+
+      const networkData: NetworkData[] = filteredNetworks.map((network) => ({
         _id: network._id,
         name: network.name,
         chainId: network.chain_id ?? 1,
@@ -55,7 +77,7 @@ export function useMonitorFlow() {
       setEdges(layoutedEdges);
       setIsLoading(false);
     }
-  }, [networks, monitors, setNodes, setEdges]);
+  }, [networks, monitors, setNodes, setEdges, monitorId]);
 
   // Handle node selection
   const onNodeClick = useCallback(
