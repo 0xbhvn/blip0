@@ -95,13 +95,81 @@ export const EXPRESSION_FIELDS = {
     // These will be dynamically populated based on the event signature
   },
   Transaction: {
-    value: "transaction.value",
-    from: "transaction.from",
-    to: "transaction.to",
-    gasPrice: "transaction.gasPrice",
-    gasLimit: "transaction.gasLimit",
-    nonce: "transaction.nonce",
-    input: "transaction.input",
+    // EVM Transaction Fields
+    EVM: {
+      value: {
+        field: "transaction.value",
+        label: "Value (wei)",
+        type: "uint256",
+      },
+      from: {
+        field: "transaction.from",
+        label: "From Address",
+        type: "address",
+      },
+      to: { field: "transaction.to", label: "To Address", type: "address" },
+      hash: {
+        field: "transaction.hash",
+        label: "Transaction Hash",
+        type: "string",
+      },
+      gasPrice: {
+        field: "transaction.gas_price",
+        label: "Gas Price (wei)",
+        type: "uint256",
+      },
+      maxFeePerGas: {
+        field: "transaction.max_fee_per_gas",
+        label: "Max Fee Per Gas",
+        type: "uint256",
+      },
+      maxPriorityFeePerGas: {
+        field: "transaction.max_priority_fee_per_gas",
+        label: "Max Priority Fee",
+        type: "uint256",
+      },
+      gasLimit: {
+        field: "transaction.gas_limit",
+        label: "Gas Limit",
+        type: "uint256",
+      },
+      nonce: { field: "transaction.nonce", label: "Nonce", type: "uint256" },
+      input: {
+        field: "transaction.input",
+        label: "Input Data",
+        type: "string",
+      },
+      gasUsed: {
+        field: "transaction.gas_used",
+        label: "Gas Used",
+        type: "uint256",
+      },
+      transactionIndex: {
+        field: "transaction.transaction_index",
+        label: "Transaction Index",
+        type: "uint64",
+      },
+    },
+    // Stellar Transaction Fields
+    Stellar: {
+      hash: {
+        field: "transaction.hash",
+        label: "Transaction Hash",
+        type: "string",
+      },
+      ledger: {
+        field: "transaction.ledger",
+        label: "Ledger Number",
+        type: "i64",
+      },
+      value: { field: "transaction.value", label: "Value", type: "i64" },
+      from: {
+        field: "transaction.from",
+        label: "Source Account",
+        type: "address",
+      },
+      to: { field: "transaction.to", label: "Destination", type: "address" },
+    },
   },
   Block: {
     number: "block.number",

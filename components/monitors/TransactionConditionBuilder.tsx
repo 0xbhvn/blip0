@@ -19,12 +19,14 @@ interface TransactionConditionBuilderProps {
   conditions: TransactionCondition[];
   onChange: (conditions: TransactionCondition[]) => void;
   className?: string;
+  networkTypes?: ("EVM" | "Stellar")[];
 }
 
 export function TransactionConditionBuilder({
   conditions,
   onChange,
   className,
+  networkTypes = ["EVM", "Stellar"],
 }: TransactionConditionBuilderProps) {
   const addCondition = () => {
     onChange([...conditions, { expression: null }]);
@@ -106,6 +108,7 @@ export function TransactionConditionBuilder({
                     }
                     type="transaction"
                     placeholder="e.g., transaction.value > 1000000000000000000"
+                    networkTypes={networkTypes}
                   />
                 </div>
               </CardContent>

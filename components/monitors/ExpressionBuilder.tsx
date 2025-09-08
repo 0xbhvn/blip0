@@ -31,6 +31,7 @@ interface ExpressionBuilderProps {
   type: "event" | "function" | "transaction";
   placeholder?: string;
   className?: string;
+  networkTypes?: ("EVM" | "Stellar")[];
 }
 
 export function ExpressionBuilder({
@@ -39,6 +40,7 @@ export function ExpressionBuilder({
   type,
   placeholder = "Enter expression...",
   className,
+  networkTypes = ["EVM", "Stellar"],
 }: ExpressionBuilderProps) {
   const [isAdvanced, setIsAdvanced] = useState(!!value);
   const [showExamples, setShowExamples] = useState(false);
@@ -107,6 +109,7 @@ export function ExpressionBuilder({
           value={value}
           onChange={onChange}
           type={type}
+          networkTypes={networkTypes}
         />
       )}
 
@@ -140,10 +143,12 @@ function VisualExpressionBuilder({
   value,
   onChange,
   type,
+  networkTypes = ["EVM", "Stellar"],
 }: {
   value: string | null | undefined;
   onChange: (value: string | null) => void;
   type: "event" | "function" | "transaction";
+  networkTypes?: ("EVM" | "Stellar")[];
 }) {
   const [conditions, setConditions] = useState<Condition[]>(() => {
     // Parse existing expression if available
@@ -154,8 +159,37 @@ function VisualExpressionBuilder({
     return [{ field: "", operator: "", value: "" }];
   });
 
-  const fields =
-    type === "transaction" ? Object.entries(EXPRESSION_FIELDS.Transaction) : [];
+  // Get fields based on network types
+  const getTransactionFields = () => {
+    if (type !== "transaction") return [];
+
+    const fields: Array<
+      [string, { field: string; label: string; type: string }]
+    > = [];
+
+    // Add EVM fields if EVM networks are selected
+    if (networkTypes.includes("EVM")) {
+      Object.entries(EXPRESSION_FIELDS.Transaction.EVM).forEach(([, value]) => {
+        fields.push([value.label, value]);
+      });
+    }
+
+    // Add Stellar fields if Stellar networks are selected
+    if (networkTypes.includes("Stellar")) {
+      Object.entries(EXPRESSION_FIELDS.Transaction.Stellar).forEach(
+        ([, value]) => {
+          // Avoid duplicates (e.g., hash, from, to exist in both)
+          if (!fields.some(([, v]) => v.field === value.field)) {
+            fields.push([value.label, value]);
+          }
+        },
+      );
+    }
+
+    return fields;
+  };
+
+  const fields = getTransactionFields();
 
   const addCondition = () => {
     setConditions([
@@ -224,9 +258,9 @@ function VisualExpressionBuilder({
                 <SelectValue placeholder="Select field" />
               </SelectTrigger>
               <SelectContent>
-                {fields.map(([key, value]) => (
-                  <SelectItem key={key} value={value}>
-                    {key}
+                {fields.map(([label, fieldData]) => (
+                  <SelectItem key={fieldData.field} value={fieldData.field}>
+                    {label}
                   </SelectItem>
                 ))}
               </SelectContent>

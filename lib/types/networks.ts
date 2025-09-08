@@ -54,22 +54,6 @@ export type NetworkUpdateInput = NetworkCreateInput;
 // Type for API responses
 export type NetworkResponse = Network;
 
-// Default values for network creation
-export const DEFAULT_NETWORK: NetworkCreateInput = {
-  network_type: "EVM",
-  slug: "",
-  name: "",
-  active: false, // New networks are inactive by default
-  rpc_urls: [],
-  chain_id: undefined,
-  network_passphrase: undefined,
-  block_time_ms: 12000, // Default 12 seconds for Ethereum
-  confirmation_blocks: 12,
-  cron_schedule: "0 */1 * * * *", // Every minute
-  max_past_blocks: 100,
-  store_blocks: false,
-} as const;
-
 // Type guard functions
 export function isValidNetworkId(id: unknown): id is Id<"networks"> {
   return typeof id === "string" && id.length > 0;

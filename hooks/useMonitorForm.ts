@@ -29,33 +29,16 @@ export function useMonitorForm(monitor?: MonitorResponse) {
 
   // Structured form state
   const [formData, setFormData] = useState<MonitorCreateInput>(initialConfig);
-  const [isJsonMode, setIsJsonMode] = useState(false);
-  const [configJson, setConfigJson] = useState(
-    JSON.stringify(initialConfig, null, 2),
-  );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Update JSON when form data changes
+  // Update form data
   const updateFormData = useCallback((updates: Partial<MonitorCreateInput>) => {
     setFormData((prev) => {
       const newData = { ...prev, ...updates };
-      setConfigJson(JSON.stringify(newData, null, 2));
       return newData;
     });
     setError(null);
-  }, []);
-
-  // Parse JSON and update form data
-  const updateFromJson = useCallback((json: string) => {
-    try {
-      const parsed = JSON.parse(json);
-      setFormData(parsed);
-      setConfigJson(json);
-      setError(null);
-    } catch (err) {
-      setError("Invalid JSON format");
-    }
   }, []);
 
   const validateConfig = useCallback((config: MonitorCreateInput): boolean => {
@@ -108,15 +91,13 @@ export function useMonitorForm(monitor?: MonitorResponse) {
     setIsSubmitting(true);
 
     try {
-      const configToSubmit = isJsonMode ? JSON.parse(configJson) : formData;
-
-      if (!validateConfig(configToSubmit)) {
+      if (!validateConfig(formData)) {
         return;
       }
 
       const result = monitor
-        ? await updateMonitor(monitor._id, configToSubmit)
-        : await createMonitor(configToSubmit);
+        ? await updateMonitor(monitor._id, formData)
+        : await createMonitor(formData);
 
       if (result.success) {
         router.push("/product/monitors/my");
@@ -139,11 +120,6 @@ export function useMonitorForm(monitor?: MonitorResponse) {
   return {
     formData,
     updateFormData,
-    configJson,
-    setConfigJson,
-    updateFromJson,
-    isJsonMode,
-    setIsJsonMode,
     isSubmitting,
     error,
     setError,

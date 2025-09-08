@@ -21,7 +21,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useNetworkMutations } from "@/hooks/useNetworks";
-import { NetworkCreateInput, DEFAULT_NETWORK } from "@/lib/types/networks";
+import { NetworkCreateInput } from "@/lib/types/networks";
+import { DEFAULT_NETWORK } from "@/lib/constants/networks";
 import { Id } from "@/convex/_generated/dataModel";
 import { Plus, Trash2 } from "lucide-react";
 
