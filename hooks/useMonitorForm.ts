@@ -27,31 +27,80 @@ export function useMonitorForm(monitor?: MonitorResponse) {
       }
     : DEFAULT_MONITOR_CONFIG;
 
+  // Structured form state
+  const [formData, setFormData] = useState<MonitorCreateInput>(initialConfig);
+  const [isJsonMode, setIsJsonMode] = useState(false);
   const [configJson, setConfigJson] = useState(
     JSON.stringify(initialConfig, null, 2),
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const validateConfig = useCallback(
-    (config: unknown): config is MonitorCreateInput => {
-      if (!config || typeof config !== "object") {
-        throw new Error("Invalid configuration object");
-      }
+  // Update JSON when form data changes
+  const updateFormData = useCallback((updates: Partial<MonitorCreateInput>) => {
+    setFormData((prev) => {
+      const newData = { ...prev, ...updates };
+      setConfigJson(JSON.stringify(newData, null, 2));
+      return newData;
+    });
+    setError(null);
+  }, []);
 
-      const obj = config as Record<string, unknown>;
+  // Parse JSON and update form data
+  const updateFromJson = useCallback((json: string) => {
+    try {
+      const parsed = JSON.parse(json);
+      setFormData(parsed);
+      setConfigJson(json);
+      setError(null);
+    } catch (err) {
+      setError("Invalid JSON format");
+    }
+  }, []);
 
-      if (!obj.name || typeof obj.name !== "string") {
-        throw new Error("Monitor name is required and must be a string");
+  const validateConfig = useCallback((config: MonitorCreateInput): boolean => {
+    if (
+      !config.name ||
+      typeof config.name !== "string" ||
+      config.name.trim() === ""
+    ) {
+      throw new Error("Monitor name is required");
+    }
+    if (!Array.isArray(config.networks) || config.networks.length === 0) {
+      throw new Error("At least one network is required");
+    }
+
+    // Validate addresses
+    if (config.addresses) {
+      for (const addr of config.addresses) {
+        if (!addr.address || !/^0x[a-fA-F0-9]{40}$/.test(addr.address)) {
+          throw new Error(`Invalid address format: ${addr.address}`);
+        }
       }
-      if (!Array.isArray(obj.networks) || obj.networks.length === 0) {
-        throw new Error("At least one network is required");
+    }
+
+    // Validate match conditions
+    if (config.match_conditions) {
+      // Validate event conditions
+      if (config.match_conditions.events) {
+        for (const event of config.match_conditions.events) {
+          if (!event.signature) {
+            throw new Error("Event signature is required");
+          }
+        }
       }
-      // Additional validation can be added here
-      return true;
-    },
-    [],
-  );
+      // Validate function conditions
+      if (config.match_conditions.functions) {
+        for (const func of config.match_conditions.functions) {
+          if (!func.signature) {
+            throw new Error("Function signature is required");
+          }
+        }
+      }
+    }
+
+    return true;
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,16 +108,15 @@ export function useMonitorForm(monitor?: MonitorResponse) {
     setIsSubmitting(true);
 
     try {
-      // Parse and validate JSON
-      const config = JSON.parse(configJson);
+      const configToSubmit = isJsonMode ? JSON.parse(configJson) : formData;
 
-      if (!validateConfig(config)) {
+      if (!validateConfig(configToSubmit)) {
         return;
       }
 
       const result = monitor
-        ? await updateMonitor(monitor._id, config)
-        : await createMonitor(config);
+        ? await updateMonitor(monitor._id, configToSubmit)
+        : await createMonitor(configToSubmit);
 
       if (result.success) {
         router.push("/product/monitors/my");
@@ -89,8 +137,13 @@ export function useMonitorForm(monitor?: MonitorResponse) {
   };
 
   return {
+    formData,
+    updateFormData,
     configJson,
     setConfigJson,
+    updateFromJson,
+    isJsonMode,
+    setIsJsonMode,
     isSubmitting,
     error,
     setError,
