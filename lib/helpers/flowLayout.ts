@@ -2,6 +2,16 @@ import dagre from "@dagrejs/dagre";
 import { Node, Edge, Position } from "@xyflow/react";
 import { Id } from "@/convex/_generated/dataModel";
 import { MonitorResponse } from "@/lib/types/monitors";
+import {
+  NODE_WIDTH,
+  NODE_HEIGHT,
+  GRAPH_PADDING,
+  GRID_SIZE,
+  DAGRE_CONFIG,
+  NETWORK_ICONS,
+  DEFAULT_NETWORK_ICON,
+  NETWORK_COLORS,
+} from "@/lib/constants";
 
 export interface NetworkData {
   _id: Id<"networks">;
@@ -30,11 +40,6 @@ export interface FlowEdge extends Edge {
     active: boolean;
   };
 }
-
-const NODE_WIDTH = 280;
-const NODE_HEIGHT = 120;
-const GRAPH_PADDING = 50;
-const GRID_SIZE = 20; // Grid snap size for infinite canvas
 
 export function generateFlowData(
   networks: NetworkData[],
@@ -107,8 +112,8 @@ export function getLayoutedElements(
 
   dagreGraph.setGraph({
     rankdir: direction,
-    nodesep: 100,
-    ranksep: 200,
+    nodesep: DAGRE_CONFIG.NODE_SEPARATION,
+    ranksep: DAGRE_CONFIG.RANK_SEPARATION,
     marginx: GRAPH_PADDING,
     marginy: GRAPH_PADDING,
   });
@@ -142,22 +147,9 @@ export function getLayoutedElements(
 }
 
 export function getNetworkIcon(chainId: number): string {
-  const icons: Record<number, string> = {
-    1: "🟦", // Ethereum Mainnet
-    5: "🟪", // Goerli
-    11155111: "🟨", // Sepolia
-    137: "🟣", // Polygon
-    80001: "🟣", // Mumbai
-    10: "🔴", // Optimism
-    420: "🔴", // Optimism Goerli
-    42161: "🔵", // Arbitrum
-    421613: "🔵", // Arbitrum Goerli
-    8453: "🔷", // Base
-    84531: "🔷", // Base Goerli
-  };
-  return icons[chainId] || "🔗";
+  return NETWORK_ICONS[chainId] || DEFAULT_NETWORK_ICON;
 }
 
 export function getNetworkColor(type: "mainnet" | "testnet"): string {
-  return type === "mainnet" ? "blue" : "purple";
+  return NETWORK_COLORS[type];
 }
