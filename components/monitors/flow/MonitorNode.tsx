@@ -7,14 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { MonitorResponse } from "@/lib/types";
 import { formatMonitorDate } from "@/lib/helpers";
-import {
-  Activity,
-  PauseCircle,
-  Network,
-  FileCode,
-  User,
-  Clock,
-} from "lucide-react";
+import { Activity, PauseCircle, Network, FileCode, Clock } from "lucide-react";
 
 function MonitorNode({ data, selected }: NodeProps) {
   const { monitor } = data as { monitor: MonitorResponse };
@@ -40,9 +33,6 @@ function MonitorNode({ data, selected }: NodeProps) {
           <div className="flex items-start justify-between mb-2">
             <div className="flex-1">
               <h3 className="font-semibold text-sm truncate">{monitor.name}</h3>
-              <p className="text-xs text-muted-foreground">
-                ID: {monitor._id.slice(-6)}
-              </p>
             </div>
             <Badge
               variant={isActive ? "default" : "secondary"}
@@ -78,12 +68,7 @@ function MonitorNode({ data, selected }: NodeProps) {
               </div>
             )}
 
-            {monitor.author && (
-              <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                <User className="h-3 w-3" />
-                <span>{monitor.author}</span>
-              </div>
-            )}
+            {/* Don't show author - not relevant for flow visualization */}
 
             {monitor._creationTime && (
               <div className="flex items-center gap-1 text-xs text-muted-foreground">

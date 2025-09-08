@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { NetworkData, getNetworkIcon, getNetworkColor } from "@/lib/helpers";
-import { Globe, Link, User } from "lucide-react";
+import { Globe } from "lucide-react";
 
 function NetworkNode({ data, selected }: NodeProps) {
   const { network } = data as { network: NetworkData };
@@ -32,29 +32,20 @@ function NetworkNode({ data, selected }: NodeProps) {
               <span className="text-2xl">{icon}</span>
               <div>
                 <h3 className="font-semibold text-sm">{network.name}</h3>
-                <p className="text-xs text-muted-foreground">
-                  Chain ID: {network.chainId}
-                </p>
+                {/* Only show Chain ID for networks that actually have one (non-zero) */}
+                {network.chainId !== 0 && (
+                  <p className="text-xs text-muted-foreground">
+                    Chain ID: {network.chainId}
+                  </p>
+                )}
               </div>
             </div>
-            <Badge
-              variant={network.type === "mainnet" ? "default" : "secondary"}
-              className="text-xs"
-            >
-              {network.type}
-            </Badge>
+            {/* Don't show the type badge - it's redundant with the network name */}
           </div>
 
           <div className="space-y-1 mt-3">
-            {network.rpcUrl && (
-              <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                <Link className="h-3 w-3" />
-                <span className="truncate">
-                  {new URL(network.rpcUrl).hostname}
-                </span>
-              </div>
-            )}
-
+            {/* Don't show RPC URL for security reasons */}
+            {/* Don't show block explorer URL in flow view - not relevant */}
             {network.blockExplorerUrl && (
               <div className="flex items-center gap-1 text-xs text-muted-foreground">
                 <Globe className="h-3 w-3" />
@@ -63,13 +54,7 @@ function NetworkNode({ data, selected }: NodeProps) {
                 </span>
               </div>
             )}
-
-            {network.createdByName && (
-              <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                <User className="h-3 w-3" />
-                <span>{network.createdByName}</span>
-              </div>
-            )}
+            {/* Don't show creator name - not relevant for flow visualization */}
           </div>
 
           {network.active === false && (

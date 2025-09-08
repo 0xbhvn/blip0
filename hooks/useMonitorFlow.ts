@@ -56,13 +56,13 @@ export function useMonitorFlow(monitorId?: Id<"monitors">) {
       const networkData: NetworkData[] = filteredNetworks.map((network) => ({
         _id: network._id,
         name: network.name,
-        chainId: network.chain_id ?? 1,
-        type: network.network_type === "EVM" ? "mainnet" : "testnet",
+        chainId: network.chain_id ?? 0, // Use 0 instead of 1 for networks without chain ID
+        type: "mainnet", // Don't try to infer testnet/mainnet from network type
         active: network.active,
-        rpcUrl: network.rpc_urls?.[0]?.url?.value,
+        rpcUrl: undefined, // Don't expose RPC URLs for security
         blockExplorerUrl: undefined,
         slug: network.slug,
-        createdByName: network.createdByName,
+        createdByName: network.createdByName, // Keep for data completeness but don't display
       }));
 
       const { nodes: flowNodes, edges: flowEdges } = generateFlowData(
@@ -193,13 +193,13 @@ export function useMonitorFlow(monitorId?: Id<"monitors">) {
       const networkData: NetworkData[] = filteredNetworks.map((network) => ({
         _id: network._id,
         name: network.name,
-        chainId: network.chain_id ?? 1,
-        type: network.network_type === "EVM" ? "mainnet" : "testnet",
+        chainId: network.chain_id ?? 0, // Use 0 instead of 1 for networks without chain ID
+        type: "mainnet", // Don't try to infer testnet/mainnet from network type
         active: network.active,
-        rpcUrl: network.rpc_urls?.[0]?.url?.value,
+        rpcUrl: undefined, // Don't expose RPC URLs for security
         blockExplorerUrl: undefined,
         slug: network.slug,
-        createdByName: network.createdByName,
+        createdByName: network.createdByName, // Keep for data completeness but don't display
       }));
 
       const { nodes: flowNodes, edges: flowEdges } = generateFlowData(
@@ -242,13 +242,13 @@ export function useMonitorFlow(monitorId?: Id<"monitors">) {
       const networkData: NetworkData[] = filteredNetworks.map((network) => ({
         _id: network._id,
         name: network.name,
-        chainId: network.chain_id ?? 1,
-        type: network.network_type === "EVM" ? "mainnet" : "testnet",
+        chainId: network.chain_id ?? 0, // Use 0 instead of 1 for networks without chain ID
+        type: "mainnet", // Don't try to infer testnet/mainnet from network type
         active: network.active,
-        rpcUrl: network.rpc_urls?.[0]?.url?.value,
+        rpcUrl: undefined, // Don't expose RPC URLs for security
         blockExplorerUrl: undefined,
         slug: network.slug,
-        createdByName: network.createdByName,
+        createdByName: network.createdByName, // Keep for data completeness but don't display
       }));
 
       const { nodes: flowNodes, edges: flowEdges } = generateFlowData(
