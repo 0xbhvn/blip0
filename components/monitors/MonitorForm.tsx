@@ -199,6 +199,7 @@ export function MonitorForm({
       <AddressInput
         addresses={formData.addresses}
         onChange={(addresses) => updateFormData({ addresses })}
+        networks={formData.networks}
       />
 
       {/* Match Conditions */}

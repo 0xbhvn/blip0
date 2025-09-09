@@ -5,6 +5,26 @@ import { useRouter } from "next/navigation";
 import { MonitorCreateInput, MonitorResponse } from "@/lib/types";
 import { DEFAULT_MONITOR_CONFIG } from "@/lib/constants";
 import { useMonitorMutations } from "@/hooks";
+import { getAddressValidationError } from "@/lib/helpers";
+
+// Helper function to determine network types from network slugs
+// This is a simple heuristic based on naming conventions
+// Can be improved by fetching actual network data
+function getNetworkTypesFromSlugs(networkSlugs: string[]): ("EVM" | "Stellar")[] {
+  const types = new Set<"EVM" | "Stellar">();
+  
+  for (const slug of networkSlugs) {
+    const lowerSlug = slug.toLowerCase();
+    if (lowerSlug.includes("stellar") || lowerSlug.includes("xlm")) {
+      types.add("Stellar");
+    } else {
+      // Default to EVM for most networks (ethereum, polygon, etc.)
+      types.add("EVM");
+    }
+  }
+  
+  return Array.from(types);
+}
 
 export function useMonitorForm(
   monitor?: MonitorResponse,
@@ -56,11 +76,18 @@ export function useMonitorForm(
       throw new Error("At least one network is required");
     }
 
-    // Validate addresses
-    if (config.addresses) {
+    // Validate addresses based on selected network types
+    if (config.addresses && config.addresses.length > 0) {
+      const networkTypes = getNetworkTypesFromSlugs(config.networks);
+      
       for (const addr of config.addresses) {
-        if (!addr.address || !/^0x[a-fA-F0-9]{40}$/.test(addr.address)) {
-          throw new Error(`Invalid address format: ${addr.address}`);
+        if (!addr.address) {
+          throw new Error("Address is required");
+        }
+        
+        const validationError = getAddressValidationError(addr.address, networkTypes);
+        if (validationError) {
+          throw new Error(validationError);
         }
       }
     }

@@ -24,15 +24,52 @@ import { cn } from "@/lib/utils";
 interface AddressInputProps {
   addresses: MonitorAddress[];
   onChange: (addresses: MonitorAddress[]) => void;
+  networks?: string[];
   className?: string;
+}
+
+// Helper function to determine network types from network slugs
+function getNetworkTypesFromSlugs(
+  networkSlugs: string[],
+): ("EVM" | "Stellar")[] {
+  const types = new Set<"EVM" | "Stellar">();
+
+  for (const slug of networkSlugs) {
+    const lowerSlug = slug.toLowerCase();
+    if (lowerSlug.includes("stellar") || lowerSlug.includes("xlm")) {
+      types.add("Stellar");
+    } else {
+      // Default to EVM for most networks (ethereum, polygon, etc.)
+      types.add("EVM");
+    }
+  }
+
+  return Array.from(types);
+}
+
+// Helper to get placeholder text based on network types
+function getAddressPlaceholder(networks: string[]): string {
+  const networkTypes = getNetworkTypesFromSlugs(networks);
+  const hasEVM = networkTypes.includes("EVM");
+  const hasStellar = networkTypes.includes("Stellar");
+
+  if (hasEVM && hasStellar) {
+    return "0x... or G.../C...";
+  } else if (hasStellar) {
+    return "G... (account) or C... (contract)";
+  } else {
+    return "0x...";
+  }
 }
 
 export function AddressInput({
   addresses,
   onChange,
+  networks = [],
   className,
 }: AddressInputProps) {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const placeholder = getAddressPlaceholder(networks);
 
   const addAddress = () => {
     onChange([...addresses, { address: "" }]);
@@ -98,8 +135,7 @@ export function AddressInput({
                         onChange={(e) =>
                           updateAddress(index, { address: e.target.value })
                         }
-                        placeholder="0x..."
-                        pattern="^0x[a-fA-F0-9]{40}$"
+                        placeholder={placeholder}
                         className="font-mono"
                       />
                     </div>
