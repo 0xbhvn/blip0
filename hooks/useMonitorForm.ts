@@ -6,7 +6,10 @@ import { MonitorCreateInput, MonitorResponse } from "@/lib/types";
 import { DEFAULT_MONITOR_CONFIG } from "@/lib/constants";
 import { useMonitorMutations } from "@/hooks";
 
-export function useMonitorForm(monitor?: MonitorResponse) {
+export function useMonitorForm(
+  monitor?: MonitorResponse,
+  onSaveSuccess?: () => void,
+) {
   const router = useRouter();
   const { createMonitor, updateMonitor } = useMonitorMutations();
 
@@ -100,7 +103,11 @@ export function useMonitorForm(monitor?: MonitorResponse) {
         : await createMonitor(formData);
 
       if (result.success) {
-        router.push("/product/monitors/my");
+        if (onSaveSuccess) {
+          onSaveSuccess();
+        } else {
+          router.push("/product/monitors/my");
+        }
       } else {
         setError(result.error || "Failed to save monitor");
       }

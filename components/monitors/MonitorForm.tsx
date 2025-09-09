@@ -30,9 +30,16 @@ import { cn } from "@/lib/utils";
 interface MonitorFormProps {
   monitor?: MonitorResponse;
   className?: string;
+  hideHeader?: boolean;
+  onSaveSuccess?: () => void;
 }
 
-export function MonitorForm({ monitor, className }: MonitorFormProps) {
+export function MonitorForm({
+  monitor,
+  className,
+  hideHeader,
+  onSaveSuccess,
+}: MonitorFormProps) {
   const router = useRouter();
   const { networks } = useNetworks();
   const {
@@ -42,7 +49,7 @@ export function MonitorForm({ monitor, className }: MonitorFormProps) {
     error,
     handleSubmit,
     isEditMode,
-  } = useMonitorForm(monitor);
+  } = useMonitorForm(monitor, onSaveSuccess);
 
   const [activeMatchTab, setActiveMatchTab] = useState("events");
 
@@ -72,14 +79,16 @@ export function MonitorForm({ monitor, className }: MonitorFormProps) {
   return (
     <form onSubmit={handleSubmit} className={cn("space-y-6", className)}>
       {/* Header */}
-      <Card>
-        <CardHeader>
-          <CardTitle>{isEditMode ? "Edit Monitor" : "New Monitor"}</CardTitle>
-          <CardDescription>
-            Configure your OpenZeppelin monitor to track blockchain activity
-          </CardDescription>
-        </CardHeader>
-      </Card>
+      {!hideHeader && (
+        <Card>
+          <CardHeader>
+            <CardTitle>{isEditMode ? "Edit Monitor" : "New Monitor"}</CardTitle>
+            <CardDescription>
+              Configure your OpenZeppelin monitor to track blockchain activity
+            </CardDescription>
+          </CardHeader>
+        </Card>
+      )}
 
       {error && (
         <Alert variant="destructive">

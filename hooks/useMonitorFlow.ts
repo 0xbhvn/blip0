@@ -17,12 +17,16 @@ import {
   FlowNode,
   FlowEdge,
 } from "@/lib/helpers";
+import { MonitorResponse } from "@/lib/types";
 
 export function useMonitorFlow(monitorId?: Id<"monitors">) {
   const [nodes, setNodes, onNodesChange] = useNodesState<FlowNode>([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<FlowEdge>([]);
   const [selectedNode, setSelectedNode] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [editingMonitorId, setEditingMonitorId] =
+    useState<Id<"monitors"> | null>(null);
+  const [isEditSheetOpen, setIsEditSheetOpen] = useState(false);
 
   // Fetch data from Convex
   const networks = useQuery(api.networks.list);
@@ -83,6 +87,13 @@ export function useMonitorFlow(monitorId?: Id<"monitors">) {
   const onNodeClick = useCallback(
     (_event: React.MouseEvent, node: Node) => {
       setSelectedNode(node.id);
+
+      // If it's a monitor node, open the edit sheet
+      if (node.type === "monitor" && node.data?.monitor) {
+        const monitor = node.data.monitor as MonitorResponse;
+        setEditingMonitorId(monitor._id);
+        setIsEditSheetOpen(true);
+      }
 
       // Highlight connected edges and nodes
       setEdges((eds) =>
@@ -278,5 +289,8 @@ export function useMonitorFlow(monitorId?: Id<"monitors">) {
     filterByMonitorStatus,
     selectedNode,
     isLoading,
+    editingMonitorId,
+    isEditSheetOpen,
+    setIsEditSheetOpen,
   };
 }

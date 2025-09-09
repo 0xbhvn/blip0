@@ -25,6 +25,7 @@ import { Id } from "@/convex/_generated/dataModel";
 import NetworkNode from "./NetworkNode";
 import MonitorNode from "./MonitorNode";
 import NetworkMonitorEdge from "./NetworkMonitorEdge";
+import { MonitorEditSheet } from "./MonitorEditSheet";
 import {
   Loader2,
   ArrowUpDown,
@@ -64,6 +65,9 @@ function MonitorFlowContent({ monitorId }: MonitorFlowContentProps) {
     filterByNetworkType,
     filterByMonitorStatus,
     isLoading,
+    editingMonitorId,
+    isEditSheetOpen,
+    setIsEditSheetOpen,
   } = useMonitorFlow(monitorId);
 
   const reactFlowInstance = useReactFlow();
@@ -379,6 +383,17 @@ function MonitorFlowContent({ monitorId }: MonitorFlowContentProps) {
           </div>
         </Card>
       </Panel>
+
+      {/* Monitor Edit Sheet */}
+      <MonitorEditSheet
+        monitorId={editingMonitorId}
+        open={isEditSheetOpen}
+        onOpenChange={setIsEditSheetOpen}
+        onSaveSuccess={() => {
+          // Optionally refresh the flow data after save
+          setIsEditSheetOpen(false);
+        }}
+      />
     </div>
   );
 }
