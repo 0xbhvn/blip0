@@ -27,11 +27,11 @@ export function monitorToFlow(monitor: Monitor): FlowData {
   const nodes: EditorNode[] = [];
   const edges: Edge[] = [];
 
-  const HORIZONTAL_SPACING = 250;
-  const VERTICAL_SPACING = 100;
-  const INITIAL_Y = 50;
+  const HORIZONTAL_SPACING = 200;
+  const VERTICAL_SPACING = 150;
+  const INITIAL_X = 50;
 
-  let currentX = 50;
+  let currentY = 50;
   let nodeIdCounter = 0;
 
   // Helper to generate unique node IDs
@@ -41,7 +41,7 @@ export function monitorToFlow(monitor: Monitor): FlowData {
   let previousLayerNodes: string[] = [];
   let currentLayerNodes: string[] = [];
 
-  // Layer 1: Networks
+  // Layer 1: Networks (top row)
   if (monitor.networks && monitor.networks.length > 0) {
     monitor.networks.forEach((network, index) => {
       const nodeId = getNodeId("network");
@@ -49,8 +49,8 @@ export function monitorToFlow(monitor: Monitor): FlowData {
         id: nodeId,
         type: NodeType.NETWORK,
         position: {
-          x: currentX,
-          y: INITIAL_Y + index * VERTICAL_SPACING,
+          x: INITIAL_X + index * HORIZONTAL_SPACING,
+          y: currentY,
         },
         data: {
           label: "Network",
@@ -64,10 +64,10 @@ export function monitorToFlow(monitor: Monitor): FlowData {
 
     previousLayerNodes = [...currentLayerNodes];
     currentLayerNodes = [];
-    currentX += HORIZONTAL_SPACING;
+    currentY += VERTICAL_SPACING;
   }
 
-  // Layer 2: Addresses
+  // Layer 2: Addresses (second row)
   if (monitor.addresses && monitor.addresses.length > 0) {
     monitor.addresses.forEach((address, index) => {
       const nodeId = getNodeId("address");
@@ -75,8 +75,8 @@ export function monitorToFlow(monitor: Monitor): FlowData {
         id: nodeId,
         type: NodeType.ADDRESS,
         position: {
-          x: currentX,
-          y: INITIAL_Y + index * VERTICAL_SPACING,
+          x: INITIAL_X + index * HORIZONTAL_SPACING,
+          y: currentY,
         },
         data: {
           label: "Contract Address",
@@ -102,11 +102,11 @@ export function monitorToFlow(monitor: Monitor): FlowData {
 
     previousLayerNodes = [...currentLayerNodes];
     currentLayerNodes = [];
-    currentX += HORIZONTAL_SPACING;
+    currentY += VERTICAL_SPACING;
   }
 
-  // Layer 3: Match Conditions
-  let conditionY = INITIAL_Y;
+  // Layer 3: Match Conditions (third row)
+  let conditionX = INITIAL_X;
   const hasConditions =
     monitor.match_conditions &&
     ((monitor.match_conditions.transactions &&
@@ -124,7 +124,7 @@ export function monitorToFlow(monitor: Monitor): FlowData {
         const transactionNode: EditorNode = {
           id: nodeId,
           type: NodeType.TRANSACTION_CONDITION,
-          position: { x: currentX, y: conditionY },
+          position: { x: conditionX, y: currentY },
           data: {
             label: "Transaction Condition",
             status: transaction.status,
@@ -134,7 +134,7 @@ export function monitorToFlow(monitor: Monitor): FlowData {
         };
         nodes.push(transactionNode);
         currentLayerNodes.push(nodeId);
-        conditionY += VERTICAL_SPACING;
+        conditionX += HORIZONTAL_SPACING;
 
         // Connect to previous layer
         previousLayerNodes.forEach((prevId) => {
@@ -156,7 +156,7 @@ export function monitorToFlow(monitor: Monitor): FlowData {
         const eventNode: EditorNode = {
           id: nodeId,
           type: NodeType.EVENT_CONDITION,
-          position: { x: currentX, y: conditionY },
+          position: { x: conditionX, y: currentY },
           data: {
             label: "Event Condition",
             signature: event.signature,
@@ -166,7 +166,7 @@ export function monitorToFlow(monitor: Monitor): FlowData {
         };
         nodes.push(eventNode);
         currentLayerNodes.push(nodeId);
-        conditionY += VERTICAL_SPACING;
+        conditionX += HORIZONTAL_SPACING;
 
         // Connect to previous layer
         previousLayerNodes.forEach((prevId) => {
@@ -188,7 +188,7 @@ export function monitorToFlow(monitor: Monitor): FlowData {
         const functionNode: EditorNode = {
           id: nodeId,
           type: NodeType.FUNCTION_CONDITION,
-          position: { x: currentX, y: conditionY },
+          position: { x: conditionX, y: currentY },
           data: {
             label: "Function Condition",
             signature: func.signature,
@@ -198,7 +198,7 @@ export function monitorToFlow(monitor: Monitor): FlowData {
         };
         nodes.push(functionNode);
         currentLayerNodes.push(nodeId);
-        conditionY += VERTICAL_SPACING;
+        conditionX += HORIZONTAL_SPACING;
 
         // Connect to previous layer
         previousLayerNodes.forEach((prevId) => {
@@ -215,11 +215,11 @@ export function monitorToFlow(monitor: Monitor): FlowData {
 
     previousLayerNodes = [...currentLayerNodes];
     currentLayerNodes = [];
-    currentX += HORIZONTAL_SPACING;
+    currentY += VERTICAL_SPACING;
   }
 
-  // Layer 4: Triggers/Notifications
-  let actionY = INITIAL_Y;
+  // Layer 4: Triggers/Notifications (bottom row)
+  let actionX = INITIAL_X;
 
   // Triggers
   if (monitor.triggers && monitor.triggers.length > 0) {
@@ -228,7 +228,7 @@ export function monitorToFlow(monitor: Monitor): FlowData {
       const triggerNode: EditorNode = {
         id: nodeId,
         type: NodeType.TRIGGER,
-        position: { x: currentX, y: actionY },
+        position: { x: actionX, y: currentY },
         data: {
           label: "Trigger",
           triggerId: triggerId,
@@ -236,7 +236,7 @@ export function monitorToFlow(monitor: Monitor): FlowData {
         } as TriggerNodeData & Record<string, unknown>,
       };
       nodes.push(triggerNode);
-      actionY += VERTICAL_SPACING;
+      actionX += HORIZONTAL_SPACING;
 
       // Connect to previous layer
       previousLayerNodes.forEach((prevId) => {
@@ -259,7 +259,7 @@ export function monitorToFlow(monitor: Monitor): FlowData {
     const notificationNode: EditorNode = {
       id: nodeId,
       type: NodeType.NOTIFICATION,
-      position: { x: currentX, y: actionY },
+      position: { x: actionX, y: currentY },
       data: {
         label: "Notification",
         type: "email",
@@ -475,56 +475,56 @@ export function autoLayoutFlow(
     ),
   };
 
-  const HORIZONTAL_SPACING = 250;
-  const VERTICAL_SPACING = 100;
-  const INITIAL_Y = 50;
-  let currentX = 50;
+  const HORIZONTAL_SPACING = 200;
+  const VERTICAL_SPACING = 150;
+  const INITIAL_X = 50;
+  let currentY = 50;
 
   const updatedNodes: EditorNode[] = [];
 
-  // Layout networks
+  // Layout networks (top row)
   nodesByType.network.forEach((node, index) => {
     updatedNodes.push({
       ...node,
       position: {
-        x: currentX,
-        y: INITIAL_Y + index * VERTICAL_SPACING,
+        x: INITIAL_X + index * HORIZONTAL_SPACING,
+        y: currentY,
       },
     });
   });
-  if (nodesByType.network.length > 0) currentX += HORIZONTAL_SPACING;
+  if (nodesByType.network.length > 0) currentY += VERTICAL_SPACING;
 
-  // Layout addresses
+  // Layout addresses (second row)
   nodesByType.address.forEach((node, index) => {
     updatedNodes.push({
       ...node,
       position: {
-        x: currentX,
-        y: INITIAL_Y + index * VERTICAL_SPACING,
+        x: INITIAL_X + index * HORIZONTAL_SPACING,
+        y: currentY,
       },
     });
   });
-  if (nodesByType.address.length > 0) currentX += HORIZONTAL_SPACING;
+  if (nodesByType.address.length > 0) currentY += VERTICAL_SPACING;
 
-  // Layout conditions
+  // Layout conditions (third row)
   nodesByType.conditions.forEach((node, index) => {
     updatedNodes.push({
       ...node,
       position: {
-        x: currentX,
-        y: INITIAL_Y + index * VERTICAL_SPACING,
+        x: INITIAL_X + index * HORIZONTAL_SPACING,
+        y: currentY,
       },
     });
   });
-  if (nodesByType.conditions.length > 0) currentX += HORIZONTAL_SPACING;
+  if (nodesByType.conditions.length > 0) currentY += VERTICAL_SPACING;
 
-  // Layout actions
+  // Layout actions (bottom row)
   nodesByType.actions.forEach((node, index) => {
     updatedNodes.push({
       ...node,
       position: {
-        x: currentX,
-        y: INITIAL_Y + index * VERTICAL_SPACING,
+        x: INITIAL_X + index * HORIZONTAL_SPACING,
+        y: currentY,
       },
     });
   });

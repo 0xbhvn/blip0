@@ -20,12 +20,12 @@ interface BaseNodeProps extends NodeProps {
 export function BaseNode({
   data,
   selected,
-  children,
   icon,
+  children,
   showTargetHandle = true,
   showSourceHandle = true,
-  targetPosition = Position.Left,
-  sourcePosition = Position.Right,
+  targetPosition = Position.Top,
+  sourcePosition = Position.Bottom,
   className,
 }: BaseNodeProps) {
   const nodeData = data as unknown as BaseNodeData;
