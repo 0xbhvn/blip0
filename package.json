@@ -10,6 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "typecheck": "tsc --noEmit",
     "import:networks": "tsx scripts/import-networks.ts"
   },
   "dependencies": {

@@ -9,26 +9,20 @@ import { cn } from "@/lib/utils";
 import { useMonitors, useMonitorMutations } from "@/hooks/useMonitors";
 
 interface MonitorListProps {
-  variant?: "public" | "owned";
   className?: string;
 }
 
-export function MonitorList({
-  variant = "public",
-  className,
-}: MonitorListProps) {
-  const isOwned = variant === "owned";
-  const { monitors, isLoading } = useMonitors(variant);
+export function MonitorList({ className }: MonitorListProps) {
+  const { monitors, isLoading } = useMonitors();
   const { deleteMonitor } = useMonitorMutations();
 
   const handleDelete = async (id: string, name: string) => {
     await deleteMonitor(id, name);
   };
 
-  const title = isOwned ? "Your Monitors" : "All Monitors";
-  const emptyMessage = isOwned
-    ? "You haven't created any monitors yet"
-    : "No monitors created yet";
+  const title = "Monitors";
+  const emptyMessage =
+    "No monitors yet. Create your first monitor to start tracking smart contract activity.";
 
   if (isLoading) {
     return (
@@ -54,9 +48,14 @@ export function MonitorList({
   return (
     <div className={cn("space-y-6", className)}>
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-semibold">
-          {title} ({monitors.length})
-        </h2>
+        <div>
+          <h2 className="text-xl font-semibold">
+            {title} ({monitors.length})
+          </h2>
+          <p className="text-sm text-muted-foreground mt-1">
+            Your personal monitor configurations
+          </p>
+        </div>
         <Link href="/product/monitors/create">
           <Button>
             <Plus className="mr-2 h-4 w-4" /> Create Monitor
@@ -70,8 +69,7 @@ export function MonitorList({
             <MonitorCard
               key={monitor._id}
               monitor={monitor}
-              variant={variant}
-              onDelete={isOwned ? handleDelete : undefined}
+              onDelete={handleDelete}
             />
           ))}
         </div>

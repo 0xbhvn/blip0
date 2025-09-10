@@ -12,12 +12,12 @@ import {
 import { useCallback } from "react";
 
 /**
- * Hook for fetching monitors
+ * Hook for fetching monitors (user's own monitors)
  */
-export function useMonitors(variant: "public" | "owned" = "public") {
-  const monitors = useQuery(
-    variant === "owned" ? api.monitors.listMy : api.monitors.list,
-  ) as MonitorResponse[] | undefined;
+export function useMonitors() {
+  const monitors = useQuery(api.monitors.listMy) as
+    | MonitorResponse[]
+    | undefined;
 
   const isLoading = monitors === undefined;
 

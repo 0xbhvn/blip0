@@ -10,9 +10,11 @@ import { getAddressValidationError } from "@/lib/helpers";
 // Helper function to determine network types from network slugs
 // This is a simple heuristic based on naming conventions
 // Can be improved by fetching actual network data
-function getNetworkTypesFromSlugs(networkSlugs: string[]): ("EVM" | "Stellar")[] {
+function getNetworkTypesFromSlugs(
+  networkSlugs: string[],
+): ("EVM" | "Stellar")[] {
   const types = new Set<"EVM" | "Stellar">();
-  
+
   for (const slug of networkSlugs) {
     const lowerSlug = slug.toLowerCase();
     if (lowerSlug.includes("stellar") || lowerSlug.includes("xlm")) {
@@ -22,7 +24,7 @@ function getNetworkTypesFromSlugs(networkSlugs: string[]): ("EVM" | "Stellar")[]
       types.add("EVM");
     }
   }
-  
+
   return Array.from(types);
 }
 
@@ -79,13 +81,16 @@ export function useMonitorForm(
     // Validate addresses based on selected network types
     if (config.addresses && config.addresses.length > 0) {
       const networkTypes = getNetworkTypesFromSlugs(config.networks);
-      
+
       for (const addr of config.addresses) {
         if (!addr.address) {
           throw new Error("Address is required");
         }
-        
-        const validationError = getAddressValidationError(addr.address, networkTypes);
+
+        const validationError = getAddressValidationError(
+          addr.address,
+          networkTypes,
+        );
         if (validationError) {
           throw new Error(validationError);
         }
@@ -133,7 +138,7 @@ export function useMonitorForm(
         if (onSaveSuccess) {
           onSaveSuccess();
         } else {
-          router.push("/product/monitors/my");
+          router.push("/product/monitors");
         }
       } else {
         setError(result.error || "Failed to save monitor");

@@ -40,7 +40,7 @@ export function InteractiveMonitorFlow({
           const result = await updateMonitor(monitorId, config);
           if (result.success) {
             toast.success("Monitor updated successfully");
-            router.push("/product/monitors/my");
+            router.push("/product/monitors");
           } else {
             toast.error(result.error || "Failed to update monitor");
           }
@@ -48,7 +48,7 @@ export function InteractiveMonitorFlow({
           const result = await createMonitor(config);
           if (result.success) {
             toast.success("Monitor created successfully");
-            router.push("/product/monitors/my");
+            router.push("/product/monitors");
           } else {
             toast.error(result.error || "Failed to create monitor");
           }

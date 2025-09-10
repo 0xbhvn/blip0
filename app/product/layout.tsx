@@ -4,7 +4,7 @@ import ConvexClientProvider from "@/components/ConvexClientProvider";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ChatBubbleIcon, HomeIcon } from "@radix-ui/react-icons";
-import { Shield, FileText, Network, Menu, X } from "lucide-react";
+import { Shield, Network, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode, useState, useEffect, useRef, useCallback } from "react";
@@ -196,11 +196,7 @@ function ProductMenu() {
           </MenuLink>
           <MenuLink href="/product/monitors" currentPath={pathname}>
             <Shield className="h-4 w-4" />
-            All Monitors
-          </MenuLink>
-          <MenuLink href="/product/monitors/my" currentPath={pathname}>
-            <FileText className="h-4 w-4" />
-            My Monitors
+            Monitors
           </MenuLink>
           <MenuLink href="/product/networks" currentPath={pathname}>
             <Network className="h-4 w-4" />
