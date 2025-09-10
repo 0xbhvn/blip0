@@ -9,6 +9,9 @@ import { useMonitorNodeMutations } from "@/hooks";
 import { MonitorCreateInput } from "@/lib/types/monitors";
 import { toast } from "sonner";
 import { Id } from "@/convex/_generated/dataModel";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { generateFlowFromMonitor } from "@/lib/utils/monitorFlowGenerator";
 
 interface InteractiveMonitorFlowProps {
   monitorId?: Id<"monitors">;
@@ -21,6 +24,12 @@ export function InteractiveMonitorFlow({
 }: InteractiveMonitorFlowProps) {
   const router = useRouter();
   const { createMonitor, updateMonitor } = useMonitorNodeMutations();
+
+  // Load existing monitor data if in edit mode
+  const monitor = useQuery(
+    api.monitors.get,
+    mode === "edit" && monitorId ? { id: monitorId } : "skip",
+  );
 
   const handleSave = useCallback(
     async (config: MonitorCreateInput) => {
@@ -50,10 +59,23 @@ export function InteractiveMonitorFlow({
     [mode, monitorId, createMonitor, updateMonitor, router],
   );
 
+  // Generate initial flow data from monitor if in edit mode
+  const initialFlowData = React.useMemo(() => {
+    if (mode === "edit" && monitor) {
+      return generateFlowFromMonitor(monitor);
+    }
+    return undefined;
+  }, [mode, monitor]);
+
   return (
     <ReactFlowProvider>
       <div className="h-full w-full">
-        <NodeEditorCanvas onSave={handleSave} />
+        <NodeEditorCanvas
+          onSave={handleSave}
+          initialData={initialFlowData}
+          initialMonitorName={monitor?.name}
+          initialMonitorActive={!monitor?.paused}
+        />
       </div>
     </ReactFlowProvider>
   );

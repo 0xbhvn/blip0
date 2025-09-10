@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useCallback, useRef, useState, useMemo } from "react";
+import React, {
+  useCallback,
+  useRef,
+  useState,
+  useMemo,
+  useEffect,
+} from "react";
 import {
   ReactFlow,
   Background,
@@ -13,7 +19,7 @@ import {
   Edge,
 } from "@xyflow/react";
 import { useNodeEditor, useDebouncedValidation } from "@/hooks";
-import { NodeType } from "@/lib/types/nodeEditor";
+import { NodeType, EditorNode } from "@/lib/types/nodeEditor";
 import { MonitorCreateInput } from "@/lib/types/monitors";
 import { NodeTypePalette } from "./NodeTypePalette";
 import { NodeEditorDrawer } from "./NodeEditorDrawer";
@@ -46,9 +52,20 @@ const nodeTypes = {
 
 interface NodeEditorCanvasProps {
   onSave?: (config: MonitorCreateInput) => void;
+  initialData?: {
+    nodes: EditorNode[];
+    edges: Edge[];
+  };
+  initialMonitorName?: string;
+  initialMonitorActive?: boolean;
 }
 
-export function NodeEditorCanvas({ onSave }: NodeEditorCanvasProps) {
+export function NodeEditorCanvas({
+  onSave,
+  initialData,
+  initialMonitorName,
+  initialMonitorActive,
+}: NodeEditorCanvasProps) {
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [selectedNodeType, setSelectedNodeType] = useState<NodeType | null>(
     null,
@@ -79,7 +96,25 @@ export function NodeEditorCanvas({ onSave }: NodeEditorCanvasProps) {
     clearCanvas,
     buildMonitorConfig,
     validationErrors,
+    initializeFromFlow,
   } = useNodeEditor();
+
+  // Initialize with provided data if available
+  useEffect(() => {
+    if (initialData) {
+      initializeFromFlow(
+        initialData.nodes,
+        initialData.edges,
+        initialMonitorName,
+        initialMonitorActive,
+      );
+    }
+  }, [
+    initialData,
+    initialMonitorName,
+    initialMonitorActive,
+    initializeFromFlow,
+  ]);
 
   // Validation is now handled by useDebouncedValidation hook
   // This prevents unnecessary re-renders and performance issues

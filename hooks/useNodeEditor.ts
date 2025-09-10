@@ -76,6 +76,14 @@ interface NodeEditorState {
 
   // Clear canvas
   clearCanvas: () => void;
+
+  // Initialize with flow data
+  initializeFromFlow: (
+    nodes: EditorNode[],
+    edges: Edge[],
+    monitorName?: string,
+    monitorActive?: boolean,
+  ) => void;
 }
 
 function createNodeData(
@@ -551,6 +559,25 @@ export const useNodeEditor = create<NodeEditorState>()(
       set({
         nodes: [],
         edges: [],
+        selectedNodeId: null,
+        editingNodeId: null,
+        drawerOpen: false,
+        validationErrors: {},
+        isValidConfiguration: false,
+      });
+    },
+
+    initializeFromFlow: (
+      nodes: EditorNode[],
+      edges: Edge[],
+      monitorName?: string,
+      monitorActive?: boolean,
+    ) => {
+      set({
+        nodes,
+        edges,
+        monitorName: monitorName || "",
+        monitorActive: monitorActive !== undefined ? monitorActive : true,
         selectedNodeId: null,
         editingNodeId: null,
         drawerOpen: false,
