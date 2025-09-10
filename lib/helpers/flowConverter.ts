@@ -9,7 +9,6 @@ import {
   FunctionConditionNodeData,
   TransactionConditionNodeData,
   TriggerNodeData,
-  NotificationNodeData,
 } from "@/lib/types/nodeEditor";
 
 type Monitor = Doc<"monitors">;
@@ -251,35 +250,8 @@ export function monitorToFlow(monitor: Monitor): FlowData {
     });
   }
 
-  // Add notification nodes if they exist in the monitor configuration
-  // This would need to be extended based on how notifications are stored
-  // For now, we'll add a placeholder if triggers exist
-  if (monitor.triggers && monitor.triggers.length > 0) {
-    const nodeId = getNodeId("notification");
-    const notificationNode: EditorNode = {
-      id: nodeId,
-      type: NodeType.NOTIFICATION,
-      position: { x: actionX, y: currentY },
-      data: {
-        label: "Notification",
-        type: "email",
-        configuration: {},
-        isValid: true,
-      } as NotificationNodeData & Record<string, unknown>,
-    };
-    nodes.push(notificationNode);
-
-    // Connect to previous layer
-    previousLayerNodes.forEach((prevId) => {
-      edges.push({
-        id: `${prevId}-${nodeId}`,
-        source: prevId,
-        target: nodeId,
-        type: "smoothstep",
-        animated: true,
-      });
-    });
-  }
+  // Notification nodes would be added here if they are stored in the monitor configuration
+  // Currently, notifications are not stored directly in the monitor data
 
   return { nodes, edges };
 }
