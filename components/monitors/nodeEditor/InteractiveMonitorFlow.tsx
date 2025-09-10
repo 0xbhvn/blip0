@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useCallback } from "react";
-import { ReactFlowProvider } from "@xyflow/react";
-import "@xyflow/react/dist/style.css";
-import { NodeEditorCanvas } from "./NodeEditorCanvas";
+import { MonitorFlowEditor } from "../flow";
 import { useRouter } from "next/navigation";
 import { useMonitorMutations } from "@/hooks";
 import { MonitorCreateInput } from "@/lib/types/monitors";
@@ -11,13 +9,17 @@ import { toast } from "sonner";
 import { Id } from "@/convex/_generated/dataModel";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { generateFlowFromMonitor } from "@/lib/helpers/monitorFlowGenerator";
+import { monitorToFlow } from "@/lib/helpers/flowConverter";
 
 interface InteractiveMonitorFlowProps {
   monitorId?: Id<"monitors">;
   mode?: "create" | "edit";
 }
 
+/**
+ * Wrapper component for MonitorFlowEditor that handles data loading and persistence
+ * This maintains backward compatibility with existing usage
+ */
 export function InteractiveMonitorFlow({
   monitorId,
   mode = "create",
@@ -59,24 +61,28 @@ export function InteractiveMonitorFlow({
     [mode, monitorId, createMonitor, updateMonitor, router],
   );
 
+  const handleCancel = useCallback(() => {
+    router.push("/product/monitors/my");
+  }, [router]);
+
   // Generate initial flow data from monitor if in edit mode
   const initialFlowData = React.useMemo(() => {
     if (mode === "edit" && monitor) {
-      return generateFlowFromMonitor(monitor);
+      return monitorToFlow(monitor);
     }
     return undefined;
   }, [mode, monitor]);
 
   return (
-    <ReactFlowProvider>
-      <div className="h-full w-full">
-        <NodeEditorCanvas
-          onSave={handleSave}
-          initialData={initialFlowData}
-          initialMonitorName={monitor?.name}
-          initialMonitorActive={!monitor?.paused}
-        />
-      </div>
-    </ReactFlowProvider>
+    <div className="h-full w-full">
+      <MonitorFlowEditor
+        initialData={initialFlowData}
+        initialMonitorName={monitor?.name}
+        initialMonitorActive={!monitor?.paused}
+        onSave={handleSave}
+        onCancel={handleCancel}
+        mode={mode}
+      />
+    </div>
   );
 }

@@ -5,8 +5,15 @@ export { MonitorList } from "./MonitorList";
 export { MonitorCard } from "./MonitorCard";
 export { MonitorEmptyState } from "./MonitorEmptyState";
 
-// Form components
-export { MonitorForm } from "./MonitorForm";
+// Flow components
+export {
+  MonitorFlowEditor,
+  MonitorFlowViewer,
+  MonitorFlowCanvas,
+} from "./flow";
+
+// Detail view component
+export { MonitorDetailView } from "./MonitorDetailView";
 
 // Detail page components
 export {

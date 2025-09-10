@@ -1,0 +1,533 @@
+import { Edge } from "@xyflow/react";
+import { NodeType, EditorNode } from "@/lib/types/nodeEditor";
+import { MonitorCreateInput } from "@/lib/types/monitors";
+import type { Doc } from "@/convex/_generated/dataModel";
+import {
+  NetworkNodeData,
+  AddressNodeData,
+  EventConditionNodeData,
+  FunctionConditionNodeData,
+  TransactionConditionNodeData,
+  TriggerNodeData,
+  NotificationNodeData,
+} from "@/lib/types/nodeEditor";
+
+type Monitor = Doc<"monitors">;
+
+interface FlowData {
+  nodes: EditorNode[];
+  edges: Edge[];
+}
+
+/**
+ * Converts monitor configuration to flow data for visualization
+ * This is used when loading an existing monitor for editing or viewing
+ */
+export function monitorToFlow(monitor: Monitor): FlowData {
+  const nodes: EditorNode[] = [];
+  const edges: Edge[] = [];
+
+  const HORIZONTAL_SPACING = 250;
+  const VERTICAL_SPACING = 100;
+  const INITIAL_Y = 50;
+
+  let currentX = 50;
+  let nodeIdCounter = 0;
+
+  // Helper to generate unique node IDs
+  const getNodeId = (type: string) => `${type}_${++nodeIdCounter}`;
+
+  // Track previous layer node IDs for edge connections
+  let previousLayerNodes: string[] = [];
+  let currentLayerNodes: string[] = [];
+
+  // Layer 1: Networks
+  if (monitor.networks && monitor.networks.length > 0) {
+    monitor.networks.forEach((network, index) => {
+      const nodeId = getNodeId("network");
+      const networkNode: EditorNode = {
+        id: nodeId,
+        type: NodeType.NETWORK,
+        position: {
+          x: currentX,
+          y: INITIAL_Y + index * VERTICAL_SPACING,
+        },
+        data: {
+          label: "Network",
+          networkSlug: network,
+          isValid: true,
+        } as NetworkNodeData & Record<string, unknown>,
+      };
+      nodes.push(networkNode);
+      currentLayerNodes.push(nodeId);
+    });
+
+    previousLayerNodes = [...currentLayerNodes];
+    currentLayerNodes = [];
+    currentX += HORIZONTAL_SPACING;
+  }
+
+  // Layer 2: Addresses
+  if (monitor.addresses && monitor.addresses.length > 0) {
+    monitor.addresses.forEach((address, index) => {
+      const nodeId = getNodeId("address");
+      const addressNode: EditorNode = {
+        id: nodeId,
+        type: NodeType.ADDRESS,
+        position: {
+          x: currentX,
+          y: INITIAL_Y + index * VERTICAL_SPACING,
+        },
+        data: {
+          label: "Contract Address",
+          address: address.address,
+          contractSpec: address.contract_spec,
+          isValid: true,
+        } as AddressNodeData & Record<string, unknown>,
+      };
+      nodes.push(addressNode);
+      currentLayerNodes.push(nodeId);
+
+      // Connect to all networks
+      previousLayerNodes.forEach((networkId) => {
+        edges.push({
+          id: `${networkId}-${nodeId}`,
+          source: networkId,
+          target: nodeId,
+          type: "smoothstep",
+          animated: true,
+        });
+      });
+    });
+
+    previousLayerNodes = [...currentLayerNodes];
+    currentLayerNodes = [];
+    currentX += HORIZONTAL_SPACING;
+  }
+
+  // Layer 3: Match Conditions
+  let conditionY = INITIAL_Y;
+  const hasConditions =
+    monitor.match_conditions &&
+    ((monitor.match_conditions.transactions &&
+      monitor.match_conditions.transactions.length > 0) ||
+      (monitor.match_conditions.events &&
+        monitor.match_conditions.events.length > 0) ||
+      (monitor.match_conditions.functions &&
+        monitor.match_conditions.functions.length > 0));
+
+  if (hasConditions) {
+    // Transaction conditions
+    if (monitor.match_conditions?.transactions?.length) {
+      monitor.match_conditions.transactions.forEach((transaction) => {
+        const nodeId = getNodeId("transaction");
+        const transactionNode: EditorNode = {
+          id: nodeId,
+          type: NodeType.TRANSACTION_CONDITION,
+          position: { x: currentX, y: conditionY },
+          data: {
+            label: "Transaction Condition",
+            status: transaction.status,
+            expression: transaction.expression,
+            isValid: true,
+          } as TransactionConditionNodeData & Record<string, unknown>,
+        };
+        nodes.push(transactionNode);
+        currentLayerNodes.push(nodeId);
+        conditionY += VERTICAL_SPACING;
+
+        // Connect to previous layer
+        previousLayerNodes.forEach((prevId) => {
+          edges.push({
+            id: `${prevId}-${nodeId}`,
+            source: prevId,
+            target: nodeId,
+            type: "smoothstep",
+            animated: true,
+          });
+        });
+      });
+    }
+
+    // Event conditions
+    if (monitor.match_conditions?.events?.length) {
+      monitor.match_conditions.events.forEach((event) => {
+        const nodeId = getNodeId("event");
+        const eventNode: EditorNode = {
+          id: nodeId,
+          type: NodeType.EVENT_CONDITION,
+          position: { x: currentX, y: conditionY },
+          data: {
+            label: "Event Condition",
+            signature: event.signature,
+            expression: event.expression,
+            isValid: true,
+          } as EventConditionNodeData & Record<string, unknown>,
+        };
+        nodes.push(eventNode);
+        currentLayerNodes.push(nodeId);
+        conditionY += VERTICAL_SPACING;
+
+        // Connect to previous layer
+        previousLayerNodes.forEach((prevId) => {
+          edges.push({
+            id: `${prevId}-${nodeId}`,
+            source: prevId,
+            target: nodeId,
+            type: "smoothstep",
+            animated: true,
+          });
+        });
+      });
+    }
+
+    // Function conditions
+    if (monitor.match_conditions?.functions?.length) {
+      monitor.match_conditions.functions.forEach((func) => {
+        const nodeId = getNodeId("function");
+        const functionNode: EditorNode = {
+          id: nodeId,
+          type: NodeType.FUNCTION_CONDITION,
+          position: { x: currentX, y: conditionY },
+          data: {
+            label: "Function Condition",
+            signature: func.signature,
+            expression: func.expression,
+            isValid: true,
+          } as FunctionConditionNodeData & Record<string, unknown>,
+        };
+        nodes.push(functionNode);
+        currentLayerNodes.push(nodeId);
+        conditionY += VERTICAL_SPACING;
+
+        // Connect to previous layer
+        previousLayerNodes.forEach((prevId) => {
+          edges.push({
+            id: `${prevId}-${nodeId}`,
+            source: prevId,
+            target: nodeId,
+            type: "smoothstep",
+            animated: true,
+          });
+        });
+      });
+    }
+
+    previousLayerNodes = [...currentLayerNodes];
+    currentLayerNodes = [];
+    currentX += HORIZONTAL_SPACING;
+  }
+
+  // Layer 4: Triggers/Notifications
+  let actionY = INITIAL_Y;
+
+  // Triggers
+  if (monitor.triggers && monitor.triggers.length > 0) {
+    monitor.triggers.forEach((triggerId) => {
+      const nodeId = getNodeId("trigger");
+      const triggerNode: EditorNode = {
+        id: nodeId,
+        type: NodeType.TRIGGER,
+        position: { x: currentX, y: actionY },
+        data: {
+          label: "Trigger",
+          triggerId: triggerId,
+          isValid: true,
+        } as TriggerNodeData & Record<string, unknown>,
+      };
+      nodes.push(triggerNode);
+      actionY += VERTICAL_SPACING;
+
+      // Connect to previous layer
+      previousLayerNodes.forEach((prevId) => {
+        edges.push({
+          id: `${prevId}-${nodeId}`,
+          source: prevId,
+          target: nodeId,
+          type: "smoothstep",
+          animated: true,
+        });
+      });
+    });
+  }
+
+  // Add notification nodes if they exist in the monitor configuration
+  // This would need to be extended based on how notifications are stored
+  // For now, we'll add a placeholder if triggers exist
+  if (monitor.triggers && monitor.triggers.length > 0) {
+    const nodeId = getNodeId("notification");
+    const notificationNode: EditorNode = {
+      id: nodeId,
+      type: NodeType.NOTIFICATION,
+      position: { x: currentX, y: actionY },
+      data: {
+        label: "Notification",
+        type: "email",
+        configuration: {},
+        isValid: true,
+      } as NotificationNodeData & Record<string, unknown>,
+    };
+    nodes.push(notificationNode);
+
+    // Connect to previous layer
+    previousLayerNodes.forEach((prevId) => {
+      edges.push({
+        id: `${prevId}-${nodeId}`,
+        source: prevId,
+        target: nodeId,
+        type: "smoothstep",
+        animated: true,
+      });
+    });
+  }
+
+  return { nodes, edges };
+}
+
+/**
+ * Converts flow data to monitor configuration for saving
+ * This is used when saving a monitor from the flow editor
+ */
+export function flowToMonitor(
+  nodes: EditorNode[],
+  edges: Edge[],
+  monitorName: string,
+  monitorActive: boolean,
+): MonitorCreateInput | null {
+  // Initialize the configuration
+  const config: MonitorCreateInput = {
+    name: monitorName,
+    paused: !monitorActive,
+    networks: [],
+    addresses: [],
+    match_conditions: {
+      events: [],
+      functions: [],
+      transactions: [],
+    },
+    trigger_conditions: [],
+    triggers: [],
+  };
+
+  // Process each node and extract configuration
+  nodes.forEach((node) => {
+    switch (node.type) {
+      case NodeType.NETWORK:
+        const networkData = node.data as NetworkNodeData;
+        if (
+          networkData.networkSlug &&
+          !config.networks.includes(networkData.networkSlug)
+        ) {
+          config.networks.push(networkData.networkSlug);
+        }
+        break;
+
+      case NodeType.ADDRESS:
+        const addressData = node.data as AddressNodeData;
+        if (addressData.address) {
+          config.addresses.push({
+            address: addressData.address,
+            contract_spec: addressData.contractSpec,
+          });
+        }
+        break;
+
+      case NodeType.EVENT_CONDITION:
+        const eventData = node.data as EventConditionNodeData;
+        if (eventData.signature && config.match_conditions?.events) {
+          config.match_conditions.events.push({
+            signature: eventData.signature,
+            expression: eventData.expression,
+          });
+        }
+        break;
+
+      case NodeType.FUNCTION_CONDITION:
+        const functionData = node.data as FunctionConditionNodeData;
+        if (functionData.signature && config.match_conditions?.functions) {
+          config.match_conditions.functions.push({
+            signature: functionData.signature,
+            expression: functionData.expression,
+          });
+        }
+        break;
+
+      case NodeType.TRANSACTION_CONDITION:
+        const transactionData = node.data as TransactionConditionNodeData;
+        if (config.match_conditions?.transactions) {
+          config.match_conditions.transactions.push({
+            status: transactionData.status,
+            expression: transactionData.expression,
+          });
+        }
+        break;
+
+      case NodeType.TRIGGER:
+        const triggerData = node.data as TriggerNodeData;
+        if (triggerData.triggerId) {
+          const triggerId = triggerData.triggerId;
+          if (!config.triggers.includes(triggerId)) {
+            config.triggers.push(triggerId);
+          }
+        }
+        break;
+
+      case NodeType.NOTIFICATION:
+        // Handle notification configuration
+        // This would be processed based on the notification type
+        // For now, this is a placeholder as the actual implementation
+        // depends on how notifications are stored in your system
+        break;
+    }
+  });
+
+  return config;
+}
+
+/**
+ * Validates if flow data can be converted to a valid monitor configuration
+ */
+export function validateFlowData(
+  nodes: EditorNode[],
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  edges: Edge[],
+): {
+  isValid: boolean;
+  errors: string[];
+} {
+  const errors: string[] = [];
+
+  // Check for required nodes
+  const hasNetwork = nodes.some((n) => n.type === NodeType.NETWORK);
+  const hasCondition = nodes.some(
+    (n) =>
+      n.type === NodeType.EVENT_CONDITION ||
+      n.type === NodeType.FUNCTION_CONDITION ||
+      n.type === NodeType.TRANSACTION_CONDITION,
+  );
+  const hasAction = nodes.some(
+    (n) => n.type === NodeType.TRIGGER || n.type === NodeType.NOTIFICATION,
+  );
+
+  if (!hasNetwork) {
+    errors.push("At least one network is required");
+  }
+
+  if (!hasCondition) {
+    errors.push("At least one condition is required");
+  }
+
+  if (!hasAction) {
+    errors.push("At least one action (trigger or notification) is required");
+  }
+
+  // Validate individual nodes
+  nodes.forEach((node) => {
+    const nodeData = node.data;
+    if (!nodeData.isValid) {
+      errors.push(`Node "${nodeData.label}" has validation errors`);
+    }
+  });
+
+  return {
+    isValid: errors.length === 0,
+    errors,
+  };
+}
+
+/**
+ * Checks if a monitor has flow data to visualize
+ */
+export function hasFlowData(monitor: Monitor): boolean {
+  return !!(
+    monitor.networks?.length ||
+    monitor.addresses?.length ||
+    (monitor.match_conditions &&
+      (monitor.match_conditions.transactions?.length ||
+        monitor.match_conditions.events?.length ||
+        monitor.match_conditions.functions?.length)) ||
+    monitor.triggers?.length
+  );
+}
+
+/**
+ * Auto-layouts nodes in the flow for better visualization
+ */
+export function autoLayoutFlow(
+  nodes: EditorNode[],
+  edges: Edge[],
+): {
+  nodes: EditorNode[];
+  edges: Edge[];
+} {
+  // Group nodes by type
+  const nodesByType = {
+    network: nodes.filter((n) => n.type === NodeType.NETWORK),
+    address: nodes.filter((n) => n.type === NodeType.ADDRESS),
+    conditions: nodes.filter(
+      (n) =>
+        n.type === NodeType.EVENT_CONDITION ||
+        n.type === NodeType.FUNCTION_CONDITION ||
+        n.type === NodeType.TRANSACTION_CONDITION,
+    ),
+    actions: nodes.filter(
+      (n) => n.type === NodeType.TRIGGER || n.type === NodeType.NOTIFICATION,
+    ),
+  };
+
+  const HORIZONTAL_SPACING = 250;
+  const VERTICAL_SPACING = 100;
+  const INITIAL_Y = 50;
+  let currentX = 50;
+
+  const updatedNodes: EditorNode[] = [];
+
+  // Layout networks
+  nodesByType.network.forEach((node, index) => {
+    updatedNodes.push({
+      ...node,
+      position: {
+        x: currentX,
+        y: INITIAL_Y + index * VERTICAL_SPACING,
+      },
+    });
+  });
+  if (nodesByType.network.length > 0) currentX += HORIZONTAL_SPACING;
+
+  // Layout addresses
+  nodesByType.address.forEach((node, index) => {
+    updatedNodes.push({
+      ...node,
+      position: {
+        x: currentX,
+        y: INITIAL_Y + index * VERTICAL_SPACING,
+      },
+    });
+  });
+  if (nodesByType.address.length > 0) currentX += HORIZONTAL_SPACING;
+
+  // Layout conditions
+  nodesByType.conditions.forEach((node, index) => {
+    updatedNodes.push({
+      ...node,
+      position: {
+        x: currentX,
+        y: INITIAL_Y + index * VERTICAL_SPACING,
+      },
+    });
+  });
+  if (nodesByType.conditions.length > 0) currentX += HORIZONTAL_SPACING;
+
+  // Layout actions
+  nodesByType.actions.forEach((node, index) => {
+    updatedNodes.push({
+      ...node,
+      position: {
+        x: currentX,
+        y: INITIAL_Y + index * VERTICAL_SPACING,
+      },
+    });
+  });
+
+  return { nodes: updatedNodes, edges };
+}
