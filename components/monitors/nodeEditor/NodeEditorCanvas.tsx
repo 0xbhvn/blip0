@@ -61,18 +61,18 @@ interface NodeEditorCanvasProps {
 }
 
 export function NodeEditorCanvas({
-  onSave,
   initialData,
-  initialMonitorName,
-  initialMonitorActive,
+  initialMonitorName = "",
+  initialMonitorActive = true,
+  onSave,
 }: NodeEditorCanvasProps) {
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [selectedNodeType, setSelectedNodeType] = useState<NodeType | null>(
     null,
   );
 
-  // Use debounced validation for performance
-  const { isValid, validateNow } = useDebouncedValidation(1000);
+  // Validation with debounce to prevent performance issues
+  const { isValid, validateNow } = useDebouncedValidation();
 
   const {
     nodes,
@@ -85,7 +85,6 @@ export function NodeEditorCanvas({
     onEdgesChange,
     onConnect,
     addNode,
-    deleteNode,
     selectNode,
     openNodeEditor,
     selectedNodeId,
@@ -116,9 +115,6 @@ export function NodeEditorCanvas({
     initializeFromFlow,
   ]);
 
-  // Validation is now handled by useDebouncedValidation hook
-  // This prevents unnecessary re-renders and performance issues
-
   // Handle canvas click for adding nodes
   const handlePaneClick = useCallback(
     (event: React.MouseEvent) => {
@@ -134,24 +130,19 @@ export function NodeEditorCanvas({
         // Open editor immediately for the new node
         openNodeEditor(nodeId);
         setSelectedNodeType(null);
-
-        // Don't validate after every node addition - wait for save
       }
-
-      // Clear selection
+      // Clear selection when clicking on canvas
       selectNode(null);
     },
     [selectedNodeType, addNode, selectNode, openNodeEditor],
   );
 
   // Handle node click
-  const handleNodeClick = useCallback(
-    (event: React.MouseEvent, node: Node) => {
-      event.stopPropagation();
-      selectNode(node.id);
-    },
-    [selectNode],
-  );
+  const handleNodeClick = useCallback((event: React.MouseEvent, node: Node) => {
+    event.stopPropagation();
+    // ReactFlow will handle visual selection, we just track the ID
+    console.log("Node clicked:", node.id);
+  }, []);
 
   // Handle node double-click for editing
   const handleNodeDoubleClick = useCallback(
@@ -162,28 +153,34 @@ export function NodeEditorCanvas({
     [openNodeEditor],
   );
 
-  // Handle keyboard shortcuts
+  // Handle selection changes from ReactFlow
+  const handleSelectionChange = useCallback(
+    ({ nodes: selectedNodes }: { nodes: Node[]; edges: Edge[] }) => {
+      // Update our custom selectedNodeId state based on ReactFlow's selection
+      if (selectedNodes.length > 0) {
+        selectNode(selectedNodes[0].id);
+        console.log("Selection changed - node selected:", selectedNodes[0].id);
+      } else {
+        selectNode(null);
+        console.log("Selection cleared");
+      }
+    },
+    [selectNode],
+  );
+
+  // Handle keyboard shortcuts (only for non-delete keys since ReactFlow handles Delete)
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
-      // Delete selected node
-      if (event.key === "Delete" && selectedNodeId) {
-        deleteNode(selectedNodeId);
-        toast.success("Node deleted");
-
-        // Don't validate after every deletion - wait for save
-      }
-
-      // Open node editor
+      // ReactFlow handles Delete key internally when deleteKeyCode is set
+      // We only handle other shortcuts
       if (event.key === "Enter" && selectedNodeId) {
         openNodeEditor(selectedNodeId);
       }
-
-      // Escape to close drawer
       if (event.key === "Escape" && drawerOpen) {
         closeNodeEditor();
       }
     },
-    [selectedNodeId, deleteNode, openNodeEditor, drawerOpen, closeNodeEditor],
+    [selectedNodeId, openNodeEditor, drawerOpen, closeNodeEditor],
   );
 
   React.useEffect(() => {
@@ -290,7 +287,6 @@ export function NodeEditorCanvas({
               value={monitorName}
               onChange={(e) => {
                 setMonitorName(e.target.value);
-                // Don't validate on every keystroke - only validate on save
               }}
               placeholder="Enter monitor name..."
               className="w-full"
@@ -339,10 +335,11 @@ export function NodeEditorCanvas({
           onNodeClick={handleNodeClick}
           onNodeDoubleClick={handleNodeDoubleClick}
           onPaneClick={handlePaneClick}
+          onSelectionChange={handleSelectionChange}
           nodeTypes={nodeTypes}
           isValidConnection={isValidConnection}
           fitView
-          deleteKeyCode={null} // Disable default delete to use our custom handler
+          deleteKeyCode="Delete"
           multiSelectionKeyCode="Shift"
           panOnScroll
           selectionOnDrag
@@ -352,7 +349,6 @@ export function NodeEditorCanvas({
           attributionPosition="bottom-left"
           defaultEdgeOptions={defaultEdgeOptions}
           connectionLineStyle={connectionLineStyle}
-          // Disable features that might cause performance issues
           zoomOnDoubleClick={false}
           preventScrolling={false}
           nodesConnectable={true}

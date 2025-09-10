@@ -12,6 +12,7 @@ import {
   OnConnect,
   OnNodesChange,
   OnEdgesChange,
+  NodeRemoveChange,
 } from "@xyflow/react";
 import {
   NodeType,
@@ -268,9 +269,43 @@ export const useNodeEditor = create<NodeEditorState>()(
     },
 
     onNodesChange: (changes) => {
-      set((state) => ({
-        nodes: applyNodeChanges(changes, state.nodes) as EditorNode[],
-      }));
+      // Log changes for debugging
+      const removeChanges = changes.filter(
+        (change) => change.type === "remove",
+      );
+      if (removeChanges.length > 0) {
+        console.log("Nodes being removed:", removeChanges);
+        // Show success toast for deletion
+        if (removeChanges.length === 1) {
+          toast.success("Node deleted");
+        } else {
+          toast.success(`${removeChanges.length} nodes deleted`);
+        }
+      }
+
+      set((state) => {
+        const newNodes = applyNodeChanges(changes, state.nodes) as EditorNode[];
+
+        // If the selected node was deleted, clear selection
+        const selectedNodeDeleted = removeChanges.some(
+          (change) => (change as NodeRemoveChange).id === state.selectedNodeId,
+        );
+
+        return {
+          nodes: newNodes,
+          selectedNodeId: selectedNodeDeleted ? null : state.selectedNodeId,
+          // Also update edges to remove connections to deleted nodes
+          edges: state.edges.filter((edge) => {
+            const deletedNodeIds = removeChanges.map(
+              (change) => (change as NodeRemoveChange).id,
+            );
+            return (
+              !deletedNodeIds.includes(edge.source) &&
+              !deletedNodeIds.includes(edge.target)
+            );
+          }),
+        };
+      });
     },
 
     onEdgesChange: (changes) => {

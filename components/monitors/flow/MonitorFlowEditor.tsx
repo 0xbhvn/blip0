@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect, useRef } from "react";
 import { ReactFlowProvider, Panel } from "@xyflow/react";
 import { MonitorFlowCanvas } from "./MonitorFlowCanvas";
 import { NodeTypePalette } from "../nodeEditor/NodeTypePalette";
@@ -15,6 +15,8 @@ import { EditModeIndicator } from "./EditModeIndicator";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Node, Edge, Connection } from "@xyflow/react";
 
@@ -43,20 +45,21 @@ interface FlowHistoryState {
  */
 export function MonitorFlowEditor({
   initialData,
-  initialMonitorName,
-  initialMonitorActive,
+  initialMonitorName = "",
+  initialMonitorActive = true,
   onSave,
   mode = "create",
 }: MonitorFlowEditorProps) {
+  // Local UI state
   const [selectedNodeType, setSelectedNodeType] = useState<NodeType | null>(
     null,
   );
-  const [canvasRef, setCanvasRef] = useState<HTMLDivElement | null>(null);
-  const [isReadOnly, setIsReadOnly] = useState(false);
-  const [isHistoryAction, setIsHistoryAction] = useState(false);
+  const [canvasRef, setCanvasRef] = React.useState<HTMLDivElement | null>(null);
+  const [isReadOnly, setIsReadOnly] = React.useState(false);
+  const [isHistoryAction, setIsHistoryAction] = React.useState(false);
 
-  // Use debounced validation for performance
-  const { isValid, validateNow } = useDebouncedValidation(1000);
+  // Validation with debounce
+  const { isValid, validateNow } = useDebouncedValidation();
 
   const {
     nodes,
@@ -148,17 +151,44 @@ export function MonitorFlowEditor({
   ]);
 
   // Track changes for history and auto-save
+  // We use refs to track what actually matters for saving
+  const previousDataRef = useRef<string>("");
+
   useEffect(() => {
     if (!isReadOnly && !isHistoryAction) {
-      // Update history state only if not from a history action
+      // Create a representation of what actually gets saved (not positions or selection)
+      // We only care about node data and connections, not visual properties
+      const currentDataString = JSON.stringify({
+        nodeData: nodes
+          .map((n) => ({ id: n.id, type: n.type, data: n.data }))
+          .sort((a, b) => a.id.localeCompare(b.id)),
+        edges: edges
+          .map((e) => ({ source: e.source, target: e.target }))
+          .sort((a, b) =>
+            `${a.source}-${a.target}`.localeCompare(`${b.source}-${b.target}`),
+          ),
+        monitorName,
+        monitorActive,
+      });
+
+      // Only trigger saves if the actual configuration data changed
+      const dataChanged = currentDataString !== previousDataRef.current;
+
+      // Always update history for undo/redo (includes positions)
       setHistoryState({ nodes, edges, monitorName, monitorActive });
 
-      // Trigger auto-save
-      if (mode === "edit" && isValid) {
-        const config = buildMonitorConfig();
-        if (config) {
-          triggerSave(config);
+      // But only auto-save if the actual monitor configuration changed
+      if (dataChanged) {
+        // Trigger auto-save only if data actually changed
+        if (mode === "edit" && isValid) {
+          const config = buildMonitorConfig();
+          if (config) {
+            triggerSave(config);
+          }
         }
+
+        // Update the ref for next comparison
+        previousDataRef.current = currentDataString;
       }
     }
   }, [
@@ -189,19 +219,16 @@ export function MonitorFlowEditor({
         openNodeEditor(nodeId);
         setSelectedNodeType(null);
       }
-      selectNode(null);
     },
-    [selectedNodeType, canvasRef, addNode, selectNode, openNodeEditor],
+    [selectedNodeType, canvasRef, addNode, openNodeEditor],
   );
 
-  // Handle node click
-  const handleNodeClick = useCallback(
-    (event: React.MouseEvent, node: Node) => {
-      event.stopPropagation();
-      selectNode(node.id);
-    },
-    [selectNode],
-  );
+  // Handle node click - simplified since ReactFlow handles selection
+  const handleNodeClick = useCallback((event: React.MouseEvent, node: Node) => {
+    event.stopPropagation();
+    // ReactFlow will handle selection internally
+    console.log("Node clicked:", node.id);
+  }, []);
 
   // Handle node double-click for editing
   const handleNodeDoubleClick = useCallback(
@@ -212,13 +239,34 @@ export function MonitorFlowEditor({
     [openNodeEditor],
   );
 
-  // Handle keyboard shortcuts
+  // Handle selection changes from ReactFlow
+  const handleSelectionChange = useCallback(
+    ({ nodes: selectedNodes }: { nodes: Node[]; edges: Edge[] }) => {
+      // Update our custom selectedNodeId state based on ReactFlow's selection
+      if (selectedNodes.length > 0) {
+        selectNode(selectedNodes[0].id);
+        console.log("Selection changed - node selected:", selectedNodes[0].id);
+      } else {
+        selectNode(null);
+        console.log("Selection cleared");
+      }
+    },
+    [selectNode],
+  );
+
+  // Handle node deletion
+  const handleDeleteNode = useCallback(() => {
+    if (selectedNodeId) {
+      deleteNode(selectedNodeId);
+      toast.success("Node deleted");
+      selectNode(null);
+    }
+  }, [selectedNodeId, deleteNode, selectNode]);
+
+  // Handle keyboard shortcuts for non-delete keys
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
-      if (event.key === "Delete" && selectedNodeId) {
-        deleteNode(selectedNodeId);
-        toast.success("Node deleted");
-      }
+      // ReactFlow handles Delete key now, we only handle other shortcuts
       if (event.key === "Enter" && selectedNodeId) {
         openNodeEditor(selectedNodeId);
       }
@@ -226,7 +274,7 @@ export function MonitorFlowEditor({
         closeNodeEditor();
       }
     },
-    [selectedNodeId, deleteNode, openNodeEditor, drawerOpen, closeNodeEditor],
+    [selectedNodeId, openNodeEditor, drawerOpen, closeNodeEditor],
   );
 
   useEffect(() => {
@@ -378,6 +426,7 @@ export function MonitorFlowEditor({
             onNodeClick={handleNodeClick}
             onNodeDoubleClick={handleNodeDoubleClick}
             onPaneClick={handlePaneClick}
+            onSelectionChange={handleSelectionChange}
             isValidConnection={isValidConnection}
             isInteractive={!isReadOnly}
             fitView={true}
@@ -392,6 +441,22 @@ export function MonitorFlowEditor({
                   selectedType={selectedNodeType}
                   onSelectType={setSelectedNodeType}
                 />
+              </Panel>
+            )}
+
+            {/* Delete Button - shows when a node is selected */}
+            {!isReadOnly && selectedNodeId && (
+              <Panel position="top-right" className="m-2">
+                <Button
+                  variant="destructive"
+                  size="sm"
+                  onClick={handleDeleteNode}
+                  className="shadow-lg"
+                  title="Delete selected node (or press Delete key)"
+                >
+                  <Trash2 className="h-4 w-4 mr-1" />
+                  Delete Node
+                </Button>
               </Panel>
             )}
           </MonitorFlowCanvas>

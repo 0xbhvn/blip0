@@ -15,6 +15,7 @@ import {
   OnNodesChange,
   OnEdgesChange,
   NodeMouseHandler,
+  OnSelectionChangeFunc,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { NodeType } from "@/lib/types/nodeEditor";
@@ -48,6 +49,7 @@ export interface MonitorFlowCanvasProps {
   onNodeClick?: NodeMouseHandler;
   onNodeDoubleClick?: NodeMouseHandler;
   onPaneClick?: (event: React.MouseEvent) => void;
+  onSelectionChange?: OnSelectionChangeFunc;
   isValidConnection?: (connection: Edge | Connection) => boolean;
   isInteractive?: boolean;
   fitView?: boolean;
@@ -71,6 +73,7 @@ export function MonitorFlowCanvas({
   onNodeClick,
   onNodeDoubleClick,
   onPaneClick,
+  onSelectionChange,
   isValidConnection,
   isInteractive = true,
   fitView: shouldFitView = true,
@@ -158,11 +161,12 @@ export function MonitorFlowCanvas({
         onNodeClick={onNodeClick}
         onNodeDoubleClick={onNodeDoubleClick}
         onPaneClick={onPaneClick}
+        onSelectionChange={onSelectionChange}
         nodeTypes={nodeTypes}
         isValidConnection={isValidConnection}
         onInit={onInit}
         fitView={shouldFitView}
-        deleteKeyCode={isInteractive ? null : ""} // Disable delete in read-only mode
+        deleteKeyCode={isInteractive ? "Delete" : ""} // Enable default delete key behavior
         multiSelectionKeyCode={isInteractive ? "Shift" : null}
         panOnScroll
         selectionOnDrag={isInteractive}
