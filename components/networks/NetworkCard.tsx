@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Pencil, Trash2, Globe, Cpu, Eye } from "lucide-react";
 import { NetworkResponse } from "@/lib/types";
-import { useNetworkMutations } from "@/hooks/useNetworks";
+import { useNetworkMutations } from "@/hooks";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 

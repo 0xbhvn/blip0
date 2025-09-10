@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useMemo } from "react";
-import { useNodeEditorOptimized } from "./useNodeEditorOptimized";
+import { useNodeEditor } from "./useNodeEditor";
 
 /**
  * Custom hook that provides debounced validation for the node editor.
@@ -15,8 +15,7 @@ export function useDebouncedValidation(delay: number = 1000) {
   const [isValidating, setIsValidating] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const { nodes, edges, monitorName, validateConfiguration } =
-    useNodeEditorOptimized();
+  const { nodes, edges, monitorName, validateConfiguration } = useNodeEditor();
 
   // Use individual dependencies instead of JSON.stringify for better performance
   // This avoids expensive serialization on every render

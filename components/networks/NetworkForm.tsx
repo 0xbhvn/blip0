@@ -20,7 +20,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useNetworkMutations } from "@/hooks/useNetworks";
+import { useNetworkMutations } from "@/hooks";
 import { NetworkCreateInput } from "@/lib/types";
 import { DEFAULT_NETWORK } from "@/lib/constants";
 import { Id } from "@/convex/_generated/dataModel";

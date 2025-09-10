@@ -1,6 +1,7 @@
 "use client";
 
 import { create } from "zustand";
+import { subscribeWithSelector } from "zustand/middleware";
 import {
   Edge,
   Connection,
@@ -28,6 +29,10 @@ import {
 import { MonitorCreateInput } from "@/lib/types/monitors";
 import { toast } from "sonner";
 
+interface ValidationErrors {
+  [key: string]: string[];
+}
+
 interface NodeEditorState {
   // Core state
   nodes: EditorNode[];
@@ -43,8 +48,8 @@ interface NodeEditorState {
   editingNodeId: string | null;
   contextMenuPosition: XYPosition | null;
 
-  // Validation state
-  validationErrors: Map<string, string[]>;
+  // Validation state - using plain object instead of Map for better React integration
+  validationErrors: ValidationErrors;
   isValidConfiguration: boolean;
 
   // Actions
@@ -197,356 +202,361 @@ function validateNodeData(node: EditorNode): string[] {
   return errors;
 }
 
-export const useNodeEditor = create<NodeEditorState>((set, get) => ({
-  nodes: [],
-  edges: [],
-  monitorName: "",
-  monitorActive: true,
-  selectedNodeId: null,
-  drawerOpen: false,
-  editingNodeId: null,
-  contextMenuPosition: null,
-  validationErrors: new Map(),
-  isValidConfiguration: false,
+export const useNodeEditor = create<NodeEditorState>()(
+  subscribeWithSelector((set, get) => ({
+    nodes: [],
+    edges: [],
+    monitorName: "",
+    monitorActive: true,
+    selectedNodeId: null,
+    drawerOpen: false,
+    editingNodeId: null,
+    contextMenuPosition: null,
+    validationErrors: {},
+    isValidConfiguration: false,
 
-  addNode: (type: NodeType, position: XYPosition) => {
-    const nodeId = `${type}-${Date.now()}`;
-    const newNode: EditorNode = {
-      id: nodeId,
-      type,
-      position,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      data: createNodeData(type) as any,
-    };
+    addNode: (type: NodeType, position: XYPosition) => {
+      const nodeId = `${type}-${Date.now()}`;
+      const newNode: EditorNode = {
+        id: nodeId,
+        type,
+        position,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        data: createNodeData(type) as any,
+      };
 
-    set((state) => ({
-      nodes: [...state.nodes, newNode],
-    }));
+      set((state) => ({
+        nodes: [...state.nodes, newNode],
+      }));
 
-    return nodeId;
-  },
+      return nodeId;
+    },
 
-  updateNode: (nodeId: string, data: Record<string, unknown>) => {
-    set((state) => ({
-      nodes: state.nodes.map((node) =>
-        node.id === nodeId
-          ? { ...node, data: { ...node.data, ...data } }
-          : node,
-      ),
-    }));
-    // No automatic validation - only validate on save to prevent performance issues
-  },
+    updateNode: (nodeId: string, data: Record<string, unknown>) => {
+      set((state) => ({
+        nodes: state.nodes.map((node) =>
+          node.id === nodeId
+            ? { ...node, data: { ...node.data, ...data } }
+            : node,
+        ),
+      }));
+    },
 
-  deleteNode: (nodeId: string) => {
-    set((state) => ({
-      nodes: state.nodes.filter((n) => n.id !== nodeId),
-      edges: state.edges.filter(
-        (e) => e.source !== nodeId && e.target !== nodeId,
-      ),
-    }));
-  },
+    deleteNode: (nodeId: string) => {
+      set((state) => ({
+        nodes: state.nodes.filter((n) => n.id !== nodeId),
+        edges: state.edges.filter(
+          (e) => e.source !== nodeId && e.target !== nodeId,
+        ),
+      }));
+    },
 
-  setMonitorName: (name: string) => {
-    set({ monitorName: name });
-  },
+    setMonitorName: (name: string) => {
+      set({ monitorName: name });
+    },
 
-  setMonitorActive: (active: boolean) => {
-    set({ monitorActive: active });
-  },
+    setMonitorActive: (active: boolean) => {
+      set({ monitorActive: active });
+    },
 
-  onNodesChange: (changes) => {
-    set((state) => ({
-      nodes: applyNodeChanges(changes, state.nodes) as EditorNode[],
-    }));
-  },
+    onNodesChange: (changes) => {
+      set((state) => ({
+        nodes: applyNodeChanges(changes, state.nodes) as EditorNode[],
+      }));
+    },
 
-  onEdgesChange: (changes) => {
-    set((state) => ({
-      edges: applyEdgeChanges(changes, state.edges),
-    }));
-  },
+    onEdgesChange: (changes) => {
+      set((state) => ({
+        edges: applyEdgeChanges(changes, state.edges),
+      }));
+    },
 
-  onConnect: (connection: Connection) => {
-    const { source, target } = connection;
-    if (!source || !target) return;
+    onConnect: (connection: Connection) => {
+      const { source, target } = connection;
+      if (!source || !target) return;
 
-    // Validate connection with detailed feedback
-    const state = get();
-    const sourceNode = state.nodes.find((n) => n.id === source);
-    const targetNode = state.nodes.find((n) => n.id === target);
+      // Validate connection with detailed feedback
+      const state = get();
+      const sourceNode = state.nodes.find((n) => n.id === source);
+      const targetNode = state.nodes.find((n) => n.id === target);
 
-    if (!sourceNode || !targetNode) {
-      return;
-    }
-
-    const sourceRules = CONNECTION_RULES[sourceNode.type as NodeType];
-    const targetRules = CONNECTION_RULES[targetNode.type as NodeType];
-
-    // Check if connection is allowed
-    if (!sourceRules.targetTypes.includes(targetNode.type as NodeType)) {
-      toast.error(
-        `Cannot connect ${sourceNode.data.label} to ${targetNode.data.label}`,
-      );
-      return;
-    }
-
-    // Check max connections
-    if (targetRules.maxConnections) {
-      const existingConnections = state.edges.filter(
-        (e) => e.target === target,
-      ).length;
-      if (existingConnections >= targetRules.maxConnections) {
-        toast.error(`${targetNode.data.label} already has maximum connections`);
+      if (!sourceNode || !targetNode) {
         return;
       }
-    }
 
-    // Check for duplicate connections
-    const isDuplicate = state.edges.some(
-      (e) => e.source === source && e.target === target,
-    );
-    if (isDuplicate) {
-      toast.warning("This connection already exists");
-      return;
-    }
+      const sourceRules = CONNECTION_RULES[sourceNode.type as NodeType];
+      const targetRules = CONNECTION_RULES[targetNode.type as NodeType];
 
-    // Add the connection
-    set((state) => ({
-      edges: addEdge(
-        {
-          ...connection,
-          type: "smoothstep",
-          animated: true,
-        },
-        state.edges,
-      ),
-    }));
+      // Check if connection is allowed
+      if (!sourceRules.targetTypes.includes(targetNode.type as NodeType)) {
+        toast.error(
+          `Cannot connect ${sourceNode.data.label} to ${targetNode.data.label}`,
+        );
+        return;
+      }
 
-    // Success feedback
-    toast.success(
-      `Connected ${sourceNode.data.label} to ${targetNode.data.label}`,
-    );
-  },
+      // Check max connections
+      if (targetRules.maxConnections) {
+        const existingConnections = state.edges.filter(
+          (e) => e.target === target,
+        ).length;
+        if (existingConnections >= targetRules.maxConnections) {
+          toast.error(
+            `${targetNode.data.label} already has maximum connections`,
+          );
+          return;
+        }
+      }
 
-  validateConnection: (sourceId: string, targetId: string) => {
-    const state = get();
-    const sourceNode = state.nodes.find((n) => n.id === sourceId);
-    const targetNode = state.nodes.find((n) => n.id === targetId);
+      // Check for duplicate connections
+      const isDuplicate = state.edges.some(
+        (e) => e.source === source && e.target === target,
+      );
+      if (isDuplicate) {
+        toast.warning("This connection already exists");
+        return;
+      }
 
-    if (!sourceNode || !targetNode) return false;
+      // Add the connection
+      set((state) => ({
+        edges: addEdge(
+          {
+            ...connection,
+            type: "smoothstep",
+            animated: true,
+          },
+          state.edges,
+        ),
+      }));
 
-    const sourceRules = CONNECTION_RULES[sourceNode.type as NodeType];
-    const targetRules = CONNECTION_RULES[targetNode.type as NodeType];
+      // Success feedback
+      toast.success(
+        `Connected ${sourceNode.data.label} to ${targetNode.data.label}`,
+      );
+    },
 
-    // Check if connection is allowed
-    if (!sourceRules.targetTypes.includes(targetNode.type as NodeType)) {
-      return false;
-    }
+    validateConnection: (sourceId: string, targetId: string) => {
+      const state = get();
+      const sourceNode = state.nodes.find((n) => n.id === sourceId);
+      const targetNode = state.nodes.find((n) => n.id === targetId);
 
-    // Check max connections
-    if (targetRules.maxConnections) {
-      const existingConnections = state.edges.filter(
-        (e) => e.target === targetId,
-      ).length;
-      if (existingConnections >= targetRules.maxConnections) {
+      if (!sourceNode || !targetNode) return false;
+
+      const sourceRules = CONNECTION_RULES[sourceNode.type as NodeType];
+      const targetRules = CONNECTION_RULES[targetNode.type as NodeType];
+
+      // Check if connection is allowed
+      if (!sourceRules.targetTypes.includes(targetNode.type as NodeType)) {
         return false;
       }
-    }
 
-    // Prevent duplicate connections
-    const isDuplicate = state.edges.some(
-      (e) => e.source === sourceId && e.target === targetId,
-    );
-    if (isDuplicate) {
-      return false;
-    }
+      // Check max connections
+      if (targetRules.maxConnections) {
+        const existingConnections = state.edges.filter(
+          (e) => e.target === targetId,
+        ).length;
+        if (existingConnections >= targetRules.maxConnections) {
+          return false;
+        }
+      }
 
-    return true;
-  },
+      // Prevent duplicate connections
+      const isDuplicate = state.edges.some(
+        (e) => e.source === sourceId && e.target === targetId,
+      );
+      if (isDuplicate) {
+        return false;
+      }
 
-  validateConfiguration: () => {
-    const state = get();
-    const errors = new Map<string, string[]>();
-    let isValid = true;
+      return true;
+    },
 
-    // Check for required metadata
-    if (!state.monitorName || state.monitorName.trim().length === 0) {
-      errors.set("global", [
-        ...(errors.get("global") || []),
-        "Monitor name is required",
-      ]);
-      isValid = false;
-    }
+    validateConfiguration: () => {
+      const state = get();
+      const errors: ValidationErrors = {};
+      let isValid = true;
 
-    // Check for required nodes
-    const hasNetwork = state.nodes.some((n) => n.type === NodeType.NETWORK);
-    const hasCondition = state.nodes.some(
-      (n) =>
-        n.type === NodeType.EVENT_CONDITION ||
-        n.type === NodeType.FUNCTION_CONDITION ||
-        n.type === NodeType.TRANSACTION_CONDITION,
-    );
-    const hasAction = state.nodes.some(
-      (n) => n.type === NodeType.TRIGGER || n.type === NodeType.NOTIFICATION,
-    );
-
-    if (!hasNetwork) {
-      errors.set("global", [
-        ...(errors.get("global") || []),
-        "At least one network is required",
-      ]);
-      isValid = false;
-    }
-
-    if (!hasCondition) {
-      errors.set("global", [
-        ...(errors.get("global") || []),
-        "At least one condition is required",
-      ]);
-      isValid = false;
-    }
-
-    if (!hasAction) {
-      errors.set("global", [
-        ...(errors.get("global") || []),
-        "At least one action (trigger or notification) is required",
-      ]);
-      isValid = false;
-    }
-
-    // Validate individual nodes
-    state.nodes.forEach((node) => {
-      const nodeErrors = validateNodeData(node);
-      if (nodeErrors.length > 0) {
-        errors.set(node.id, nodeErrors);
+      // Check for required metadata
+      const globalErrors: string[] = [];
+      if (!state.monitorName || state.monitorName.trim().length === 0) {
+        globalErrors.push("Monitor name is required");
         isValid = false;
       }
-    });
 
-    // Always update state with validation results
-    // The performance issue was from calling this too frequently, not from the update itself
-    set({
-      validationErrors: errors,
-      isValidConfiguration: isValid,
-    });
+      // Check for required nodes
+      const hasNetwork = state.nodes.some((n) => n.type === NodeType.NETWORK);
+      const hasCondition = state.nodes.some(
+        (n) =>
+          n.type === NodeType.EVENT_CONDITION ||
+          n.type === NodeType.FUNCTION_CONDITION ||
+          n.type === NodeType.TRANSACTION_CONDITION,
+      );
+      const hasAction = state.nodes.some(
+        (n) => n.type === NodeType.TRIGGER || n.type === NodeType.NOTIFICATION,
+      );
 
-    return isValid;
-  },
-
-  selectNode: (nodeId: string | null) => {
-    set({ selectedNodeId: nodeId });
-  },
-
-  openNodeEditor: (nodeId: string) => {
-    set({
-      editingNodeId: nodeId,
-      drawerOpen: true,
-    });
-  },
-
-  closeNodeEditor: () => {
-    set({
-      editingNodeId: null,
-      drawerOpen: false,
-    });
-  },
-
-  buildMonitorConfig: () => {
-    const state = get();
-    if (!state.validateConfiguration()) return null;
-
-    // Build configuration from nodes
-    const config: MonitorCreateInput = {
-      name: state.monitorName,
-      paused: !state.monitorActive,
-      networks: [],
-      addresses: [],
-      match_conditions: {
-        events: [],
-        functions: [],
-        transactions: [],
-      },
-      trigger_conditions: [],
-      triggers: [],
-    };
-
-    // Process each node
-    state.nodes.forEach((node) => {
-      switch (node.type) {
-        case NodeType.NETWORK:
-          const networkData = node.data as NetworkNodeData;
-          if (
-            networkData.networkSlug &&
-            !config.networks.includes(networkData.networkSlug)
-          ) {
-            config.networks.push(networkData.networkSlug);
-          }
-          break;
-
-        case NodeType.ADDRESS:
-          const addressData = node.data as AddressNodeData;
-          if (addressData.address) {
-            config.addresses.push({
-              address: addressData.address,
-              contract_spec: addressData.contractSpec,
-            });
-          }
-          break;
-
-        case NodeType.EVENT_CONDITION:
-          const eventData = node.data as EventConditionNodeData;
-          if (eventData.signature) {
-            config.match_conditions.events?.push({
-              signature: eventData.signature,
-              expression: eventData.expression || null,
-            });
-          }
-          break;
-
-        case NodeType.FUNCTION_CONDITION:
-          const functionData = node.data as FunctionConditionNodeData;
-          if (functionData.signature) {
-            config.match_conditions.functions?.push({
-              signature: functionData.signature,
-              expression: functionData.expression || null,
-            });
-          }
-          break;
-
-        case NodeType.TRANSACTION_CONDITION:
-          const txData = node.data as TransactionConditionNodeData;
-          config.match_conditions.transactions?.push({
-            status: txData.status,
-            expression: txData.expression || null,
-          });
-          break;
-
-        case NodeType.TRIGGER:
-          const triggerData = node.data as TriggerNodeData;
-          if (triggerData.triggerId) {
-            config.triggers.push(triggerData.triggerId);
-          }
-          break;
-
-        case NodeType.NOTIFICATION:
-          // Notification nodes would be handled here if they affect the config
-          // Currently notifications might be handled separately
-          break;
+      if (!hasNetwork) {
+        globalErrors.push("At least one network is required");
+        isValid = false;
       }
-    });
 
-    return config;
-  },
+      if (!hasCondition) {
+        globalErrors.push("At least one condition is required");
+        isValid = false;
+      }
 
-  clearCanvas: () => {
-    set({
-      nodes: [],
-      edges: [],
-      selectedNodeId: null,
-      editingNodeId: null,
-      validationErrors: new Map(),
-      isValidConfiguration: false,
-      // Keep monitor name and status when clearing canvas
-    });
-  },
-}));
+      if (!hasAction) {
+        globalErrors.push(
+          "At least one action (trigger or notification) is required",
+        );
+        isValid = false;
+      }
+
+      if (globalErrors.length > 0) {
+        errors.global = globalErrors;
+      }
+
+      // Validate individual nodes
+      state.nodes.forEach((node) => {
+        const nodeErrors = validateNodeData(node);
+        if (nodeErrors.length > 0) {
+          errors[node.id] = nodeErrors;
+          isValid = false;
+        }
+      });
+
+      set({
+        validationErrors: errors,
+        isValidConfiguration: isValid,
+      });
+
+      return isValid;
+    },
+
+    selectNode: (nodeId: string | null) => {
+      set({ selectedNodeId: nodeId });
+    },
+
+    openNodeEditor: (nodeId: string) => {
+      set({
+        editingNodeId: nodeId,
+        drawerOpen: true,
+      });
+    },
+
+    closeNodeEditor: () => {
+      set({
+        editingNodeId: null,
+        drawerOpen: false,
+      });
+    },
+
+    buildMonitorConfig: () => {
+      const state = get();
+      if (!state.validateConfiguration()) return null;
+
+      // Build configuration from nodes
+      const config: MonitorCreateInput = {
+        name: state.monitorName,
+        paused: !state.monitorActive,
+        networks: [],
+        addresses: [],
+        match_conditions: {
+          events: [],
+          functions: [],
+          transactions: [],
+        },
+        trigger_conditions: [],
+        triggers: [],
+      };
+
+      // Process each node
+      state.nodes.forEach((node) => {
+        switch (node.type) {
+          case NodeType.NETWORK:
+            const networkData = node.data as NetworkNodeData;
+            if (
+              networkData.networkSlug &&
+              !config.networks.includes(networkData.networkSlug)
+            ) {
+              config.networks.push(networkData.networkSlug);
+            }
+            break;
+
+          case NodeType.ADDRESS:
+            const addressData = node.data as AddressNodeData;
+            if (addressData.address) {
+              config.addresses.push({
+                address: addressData.address,
+                contract_spec: addressData.contractSpec,
+              });
+            }
+            break;
+
+          case NodeType.EVENT_CONDITION:
+            const eventData = node.data as EventConditionNodeData;
+            if (eventData.signature && config.match_conditions?.events) {
+              config.match_conditions.events.push({
+                signature: eventData.signature,
+                expression: eventData.expression,
+              });
+            }
+            break;
+
+          case NodeType.FUNCTION_CONDITION:
+            const functionData = node.data as FunctionConditionNodeData;
+            if (functionData.signature && config.match_conditions?.functions) {
+              config.match_conditions.functions.push({
+                signature: functionData.signature,
+                expression: functionData.expression,
+              });
+            }
+            break;
+
+          case NodeType.TRANSACTION_CONDITION:
+            const transactionData = node.data as TransactionConditionNodeData;
+            if (config.match_conditions?.transactions) {
+              config.match_conditions.transactions.push({
+                status: transactionData.status,
+                expression: transactionData.expression,
+              });
+            }
+            break;
+
+          case NodeType.TRIGGER:
+            const triggerData = node.data as TriggerNodeData;
+            if (triggerData.triggerId) {
+              // triggers array expects strings (trigger IDs)
+              const triggerId = triggerData.triggerId;
+
+              // Check if trigger already exists
+              const exists = config.triggers.includes(triggerId);
+              if (!exists) {
+                config.triggers.push(triggerId);
+              }
+            }
+            break;
+
+          case NodeType.NOTIFICATION:
+            // Handle notification configuration
+            // This would be processed based on the notification type
+            break;
+        }
+      });
+
+      return config;
+    },
+
+    clearCanvas: () => {
+      set({
+        nodes: [],
+        edges: [],
+        selectedNodeId: null,
+        editingNodeId: null,
+        drawerOpen: false,
+        validationErrors: {},
+        isValidConfiguration: false,
+      });
+    },
+  })),
+);

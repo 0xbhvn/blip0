@@ -2,7 +2,7 @@
 
 import { NetworkCard } from "./NetworkCard";
 import { NetworkEmptyState } from "./NetworkEmptyState";
-import { useNetworks } from "@/hooks/useNetworks";
+import { useNetworks } from "@/hooks";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export function NetworkList() {

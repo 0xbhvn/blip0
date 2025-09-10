@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { NetworkList } from "@/components/networks";
-import { useNetworks } from "@/hooks/useNetworks";
+import { useNetworks } from "@/hooks";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
 

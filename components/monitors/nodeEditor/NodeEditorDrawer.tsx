@@ -19,8 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useNodeEditorOptimized } from "@/hooks/useNodeEditorOptimized";
-import { useNetworks } from "@/hooks/useNetworks";
+import { useNodeEditor, useNetworks } from "@/hooks";
 import { NodeType } from "@/lib/types/nodeEditor";
 import { TRIGGER_TYPES } from "@/lib/constants";
 import { toast } from "sonner";
@@ -36,7 +35,7 @@ export function NodeEditorDrawer({
   open,
   onClose,
 }: NodeEditorDrawerProps) {
-  const { nodes, updateNode } = useNodeEditorOptimized();
+  const { nodes, updateNode } = useNodeEditor();
   const { networks } = useNetworks();
   const [formData, setFormData] = useState<Record<string, unknown>>({});
 

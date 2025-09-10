@@ -20,7 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useMonitorFlow } from "@/hooks/useMonitorFlow";
+import { useMonitorFlow } from "@/hooks";
 import { Id } from "@/convex/_generated/dataModel";
 import NetworkNode from "./NetworkNode";
 import MonitorNode from "./MonitorNode";

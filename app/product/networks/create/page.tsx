@@ -1,7 +1,7 @@
 "use client";
 
 import { NetworkForm } from "@/components/networks";
-import { useNetworks } from "@/hooks/useNetworks";
+import { useNetworks } from "@/hooks";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 

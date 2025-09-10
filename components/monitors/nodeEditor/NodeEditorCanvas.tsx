@@ -12,8 +12,7 @@ import {
   Node,
   Edge,
 } from "@xyflow/react";
-import { useNodeEditorOptimized } from "@/hooks/useNodeEditorOptimized";
-import { useDebouncedValidation } from "@/hooks/useDebouncedValidation";
+import { useNodeEditor, useDebouncedValidation } from "@/hooks";
 import { NodeType } from "@/lib/types/nodeEditor";
 import { MonitorCreateInput } from "@/lib/types/monitors";
 import { NodeTypePalette } from "./NodeTypePalette";
@@ -80,7 +79,7 @@ export function NodeEditorCanvas({ onSave }: NodeEditorCanvasProps) {
     clearCanvas,
     buildMonitorConfig,
     validationErrors,
-  } = useNodeEditorOptimized();
+  } = useNodeEditor();
 
   // Validation is now handled by useDebouncedValidation hook
   // This prevents unnecessary re-renders and performance issues

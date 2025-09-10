@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { useNetwork, useNetworks } from "@/hooks/useNetworks";
+import { useNetwork, useNetworks } from "@/hooks";
 import { NetworkForm } from "@/components/networks";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";

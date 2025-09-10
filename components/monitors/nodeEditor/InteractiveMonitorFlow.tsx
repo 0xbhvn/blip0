@@ -5,7 +5,7 @@ import { ReactFlowProvider } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { NodeEditorCanvas } from "./NodeEditorCanvas";
 import { useRouter } from "next/navigation";
-import { useMonitorMutations } from "@/hooks/useMonitorMutations";
+import { useMonitorNodeMutations } from "@/hooks";
 import { MonitorCreateInput } from "@/lib/types/monitors";
 import { toast } from "sonner";
 import { Id } from "@/convex/_generated/dataModel";
@@ -20,7 +20,7 @@ export function InteractiveMonitorFlow({
   mode = "create",
 }: InteractiveMonitorFlowProps) {
   const router = useRouter();
-  const { createMonitor, updateMonitor } = useMonitorMutations();
+  const { createMonitor, updateMonitor } = useMonitorNodeMutations();
 
   const handleSave = useCallback(
     async (config: MonitorCreateInput) => {
