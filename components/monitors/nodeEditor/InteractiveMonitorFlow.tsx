@@ -5,13 +5,13 @@ import { ReactFlowProvider } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { NodeEditorCanvas } from "./NodeEditorCanvas";
 import { useRouter } from "next/navigation";
-import { useMonitorNodeMutations } from "@/hooks";
+import { useMonitorMutations } from "@/hooks";
 import { MonitorCreateInput } from "@/lib/types/monitors";
 import { toast } from "sonner";
 import { Id } from "@/convex/_generated/dataModel";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { generateFlowFromMonitor } from "@/lib/utils/monitorFlowGenerator";
+import { generateFlowFromMonitor } from "@/lib/helpers/monitorFlowGenerator";
 
 interface InteractiveMonitorFlowProps {
   monitorId?: Id<"monitors">;
@@ -23,7 +23,7 @@ export function InteractiveMonitorFlow({
   mode = "create",
 }: InteractiveMonitorFlowProps) {
   const router = useRouter();
-  const { createMonitor, updateMonitor } = useMonitorNodeMutations();
+  const { createMonitor, updateMonitor } = useMonitorMutations();
 
   // Load existing monitor data if in edit mode
   const monitor = useQuery(
