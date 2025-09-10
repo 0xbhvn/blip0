@@ -1,21 +1,16 @@
 "use client";
 
-import { useState } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useMemo } from "react";
 import { MonitorResponse } from "@/lib/types";
 import { Id } from "@/convex/_generated/dataModel";
-import {
-  MonitorDetailHeader,
-  MonitorDetailCard,
-  MonitorNetworks,
-  MonitorAddresses,
-  MonitorMatchConditions,
-  MonitorTriggerConditions,
-  MonitorTriggers,
-  MonitorMetadata,
-} from "./MonitorDetailSections";
-import { MonitorFlowViewer } from "./flow/MonitorFlowViewer";
-import { hasFlowData } from "@/lib/helpers/flowConverter";
+import { MonitorDetailHeader } from "./MonitorDetailSections";
+import { MonitorFlowEditor } from "./flow/MonitorFlowEditor";
+import { monitorToFlow, hasFlowData } from "@/lib/helpers/flowConverter";
+import { MonitorCreateInput } from "@/lib/types/monitors";
+import { useMutation } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 interface MonitorDetailViewProps {
   monitor: MonitorResponse;
@@ -26,49 +21,51 @@ export function MonitorDetailView({
   monitor,
   monitorId,
 }: MonitorDetailViewProps) {
-  const [activeTab, setActiveTab] = useState("overview");
-  const showFlowTab = hasFlowData(monitor);
+  const router = useRouter();
+  const updateMonitor = useMutation(api.monitors.update);
+
+  // Convert monitor data to flow format for the editor
+  const flowData = useMemo(() => {
+    if (!hasFlowData(monitor)) {
+      return { nodes: [], edges: [] };
+    }
+    try {
+      return monitorToFlow(monitor);
+    } catch (error) {
+      console.error("Failed to convert monitor to flow:", error);
+      return { nodes: [], edges: [] };
+    }
+  }, [monitor]);
+
+  const handleSave = async (config: MonitorCreateInput) => {
+    try {
+      await updateMonitor({
+        id: monitorId,
+        ...config,
+      });
+      toast.success("Monitor updated successfully");
+      router.refresh();
+    } catch (error) {
+      console.error("Failed to update monitor:", error);
+      toast.error("Failed to update monitor");
+    }
+  };
 
   return (
-    <div className="space-y-6">
-      <MonitorDetailHeader monitorId={monitorId} />
-
-      <Tabs value={activeTab} onValueChange={setActiveTab}>
-        <TabsList>
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          {showFlowTab && (
-            <TabsTrigger value="flow">Flow Visualization</TabsTrigger>
-          )}
-        </TabsList>
-
-        <TabsContent value="overview">
-          <MonitorDetailCard monitor={monitor}>
-            <MonitorNetworks networks={monitor.networks} />
-            <MonitorAddresses addresses={monitor.addresses} />
-            <MonitorMatchConditions
-              matchConditions={monitor.match_conditions}
-            />
-            <MonitorTriggerConditions
-              triggerConditions={monitor.trigger_conditions}
-            />
-            <MonitorTriggers triggers={monitor.triggers} />
-            <MonitorMetadata creationTime={monitor._creationTime} />
-          </MonitorDetailCard>
-        </TabsContent>
-
-        {showFlowTab && (
-          <TabsContent value="flow" className="space-y-4">
-            <div className="rounded-lg border bg-card p-6">
-              <h3 className="text-lg font-semibold mb-4">
-                Monitor Flow Visualization
-              </h3>
-              <div className="h-[600px]">
-                <MonitorFlowViewer monitor={monitor} interactive showMinimap />
-              </div>
-            </div>
-          </TabsContent>
-        )}
-      </Tabs>
+    <div className="flex flex-col h-[calc(100vh-4rem)]">
+      <div className="pb-4">
+        <MonitorDetailHeader monitorId={monitorId} />
+      </div>
+      <div className="flex-1">
+        <MonitorFlowEditor
+          mode="edit"
+          monitorId={monitorId}
+          initialData={flowData}
+          initialMonitorName={monitor.name}
+          initialMonitorActive={!monitor.paused}
+          onSave={handleSave}
+        />
+      </div>
     </div>
   );
 }

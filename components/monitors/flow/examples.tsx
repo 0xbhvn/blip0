@@ -24,18 +24,9 @@ export function CreateMonitorExample() {
     // Your actual save logic here
   };
 
-  const handleCancel = () => {
-    console.log("Cancelled monitor creation");
-    // Your cancel logic here
-  };
-
   return (
     <div className="h-screen">
-      <MonitorFlowEditor
-        mode="create"
-        onSave={handleSave}
-        onCancel={handleCancel}
-      />
+      <MonitorFlowEditor mode="create" onSave={handleSave} />
     </div>
   );
 }
@@ -50,11 +41,6 @@ export function EditMonitorExample({ monitor }: { monitor: Monitor }) {
     // Your actual update logic here
   };
 
-  const handleCancel = () => {
-    console.log("Cancelled monitor edit");
-    // Your cancel logic here
-  };
-
   // Convert monitor to flow data
   const flowData = monitorToFlow(monitor);
 
@@ -66,7 +52,6 @@ export function EditMonitorExample({ monitor }: { monitor: Monitor }) {
         initialMonitorName={monitor.name}
         initialMonitorActive={!monitor.paused}
         onSave={handleSave}
-        onCancel={handleCancel}
       />
     </div>
   );

@@ -16,3 +16,5 @@ export {
 // Node editor hooks
 export { useNodeEditor } from "./useNodeEditor";
 export { useDebouncedValidation } from "./useDebouncedValidation";
+export { useAutoSave } from "./useAutoSave";
+export { useHistory } from "./useHistory";

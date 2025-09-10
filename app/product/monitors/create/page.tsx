@@ -23,10 +23,6 @@ export default function CreateMonitorPage() {
     }
   };
 
-  const handleCancel = () => {
-    router.push("/product/monitors");
-  };
-
   return (
     <div className="flex flex-col h-[calc(100vh-4rem)]">
       <div className="px-6 pt-6 pb-4">
@@ -36,11 +32,7 @@ export default function CreateMonitorPage() {
         />
       </div>
       <div className="flex-1 px-6 pb-6">
-        <MonitorFlowEditor
-          mode="create"
-          onSave={handleSave}
-          onCancel={handleCancel}
-        />
+        <MonitorFlowEditor mode="create" onSave={handleSave} />
       </div>
     </div>
   );

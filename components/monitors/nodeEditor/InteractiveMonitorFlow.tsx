@@ -61,10 +61,6 @@ export function InteractiveMonitorFlow({
     [mode, monitorId, createMonitor, updateMonitor, router],
   );
 
-  const handleCancel = useCallback(() => {
-    router.push("/product/monitors/my");
-  }, [router]);
-
   // Generate initial flow data from monitor if in edit mode
   const initialFlowData = React.useMemo(() => {
     if (mode === "edit" && monitor) {
@@ -80,7 +76,6 @@ export function InteractiveMonitorFlow({
         initialMonitorName={monitor?.name}
         initialMonitorActive={!monitor?.paused}
         onSave={handleSave}
-        onCancel={handleCancel}
         mode={mode}
       />
     </div>

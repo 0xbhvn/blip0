@@ -6,13 +6,15 @@ import { MonitorFlowCanvas } from "./MonitorFlowCanvas";
 import { NodeTypePalette } from "../nodeEditor/NodeTypePalette";
 import { NodeEditorDrawer } from "../nodeEditor/NodeEditorDrawer";
 import { useNodeEditor, useDebouncedValidation } from "@/hooks";
+import { useAutoSave } from "@/hooks/useAutoSave";
+import { useHistory } from "@/hooks/useHistory";
 import { NodeType, EditorNode } from "@/lib/types/nodeEditor";
 import { MonitorCreateInput } from "@/lib/types/monitors";
-import { Button } from "@/components/ui/button";
+import { FloatingActionBar } from "./FloatingActionBar";
+import { EditModeIndicator } from "./EditModeIndicator";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { Trash2, Save } from "lucide-react";
 import { toast } from "sonner";
 import { Node, Edge, Connection } from "@xyflow/react";
 
@@ -24,9 +26,15 @@ export interface MonitorFlowEditorProps {
   initialMonitorName?: string;
   initialMonitorActive?: boolean;
   onSave?: (config: MonitorCreateInput) => void;
-  onCancel?: () => void;
   mode?: "create" | "edit";
   monitorId?: string;
+}
+
+interface FlowHistoryState {
+  nodes: EditorNode[];
+  edges: Edge[];
+  monitorName: string;
+  monitorActive: boolean;
 }
 
 /**
@@ -38,13 +46,14 @@ export function MonitorFlowEditor({
   initialMonitorName,
   initialMonitorActive,
   onSave,
-  onCancel,
   mode = "create",
 }: MonitorFlowEditorProps) {
   const [selectedNodeType, setSelectedNodeType] = useState<NodeType | null>(
     null,
   );
   const [canvasRef, setCanvasRef] = useState<HTMLDivElement | null>(null);
+  const [isReadOnly, setIsReadOnly] = useState(false);
+  const [isHistoryAction, setIsHistoryAction] = useState(false);
 
   // Use debounced validation for performance
   const { isValid, validateNow } = useDebouncedValidation(1000);
@@ -74,6 +83,53 @@ export function MonitorFlowEditor({
     initializeFromFlow,
   } = useNodeEditor();
 
+  // History management for undo/redo
+  const {
+    setState: setHistoryState,
+    undo,
+    redo,
+    canUndo,
+    canRedo,
+    clearHistory,
+  } = useHistory<FlowHistoryState>(
+    { nodes: [], edges: [], monitorName: "", monitorActive: true },
+    {
+      onStateChange: useCallback(
+        (newState: FlowHistoryState) => {
+          // Only apply state from history during actual undo/redo actions
+          if (newState && isHistoryAction) {
+            setTimeout(() => {
+              initializeFromFlow(
+                newState.nodes,
+                newState.edges,
+                newState.monitorName,
+                newState.monitorActive,
+              );
+              setIsHistoryAction(false);
+            }, 0);
+          }
+        },
+        [initializeFromFlow, isHistoryAction],
+      ),
+    },
+  );
+
+  // Auto-save functionality
+  const { saveStatus, lastSaved, triggerSave, forceSave, hasUnsavedChanges } =
+    useAutoSave({
+      onSave: async (data) => {
+        if (onSave && mode === "edit") {
+          onSave(data);
+        }
+      },
+      enabled: mode === "edit" && !isReadOnly,
+      debounceMs: 2000,
+      onError: (error) => {
+        console.error("Auto-save failed:", error);
+        toast.error("Failed to auto-save changes");
+      },
+    });
+
   // Initialize with provided data if available
   useEffect(() => {
     if (initialData) {
@@ -89,6 +145,34 @@ export function MonitorFlowEditor({
     initialMonitorName,
     initialMonitorActive,
     initializeFromFlow,
+  ]);
+
+  // Track changes for history and auto-save
+  useEffect(() => {
+    if (!isReadOnly && !isHistoryAction) {
+      // Update history state only if not from a history action
+      setHistoryState({ nodes, edges, monitorName, monitorActive });
+
+      // Trigger auto-save
+      if (mode === "edit" && isValid) {
+        const config = buildMonitorConfig();
+        if (config) {
+          triggerSave(config);
+        }
+      }
+    }
+  }, [
+    nodes,
+    edges,
+    monitorName,
+    monitorActive,
+    isReadOnly,
+    isHistoryAction,
+    mode,
+    isValid,
+    setHistoryState,
+    buildMonitorConfig,
+    triggerSave,
   ]);
 
   // Handle canvas click for adding nodes
@@ -161,8 +245,8 @@ export function MonitorFlowEditor({
     [validateConnection],
   );
 
-  // Handle save
-  const handleSave = useCallback(() => {
+  // Handle save (manual save or force save)
+  const handleSave = useCallback(async () => {
     const currentlyValid = validateNow();
     if (!currentlyValid) {
       toast.error("Please fix validation errors before saving");
@@ -170,76 +254,114 @@ export function MonitorFlowEditor({
     }
 
     const config = buildMonitorConfig();
-    if (config && onSave) {
-      onSave(config);
+    if (config) {
+      if (mode === "edit") {
+        forceSave(config);
+        toast.success("Changes saved");
+      } else if (onSave) {
+        onSave(config);
+      }
     }
-  }, [validateNow, buildMonitorConfig, onSave]);
+  }, [validateNow, buildMonitorConfig, onSave, forceSave, mode]);
 
-  // Handle clear
+  // Handle clear with better UX
   const handleClear = useCallback(() => {
-    if (
-      confirm(
-        "Are you sure you want to clear the canvas? This action cannot be undone.",
-      )
-    ) {
-      clearCanvas();
-      toast.success("Canvas cleared");
+    // No modal - use toast with undo option
+    const previousState = { nodes, edges, monitorName, monitorActive };
+    clearCanvas();
+    clearHistory();
+
+    toast.success("Canvas cleared", {
+      action: {
+        label: "Undo",
+        onClick: () => {
+          initializeFromFlow(
+            previousState.nodes,
+            previousState.edges,
+            previousState.monitorName,
+            previousState.monitorActive,
+          );
+          toast.success("Canvas restored");
+        },
+      },
+      duration: 5000,
+    });
+  }, [
+    clearCanvas,
+    clearHistory,
+    nodes,
+    edges,
+    monitorName,
+    monitorActive,
+    initializeFromFlow,
+  ]);
+
+  // Handle undo/redo
+  const handleUndo = useCallback(() => {
+    if (canUndo) {
+      setIsHistoryAction(true);
+      undo();
+      toast.success("Undone", { duration: 1000 });
     }
-  }, [clearCanvas]);
+  }, [undo, canUndo]);
+
+  const handleRedo = useCallback(() => {
+    if (canRedo) {
+      setIsHistoryAction(true);
+      redo();
+      toast.success("Redone", { duration: 1000 });
+    }
+  }, [redo, canRedo]);
+
+  // Toggle read-only mode
+  const toggleReadOnly = useCallback(() => {
+    setIsReadOnly(!isReadOnly);
+    toast.success(isReadOnly ? "Editing enabled" : "Read-only mode", {
+      duration: 2000,
+    });
+  }, [isReadOnly]);
 
   return (
     <ReactFlowProvider>
       <div className="h-full w-full flex flex-col">
-        {/* Header with monitor configuration */}
-        <div className="border-b bg-background p-4">
-          <div className="flex items-center justify-between max-w-4xl">
-            <div className="flex-1 max-w-md">
-              <Label
-                htmlFor="monitor-name"
-                className="text-sm font-medium mb-2 block"
-              >
-                Monitor Name
-              </Label>
+        {/* Simplified header - just the essentials */}
+        <div className="border-b bg-background/95 backdrop-blur-sm p-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
               <Input
                 id="monitor-name"
                 value={monitorName}
                 onChange={(e) => setMonitorName(e.target.value)}
-                placeholder="Enter monitor name..."
-                className="w-full"
+                placeholder="Monitor name..."
+                className="w-64 h-9"
+                disabled={isReadOnly}
               />
-            </div>
-            <div className="flex items-center gap-4 ml-8">
               <div className="flex items-center space-x-2">
                 <Switch
                   id="monitor-active"
                   checked={monitorActive}
                   onCheckedChange={setMonitorActive}
+                  disabled={isReadOnly}
                 />
-                <Label htmlFor="monitor-active" className="cursor-pointer">
+                <Label
+                  htmlFor="monitor-active"
+                  className="cursor-pointer text-sm"
+                >
                   {monitorActive ? "Active" : "Paused"}
                 </Label>
               </div>
-              <div className="flex gap-2">
-                <Button onClick={handleSave} size="sm" disabled={!isValid}>
-                  <Save className="h-4 w-4 mr-2" />
-                  {mode === "edit" ? "Update" : "Save"}
-                </Button>
-                <Button onClick={handleClear} size="sm" variant="outline">
-                  <Trash2 className="h-4 w-4 mr-2" />
-                  Clear
-                </Button>
-                {onCancel && (
-                  <Button onClick={onCancel} size="sm" variant="ghost">
-                    Cancel
-                  </Button>
-                )}
-              </div>
             </div>
+            <EditModeIndicator
+              isEditable={!isReadOnly}
+              isOwner={true}
+              hasUnsavedChanges={hasUnsavedChanges}
+              onToggleReadOnly={toggleReadOnly}
+            />
           </div>
           {validationErrors.global && (
-            <div className="mt-2 text-sm text-destructive">
+            <div className="mt-2 text-xs text-destructive">
               {validationErrors.global.map((error: string, index: number) => (
-                <p key={index}>{error}</p>
+                <span key={index}>{error}</span>
               ))}
             </div>
           )}
@@ -257,20 +379,36 @@ export function MonitorFlowEditor({
             onNodeDoubleClick={handleNodeDoubleClick}
             onPaneClick={handlePaneClick}
             isValidConnection={isValidConnection}
-            isInteractive={true}
+            isInteractive={!isReadOnly}
             fitView={true}
             showControls={true}
             showMiniMap={true}
             showBackground={true}
           >
-            {/* Node Palette Panel */}
-            <Panel position="top-left" className="m-0">
-              <NodeTypePalette
-                selectedType={selectedNodeType}
-                onSelectType={setSelectedNodeType}
-              />
-            </Panel>
+            {/* Node Palette Panel - only show when editable */}
+            {!isReadOnly && (
+              <Panel position="top-left" className="m-0">
+                <NodeTypePalette
+                  selectedType={selectedNodeType}
+                  onSelectType={setSelectedNodeType}
+                />
+              </Panel>
+            )}
           </MonitorFlowCanvas>
+
+          {/* Floating Action Bar */}
+          <FloatingActionBar
+            onSave={handleSave}
+            onClear={handleClear}
+            onUndo={handleUndo}
+            onRedo={handleRedo}
+            canUndo={canUndo}
+            canRedo={canRedo}
+            isValid={isValid}
+            saveStatus={saveStatus}
+            lastSaved={lastSaved}
+            position="bottom-right"
+          />
         </div>
 
         {/* Node Editor Drawer */}

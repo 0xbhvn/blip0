@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Edit, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { MonitorPausedBadge } from "@/components/monitors";
 import { formatMonitorDate } from "@/lib/helpers";
@@ -28,19 +28,13 @@ interface MonitorDetailHeaderProps {
   monitorId: Id<"monitors">;
 }
 
-export function MonitorDetailHeader({ monitorId }: MonitorDetailHeaderProps) {
+export function MonitorDetailHeader({}: MonitorDetailHeaderProps) {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center">
       <Link href="/product/monitors">
         <Button variant="ghost" size="sm">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Monitors
-        </Button>
-      </Link>
-      <Link href={`/product/monitors/${monitorId}/edit`}>
-        <Button>
-          <Edit className="mr-2 h-4 w-4" />
-          Edit Monitor
         </Button>
       </Link>
     </div>

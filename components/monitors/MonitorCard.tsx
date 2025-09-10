@@ -12,7 +12,7 @@ import { MonitorResponse } from "@/lib/types";
 import { MonitorPausedBadge } from "./MonitorPausedBadge";
 import { MonitorStats } from "./MonitorStats";
 import Link from "next/link";
-import { Edit, Trash2, Eye } from "lucide-react";
+import { Trash2, Eye } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { formatMonitorDate } from "@/lib/helpers";
 
@@ -53,16 +53,8 @@ export function MonitorCard({
                 href={`/product/monitors/${monitor._id}`}
                 className="flex-1"
               >
-                <Button variant="outline" size="sm" className="w-full">
-                  <Eye className="mr-2 h-4 w-4" /> View
-                </Button>
-              </Link>
-              <Link
-                href={`/product/monitors/${monitor._id}/edit`}
-                className="flex-1"
-              >
                 <Button variant="default" size="sm" className="w-full">
-                  <Edit className="mr-2 h-4 w-4" /> Edit
+                  <Eye className="mr-2 h-4 w-4" /> View & Edit
                 </Button>
               </Link>
               {onDelete && (
