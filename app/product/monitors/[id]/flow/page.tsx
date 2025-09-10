@@ -5,7 +5,7 @@ import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { PageHeader } from "@/components/PageHeader";
-import { MonitorFlowVisualization } from "@/components/monitors/flow";
+import { InteractiveMonitorFlow } from "@/components/monitors/nodeEditor";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -37,12 +37,12 @@ export default function MonitorFlowPage() {
           </Link>
         </div>
         <PageHeader
-          title={monitor.name}
-          description={`Monitor flow visualization - ${monitor.paused ? "Paused" : "Active"}`}
+          title={`Edit: ${monitor.name}`}
+          description={`Visual editor - ${monitor.paused ? "Paused" : "Active"}`}
         />
       </div>
       <div className="flex-1">
-        <MonitorFlowVisualization monitorId={monitorId} />
+        <InteractiveMonitorFlow monitorId={monitorId} mode="edit" />
       </div>
     </div>
   );
