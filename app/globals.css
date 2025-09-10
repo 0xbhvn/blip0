@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 /*
   ---break---
 */
@@ -136,6 +136,10 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-slide-in-left: slide-in-left 0.2s ease-out;
+  --animate-slide-out-left: slide-out-left 0.2s ease-out;
+  --animate-fade-in: fade-in 0.2s ease-out;
+  --animate-fade-out: fade-out 0.2s ease-out;
   /*
   ---break---
 */
@@ -156,6 +160,50 @@
     }
     to {
       height: 0;
+    }
+  }
+  /*
+  ---break---
+  */
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  /*
+  ---break---
+  */
+  @keyframes slide-out-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  /*
+  ---break---
+  */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  /*
+  ---break---
+  */
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 }
