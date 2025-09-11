@@ -4,188 +4,125 @@ import ConvexClientProvider from "@/components/ConvexClientProvider";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ChatBubbleIcon, HomeIcon } from "@radix-ui/react-icons";
-import { Shield, Network, Menu, X } from "lucide-react";
+import { Shield, Network, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode, useState, useEffect, useRef, useCallback } from "react";
+import { AppHeader } from "@/components/layout/AppHeader";
 
 export default function ProductLayout({ children }: { children: ReactNode }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
     <ConvexClientProvider>
-      <div className="relative min-h-screen w-full">
-        <ProductMenu />
-        <main className="w-full">{children}</main>
+      <div className="relative min-h-screen w-full flex">
+        <ProductMenu isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
+
+        {/* Main content area that gets pushed when sidebar opens */}
+        <div
+          className={cn(
+            "flex-1 min-h-screen transition-all duration-200 ease-out",
+            sidebarOpen ? "ml-64" : "ml-0",
+          )}
+        >
+          <AppHeader onMenuClick={toggleSidebar} isSidebarOpen={sidebarOpen} />
+          <main className="w-full">{children}</main>
+        </div>
       </div>
     </ConvexClientProvider>
   );
 }
 
-function ProductMenu() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isPersistent, setIsPersistent] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
+interface ProductMenuProps {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+}
+
+function ProductMenu({ isOpen, setIsOpen }: ProductMenuProps) {
   const pathname = usePathname();
   const isMobile = useIsMobile();
   const sidebarRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Smart open logic: combine hover and click states
-  const shouldBeOpen = isPersistent || (!isMobile && isHovering);
-
-  // Handle hamburger click
-  const handleHamburgerClick = useCallback(() => {
-    if (isPersistent) {
-      // If already persistent, close it
-      setIsPersistent(false);
-      setIsOpen(false);
-    } else {
-      // Make it persistent
-      setIsPersistent(true);
-      setIsOpen(true);
-    }
-  }, [isPersistent]);
-
-  // Handle hover with delay for better UX
-  const handleMouseEnter = useCallback(() => {
-    if (!isMobile && !isPersistent) {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      setIsHovering(true);
-      setIsOpen(true);
-    }
-  }, [isMobile, isPersistent]);
-
-  const handleMouseLeave = useCallback(() => {
-    if (!isMobile && !isPersistent) {
-      // Add small delay to prevent flicker when moving between button and sidebar
-      timeoutRef.current = setTimeout(() => {
-        setIsHovering(false);
-        setIsOpen(false);
-      }, 150);
-    }
-  }, [isMobile, isPersistent]);
+  // Toggle sidebar
+  const toggleSidebar = useCallback(() => {
+    setIsOpen(!isOpen);
+  }, [isOpen, setIsOpen]);
 
   // Close on route change
   useEffect(() => {
-    setIsPersistent(false);
     setIsOpen(false);
-    setIsHovering(false);
-  }, [pathname]);
+  }, [pathname, setIsOpen]);
 
   // Close on Escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && (isOpen || isPersistent)) {
-        setIsPersistent(false);
+      if (e.key === "Escape" && isOpen) {
         setIsOpen(false);
-        setIsHovering(false);
       }
     };
 
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
-  }, [isOpen, isPersistent]);
+  }, [isOpen, setIsOpen]);
 
-  // Handle click outside
+  // Handle click outside for mobile
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
-        isPersistent &&
+        isMobile &&
+        isOpen &&
         sidebarRef.current &&
         !sidebarRef.current.contains(e.target as Node) &&
         !(e.target as HTMLElement).closest('button[aria-label="Toggle menu"]')
       ) {
-        setIsPersistent(false);
         setIsOpen(false);
       }
     };
 
-    if (isPersistent) {
+    if (isMobile && isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
       return () =>
         document.removeEventListener("mousedown", handleClickOutside);
     }
-  }, [isPersistent]);
-
-  // Sync isOpen with shouldBeOpen
-  useEffect(() => {
-    setIsOpen(shouldBeOpen);
-  }, [shouldBeOpen]);
+  }, [isMobile, isOpen, setIsOpen]);
 
   return (
     <>
-      {/* Hamburger Button */}
-      <button
-        onClick={handleHamburgerClick}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        aria-label="Toggle menu"
-        aria-expanded={isOpen}
-        aria-controls="sidebar-menu"
-        className={cn(
-          "fixed left-4 top-4 z-50 flex h-10 w-10 items-center justify-center rounded-lg border bg-background transition-all duration-200",
-          "hover:scale-105 hover:bg-accent hover:border-accent-foreground/20",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-          isOpen && "bg-accent border-accent-foreground/20",
-        )}
-      >
-        <div className="relative h-5 w-5">
-          <Menu
-            className={cn(
-              "absolute inset-0 h-5 w-5 transition-all duration-200",
-              isOpen
-                ? "rotate-90 scale-0 opacity-0"
-                : "rotate-0 scale-100 opacity-100",
-            )}
-          />
-          <X
-            className={cn(
-              "absolute inset-0 h-5 w-5 transition-all duration-200",
-              isOpen
-                ? "rotate-0 scale-100 opacity-100"
-                : "-rotate-90 scale-0 opacity-0",
-            )}
-          />
-        </div>
-      </button>
+      {/* Backdrop for mobile only */}
+      {isMobile && (
+        <div
+          className={cn(
+            "fixed inset-0 z-40 bg-black/50 transition-opacity duration-200",
+            isOpen ? "opacity-100" : "opacity-0 pointer-events-none",
+          )}
+          onClick={() => setIsOpen(false)}
+        />
+      )}
 
-      {/* Backdrop for mobile and persistent state */}
-      <div
-        className={cn(
-          "fixed inset-0 z-40 bg-black/50 transition-opacity duration-200 lg:hidden",
-          isOpen && isMobile ? "opacity-100" : "opacity-0 pointer-events-none",
-        )}
-        onClick={() => {
-          setIsPersistent(false);
-          setIsOpen(false);
-        }}
-      />
-
-      {/* Sidebar */}
+      {/* Sidebar - Fixed position, translates left when hidden */}
       <aside
         ref={sidebarRef}
         id="sidebar-menu"
-        onMouseEnter={() => {
-          if (!isMobile) {
-            if (timeoutRef.current) clearTimeout(timeoutRef.current);
-            if (isHovering || isPersistent) {
-              setIsOpen(true);
-            }
-          }
-        }}
-        onMouseLeave={() => {
-          if (!isMobile && !isPersistent) {
-            handleMouseLeave();
-          }
-        }}
         className={cn(
-          "fixed left-0 top-0 z-40 h-full w-64 border-r bg-background transition-transform duration-200 ease-out",
-          "shadow-xl",
+          "fixed left-0 top-0 h-full w-64 border-r bg-background transition-transform duration-200 ease-out",
+          "z-40",
           isOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
-        {/* Sidebar Header */}
-        <div className="flex h-16 items-center border-b px-6">
+        {/* Sidebar Header with close button */}
+        <div className="flex h-16 items-center justify-between border-b px-4">
           <h2 className="text-lg font-semibold">Navigation</h2>
+          <button
+            onClick={toggleSidebar}
+            className="h-9 w-9 flex items-center justify-center rounded-lg hover:bg-accent transition-colors"
+            aria-label="Close menu"
+          >
+            <X className="h-5 w-5" />
+          </button>
         </div>
 
         {/* Navigation Links */}
@@ -211,10 +148,7 @@ function ProductMenu() {
 
         {/* Footer with keyboard hint */}
         <div className="absolute bottom-4 left-4 right-4 text-xs text-muted-foreground">
-          <div className="flex items-center justify-between">
-            <span>Press ESC to close</span>
-            {!isMobile && <span>{isPersistent ? "Pinned" : "Hover mode"}</span>}
-          </div>
+          <span>Press ESC to close</span>
         </div>
       </aside>
     </>
