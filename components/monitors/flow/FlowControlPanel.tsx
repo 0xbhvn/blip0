@@ -199,10 +199,16 @@ export function FlowControlPanel({
         {/* Add Node Button with Popover */}
         <Popover open={isNodePanelOpen} onOpenChange={setIsNodePanelOpen}>
           <PopoverTrigger asChild>
-            <Button variant="ghost" size="sm" className="h-8 px-2 gap-1">
-              <PlusCircle className="h-4 w-4" />
-              <span className="text-xs">Add Node</span>
-            </Button>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                  <PlusCircle className="h-4 w-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Add Node</p>
+              </TooltipContent>
+            </Tooltip>
           </PopoverTrigger>
           <PopoverContent
             align="center"
