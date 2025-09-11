@@ -69,13 +69,13 @@ export function AppHeader({
         {isMonitors ? (
           <Link href="/product/monitors/create">
             <Button size="sm">
-              <Plus className="mr-2 h-4 w-4" /> Create Monitor
+              <Plus className="mr-2 h-4 w-4" /> New Monitor
             </Button>
           </Link>
         ) : isNetworks && isAdmin ? (
           <Link href="/product/networks/create">
             <Button size="sm">
-              <Plus className="mr-2 h-4 w-4" /> Add Network
+              <Plus className="mr-2 h-4 w-4" /> New Network
             </Button>
           </Link>
         ) : (
