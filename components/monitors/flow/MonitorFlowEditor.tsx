@@ -382,7 +382,7 @@ export function MonitorFlowEditor({
             isInteractive={true}
             fitView={true}
             showControls={true}
-            showMiniMap={true}
+            showMiniMap={false}
             showBackground={true}
           >
             {/* Node Palette Panel */}
