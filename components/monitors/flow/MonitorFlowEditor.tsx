@@ -22,7 +22,7 @@ export interface MonitorFlowEditorProps {
   };
   initialMonitorName?: string;
   initialMonitorActive?: boolean;
-  onSave?: (config: MonitorCreateInput) => void;
+  onSave?: (config: MonitorCreateInput) => void | Promise<void>;
   mode?: "create" | "edit";
   monitorId?: string;
 }
@@ -47,6 +47,7 @@ export function MonitorFlowEditor({
 }: MonitorFlowEditorProps) {
   // Local UI state
   const [isHistoryAction, setIsHistoryAction] = React.useState(false);
+  const [hasChanges, setHasChanges] = React.useState(false);
 
   // Validation with debounce
   const { isValid, validateNow } = useDebouncedValidation();
@@ -68,7 +69,6 @@ export function MonitorFlowEditor({
     editingNodeId,
     closeNodeEditor,
     validateConnection,
-    clearCanvas,
     buildMonitorConfig,
     validationErrors,
     initializeFromFlow,
@@ -81,7 +81,6 @@ export function MonitorFlowEditor({
     redo,
     canUndo,
     canRedo,
-    clearHistory,
   } = useHistory<FlowHistoryState>(
     { nodes: [], edges: [], monitorName: "", monitorActive: true },
     {
@@ -105,20 +104,22 @@ export function MonitorFlowEditor({
     },
   );
 
-  // Auto-save functionality
-  const { saveStatus, lastSaved, triggerSave, forceSave } = useAutoSave({
-    onSave: async (data) => {
-      if (onSave && mode === "edit") {
-        onSave(data);
-      }
+  // Auto-save functionality (only for edit mode)
+  const { saveStatus, lastSaved, triggerSave, hasUnsavedChanges } = useAutoSave(
+    {
+      onSave: async (data) => {
+        if (onSave && mode === "edit") {
+          onSave(data);
+        }
+      },
+      enabled: mode === "edit",
+      debounceMs: 2000,
+      onError: (error) => {
+        console.error("Auto-save failed:", error);
+        toast.error("Failed to auto-save changes");
+      },
     },
-    enabled: mode === "edit",
-    debounceMs: 2000,
-    onError: (error) => {
-      console.error("Auto-save failed:", error);
-      toast.error("Failed to auto-save changes");
-    },
-  });
+  );
 
   // Initialize with provided data if available
   useEffect(() => {
@@ -129,12 +130,17 @@ export function MonitorFlowEditor({
         initialMonitorName,
         initialMonitorActive,
       );
+      // In edit mode, we start with no changes since we're loading existing data
+      if (mode === "edit") {
+        setHasChanges(false);
+      }
     }
   }, [
     initialData,
     initialMonitorName,
     initialMonitorActive,
     initializeFromFlow,
+    mode,
   ]);
 
   // Track changes for history and auto-save
@@ -164,14 +170,18 @@ export function MonitorFlowEditor({
       // Always update history for undo/redo (includes positions)
       setHistoryState({ nodes, edges, monitorName, monitorActive });
 
-      // But only auto-save if the actual monitor configuration changed
+      // Auto-save if the actual monitor configuration changed
       if (dataChanged) {
-        // Trigger auto-save only if data actually changed
+        // Only trigger auto-save for edit mode
+        // Create mode uses manual save button
         if (mode === "edit" && isValid) {
           const config = buildMonitorConfig();
           if (config) {
             triggerSave(config);
           }
+        } else if (mode === "create") {
+          // Track that we have unsaved changes in create mode
+          setHasChanges(true);
         }
 
         // Update the ref for next comparison
@@ -287,6 +297,26 @@ export function MonitorFlowEditor({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
+  // Warn about unsaved changes before leaving
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      // Check for unsaved changes in both modes
+      const hasUnsaved =
+        (mode === "create" && hasChanges && nodes.length > 0) ||
+        (mode === "edit" && hasUnsavedChanges);
+
+      if (hasUnsaved) {
+        const message =
+          "You have unsaved changes. Are you sure you want to leave?";
+        e.preventDefault();
+        return message;
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [mode, hasChanges, hasUnsavedChanges, nodes.length]);
+
   // Custom connection validation
   const isValidConnection = useCallback(
     (connection: Edge | Connection) => {
@@ -297,57 +327,6 @@ export function MonitorFlowEditor({
     },
     [validateConnection],
   );
-
-  // Handle save (manual save or force save)
-  const handleSave = useCallback(async () => {
-    const currentlyValid = validateNow();
-    if (!currentlyValid) {
-      toast.error("Please fix validation errors before saving");
-      return;
-    }
-
-    const config = buildMonitorConfig();
-    if (config) {
-      if (mode === "edit") {
-        forceSave(config);
-        toast.success("Changes saved");
-      } else if (onSave) {
-        onSave(config);
-      }
-    }
-  }, [validateNow, buildMonitorConfig, onSave, forceSave, mode]);
-
-  // Handle clear with better UX
-  const handleClear = useCallback(() => {
-    // No modal - use toast with undo option
-    const previousState = { nodes, edges, monitorName, monitorActive };
-    clearCanvas();
-    clearHistory();
-
-    toast.success("Canvas cleared", {
-      action: {
-        label: "Undo",
-        onClick: () => {
-          initializeFromFlow(
-            previousState.nodes,
-            previousState.edges,
-            previousState.monitorName,
-            previousState.monitorActive,
-          );
-          toast.success("Canvas restored");
-        },
-      },
-      duration: 5000,
-    });
-  }, [
-    clearCanvas,
-    clearHistory,
-    nodes,
-    edges,
-    monitorName,
-    monitorActive,
-    initializeFromFlow,
-  ]);
 
   // Handle undo/redo
   const handleUndo = useCallback(() => {
@@ -365,6 +344,29 @@ export function MonitorFlowEditor({
       toast.success("Redone", { duration: 1000 });
     }
   }, [redo, canRedo]);
+
+  // Manual save for create mode
+  const handleManualSave = useCallback(async () => {
+    const currentlyValid = validateNow();
+    if (!currentlyValid) {
+      toast.error("Please fix validation errors before saving");
+      return;
+    }
+
+    const config = buildMonitorConfig();
+    if (config && onSave && mode === "create") {
+      // Clear the flag BEFORE calling onSave to prevent warning during navigation
+      setHasChanges(false);
+      try {
+        await onSave(config);
+        // Success toast will be shown by parent component
+      } catch (error) {
+        // If save fails, restore the hasChanges flag
+        setHasChanges(true);
+        console.error("Failed to save:", error);
+      }
+    }
+  }, [validateNow, buildMonitorConfig, onSave, mode]);
 
   return (
     <ReactFlowProvider>
@@ -405,8 +407,6 @@ export function MonitorFlowEditor({
             showBackground={true}
             showFlowControls={true}
           >
-            {/* Removed Node Palette Panel - now using FlowControlPanel */}
-
             {/* Delete Button - shows when a node is selected */}
             {selectedNodeId && (
               <Panel position="top-right" className="m-2">
@@ -422,13 +422,29 @@ export function MonitorFlowEditor({
                 </Button>
               </Panel>
             )}
+
+            {/* Manual Save Button - only for create mode */}
+            {mode === "create" && (
+              <Panel position="bottom-left" className="m-2">
+                <Button
+                  variant={hasChanges ? "default" : "outline"}
+                  size="sm"
+                  onClick={handleManualSave}
+                  disabled={!isValid || nodes.length === 0}
+                  className="shadow-lg"
+                >
+                  {hasChanges && nodes.length > 0
+                    ? "Create Monitor"
+                    : nodes.length === 0
+                      ? "Add nodes to continue"
+                      : "Create Monitor"}
+                </Button>
+              </Panel>
+            )}
           </MonitorFlowCanvas>
 
-          {/* Floating Action Bar */}
+          {/* Floating Action Bar - only shows save status */}
           <FloatingActionBar
-            onSave={handleSave}
-            onClear={handleClear}
-            isValid={isValid}
             saveStatus={saveStatus}
             lastSaved={lastSaved}
             position="bottom-right"
