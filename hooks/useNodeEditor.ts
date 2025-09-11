@@ -594,6 +594,8 @@ export const useNodeEditor = create<NodeEditorState>()(
       set({
         nodes: [],
         edges: [],
+        monitorName: "",
+        monitorActive: true,
         selectedNodeId: null,
         editingNodeId: null,
         drawerOpen: false,
