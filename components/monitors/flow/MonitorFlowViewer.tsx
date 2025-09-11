@@ -76,10 +76,10 @@ export function MonitorFlowViewer({
       edges={flowData.edges}
       onNodeClick={interactive ? handleNodeClick : undefined}
       isInteractive={false}
-      fitView={true}
       showControls={showControls}
       showMiniMap={showMinimap}
       showBackground={true}
+      showFlowControls={false}
       className={className}
     >
       {/* Custom controls for viewer */}
@@ -151,10 +151,10 @@ export function MonitorFlowPreview({
           nodes={flowData.nodes}
           edges={flowData.edges}
           isInteractive={false}
-          fitView={true}
           showControls={false}
           showMiniMap={false}
           showBackground={false}
+          showFlowControls={false}
           className="rounded-lg border bg-muted/5"
         />
       </div>

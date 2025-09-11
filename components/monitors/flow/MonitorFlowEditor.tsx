@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useCallback, useState, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { ReactFlowProvider, Panel } from "@xyflow/react";
 import { MonitorFlowCanvas } from "./MonitorFlowCanvas";
-import { NodeTypePalette } from "../nodeEditor/NodeTypePalette";
 import { NodeEditorDrawer } from "../nodeEditor/NodeEditorDrawer";
 import { useNodeEditor, useDebouncedValidation } from "@/hooks";
 import { useAutoSave } from "@/hooks/useAutoSave";
@@ -47,10 +46,6 @@ export function MonitorFlowEditor({
   mode = "create",
 }: MonitorFlowEditorProps) {
   // Local UI state
-  const [selectedNodeType, setSelectedNodeType] = useState<NodeType | null>(
-    null,
-  );
-  const [canvasRef, setCanvasRef] = React.useState<HTMLDivElement | null>(null);
   const [isHistoryAction, setIsHistoryAction] = React.useState(false);
 
   // Validation with debounce
@@ -196,31 +191,42 @@ export function MonitorFlowEditor({
     triggerSave,
   ]);
 
-  // Handle canvas click for adding nodes
-  const handlePaneClick = useCallback(
-    (event: React.MouseEvent) => {
-      if (selectedNodeType && canvasRef) {
-        const bounds = canvasRef.getBoundingClientRect();
-
-        // Calculate raw position (centered on click point)
-        // Subtract half of typical node dimensions for centering
-        const rawX = event.clientX - bounds.left - 100;
-        const rawY = event.clientY - bounds.top - 50;
-
-        // Snap to 10px grid (half of the visual 20px grid)
-        const gridSize = 10;
-        const position = {
-          x: Math.round(rawX / gridSize) * gridSize,
-          y: Math.round(rawY / gridSize) * gridSize,
-        };
-
-        const nodeId = addNode(selectedNodeType, position);
-        openNodeEditor(nodeId);
-        setSelectedNodeType(null);
-      }
+  // Handle adding node from control panel
+  const handleAddNodeFromPanel = useCallback(
+    (type: NodeType) => {
+      // Add node at center of viewport
+      const centerPosition = {
+        x: window.innerWidth / 2 - 100,
+        y: window.innerHeight / 2 - 50,
+      };
+      addNode(type, centerPosition);
+      toast.success(`${type} node added`);
     },
-    [selectedNodeType, canvasRef, addNode, openNodeEditor],
+    [addNode],
   );
+
+  // Handle layout change from auto-layout
+  const handleLayoutChange = useCallback(
+    (layoutedNodes: Node[]) => {
+      // Update the nodes with new positions from auto-layout
+      onNodesChange(
+        layoutedNodes.map((node) => ({
+          id: node.id,
+          type: "position",
+          position: node.position,
+        })),
+      );
+      toast.success("Layout applied", { duration: 1500 });
+    },
+    [onNodesChange],
+  );
+
+  // Handle canvas click for adding nodes
+  const handlePaneClick = useCallback(() => {
+    // Canvas clicks are now just for general interaction
+    // Node adding is handled through the FlowControlPanel
+    // Could be used for deselecting nodes or other interactions
+  }, []);
 
   // Handle node click - simplified since ReactFlow handles selection
   const handleNodeClick = useCallback((event: React.MouseEvent, node: Node) => {
@@ -375,7 +381,7 @@ export function MonitorFlowEditor({
         )}
 
         {/* Flow Canvas */}
-        <div className="flex-1 relative" ref={setCanvasRef}>
+        <div className="flex-1 relative">
           <MonitorFlowCanvas
             nodes={nodes}
             edges={edges}
@@ -386,20 +392,16 @@ export function MonitorFlowEditor({
             onNodeDoubleClick={handleNodeDoubleClick}
             onPaneClick={handlePaneClick}
             onSelectionChange={handleSelectionChange}
+            onAddNode={handleAddNodeFromPanel}
+            onLayoutChange={handleLayoutChange}
             isValidConnection={isValidConnection}
             isInteractive={true}
-            fitView={true}
-            showControls={true}
+            showControls={false}
             showMiniMap={false}
             showBackground={true}
+            showFlowControls={true}
           >
-            {/* Node Palette Panel */}
-            <Panel position="top-left" className="m-0">
-              <NodeTypePalette
-                selectedType={selectedNodeType}
-                onSelectType={setSelectedNodeType}
-              />
-            </Panel>
+            {/* Removed Node Palette Panel - now using FlowControlPanel */}
 
             {/* Delete Button - shows when a node is selected */}
             {selectedNodeId && (

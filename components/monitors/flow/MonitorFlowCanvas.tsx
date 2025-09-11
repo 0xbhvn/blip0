@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useMemo, useCallback } from "react";
+import React, { useRef, useMemo, useCallback, useState } from "react";
 import {
   ReactFlow,
   Background,
@@ -20,6 +20,8 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { NodeType } from "@/lib/types/nodeEditor";
+import { FlowControlPanel } from "./FlowControlPanel";
+import { getHierarchicalLayout } from "@/lib/utils/autoLayout";
 
 // Import custom node components
 import NetworkNode from "../nodeEditor/nodes/NetworkNode";
@@ -51,12 +53,14 @@ export interface MonitorFlowCanvasProps {
   onNodeDoubleClick?: NodeMouseHandler;
   onPaneClick?: (event: React.MouseEvent) => void;
   onSelectionChange?: OnSelectionChangeFunc;
+  onAddNode?: (type: NodeType) => void;
+  onLayoutChange?: (nodes: Node[], edges: Edge[]) => void;
   isValidConnection?: (connection: Edge | Connection) => boolean;
   isInteractive?: boolean;
-  fitView?: boolean;
   showControls?: boolean;
   showMiniMap?: boolean;
   showBackground?: boolean;
+  showFlowControls?: boolean;
   className?: string;
   children?: React.ReactNode;
 }
@@ -75,18 +79,21 @@ export function MonitorFlowCanvas({
   onNodeDoubleClick,
   onPaneClick,
   onSelectionChange,
+  onAddNode,
+  onLayoutChange,
   isValidConnection,
   isInteractive = true,
-  fitView: shouldFitView = true,
   showControls = true,
   showMiniMap = true,
   showBackground = true,
+  showFlowControls = false,
   className = "",
   children,
 }: MonitorFlowCanvasProps) {
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [reactFlowInstance, setReactFlowInstance] =
     React.useState<ReactFlowInstance | null>(null);
+  const [currentZoom, setCurrentZoom] = useState(100);
 
   // Memoize default edge options
   const defaultEdgeOptions = useMemo(
@@ -138,22 +145,131 @@ export function MonitorFlowCanvas({
   const onInit = useCallback(
     (instance: ReactFlowInstance) => {
       setReactFlowInstance(instance);
-      if (shouldFitView) {
-        instance.fitView({ padding: 0.2 });
+
+      // Center nodes in viewport
+      if (nodes.length > 0) {
+        // Wait for next tick to ensure DOM is ready
+        setTimeout(() => {
+          // Simply fit view with proper constraints
+          instance.fitView({
+            padding: 0.2,
+            maxZoom: 1.0, // Don't zoom in beyond 100%
+            minZoom: 0.5, // Allow some zoom out if needed
+            duration: 0, // No animation
+          });
+
+          // Get the resulting viewport
+          const viewport = instance.getViewport();
+
+          // If zoom is less than 100%, reset to 100% while keeping centered
+          if (viewport.zoom < 1) {
+            // Calculate the center point of the current view
+            const containerWidth =
+              reactFlowWrapper.current?.offsetWidth || window.innerWidth;
+            const containerHeight =
+              reactFlowWrapper.current?.offsetHeight || window.innerHeight;
+
+            // Calculate bounds of all nodes
+            let minX = Infinity,
+              minY = Infinity;
+            let maxX = -Infinity,
+              maxY = -Infinity;
+
+            nodes.forEach((node) => {
+              minX = Math.min(minX, node.position.x);
+              minY = Math.min(minY, node.position.y);
+              maxX = Math.max(maxX, node.position.x + 200);
+              maxY = Math.max(maxY, node.position.y + 100);
+            });
+
+            // Calculate center of nodes
+            const nodesWidth = maxX - minX;
+            const nodesHeight = maxY - minY;
+            const nodesCenterX = minX + nodesWidth / 2;
+            const nodesCenterY = minY + nodesHeight / 2;
+
+            // Calculate viewport position to center nodes at 100% zoom
+            const x = containerWidth / 2 - nodesCenterX;
+            const y = containerHeight / 2 - nodesCenterY;
+
+            instance.setViewport({ x, y, zoom: 1 }, { duration: 0 });
+          }
+
+          setCurrentZoom(100);
+        }, 10);
+      } else {
+        setCurrentZoom(100);
       }
     },
-    [shouldFitView],
+    [nodes],
   );
 
-  // Fit view when nodes change (useful for viewer)
+  // Remove automatic fit view on nodes change - only manual control via button
   React.useEffect(() => {
-    if (reactFlowInstance && shouldFitView && nodes.length > 0) {
-      // Small delay to ensure layout is complete
-      setTimeout(() => {
-        reactFlowInstance.fitView({ padding: 0.2 });
-      }, 100);
+    // Keep zoom tracking updated
+    if (reactFlowInstance) {
+      const viewport = reactFlowInstance.getViewport();
+      setCurrentZoom(Math.round(viewport.zoom * 100));
     }
-  }, [nodes, reactFlowInstance, shouldFitView]);
+  }, [reactFlowInstance]);
+
+  // Handle zoom controls
+  const handleZoomIn = useCallback(() => {
+    if (reactFlowInstance) {
+      reactFlowInstance.zoomIn({ duration: 300 });
+    }
+  }, [reactFlowInstance]);
+
+  const handleZoomOut = useCallback(() => {
+    if (reactFlowInstance) {
+      reactFlowInstance.zoomOut({ duration: 300 });
+    }
+  }, [reactFlowInstance]);
+
+  const handleFitView = useCallback(() => {
+    if (reactFlowInstance) {
+      reactFlowInstance.fitView({
+        padding: 0.2,
+        duration: 800,
+        maxZoom: 1.0, // Don't zoom in beyond 100%
+        minZoom: 0.3, // Allow zooming out to 30%
+      });
+    }
+  }, [reactFlowInstance]);
+
+  // Handle auto-layout - actually rearranges nodes
+  const handleAutoLayout = useCallback(() => {
+    if (nodes.length === 0) return;
+
+    // Apply hierarchical layout to nodes
+    const { nodes: layoutedNodes, edges: layoutedEdges } =
+      getHierarchicalLayout(nodes, edges);
+
+    // Notify parent component of the new layout
+    if (onLayoutChange) {
+      onLayoutChange(layoutedNodes, layoutedEdges);
+    }
+
+    // After layout, fit the view to show all nodes
+    setTimeout(() => {
+      if (reactFlowInstance) {
+        reactFlowInstance.fitView({
+          padding: 0.2,
+          duration: 800,
+          maxZoom: 1.0,
+          minZoom: 0.3,
+        });
+      }
+    }, 50);
+  }, [nodes, edges, onLayoutChange, reactFlowInstance]);
+
+  // Track zoom changes
+  const onMove = useCallback(() => {
+    if (reactFlowInstance) {
+      const viewport = reactFlowInstance.getViewport();
+      setCurrentZoom(Math.round(viewport.zoom * 100));
+    }
+  }, [reactFlowInstance]);
 
   return (
     <div ref={reactFlowWrapper} className={`h-full w-full ${className}`}>
@@ -167,18 +283,19 @@ export function MonitorFlowCanvas({
         onNodeDoubleClick={onNodeDoubleClick}
         onPaneClick={onPaneClick}
         onSelectionChange={onSelectionChange}
+        onMove={onMove}
         nodeTypes={nodeTypes}
         isValidConnection={isValidConnection}
         onInit={onInit}
-        fitView={shouldFitView}
+        fitView={false} // We handle centering manually in onInit
         deleteKeyCode={isInteractive ? "Delete" : ""} // Enable default delete key behavior
         multiSelectionKeyCode={isInteractive ? "Shift" : null}
         panOnScroll
         selectionOnDrag={isInteractive}
         snapToGrid={true}
         snapGrid={[10, 10]}
-        minZoom={0.5}
-        maxZoom={2}
+        minZoom={0.3}
+        maxZoom={1.5}
         attributionPosition="bottom-left"
         defaultEdgeOptions={defaultEdgeOptions}
         connectionLineStyle={connectionLineStyle}
@@ -210,6 +327,16 @@ export function MonitorFlowCanvas({
         )}
         {children}
       </ReactFlow>
+      {showFlowControls && onAddNode && (
+        <FlowControlPanel
+          onZoomIn={handleZoomIn}
+          onZoomOut={handleZoomOut}
+          onFitView={handleFitView}
+          onAutoLayout={handleAutoLayout}
+          onAddNode={onAddNode}
+          currentZoom={currentZoom}
+        />
+      )}
     </div>
   );
 }
