@@ -149,7 +149,7 @@ export const create = mutation({
 export const update = mutation({
   args: {
     id: v.id("monitors"),
-    name: v.string(),
+    name: v.optional(v.string()),
     paused: v.optional(v.boolean()),
     networks: v.optional(v.array(v.string())),
     addresses: v.optional(
@@ -219,33 +219,42 @@ export const update = mutation({
       throw new Error("Unauthorized");
     }
 
-    // Basic validation
+    // Merge with existing monitor data for validation
+    const mergedData = {
+      ...monitor,
+      ...updateData,
+    };
+
+    // Basic validation on merged data
     if (
-      !updateData.name ||
-      !updateData.networks ||
-      updateData.networks.length === 0
+      !mergedData.name ||
+      !mergedData.networks ||
+      mergedData.networks.length === 0
     ) {
       throw new Error(
         "Invalid monitor: name and at least one network are required",
       );
     }
 
-    // Validate that all specified networks exist and are active
-    for (const networkSlug of updateData.networks) {
-      const network = await ctx.db
-        .query("networks")
-        .withIndex("by_slug", (q) => q.eq("slug", networkSlug))
-        .unique();
+    // Only validate networks if they're being updated
+    if (updateData.networks) {
+      // Validate that all specified networks exist and are active
+      for (const networkSlug of updateData.networks) {
+        const network = await ctx.db
+          .query("networks")
+          .withIndex("by_slug", (q) => q.eq("slug", networkSlug))
+          .unique();
 
-      if (!network) {
-        throw new Error(`Network with slug "${networkSlug}" not found`);
-      }
+        if (!network) {
+          throw new Error(`Network with slug "${networkSlug}" not found`);
+        }
 
-      // Check if network is active (treat undefined as true for backward compatibility)
-      if (network.active === false) {
-        throw new Error(
-          `Network "${networkSlug}" is not active. Please use only active networks.`,
-        );
+        // Check if network is active (treat undefined as true for backward compatibility)
+        if (network.active === false) {
+          throw new Error(
+            `Network "${networkSlug}" is not active. Please use only active networks.`,
+          );
+        }
       }
     }
 

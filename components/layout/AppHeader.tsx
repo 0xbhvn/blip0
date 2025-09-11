@@ -28,17 +28,15 @@ export function AppHeader({
   const isMonitors = pathname.includes("/monitors");
   const isNetworks = pathname.includes("/networks");
   const isChat = pathname === "/product" || pathname === "/product/";
-  
+
   // Determine if we're on a detail page
   const isMonitorDetail = pathname.match(/\/monitors\/[^\/]+$/);
   const isNetworkDetail = pathname.match(/\/networks\/[^\/]+$/);
-  
+
   // Use custom title if provided, otherwise use section name
-  const displayTitle = customTitle || (
-    isChat ? "Chat" :
-    isMonitors ? "Monitors" :
-    isNetworks ? "Networks" : ""
-  );
+  const displayTitle =
+    customTitle ||
+    (isChat ? "Chat" : isMonitors ? "Monitors" : isNetworks ? "Networks" : "");
 
   return (
     <header
@@ -61,17 +59,11 @@ export function AppHeader({
         )}
 
         <div className="flex items-center gap-3">
-          <h1 className="text-lg font-semibold">
-            {displayTitle}
-          </h1>
+          <h1 className="text-lg font-semibold">{displayTitle}</h1>
           {actions && <div className="flex items-center">{actions}</div>}
-          {badge ? (
+          {badge && (
             <Badge variant="outline" className="text-xs">
               {badge}
-            </Badge>
-          ) : (
-            <Badge variant="outline" className="text-xs">
-              Development
             </Badge>
           )}
         </div>

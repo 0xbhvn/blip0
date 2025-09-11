@@ -30,3 +30,5 @@ export {
 // Sub-components
 export { MonitorPausedBadge } from "./MonitorPausedBadge";
 export { MonitorStats } from "./MonitorStats";
+export { MonitorToggle } from "./MonitorToggle";
+export { MonitorTitleDropdown } from "./MonitorTitleDropdown";

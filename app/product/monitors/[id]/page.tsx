@@ -4,8 +4,11 @@ import { useParams } from "next/navigation";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
-import { MonitorDetailView } from "@/components/monitors/MonitorDetailView";
-import { MonitorToggle } from "@/components/monitors/MonitorToggle";
+import {
+  MonitorDetailView,
+  MonitorToggle,
+  MonitorTitleDropdown,
+} from "@/components/monitors";
 import { Loader2 } from "lucide-react";
 import { useHeader } from "@/contexts/HeaderContext";
 import { useEffect } from "react";
@@ -20,12 +23,18 @@ export default function MonitorDetailsPage() {
   useEffect(() => {
     if (monitor) {
       setHeaderData({
-        title: monitor.name,
+        title: " ", // Use a space to prevent fallback to "Monitors"
         actions: (
-          <MonitorToggle
-            monitorId={monitorId}
-            initialPaused={monitor.paused || false}
-          />
+          <div className="flex items-center gap-3">
+            <MonitorTitleDropdown
+              monitorId={monitorId}
+              monitorName={monitor.name}
+            />
+            <MonitorToggle
+              monitorId={monitorId}
+              initialPaused={monitor.paused || false}
+            />
+          </div>
         ),
       });
     }
