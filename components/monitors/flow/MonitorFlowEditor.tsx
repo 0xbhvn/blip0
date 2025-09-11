@@ -201,9 +201,17 @@ export function MonitorFlowEditor({
     (event: React.MouseEvent) => {
       if (selectedNodeType && canvasRef) {
         const bounds = canvasRef.getBoundingClientRect();
+
+        // Calculate raw position (centered on click point)
+        // Subtract half of typical node dimensions for centering
+        const rawX = event.clientX - bounds.left - 100;
+        const rawY = event.clientY - bounds.top - 50;
+
+        // Snap to 10px grid (half of the visual 20px grid)
+        const gridSize = 10;
         const position = {
-          x: event.clientX - bounds.left - 100,
-          y: event.clientY - bounds.top - 50,
+          x: Math.round(rawX / gridSize) * gridSize,
+          y: Math.round(rawY / gridSize) * gridSize,
         };
 
         const nodeId = addNode(selectedNodeType, position);

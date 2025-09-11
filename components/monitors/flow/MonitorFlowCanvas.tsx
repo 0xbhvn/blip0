@@ -16,6 +16,7 @@ import {
   OnEdgesChange,
   NodeMouseHandler,
   OnSelectionChangeFunc,
+  MarkerType,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { NodeType } from "@/lib/types/nodeEditor";
@@ -96,6 +97,10 @@ export function MonitorFlowCanvas({
         stroke: "#6366f1",
         strokeWidth: 2,
       },
+      markerEnd: {
+        type: MarkerType.ArrowClosed,
+        color: "#6366f1",
+      },
     }),
     [],
   );
@@ -170,7 +175,8 @@ export function MonitorFlowCanvas({
         multiSelectionKeyCode={isInteractive ? "Shift" : null}
         panOnScroll
         selectionOnDrag={isInteractive}
-        snapToGrid={false}
+        snapToGrid={true}
+        snapGrid={[10, 10]}
         minZoom={0.5}
         maxZoom={2}
         attributionPosition="bottom-left"
@@ -185,7 +191,13 @@ export function MonitorFlowCanvas({
         zoomOnScroll={true}
       >
         {showBackground && (
-          <Background variant={BackgroundVariant.Dots} gap={20} size={1} />
+          <Background
+            variant={BackgroundVariant.Dots}
+            gap={20}
+            size={2}
+            color="#94a3b8"
+            style={{ opacity: 0.8 }}
+          />
         )}
         {showControls && <Controls />}
         {showMiniMap && (
