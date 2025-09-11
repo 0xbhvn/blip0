@@ -273,3 +273,28 @@ export const remove = mutation({
     await ctx.db.delete(id);
   },
 });
+
+export const togglePaused = mutation({
+  args: { id: v.id("monitors") },
+  handler: async (ctx, { id }) => {
+    const userId = await getAuthUserId(ctx);
+    if (userId === null) {
+      throw new Error("Not signed in");
+    }
+
+    const monitor = await ctx.db.get(id);
+    if (monitor === null) {
+      throw new Error("Monitor not found");
+    }
+
+    if (monitor.userId !== userId) {
+      throw new Error("Unauthorized");
+    }
+
+    // Toggle the paused state
+    const newPausedState = !monitor.paused;
+    await ctx.db.patch(id, { paused: newPausedState });
+
+    return newPausedState;
+  },
+});

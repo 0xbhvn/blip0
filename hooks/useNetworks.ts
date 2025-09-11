@@ -76,6 +76,7 @@ export function useNetworkMutations() {
   const createMutation = useMutation(api.networks.create);
   const updateMutation = useMutation(api.networks.update);
   const removeMutation = useMutation(api.networks.remove);
+  const toggleActiveMutation = useMutation(api.networks.toggleActive);
 
   const createNetwork = useCallback(
     async (config: NetworkCreateInput) => {
@@ -152,9 +153,37 @@ export function useNetworkMutations() {
     [removeMutation],
   );
 
+  const toggleActive = useCallback(
+    async (id: string | Id<"networks">) => {
+      if (!isValidNetworkId(id)) {
+        toast.error("Invalid network ID");
+        return { success: false, error: "Invalid network ID" };
+      }
+
+      try {
+        const newState = await toggleActiveMutation({
+          id: id as Id<"networks">,
+        });
+        toast.success(
+          `Network ${newState ? "activated" : "deactivated"} successfully`,
+        );
+        return { success: true, active: newState };
+      } catch (error) {
+        const message =
+          error instanceof Error
+            ? error.message
+            : "Failed to toggle network status";
+        toast.error(message);
+        return { success: false, error: message };
+      }
+    },
+    [toggleActiveMutation],
+  );
+
   return {
     createNetwork,
     updateNetwork,
     deleteNetwork,
+    toggleActive,
   };
 }

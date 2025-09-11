@@ -55,6 +55,7 @@ export default function EditNetworkPage() {
     network_type: network.network_type,
     slug: network.slug,
     name: network.name,
+    active: network.active,
     rpc_urls: network.rpc_urls,
     chain_id: network.chain_id,
     network_passphrase: network.network_passphrase,

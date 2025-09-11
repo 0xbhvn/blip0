@@ -302,6 +302,38 @@ export const remove = mutation({
   },
 });
 
+// Toggle network active state - admin only
+export const toggleActive = mutation({
+  args: { id: v.id("networks") },
+  handler: async (ctx, { id }) => {
+    const userId = await getAuthUserId(ctx);
+    if (userId === null) {
+      throw new Error("Not signed in");
+    }
+
+    // Check if user is admin
+    if (!(await isAdmin(ctx, userId))) {
+      throw new Error("Unauthorized: Admin access required");
+    }
+
+    const network = await ctx.db.get(id);
+    if (network === null) {
+      throw new Error("Network not found");
+    }
+
+    // Toggle the active state (treat undefined as true)
+    const currentActive = network.active !== false;
+    const newActiveState = !currentActive;
+
+    await ctx.db.patch(id, {
+      active: newActiveState,
+      updatedBy: userId,
+    });
+
+    return newActiveState;
+  },
+});
+
 // Check if current user is admin
 export const isCurrentUserAdmin = query({
   args: {},

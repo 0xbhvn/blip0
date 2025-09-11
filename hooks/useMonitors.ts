@@ -53,6 +53,7 @@ export function useMonitorMutations() {
   const createMutation = useMutation(api.monitors.create);
   const updateMutation = useMutation(api.monitors.update);
   const removeMutation = useMutation(api.monitors.remove);
+  const togglePausedMutation = useMutation(api.monitors.togglePaused);
 
   const createMonitor = useCallback(
     async (config: MonitorCreateInput) => {
@@ -129,9 +130,35 @@ export function useMonitorMutations() {
     [removeMutation],
   );
 
+  const togglePaused = useCallback(
+    async (id: string | Id<"monitors">) => {
+      if (!isValidMonitorId(id)) {
+        toast.error("Invalid monitor ID");
+        return { success: false, error: "Invalid monitor ID" };
+      }
+
+      try {
+        const newState = await togglePausedMutation({
+          id: id as Id<"monitors">,
+        });
+        toast.success(
+          `Monitor ${newState ? "paused" : "resumed"} successfully`,
+        );
+        return { success: true, paused: newState };
+      } catch (error) {
+        const message =
+          error instanceof Error ? error.message : "Failed to toggle monitor";
+        toast.error(message);
+        return { success: false, error: message };
+      }
+    },
+    [togglePausedMutation],
+  );
+
   return {
     createMonitor,
     updateMonitor,
     deleteMonitor,
+    togglePaused,
   };
 }
