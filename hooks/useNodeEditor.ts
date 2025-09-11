@@ -315,8 +315,19 @@ export const useNodeEditor = create<NodeEditorState>()(
     },
 
     onConnect: (connection: Connection) => {
-      const { source, target } = connection;
-      if (!source || !target) return;
+      console.log("onConnect called with:", connection);
+      const { source, target, sourceHandle, targetHandle } = connection;
+      console.log("Connection details:", {
+        source,
+        target,
+        sourceHandle,
+        targetHandle,
+      });
+
+      if (!source || !target) {
+        console.log("Missing source or target");
+        return;
+      }
 
       // Validate connection with detailed feedback
       const state = get();
@@ -379,17 +390,26 @@ export const useNodeEditor = create<NodeEditorState>()(
     },
 
     validateConnection: (sourceId: string, targetId: string) => {
+      console.log("validateConnection called:", { sourceId, targetId });
       const state = get();
       const sourceNode = state.nodes.find((n) => n.id === sourceId);
       const targetNode = state.nodes.find((n) => n.id === targetId);
 
-      if (!sourceNode || !targetNode) return false;
+      if (!sourceNode || !targetNode) {
+        console.log("validateConnection: nodes not found");
+        return false;
+      }
 
       const sourceRules = CONNECTION_RULES[sourceNode.type as NodeType];
       const targetRules = CONNECTION_RULES[targetNode.type as NodeType];
 
       // Check if connection is allowed
       if (!sourceRules.targetTypes.includes(targetNode.type as NodeType)) {
+        console.log("validateConnection: target type not allowed", {
+          sourceType: sourceNode.type,
+          targetType: targetNode.type,
+          allowedTargets: sourceRules.targetTypes,
+        });
         return false;
       }
 
@@ -399,6 +419,7 @@ export const useNodeEditor = create<NodeEditorState>()(
           (e) => e.target === targetId,
         ).length;
         if (existingConnections >= targetRules.maxConnections) {
+          console.log("validateConnection: max connections reached");
           return false;
         }
       }
@@ -408,9 +429,11 @@ export const useNodeEditor = create<NodeEditorState>()(
         (e) => e.source === sourceId && e.target === targetId,
       );
       if (isDuplicate) {
+        console.log("validateConnection: duplicate connection");
         return false;
       }
 
+      console.log("validateConnection: connection is valid");
       return true;
     },
 
@@ -452,6 +475,12 @@ export const useNodeEditor = create<NodeEditorState>()(
         globalErrors.push(
           "At least one action (trigger or notification) is required",
         );
+        isValid = false;
+      }
+
+      // Check if nodes are connected
+      if (state.nodes.length > 1 && state.edges.length === 0) {
+        globalErrors.push("Connect your nodes to create the flow");
         isValid = false;
       }
 

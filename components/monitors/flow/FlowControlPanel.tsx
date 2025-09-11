@@ -26,6 +26,7 @@ import {
   AlertCircle,
   Undo2,
   Redo2,
+  GitMerge,
 } from "lucide-react";
 import { NodeType } from "@/lib/types/nodeEditor";
 import { cn } from "@/lib/utils";
@@ -36,8 +37,10 @@ interface FlowControlPanelProps {
   onAddNode: (type: NodeType) => void;
   onUndo?: () => void;
   onRedo?: () => void;
+  onAutoConnect?: () => void;
   canUndo?: boolean;
   canRedo?: boolean;
+  hasNodes?: boolean;
   className?: string;
 }
 
@@ -99,8 +102,10 @@ export function FlowControlPanel({
   onAddNode,
   onUndo,
   onRedo,
+  onAutoConnect,
   canUndo = false,
   canRedo = false,
+  hasNodes = false,
   className,
 }: FlowControlPanelProps) {
   const [isNodePanelOpen, setIsNodePanelOpen] = useState(false);
@@ -159,6 +164,25 @@ export function FlowControlPanel({
         </div>
 
         <div className="w-px h-6 bg-border" />
+
+        {/* Auto Connect Button - Connects nodes automatically */}
+        {hasNodes && onAutoConnect && (
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={onAutoConnect}
+                className="h-8 w-8 p-0"
+              >
+                <GitMerge className="h-4 w-4" />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Auto Connect - Connect nodes</p>
+            </TooltipContent>
+          </Tooltip>
+        )}
 
         {/* Auto Layout Button - Rearranges nodes */}
         <Tooltip>

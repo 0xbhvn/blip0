@@ -231,6 +231,74 @@ export function MonitorFlowEditor({
     [onNodesChange],
   );
 
+  // Handle auto-connect - connects nodes based on their types
+  const handleAutoConnect = useCallback(() => {
+    const networkNodes = nodes.filter((n) => n.type === NodeType.NETWORK);
+    const addressNodes = nodes.filter((n) => n.type === NodeType.ADDRESS);
+    const conditionNodes = nodes.filter(
+      (n) =>
+        n.type === NodeType.EVENT_CONDITION ||
+        n.type === NodeType.FUNCTION_CONDITION ||
+        n.type === NodeType.TRANSACTION_CONDITION,
+    );
+    const actionNodes = nodes.filter(
+      (n) => n.type === NodeType.TRIGGER || n.type === NodeType.NOTIFICATION,
+    );
+
+    let connectionsCreated = 0;
+
+    // Connect networks to addresses and conditions
+    networkNodes.forEach((network) => {
+      [...addressNodes, ...conditionNodes].forEach((target) => {
+        if (validateConnection(network.id, target.id)) {
+          onConnect({
+            source: network.id,
+            target: target.id,
+            sourceHandle: null,
+            targetHandle: null,
+          });
+          connectionsCreated++;
+        }
+      });
+    });
+
+    // Connect addresses to conditions
+    addressNodes.forEach((address) => {
+      conditionNodes.forEach((condition) => {
+        if (validateConnection(address.id, condition.id)) {
+          onConnect({
+            source: address.id,
+            target: condition.id,
+            sourceHandle: null,
+            targetHandle: null,
+          });
+          connectionsCreated++;
+        }
+      });
+    });
+
+    // Connect conditions to actions
+    conditionNodes.forEach((condition) => {
+      actionNodes.forEach((action) => {
+        if (validateConnection(condition.id, action.id)) {
+          onConnect({
+            source: condition.id,
+            target: action.id,
+            sourceHandle: null,
+            targetHandle: null,
+          });
+          connectionsCreated++;
+        }
+      });
+    });
+
+    if (connectionsCreated > 0) {
+      toast.success(`Created ${connectionsCreated} connections`);
+    } else {
+      toast.info("No valid connections could be created");
+    }
+  }, [nodes, validateConnection, onConnect]);
+
   // Handle canvas click for adding nodes
   const handlePaneClick = useCallback(() => {
     // Canvas clicks are now just for general interaction
@@ -348,12 +416,19 @@ export function MonitorFlowEditor({
   // Manual save for create mode
   const handleManualSave = useCallback(async () => {
     const currentlyValid = validateNow();
+
     if (!currentlyValid) {
-      toast.error("Please fix validation errors before saving");
+      // Check specific validation errors to give better feedback
+      if (!monitorName || monitorName.trim().length === 0) {
+        toast.error("Please enter a monitor name");
+      } else {
+        toast.error("Please fix validation errors before saving");
+      }
       return;
     }
 
     const config = buildMonitorConfig();
+
     if (config && onSave && mode === "create") {
       // Clear the flag BEFORE calling onSave to prevent warning during navigation
       setHasChanges(false);
@@ -364,9 +439,10 @@ export function MonitorFlowEditor({
         // If save fails, restore the hasChanges flag
         setHasChanges(true);
         console.error("Failed to save:", error);
+        toast.error("Failed to create monitor");
       }
     }
-  }, [validateNow, buildMonitorConfig, onSave, mode]);
+  }, [validateNow, buildMonitorConfig, onSave, mode, monitorName]);
 
   return (
     <ReactFlowProvider>
@@ -396,6 +472,7 @@ export function MonitorFlowEditor({
             onSelectionChange={handleSelectionChange}
             onAddNode={handleAddNodeFromPanel}
             onLayoutChange={handleLayoutChange}
+            onAutoConnect={handleAutoConnect}
             onUndo={handleUndo}
             onRedo={handleRedo}
             canUndo={canUndo}
@@ -430,14 +507,21 @@ export function MonitorFlowEditor({
                   variant={hasChanges ? "default" : "outline"}
                   size="sm"
                   onClick={handleManualSave}
-                  disabled={!isValid || nodes.length === 0}
+                  disabled={
+                    !isValid ||
+                    nodes.length === 0 ||
+                    !monitorName ||
+                    monitorName.trim().length === 0
+                  }
                   className="shadow-lg"
                 >
-                  {hasChanges && nodes.length > 0
-                    ? "Create Monitor"
+                  {!monitorName || monitorName.trim().length === 0
+                    ? "Enter monitor name"
                     : nodes.length === 0
                       ? "Add nodes to continue"
-                      : "Create Monitor"}
+                      : hasChanges
+                        ? "Create Monitor"
+                        : "Create Monitor"}
                 </Button>
               </Panel>
             )}

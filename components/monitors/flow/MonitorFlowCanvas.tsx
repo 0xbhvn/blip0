@@ -55,6 +55,7 @@ export interface MonitorFlowCanvasProps {
   onSelectionChange?: OnSelectionChangeFunc;
   onAddNode?: (type: NodeType) => void;
   onLayoutChange?: (nodes: Node[], edges: Edge[]) => void;
+  onAutoConnect?: () => void;
   onUndo?: () => void;
   onRedo?: () => void;
   canUndo?: boolean;
@@ -85,6 +86,7 @@ export function MonitorFlowCanvas({
   onSelectionChange,
   onAddNode,
   onLayoutChange,
+  onAutoConnect,
   onUndo,
   onRedo,
   canUndo,
@@ -310,10 +312,12 @@ export function MonitorFlowCanvas({
           onFitView={handleFitView}
           onAutoLayout={handleAutoLayout}
           onAddNode={onAddNode}
+          onAutoConnect={onAutoConnect}
           onUndo={onUndo}
           onRedo={onRedo}
           canUndo={canUndo}
           canRedo={canRedo}
+          hasNodes={nodes.length > 0}
         />
       )}
     </div>
