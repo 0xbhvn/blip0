@@ -1,8 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { Plus } from "lucide-react";
 import { MonitorCard } from "./MonitorCard";
 import { MonitorEmptyState } from "./MonitorEmptyState";
 import { cn } from "@/lib/utils";
@@ -20,21 +17,12 @@ export function MonitorList({ className }: MonitorListProps) {
     await deleteMonitor(id, name);
   };
 
-  const title = "Monitors";
   const emptyMessage =
     "No monitors yet. Create your first monitor to start tracking smart contract activity.";
 
   if (isLoading) {
     return (
       <div className={cn("space-y-6", className)}>
-        <div className="flex justify-between items-center">
-          <h2 className="text-xl font-semibold">{title}</h2>
-          <Link href="/product/monitors/create">
-            <Button>
-              <Plus className="mr-2 h-4 w-4" /> Create Monitor
-            </Button>
-          </Link>
-        </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {/* Loading skeleton - can be improved with proper skeleton components */}
           {[1, 2, 3].map((i) => (
@@ -47,22 +35,6 @@ export function MonitorList({ className }: MonitorListProps) {
 
   return (
     <div className={cn("space-y-6", className)}>
-      <div className="flex justify-between items-center">
-        <div>
-          <h2 className="text-xl font-semibold">
-            {title} ({monitors.length})
-          </h2>
-          <p className="text-sm text-muted-foreground mt-1">
-            Your personal monitor configurations
-          </p>
-        </div>
-        <Link href="/product/monitors/create">
-          <Button>
-            <Plus className="mr-2 h-4 w-4" /> Create Monitor
-          </Button>
-        </Link>
-      </div>
-
       {monitors.length > 0 ? (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {monitors.map((monitor) => (

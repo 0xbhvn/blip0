@@ -4,7 +4,9 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { usePathname } from "next/navigation";
-import { Menu } from "lucide-react";
+import Link from "next/link";
+import { Menu, Plus } from "lucide-react";
+import { useNetworks } from "@/hooks";
 
 interface AppHeaderProps {
   className?: string;
@@ -18,6 +20,7 @@ export function AppHeader({
   isSidebarOpen = false,
 }: AppHeaderProps) {
   const pathname = usePathname();
+  const { isAdmin } = useNetworks();
 
   // Determine which section we're in
   const isMonitors = pathname.includes("/monitors");
@@ -63,13 +66,29 @@ export function AppHeader({
 
       {/* Right Section - Actions */}
       <div className="flex items-center gap-2">
-        <Button variant="ghost" size="sm">
-          Share
-        </Button>
-        <Button variant="outline" size="sm">
-          Test
-        </Button>
-        <Button size="sm">Deploy</Button>
+        {isMonitors ? (
+          <Link href="/product/monitors/create">
+            <Button size="sm">
+              <Plus className="mr-2 h-4 w-4" /> Create Monitor
+            </Button>
+          </Link>
+        ) : isNetworks && isAdmin ? (
+          <Link href="/product/networks/create">
+            <Button size="sm">
+              <Plus className="mr-2 h-4 w-4" /> Add Network
+            </Button>
+          </Link>
+        ) : (
+          <>
+            <Button variant="ghost" size="sm">
+              Share
+            </Button>
+            <Button variant="outline" size="sm">
+              Test
+            </Button>
+            <Button size="sm">Deploy</Button>
+          </>
+        )}
       </div>
     </header>
   );
