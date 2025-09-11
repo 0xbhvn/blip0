@@ -9,9 +9,10 @@ import {
   MonitorToggle,
   MonitorTitleDropdown,
 } from "@/components/monitors";
-import { Loader2 } from "lucide-react";
+import { Loader2, Play, Rocket } from "lucide-react";
 import { useHeader } from "@/contexts/HeaderContext";
 import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 export default function MonitorDetailsPage() {
   const params = useParams();
@@ -34,6 +35,32 @@ export default function MonitorDetailsPage() {
               monitorId={monitorId}
               initialPaused={monitor.paused || false}
             />
+          </div>
+        ),
+        rightActions: (
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              className="flex items-center gap-2"
+              onClick={() => {
+                // Test functionality will be implemented later
+              }}
+            >
+              <Play className="h-4 w-4" />
+              Test
+            </Button>
+            <Button
+              variant="default"
+              size="sm"
+              className="flex items-center gap-2"
+              onClick={() => {
+                // Deploy functionality will be implemented later
+              }}
+            >
+              <Rocket className="h-4 w-4" />
+              Deploy
+            </Button>
           </div>
         ),
       });

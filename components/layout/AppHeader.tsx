@@ -22,7 +22,7 @@ export function AppHeader({
 }: AppHeaderProps) {
   const pathname = usePathname();
   const { isAdmin } = useNetworks();
-  const { title: customTitle, badge, actions } = useHeader();
+  const { title: customTitle, badge, actions, rightActions } = useHeader();
 
   // Determine which section we're in
   const isMonitors = pathname.includes("/monitors");
@@ -76,7 +76,9 @@ export function AppHeader({
 
       {/* Right Section - Actions */}
       <div className="flex items-center gap-2">
-        {isMonitors && !isMonitorDetail ? (
+        {rightActions ? (
+          rightActions
+        ) : isMonitors && !isMonitorDetail ? (
           <Link href="/product/monitors/create">
             <Button size="sm">
               <Plus className="mr-2 h-4 w-4" /> New Monitor

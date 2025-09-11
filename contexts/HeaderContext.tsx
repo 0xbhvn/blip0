@@ -1,12 +1,21 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode, useCallback } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useCallback,
+} from "react";
 
 interface HeaderContextValue {
   title?: string;
   badge?: string;
   actions?: ReactNode;
-  setHeaderData: (data: Partial<Omit<HeaderContextValue, "setHeaderData">>) => void;
+  rightActions?: ReactNode;
+  setHeaderData: (
+    data: Partial<Omit<HeaderContextValue, "setHeaderData">>,
+  ) => void;
   clearHeaderData: () => void;
 }
 
@@ -17,11 +26,16 @@ export function HeaderProvider({ children }: { children: ReactNode }) {
     Omit<HeaderContextValue, "setHeaderData" | "clearHeaderData">
   >({});
 
-  const setHeaderData = useCallback((
-    data: Partial<Omit<HeaderContextValue, "setHeaderData" | "clearHeaderData">>
-  ) => {
-    setHeaderDataState(data);
-  }, []);
+  const setHeaderData = useCallback(
+    (
+      data: Partial<
+        Omit<HeaderContextValue, "setHeaderData" | "clearHeaderData">
+      >,
+    ) => {
+      setHeaderDataState(data);
+    },
+    [],
+  );
 
   const clearHeaderData = useCallback(() => {
     setHeaderDataState({});
