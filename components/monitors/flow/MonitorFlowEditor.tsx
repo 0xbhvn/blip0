@@ -11,7 +11,6 @@ import { useHistory } from "@/hooks/useHistory";
 import { NodeType, EditorNode } from "@/lib/types/nodeEditor";
 import { MonitorCreateInput } from "@/lib/types/monitors";
 import { FloatingActionBar } from "./FloatingActionBar";
-import { EditModeIndicator } from "./EditModeIndicator";
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 import { toast } from "sonner";
@@ -52,7 +51,6 @@ export function MonitorFlowEditor({
     null,
   );
   const [canvasRef, setCanvasRef] = React.useState<HTMLDivElement | null>(null);
-  const [isReadOnly, setIsReadOnly] = React.useState(false);
   const [isHistoryAction, setIsHistoryAction] = React.useState(false);
 
   // Validation with debounce
@@ -113,20 +111,19 @@ export function MonitorFlowEditor({
   );
 
   // Auto-save functionality
-  const { saveStatus, lastSaved, triggerSave, forceSave, hasUnsavedChanges } =
-    useAutoSave({
-      onSave: async (data) => {
-        if (onSave && mode === "edit") {
-          onSave(data);
-        }
-      },
-      enabled: mode === "edit" && !isReadOnly,
-      debounceMs: 2000,
-      onError: (error) => {
-        console.error("Auto-save failed:", error);
-        toast.error("Failed to auto-save changes");
-      },
-    });
+  const { saveStatus, lastSaved, triggerSave, forceSave } = useAutoSave({
+    onSave: async (data) => {
+      if (onSave && mode === "edit") {
+        onSave(data);
+      }
+    },
+    enabled: mode === "edit",
+    debounceMs: 2000,
+    onError: (error) => {
+      console.error("Auto-save failed:", error);
+      toast.error("Failed to auto-save changes");
+    },
+  });
 
   // Initialize with provided data if available
   useEffect(() => {
@@ -150,7 +147,7 @@ export function MonitorFlowEditor({
   const previousDataRef = useRef<string>("");
 
   useEffect(() => {
-    if (!isReadOnly && !isHistoryAction) {
+    if (!isHistoryAction) {
       // Create a representation of what actually gets saved (not positions or selection)
       // We only care about node data and connections, not visual properties
       const currentDataString = JSON.stringify({
@@ -191,7 +188,6 @@ export function MonitorFlowEditor({
     edges,
     monitorName,
     monitorActive,
-    isReadOnly,
     isHistoryAction,
     mode,
     isValid,
@@ -356,35 +352,19 @@ export function MonitorFlowEditor({
     }
   }, [redo, canRedo]);
 
-  // Toggle read-only mode
-  const toggleReadOnly = useCallback(() => {
-    setIsReadOnly(!isReadOnly);
-    toast.success(isReadOnly ? "Editing enabled" : "Read-only mode", {
-      duration: 2000,
-    });
-  }, [isReadOnly]);
-
   return (
     <ReactFlowProvider>
       <div className="h-full w-full flex flex-col">
-        {/* Simplified header - just the essentials */}
-        <div className="border-b bg-background/95 backdrop-blur-sm p-3">
-          <div className="flex items-center justify-end">
-            <EditModeIndicator
-              isEditable={!isReadOnly}
-              isOwner={true}
-              hasUnsavedChanges={hasUnsavedChanges}
-              onToggleReadOnly={toggleReadOnly}
-            />
-          </div>
-          {validationErrors.global && (
-            <div className="mt-2 text-xs text-destructive">
+        {/* Simplified header - validation errors only if present */}
+        {validationErrors.global && (
+          <div className="border-b bg-background/95 backdrop-blur-sm p-3">
+            <div className="text-xs text-destructive">
               {validationErrors.global.map((error: string, index: number) => (
                 <span key={index}>{error}</span>
               ))}
             </div>
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Flow Canvas */}
         <div className="flex-1 relative" ref={setCanvasRef}>
@@ -399,24 +379,22 @@ export function MonitorFlowEditor({
             onPaneClick={handlePaneClick}
             onSelectionChange={handleSelectionChange}
             isValidConnection={isValidConnection}
-            isInteractive={!isReadOnly}
+            isInteractive={true}
             fitView={true}
             showControls={true}
             showMiniMap={true}
             showBackground={true}
           >
-            {/* Node Palette Panel - only show when editable */}
-            {!isReadOnly && (
-              <Panel position="top-left" className="m-0">
-                <NodeTypePalette
-                  selectedType={selectedNodeType}
-                  onSelectType={setSelectedNodeType}
-                />
-              </Panel>
-            )}
+            {/* Node Palette Panel */}
+            <Panel position="top-left" className="m-0">
+              <NodeTypePalette
+                selectedType={selectedNodeType}
+                onSelectType={setSelectedNodeType}
+              />
+            </Panel>
 
             {/* Delete Button - shows when a node is selected */}
-            {!isReadOnly && selectedNodeId && (
+            {selectedNodeId && (
               <Panel position="top-right" className="m-2">
                 <Button
                   variant="destructive"
