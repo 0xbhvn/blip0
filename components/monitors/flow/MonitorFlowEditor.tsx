@@ -12,9 +12,6 @@ import { NodeType, EditorNode } from "@/lib/types/nodeEditor";
 import { MonitorCreateInput } from "@/lib/types/monitors";
 import { FloatingActionBar } from "./FloatingActionBar";
 import { EditModeIndicator } from "./EditModeIndicator";
-import { Input } from "@/components/ui/input";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 import { toast } from "sonner";
@@ -66,8 +63,6 @@ export function MonitorFlowEditor({
     edges,
     monitorName,
     monitorActive,
-    setMonitorName,
-    setMonitorActive,
     onNodesChange,
     onEdgesChange,
     onConnect,
@@ -374,31 +369,7 @@ export function MonitorFlowEditor({
       <div className="h-full w-full flex flex-col">
         {/* Simplified header - just the essentials */}
         <div className="border-b bg-background/95 backdrop-blur-sm p-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Input
-                id="monitor-name"
-                value={monitorName}
-                onChange={(e) => setMonitorName(e.target.value)}
-                placeholder="Monitor name..."
-                className="w-64 h-9"
-                disabled={isReadOnly}
-              />
-              <div className="flex items-center space-x-2">
-                <Switch
-                  id="monitor-active"
-                  checked={monitorActive}
-                  onCheckedChange={setMonitorActive}
-                  disabled={isReadOnly}
-                />
-                <Label
-                  htmlFor="monitor-active"
-                  className="cursor-pointer text-sm"
-                >
-                  {monitorActive ? "Active" : "Paused"}
-                </Label>
-              </div>
-            </div>
+          <div className="flex items-center justify-end">
             <EditModeIndicator
               isEditable={!isReadOnly}
               isOwner={true}

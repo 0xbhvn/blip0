@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, Plus } from "lucide-react";
 import { useNetworks } from "@/hooks";
+import { useHeader } from "@/contexts/HeaderContext";
 
 interface AppHeaderProps {
   className?: string;
@@ -21,11 +22,23 @@ export function AppHeader({
 }: AppHeaderProps) {
   const pathname = usePathname();
   const { isAdmin } = useNetworks();
+  const { title: customTitle, badge, actions } = useHeader();
 
   // Determine which section we're in
   const isMonitors = pathname.includes("/monitors");
   const isNetworks = pathname.includes("/networks");
   const isChat = pathname === "/product" || pathname === "/product/";
+  
+  // Determine if we're on a detail page
+  const isMonitorDetail = pathname.match(/\/monitors\/[^\/]+$/);
+  const isNetworkDetail = pathname.match(/\/networks\/[^\/]+$/);
+  
+  // Use custom title if provided, otherwise use section name
+  const displayTitle = customTitle || (
+    isChat ? "Chat" :
+    isMonitors ? "Monitors" :
+    isNetworks ? "Networks" : ""
+  );
 
   return (
     <header
@@ -49,13 +62,18 @@ export function AppHeader({
 
         <div className="flex items-center gap-3">
           <h1 className="text-lg font-semibold">
-            {isChat && "Chat"}
-            {isMonitors && "Monitors"}
-            {isNetworks && "Networks"}
+            {displayTitle}
           </h1>
-          <Badge variant="outline" className="text-xs">
-            Development
-          </Badge>
+          {actions && <div className="flex items-center">{actions}</div>}
+          {badge ? (
+            <Badge variant="outline" className="text-xs">
+              {badge}
+            </Badge>
+          ) : (
+            <Badge variant="outline" className="text-xs">
+              Development
+            </Badge>
+          )}
         </div>
       </div>
 
@@ -66,19 +84,19 @@ export function AppHeader({
 
       {/* Right Section - Actions */}
       <div className="flex items-center gap-2">
-        {isMonitors ? (
+        {isMonitors && !isMonitorDetail ? (
           <Link href="/product/monitors/create">
             <Button size="sm">
               <Plus className="mr-2 h-4 w-4" /> New Monitor
             </Button>
           </Link>
-        ) : isNetworks && isAdmin ? (
+        ) : isNetworks && !isNetworkDetail && isAdmin ? (
           <Link href="/product/networks/create">
             <Button size="sm">
               <Plus className="mr-2 h-4 w-4" /> New Network
             </Button>
           </Link>
-        ) : (
+        ) : isChat ? (
           <>
             <Button variant="ghost" size="sm">
               Share
@@ -88,7 +106,7 @@ export function AppHeader({
             </Button>
             <Button size="sm">Deploy</Button>
           </>
-        )}
+        ) : null}
       </div>
     </header>
   );

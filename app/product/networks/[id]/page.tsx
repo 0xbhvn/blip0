@@ -2,6 +2,8 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { useNetwork, useNetworks } from "@/hooks";
+import { useHeader } from "@/contexts/HeaderContext";
+import { useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -11,7 +13,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Edit, Globe, Cpu } from "lucide-react";
+import { Edit, Globe, Cpu } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function NetworkDetailPage() {
@@ -19,6 +21,19 @@ export default function NetworkDetailPage() {
   const router = useRouter();
   const { isAdmin } = useNetworks();
   const { network, isLoading, notFound } = useNetwork(params.id as string);
+  const { setHeaderData, clearHeaderData } = useHeader();
+
+  useEffect(() => {
+    if (network) {
+      setHeaderData({
+        title: network.name,
+      });
+    }
+
+    return () => {
+      clearHeaderData();
+    };
+  }, [network, setHeaderData, clearHeaderData]);
 
   if (isLoading) {
     return (
@@ -50,15 +65,7 @@ export default function NetworkDetailPage() {
 
   return (
     <>
-      <div className="mb-6 flex items-center justify-between">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => router.push("/product/networks")}
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Networks
-        </Button>
+      <div className="mb-6 flex items-center justify-end">
         {isAdmin && (
           <Button
             onClick={() => router.push(`/product/networks/${network._id}/edit`)}

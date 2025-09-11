@@ -9,6 +9,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode, useState, useEffect, useRef, useCallback } from "react";
 import { AppHeader } from "@/components/layout/AppHeader";
+import { HeaderProvider } from "@/contexts/HeaderContext";
 
 export default function ProductLayout({ children }: { children: ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -19,20 +20,22 @@ export default function ProductLayout({ children }: { children: ReactNode }) {
 
   return (
     <ConvexClientProvider>
-      <div className="relative min-h-screen w-full flex">
-        <ProductMenu isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
+      <HeaderProvider>
+        <div className="relative min-h-screen w-full flex">
+          <ProductMenu isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
 
-        {/* Main content area that gets pushed when sidebar opens */}
-        <div
-          className={cn(
-            "flex-1 min-h-screen transition-all duration-200 ease-out",
-            sidebarOpen ? "ml-64" : "ml-0",
-          )}
-        >
-          <AppHeader onMenuClick={toggleSidebar} isSidebarOpen={sidebarOpen} />
-          <main className="w-full">{children}</main>
+          {/* Main content area that gets pushed when sidebar opens */}
+          <div
+            className={cn(
+              "flex-1 min-h-screen transition-all duration-200 ease-out",
+              sidebarOpen ? "ml-64" : "ml-0",
+            )}
+          >
+            <AppHeader onMenuClick={toggleSidebar} isSidebarOpen={sidebarOpen} />
+            <main className="w-full">{children}</main>
+          </div>
         </div>
-      </div>
+      </HeaderProvider>
     </ConvexClientProvider>
   );
 }

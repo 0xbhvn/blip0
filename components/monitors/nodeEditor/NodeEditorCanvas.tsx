@@ -24,9 +24,6 @@ import { MonitorCreateInput } from "@/lib/types/monitors";
 import { NodeTypePalette } from "./NodeTypePalette";
 import { NodeEditorDrawer } from "./NodeEditorDrawer";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
 import { Trash2, Save } from "lucide-react";
 import { toast } from "sonner";
 
@@ -77,10 +74,6 @@ export function NodeEditorCanvas({
   const {
     nodes,
     edges,
-    monitorName,
-    monitorActive,
-    setMonitorName,
-    setMonitorActive,
     onNodesChange,
     onEdgesChange,
     onConnect,
@@ -272,47 +265,18 @@ export function NodeEditorCanvas({
 
   return (
     <div className="h-full w-full flex flex-col">
-      {/* Monitor Name and Status Header */}
+      {/* Action Header */}
       <div className="border-b bg-background p-4">
-        <div className="flex items-center justify-between max-w-4xl">
-          <div className="flex-1 max-w-md">
-            <Label
-              htmlFor="monitor-name"
-              className="text-sm font-medium mb-2 block"
-            >
-              Monitor Name
-            </Label>
-            <Input
-              id="monitor-name"
-              value={monitorName}
-              onChange={(e) => {
-                setMonitorName(e.target.value);
-              }}
-              placeholder="Enter monitor name..."
-              className="w-full"
-            />
-          </div>
-          <div className="flex items-center gap-4 ml-8">
-            <div className="flex items-center space-x-2">
-              <Switch
-                id="monitor-active"
-                checked={monitorActive}
-                onCheckedChange={setMonitorActive}
-              />
-              <Label htmlFor="monitor-active" className="cursor-pointer">
-                {monitorActive ? "Active" : "Paused"}
-              </Label>
-            </div>
-            <div className="flex gap-2">
-              <Button onClick={handleSave} size="sm" disabled={!isValid}>
-                <Save className="h-4 w-4 mr-2" />
-                Save
-              </Button>
-              <Button onClick={handleClear} size="sm" variant="outline">
-                <Trash2 className="h-4 w-4 mr-2" />
-                Clear
-              </Button>
-            </div>
+        <div className="flex items-center justify-end">
+          <div className="flex gap-2">
+            <Button onClick={handleSave} size="sm" disabled={!isValid}>
+              <Save className="h-4 w-4 mr-2" />
+              Save
+            </Button>
+            <Button onClick={handleClear} size="sm" variant="outline">
+              <Trash2 className="h-4 w-4 mr-2" />
+              Clear
+            </Button>
           </div>
         </div>
         {validationErrors.global && (

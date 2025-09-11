@@ -3,7 +3,6 @@
 import { useMemo } from "react";
 import { MonitorResponse } from "@/lib/types";
 import { Id } from "@/convex/_generated/dataModel";
-import { MonitorDetailHeader } from "./MonitorDetailSections";
 import { MonitorFlowEditor } from "./flow/MonitorFlowEditor";
 import { monitorToFlow, hasFlowData } from "@/lib/helpers/flowConverter";
 import { MonitorCreateInput } from "@/lib/types/monitors";
@@ -53,9 +52,6 @@ export function MonitorDetailView({
 
   return (
     <div className="flex flex-col h-[calc(100vh-4rem)]">
-      <div className="pb-4">
-        <MonitorDetailHeader monitorId={monitorId} />
-      </div>
       <div className="flex-1">
         <MonitorFlowEditor
           mode="edit"
