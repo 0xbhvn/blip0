@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Undo2, Redo2, Save, Trash2, Keyboard } from "lucide-react";
+import { Save, Trash2, Keyboard } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -15,10 +15,6 @@ import { AutoSaveIndicator, SaveStatus } from "./AutoSaveIndicator";
 interface FloatingActionBarProps {
   onSave?: () => void;
   onClear?: () => void;
-  onUndo?: () => void;
-  onRedo?: () => void;
-  canUndo?: boolean;
-  canRedo?: boolean;
   isValid?: boolean;
   saveStatus?: SaveStatus;
   lastSaved?: Date;
@@ -37,10 +33,6 @@ const shortcuts = {
 export function FloatingActionBar({
   onSave,
   onClear,
-  onUndo,
-  onRedo,
-  canUndo = false,
-  canRedo = false,
   isValid = true,
   saveStatus = "idle",
   lastSaved,
@@ -58,12 +50,6 @@ export function FloatingActionBar({
       if (isMeta && e.key === "s") {
         e.preventDefault();
         onSave?.();
-      } else if (isMeta && e.key === "z" && !e.shiftKey) {
-        e.preventDefault();
-        onUndo?.();
-      } else if (isMeta && e.shiftKey && e.key === "z") {
-        e.preventDefault();
-        onRedo?.();
       } else if (isMeta && e.shiftKey && e.key === "d") {
         e.preventDefault();
         onClear?.();
@@ -74,7 +60,7 @@ export function FloatingActionBar({
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [onSave, onUndo, onRedo, onClear, showShortcuts]);
+  }, [onSave, onClear, showShortcuts]);
 
   const positionClasses = {
     "bottom-right": "bottom-6 right-6",
@@ -86,13 +72,13 @@ export function FloatingActionBar({
     <TooltipProvider>
       <div
         className={cn(
-          "fixed z-50 flex items-center gap-2",
+          "fixed z-10 flex items-center gap-2",
           positionClasses[position],
           className,
         )}
       >
         {/* Auto-save indicator */}
-        <div className="bg-background/95 backdrop-blur-sm rounded-lg shadow-lg border px-3 py-2">
+        <div className="bg-background/95 backdrop-blur-sm rounded-lg shadow-lg border px-3 py-1.5">
           <AutoSaveIndicator
             status={saveStatus}
             lastSaved={lastSaved}
@@ -102,55 +88,6 @@ export function FloatingActionBar({
 
         {/* Action buttons */}
         <div className="bg-background/95 backdrop-blur-sm rounded-lg shadow-lg border flex items-center gap-1 p-1">
-          {/* Undo/Redo */}
-          <div className="flex items-center gap-0.5 mr-1">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={onUndo}
-                  disabled={!canUndo}
-                  className="h-8 w-8 p-0"
-                >
-                  <Undo2 className="h-4 w-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <div className="flex items-center gap-2">
-                  <span>Undo</span>
-                  <kbd className="text-xs bg-muted px-1 rounded">
-                    {shortcuts.undo}
-                  </kbd>
-                </div>
-              </TooltipContent>
-            </Tooltip>
-
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={onRedo}
-                  disabled={!canRedo}
-                  className="h-8 w-8 p-0"
-                >
-                  <Redo2 className="h-4 w-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <div className="flex items-center gap-2">
-                  <span>Redo</span>
-                  <kbd className="text-xs bg-muted px-1 rounded">
-                    {shortcuts.redo}
-                  </kbd>
-                </div>
-              </TooltipContent>
-            </Tooltip>
-          </div>
-
-          <div className="w-px h-6 bg-border" />
-
           {/* Save */}
           <Tooltip>
             <TooltipTrigger asChild>

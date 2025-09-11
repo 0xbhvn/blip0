@@ -394,6 +394,10 @@ export function MonitorFlowEditor({
             onSelectionChange={handleSelectionChange}
             onAddNode={handleAddNodeFromPanel}
             onLayoutChange={handleLayoutChange}
+            onUndo={handleUndo}
+            onRedo={handleRedo}
+            canUndo={canUndo}
+            canRedo={canRedo}
             isValidConnection={isValidConnection}
             isInteractive={true}
             showControls={false}
@@ -424,10 +428,6 @@ export function MonitorFlowEditor({
           <FloatingActionBar
             onSave={handleSave}
             onClear={handleClear}
-            onUndo={handleUndo}
-            onRedo={handleRedo}
-            canUndo={canUndo}
-            canRedo={canRedo}
             isValid={isValid}
             saveStatus={saveStatus}
             lastSaved={lastSaved}

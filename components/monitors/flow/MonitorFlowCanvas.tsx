@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useMemo, useCallback, useState } from "react";
+import React, { useRef, useMemo, useCallback } from "react";
 import {
   ReactFlow,
   Background,
@@ -55,6 +55,10 @@ export interface MonitorFlowCanvasProps {
   onSelectionChange?: OnSelectionChangeFunc;
   onAddNode?: (type: NodeType) => void;
   onLayoutChange?: (nodes: Node[], edges: Edge[]) => void;
+  onUndo?: () => void;
+  onRedo?: () => void;
+  canUndo?: boolean;
+  canRedo?: boolean;
   isValidConnection?: (connection: Edge | Connection) => boolean;
   isInteractive?: boolean;
   showControls?: boolean;
@@ -81,6 +85,10 @@ export function MonitorFlowCanvas({
   onSelectionChange,
   onAddNode,
   onLayoutChange,
+  onUndo,
+  onRedo,
+  canUndo,
+  canRedo,
   isValidConnection,
   isInteractive = true,
   showControls = true,
@@ -93,7 +101,6 @@ export function MonitorFlowCanvas({
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [reactFlowInstance, setReactFlowInstance] =
     React.useState<ReactFlowInstance | null>(null);
-  const [currentZoom, setCurrentZoom] = useState(100);
 
   // Memoize default edge options
   const defaultEdgeOptions = useMemo(
@@ -194,37 +201,11 @@ export function MonitorFlowCanvas({
 
             instance.setViewport({ x, y, zoom: 1 }, { duration: 0 });
           }
-
-          setCurrentZoom(100);
         }, 10);
-      } else {
-        setCurrentZoom(100);
       }
     },
     [nodes],
   );
-
-  // Remove automatic fit view on nodes change - only manual control via button
-  React.useEffect(() => {
-    // Keep zoom tracking updated
-    if (reactFlowInstance) {
-      const viewport = reactFlowInstance.getViewport();
-      setCurrentZoom(Math.round(viewport.zoom * 100));
-    }
-  }, [reactFlowInstance]);
-
-  // Handle zoom controls
-  const handleZoomIn = useCallback(() => {
-    if (reactFlowInstance) {
-      reactFlowInstance.zoomIn({ duration: 300 });
-    }
-  }, [reactFlowInstance]);
-
-  const handleZoomOut = useCallback(() => {
-    if (reactFlowInstance) {
-      reactFlowInstance.zoomOut({ duration: 300 });
-    }
-  }, [reactFlowInstance]);
 
   const handleFitView = useCallback(() => {
     if (reactFlowInstance) {
@@ -265,11 +246,8 @@ export function MonitorFlowCanvas({
 
   // Track zoom changes
   const onMove = useCallback(() => {
-    if (reactFlowInstance) {
-      const viewport = reactFlowInstance.getViewport();
-      setCurrentZoom(Math.round(viewport.zoom * 100));
-    }
-  }, [reactFlowInstance]);
+    // Removed zoom tracking - not needed anymore
+  }, []);
 
   return (
     <div ref={reactFlowWrapper} className={`h-full w-full ${className}`}>
@@ -329,12 +307,13 @@ export function MonitorFlowCanvas({
       </ReactFlow>
       {showFlowControls && onAddNode && (
         <FlowControlPanel
-          onZoomIn={handleZoomIn}
-          onZoomOut={handleZoomOut}
           onFitView={handleFitView}
           onAutoLayout={handleAutoLayout}
           onAddNode={onAddNode}
-          currentZoom={currentZoom}
+          onUndo={onUndo}
+          onRedo={onRedo}
+          canUndo={canUndo}
+          canRedo={canRedo}
         />
       )}
     </div>

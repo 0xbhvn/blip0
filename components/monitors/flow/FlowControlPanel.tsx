@@ -14,8 +14,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import {
-  Plus,
-  Minus,
   Maximize2,
   Layout,
   PlusCircle,
@@ -26,17 +24,20 @@ import {
   Activity,
   Bell,
   AlertCircle,
+  Undo2,
+  Redo2,
 } from "lucide-react";
 import { NodeType } from "@/lib/types/nodeEditor";
 import { cn } from "@/lib/utils";
 
 interface FlowControlPanelProps {
-  onZoomIn: () => void;
-  onZoomOut: () => void;
   onFitView: () => void;
   onAutoLayout: () => void;
   onAddNode: (type: NodeType) => void;
-  currentZoom?: number;
+  onUndo?: () => void;
+  onRedo?: () => void;
+  canUndo?: boolean;
+  canRedo?: boolean;
   className?: string;
 }
 
@@ -93,12 +94,13 @@ const nodeTypeConfig = [
 ];
 
 export function FlowControlPanel({
-  onZoomIn,
-  onZoomOut,
   onFitView,
   onAutoLayout,
   onAddNode,
-  currentZoom = 100,
+  onUndo,
+  onRedo,
+  canUndo = false,
+  canRedo = false,
   className,
 }: FlowControlPanelProps) {
   const [isNodePanelOpen, setIsNodePanelOpen] = useState(false);
@@ -112,48 +114,46 @@ export function FlowControlPanel({
     <TooltipProvider>
       <div
         className={cn(
-          "absolute bottom-4 left-1/2 -translate-x-1/2 z-10",
+          "fixed bottom-6 left-1/2 -translate-x-1/2 z-10",
           "bg-background/95 backdrop-blur-sm",
           "border rounded-lg shadow-lg",
           "flex items-center gap-1 p-1",
           className,
         )}
       >
-        {/* Zoom Controls */}
-        <div className="flex items-center gap-1 px-1">
+        {/* Undo/Redo Controls */}
+        <div className="flex items-center gap-0.5">
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={onZoomOut}
+                onClick={onUndo}
+                disabled={!canUndo}
                 className="h-8 w-8 p-0"
               >
-                <Minus className="h-4 w-4" />
+                <Undo2 className="h-4 w-4" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Zoom Out</p>
+              <p>Undo (⌘Z)</p>
             </TooltipContent>
           </Tooltip>
 
-          <div className="px-2 text-xs font-medium text-muted-foreground min-w-[3rem] text-center">
-            {Math.round(currentZoom)}%
-          </div>
-
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={onZoomIn}
+                onClick={onRedo}
+                disabled={!canRedo}
                 className="h-8 w-8 p-0"
               >
-                <Plus className="h-4 w-4" />
+                <Redo2 className="h-4 w-4" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Zoom In</p>
+              <p>Redo (⌘⇧Z)</p>
             </TooltipContent>
           </Tooltip>
         </div>
