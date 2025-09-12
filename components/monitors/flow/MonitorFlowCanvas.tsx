@@ -281,6 +281,7 @@ export function MonitorFlowCanvas({
         connectionLineStyle={connectionLineStyle}
         zoomOnDoubleClick={false}
         preventScrolling={false}
+        proOptions={{ hideAttribution: true }}
         nodesConnectable={isInteractive}
         nodesDraggable={isInteractive}
         elementsSelectable={isInteractive}
@@ -290,10 +291,10 @@ export function MonitorFlowCanvas({
         {showBackground && (
           <Background
             variant={BackgroundVariant.Dots}
-            gap={20}
-            size={2}
+            gap={16}
+            size={1}
             color="#94a3b8"
-            style={{ opacity: 0.8 }}
+            style={{ opacity: 0.5 }}
           />
         )}
         {showControls && <Controls />}

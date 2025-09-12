@@ -3,5 +3,5 @@ export default function MonitorsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="container mx-auto p-6">{children}</div>;
+  return <div className="h-full">{children}</div>;
 }

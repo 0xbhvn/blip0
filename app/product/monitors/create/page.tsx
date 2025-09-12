@@ -81,10 +81,8 @@ export default function CreateMonitorPage() {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)]">
-      <div className="flex-1">
-        <MonitorFlowEditor mode="create" onSave={handleSave} />
-      </div>
+    <div className="h-full">
+      <MonitorFlowEditor mode="create" onSave={handleSave} />
     </div>
   );
 }

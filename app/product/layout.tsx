@@ -31,8 +31,11 @@ export default function ProductLayout({ children }: { children: ReactNode }) {
               sidebarOpen ? "ml-64" : "ml-0",
             )}
           >
-            <AppHeader onMenuClick={toggleSidebar} isSidebarOpen={sidebarOpen} />
-            <main className="w-full">{children}</main>
+            <AppHeader
+              onMenuClick={toggleSidebar}
+              isSidebarOpen={sidebarOpen}
+            />
+            <main className="w-full h-[calc(100vh-4rem)]">{children}</main>
           </div>
         </div>
       </HeaderProvider>

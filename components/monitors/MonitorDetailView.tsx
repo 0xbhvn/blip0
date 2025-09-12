@@ -51,17 +51,15 @@ export function MonitorDetailView({
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)]">
-      <div className="flex-1">
-        <MonitorFlowEditor
-          mode="edit"
-          monitorId={monitorId}
-          initialData={flowData}
-          initialMonitorName={monitor.name}
-          initialMonitorActive={!monitor.paused}
-          onSave={handleSave}
-        />
-      </div>
+    <div className="h-full">
+      <MonitorFlowEditor
+        mode="edit"
+        monitorId={monitorId}
+        initialData={flowData}
+        initialMonitorName={monitor.name}
+        initialMonitorActive={!monitor.paused}
+        onSave={handleSave}
+      />
     </div>
   );
 }
