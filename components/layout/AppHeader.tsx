@@ -41,7 +41,7 @@ export function AppHeader({
   return (
     <header
       className={cn(
-        "h-16 border-b bg-background flex items-center justify-between px-4",
+        "h-16 border-b bg-white dark:bg-black flex items-center justify-between px-4",
         className,
       )}
     >

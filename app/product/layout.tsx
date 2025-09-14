@@ -35,7 +35,9 @@ export default function ProductLayout({ children }: { children: ReactNode }) {
               onMenuClick={toggleSidebar}
               isSidebarOpen={sidebarOpen}
             />
-            <main className="w-full h-[calc(100vh-4rem)]">{children}</main>
+            <main className="w-full h-[calc(100vh-4rem)] bg-gray-50 dark:bg-zinc-900">
+              {children}
+            </main>
           </div>
         </div>
       </HeaderProvider>
@@ -114,7 +116,7 @@ function ProductMenu({ isOpen, setIsOpen }: ProductMenuProps) {
         ref={sidebarRef}
         id="sidebar-menu"
         className={cn(
-          "fixed left-0 top-0 h-full w-64 border-r bg-background transition-transform duration-200 ease-out",
+          "fixed left-0 top-0 h-full w-64 border-r bg-white dark:bg-black transition-transform duration-200 ease-out",
           "z-40",
           isOpen ? "translate-x-0" : "-translate-x-full",
         )}

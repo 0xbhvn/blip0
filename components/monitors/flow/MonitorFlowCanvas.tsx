@@ -252,7 +252,10 @@ export function MonitorFlowCanvas({
   }, []);
 
   return (
-    <div ref={reactFlowWrapper} className={`h-full w-full ${className}`}>
+    <div
+      ref={reactFlowWrapper}
+      className={`h-full w-full bg-gray-50 dark:bg-zinc-900 ${className}`}
+    >
       <ReactFlow
         nodes={nodes}
         edges={edges}

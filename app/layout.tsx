@@ -32,9 +32,9 @@ export default function RootLayout({
       {/* `suppressHydrationWarning` only affects the html tag,
       // and is needed by `ThemeProvider` which sets the theme
       // class attribute on it */}
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en" suppressHydrationWarning className="h-full">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased h-full overscroll-none font-sans dark:[color-scheme:dark]`}
         >
           <ThemeProvider attribute="class">{children}</ThemeProvider>
         </body>
