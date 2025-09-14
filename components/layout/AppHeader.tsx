@@ -41,7 +41,7 @@ export function AppHeader({
   return (
     <header
       className={cn(
-        "h-16 border-b bg-white dark:bg-black flex items-center justify-between px-4",
+        "h-14 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-between px-3 py-1",
         className,
       )}
     >

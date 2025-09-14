@@ -26,7 +26,7 @@ export default function MonitorDetailsPage() {
       setHeaderData({
         title: " ", // Use a space to prevent fallback to "Monitors"
         actions: (
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <MonitorTitleDropdown
               monitorId={monitorId}
               monitorName={monitor.name}
@@ -42,23 +42,22 @@ export default function MonitorDetailsPage() {
             <Button
               variant="outline"
               size="sm"
-              className="flex items-center gap-2"
+              className="h-8 px-3 py-1.5 text-sm font-medium bg-white hover:bg-blue-50 active:bg-blue-100 border-blue-500 text-blue-600 dark:bg-slate-900 dark:hover:bg-blue-950 dark:border-blue-400 dark:text-blue-400"
               onClick={() => {
                 // Test functionality will be implemented later
               }}
             >
-              <Play className="h-4 w-4" />
+              <Play className="h-4 w-4 mr-2" />
               Test
             </Button>
             <Button
-              variant="default"
               size="sm"
-              className="flex items-center gap-2"
+              className="h-8 px-3 py-1.5 text-sm font-medium bg-blue-600 hover:bg-blue-700 active:bg-blue-800 border-transparent text-white"
               onClick={() => {
                 // Deploy functionality will be implemented later
               }}
             >
-              <Rocket className="h-4 w-4" />
+              <Rocket className="h-4 w-4 mr-2" />
               Deploy
             </Button>
           </div>
