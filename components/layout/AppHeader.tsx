@@ -82,13 +82,21 @@ export function AppHeader({
           rightActions
         ) : isMonitors && !isMonitorDetail ? (
           <Link href="/product/monitors/create">
-            <Button size="sm">
+            <Button
+              size="sm"
+              variant="outline"
+              className="h-8 text-sm font-medium border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900"
+            >
               <Plus className="mr-2 h-4 w-4" /> New Monitor
             </Button>
           </Link>
         ) : isNetworks && !isNetworkDetail && isAdmin ? (
           <Link href="/product/networks/create">
-            <Button size="sm">
+            <Button
+              size="sm"
+              variant="outline"
+              className="h-8 text-sm font-medium border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900"
+            >
               <Plus className="mr-2 h-4 w-4" /> New Network
             </Button>
           </Link>

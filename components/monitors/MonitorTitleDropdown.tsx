@@ -79,11 +79,11 @@ export function MonitorTitleDropdown({
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
-            className={`h-auto p-1 font-semibold text-lg hover:bg-muted/50 ${className}`}
+            className={`h-6 px-[5px] py-0 text-sm font-medium text-slate-12 dark:text-slate-12 border-transparent ring-2 ring-transparent hover:bg-slate-100 dark:hover:bg-slate-900 focus:bg-slate-50 dark:focus:bg-slate-950 active:bg-slate-50 dark:active:bg-slate-950 active:ring-2 transition-colors rounded-md flex items-center gap-x-1 leading-none whitespace-nowrap ${className}`}
           >
-            {monitorName}
+            <span className="truncate leading-4">{monitorName}</span>
             <ChevronDown
-              className={`ml-1 h-4 w-4 transition-transform ${
+              className={`h-4 w-4 text-slate-500 dark:text-slate-400 transition-transform ${
                 isDropdownOpen ? "rotate-180" : ""
               }`}
             />
