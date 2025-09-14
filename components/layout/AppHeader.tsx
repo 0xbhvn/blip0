@@ -59,7 +59,9 @@ export function AppHeader({
         )}
 
         <div className="flex items-center gap-3">
-          <h1 className="text-lg font-semibold">{displayTitle}</h1>
+          <h1 className="text-sm font-medium text-slate-12 dark:text-slate-12">
+            {displayTitle}
+          </h1>
           {actions && <div className="flex items-center">{actions}</div>}
           {badge && (
             <Badge variant="outline" className="text-xs">
