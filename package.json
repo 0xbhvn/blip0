@@ -14,7 +14,7 @@
     "import:networks": "tsx scripts/import-networks.ts"
   },
   "dependencies": {
-    "@auth/core": "^0.40.0",
+    "@auth/core": "^0.37.0",
     "@convex-dev/auth": "^0.0.89",
     "@dagrejs/dagre": "^1.1.5",
     "@hookform/resolvers": "^5.2.1",

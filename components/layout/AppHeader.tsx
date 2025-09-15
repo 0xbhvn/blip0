@@ -5,21 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { useNetworks } from "@/hooks";
 import { useHeader } from "@/contexts/HeaderContext";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 interface AppHeaderProps {
   className?: string;
-  onMenuClick?: () => void;
-  isSidebarOpen?: boolean;
 }
 
-export function AppHeader({
-  className,
-  onMenuClick,
-  isSidebarOpen = false,
-}: AppHeaderProps) {
+export function AppHeader({ className }: AppHeaderProps) {
   const pathname = usePathname();
   const { isAdmin } = useNetworks();
   const { title: customTitle, badge, actions, rightActions } = useHeader();
@@ -47,16 +42,7 @@ export function AppHeader({
     >
       {/* Left Section - Hamburger + Title/Breadcrumb */}
       <div className="flex items-center gap-3">
-        {!isSidebarOpen && (
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={onMenuClick}
-            className="h-9 w-9"
-          >
-            <Menu className="h-5 w-5" />
-          </Button>
-        )}
+        <SidebarTrigger className="h-9 w-9" />
 
         <div className="flex items-center gap-3">
           <h1 className="text-sm font-medium text-slate-12 dark:text-slate-12">
