@@ -94,7 +94,11 @@ export function monitorToFlow(monitor: Monitor): FlowData {
           source: networkId,
           target: nodeId,
           type: "smoothstep",
-          animated: true,
+          animated: false,
+          style: {
+            stroke: "#6b7280",
+            strokeWidth: 2,
+          },
         });
       });
     });
@@ -142,7 +146,11 @@ export function monitorToFlow(monitor: Monitor): FlowData {
             source: prevId,
             target: nodeId,
             type: "smoothstep",
-            animated: true,
+            animated: false,
+            style: {
+              stroke: "#6b7280",
+              strokeWidth: 2,
+            },
           });
         });
       });
@@ -174,7 +182,11 @@ export function monitorToFlow(monitor: Monitor): FlowData {
             source: prevId,
             target: nodeId,
             type: "smoothstep",
-            animated: true,
+            animated: false,
+            style: {
+              stroke: "#6b7280",
+              strokeWidth: 2,
+            },
           });
         });
       });
@@ -206,7 +218,11 @@ export function monitorToFlow(monitor: Monitor): FlowData {
             source: prevId,
             target: nodeId,
             type: "smoothstep",
-            animated: true,
+            animated: false,
+            style: {
+              stroke: "#6b7280",
+              strokeWidth: 2,
+            },
           });
         });
       });
@@ -244,7 +260,11 @@ export function monitorToFlow(monitor: Monitor): FlowData {
           source: prevId,
           target: nodeId,
           type: "smoothstep",
-          animated: true,
+          animated: false,
+          style: {
+            stroke: "#6b7280",
+            strokeWidth: 2,
+          },
         });
       });
     });

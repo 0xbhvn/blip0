@@ -102,14 +102,14 @@ export function MonitorFlowCanvas({
   const defaultEdgeOptions = useMemo(
     () => ({
       type: "smoothstep",
-      animated: true,
+      animated: false,
       style: {
-        stroke: "#6366f1",
+        stroke: "#6b7280",
         strokeWidth: 2,
       },
       markerEnd: {
         type: MarkerType.ArrowClosed,
-        color: "#6366f1",
+        color: "#6b7280",
       },
     }),
     [],
@@ -118,9 +118,8 @@ export function MonitorFlowCanvas({
   // Memoize connection line style
   const connectionLineStyle = useMemo(
     () => ({
-      stroke: "#6366f1",
+      stroke: "#6b7280",
       strokeWidth: 2,
-      strokeDasharray: "5 5",
     }),
     [],
   );

@@ -377,7 +377,11 @@ export const useNodeEditor = create<NodeEditorState>()(
           {
             ...connection,
             type: "smoothstep",
-            animated: true,
+            animated: false,
+            style: {
+              stroke: "#6b7280",
+              strokeWidth: 2,
+            },
           },
           state.edges,
         ),

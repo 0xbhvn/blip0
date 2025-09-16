@@ -36,11 +36,10 @@ export function BaseNode({
         <Handle
           type="target"
           position={targetPosition}
-          className="!bg-green-500 !border-2 !border-green-600 hover:!bg-green-400 transition-all hover:scale-125"
+          className="!bg-transparent !border-0 hover:scale-110 transition-all"
           style={{
-            width: 14,
-            height: 14,
-            boxShadow: "0 0 0 2px rgba(34, 197, 94, 0.2)",
+            width: 10,
+            height: 10,
           }}
         />
       )}
@@ -71,11 +70,10 @@ export function BaseNode({
         <Handle
           type="source"
           position={sourcePosition}
-          className="!bg-blue-500 !border-2 !border-blue-600 hover:!bg-blue-400 transition-all hover:scale-125"
+          className="!bg-transparent !border-0 hover:scale-110 transition-all"
           style={{
-            width: 14,
-            height: 14,
-            boxShadow: "0 0 0 2px rgba(59, 130, 246, 0.2)",
+            width: 10,
+            height: 10,
           }}
         />
       )}
