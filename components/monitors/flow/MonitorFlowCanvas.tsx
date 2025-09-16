@@ -23,24 +23,18 @@ import { NodeType } from "@/lib/types/nodeEditor";
 import { FlowControlPanel } from "./FlowControlPanel";
 import { getHierarchicalLayout } from "@/lib/utils/autoLayout";
 
-// Import custom node components
-import NetworkNode from "../nodeEditor/nodes/NetworkNode";
-import AddressNode from "../nodeEditor/nodes/AddressNode";
-import EventConditionNode from "../nodeEditor/nodes/EventConditionNode";
-import FunctionConditionNode from "../nodeEditor/nodes/FunctionConditionNode";
-import TransactionConditionNode from "../nodeEditor/nodes/TransactionConditionNode";
-import TriggerNode from "../nodeEditor/nodes/TriggerNode";
-import NotificationNode from "../nodeEditor/nodes/NotificationNode";
+// Import unified node component
+import UnifiedNode from "./nodes/UnifiedNode";
 
 // Memoize node types to prevent recreation
 const nodeTypes = {
-  [NodeType.NETWORK]: NetworkNode,
-  [NodeType.ADDRESS]: AddressNode,
-  [NodeType.EVENT_CONDITION]: EventConditionNode,
-  [NodeType.FUNCTION_CONDITION]: FunctionConditionNode,
-  [NodeType.TRANSACTION_CONDITION]: TransactionConditionNode,
-  [NodeType.TRIGGER]: TriggerNode,
-  [NodeType.NOTIFICATION]: NotificationNode,
+  [NodeType.NETWORK]: UnifiedNode,
+  [NodeType.ADDRESS]: UnifiedNode,
+  [NodeType.EVENT_CONDITION]: UnifiedNode,
+  [NodeType.FUNCTION_CONDITION]: UnifiedNode,
+  [NodeType.TRANSACTION_CONDITION]: UnifiedNode,
+  [NodeType.TRIGGER]: UnifiedNode,
+  [NodeType.NOTIFICATION]: UnifiedNode,
 };
 
 export interface MonitorFlowCanvasProps {

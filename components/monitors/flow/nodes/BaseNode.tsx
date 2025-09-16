@@ -8,7 +8,6 @@ import { AlertCircle } from "lucide-react";
 import { BaseNodeData } from "@/lib/types/nodeEditor";
 
 interface BaseNodeProps extends NodeProps {
-  children: React.ReactNode;
   icon?: React.ReactNode;
   showTargetHandle?: boolean;
   showSourceHandle?: boolean;
@@ -21,7 +20,6 @@ export function BaseNode({
   data,
   selected,
   icon,
-  children,
   showTargetHandle = true,
   showSourceHandle = true,
   targetPosition = Position.Top,
@@ -49,33 +47,23 @@ export function BaseNode({
 
       <Card
         className={cn(
-          "min-w-[200px] transition-all duration-200",
+          "w-[200px] h-[60px] transition-all duration-200 cursor-pointer",
           selected && "ring-2 ring-primary",
           hasErrors && "border-destructive",
           nodeData.isEditing && "ring-2 ring-blue-500",
           className,
         )}
       >
-        <CardContent className="p-3">
-          <div className="flex items-center gap-2 mb-2">
-            {icon && <span className="text-lg">{icon}</span>}
-            <span className="font-medium text-sm">{nodeData.label}</span>
+        <CardContent className="p-3 h-full flex items-center">
+          <div className="flex items-center gap-2 w-full">
+            {icon && <span className="text-lg shrink-0">{icon}</span>}
+            <span className="font-medium text-sm truncate flex-1">
+              {nodeData.label}
+            </span>
             {!nodeData.isValid && (
-              <AlertCircle className="h-3 w-3 text-destructive ml-auto" />
+              <AlertCircle className="h-3 w-3 text-destructive shrink-0" />
             )}
           </div>
-
-          {children}
-
-          {hasErrors && (
-            <div className="mt-2 space-y-1">
-              {nodeData.validationErrors?.map((error, index) => (
-                <p key={index} className="text-xs text-destructive">
-                  {error}
-                </p>
-              ))}
-            </div>
-          )}
         </CardContent>
       </Card>
 

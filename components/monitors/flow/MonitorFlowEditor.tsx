@@ -3,7 +3,7 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import { ReactFlowProvider, Panel } from "@xyflow/react";
 import { MonitorFlowCanvas } from "./MonitorFlowCanvas";
-import { NodeEditorDrawer } from "../nodeEditor/NodeEditorDrawer";
+import { NodeEditorDrawer } from "./NodeEditorDrawer";
 import { useNodeEditor, useDebouncedValidation } from "@/hooks";
 import { useAutoSave } from "@/hooks/useAutoSave";
 import { useHistory } from "@/hooks/useHistory";
