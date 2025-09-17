@@ -1,0 +1,239 @@
+/* React Flow Custom Styles - Lindy-inspired design */
+
+/* Base node styling overrides */
+.react-flow__node {
+  transition: all 75ms ease-out !important;
+}
+
+/* Removed hover transform to prevent flickering with React Flow's internal positioning */
+
+/* Node shadow effects */
+.react-flow__node-default .flow-node-card,
+.react-flow__node-custom .flow-node-card {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    0 -0.5px 1.6px 0 rgba(0, 0, 0, 0.1) inset !important;
+}
+
+/* Handle styling */
+.react-flow__handle {
+  width: 10px !important;
+  height: 10px !important;
+  background: transparent !important;
+  border: none !important;
+  transition: all 150ms ease-out !important;
+}
+
+.react-flow__handle:hover {
+  transform: scale(1.2) !important;
+}
+
+/* Handle hover indicators */
+.handle-hover-indicator {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: hsl(var(--background));
+  border: 2px solid transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.handle-hover-indicator::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid hsl(217 91% 60%); /* blue-500 equivalent */
+}
+
+.react-flow__node:hover .handle-hover-indicator {
+  opacity: 1;
+}
+
+/* Edge styling */
+.react-flow__edge-path {
+  stroke: hsl(240 5% 65%) !important;
+  stroke-width: 2 !important;
+  transition: stroke 150ms ease-out !important;
+}
+
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: hsl(217 91% 60%) !important;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: hsl(217 91% 60%) !important;
+  stroke-width: 2.5 !important;
+}
+
+/* Node type-specific colors */
+.node-type-network {
+  background: white;
+  border-color: hsl(240 5% 84%);
+}
+
+.dark .node-type-network {
+  background: hsl(240 3.7% 10.9%);
+  border-color: hsl(240 3.7% 15.9%);
+}
+
+.node-type-condition {
+  background: hsl(48 100% 96%); /* amber-50 equivalent */
+  border-color: hsl(39 64% 69%); /* amber-400 equivalent */
+}
+
+.dark .node-type-condition {
+  background: hsl(36 64% 15%); /* amber-950 equivalent */
+  border-color: hsl(39 64% 35%); /* amber-700 equivalent */
+}
+
+.node-type-action {
+  background: white;
+  border-color: hsl(240 5% 84%);
+}
+
+.dark .node-type-action {
+  background: hsl(240 3.7% 10.9%);
+  border-color: hsl(240 3.7% 15.9%);
+}
+
+/* Icon container styling */
+.node-icon-container {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 0.5px solid hsl(240 5% 84%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dark .node-icon-container {
+  border-color: hsl(240 3.7% 25%);
+}
+
+/* Status badges */
+.node-status-badge {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid hsl(240 5% 84%);
+  background: white;
+  color: hsl(240 5% 45%);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dark .node-status-badge {
+  background: hsl(240 3.7% 15.9%);
+  border-color: hsl(240 3.7% 25%);
+  color: hsl(240 5% 65%);
+}
+
+/* Validation warning icon */
+.node-warning-icon {
+  color: hsl(33 100% 50%); /* orange-500 */
+}
+
+/* Trigger indicator (lightning bolt) */
+.trigger-indicator {
+  position: absolute;
+  bottom: -2px;
+  right: -5px;
+  width: 11px;
+  height: 13px;
+}
+
+.trigger-indicator-bg {
+  fill: white;
+  stroke: white;
+}
+
+.dark .trigger-indicator-bg {
+  stroke: hsl(240 3.7% 15.9%);
+}
+
+.trigger-indicator-bolt {
+  fill: hsl(33 100% 56%); /* FFA01C from Lindy */
+  stroke: hsl(33 100% 56%);
+}
+
+/* Node selection ring */
+.react-flow__node.selected .flow-node-card {
+  ring: 2px solid hsl(217 91% 60%) !important;
+}
+
+/* Smooth transitions for all interactive elements */
+.flow-node-card,
+.node-icon-container,
+.node-status-badge {
+  transition: all 75ms ease-out;
+}
+
+/* Backface visibility for smooth rendering */
+.react-flow__node {
+  backface-visibility: hidden;
+  will-change: auto; /* Prevent unnecessary compositor layers */
+}
+
+/* Minimap styling */
+.react-flow__minimap {
+  background: hsl(240 5% 96%);
+  border: 1px solid hsl(240 5% 84%);
+}
+
+.dark .react-flow__minimap {
+  background: hsl(240 3.7% 10.9%);
+  border: 1px solid hsl(240 3.7% 15.9%);
+}
+
+/* Controls styling */
+.react-flow__controls {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid hsl(240 5% 84%);
+  background: white;
+}
+
+.dark .react-flow__controls {
+  background: hsl(240 3.7% 10.9%);
+  border: 1px solid hsl(240 3.7% 15.9%);
+}
+
+.react-flow__controls-button {
+  background: white;
+  border-bottom: 1px solid hsl(240 5% 84%);
+}
+
+.dark .react-flow__controls-button {
+  background: hsl(240 3.7% 10.9%);
+  border-bottom: 1px solid hsl(240 3.7% 15.9%);
+}
+
+.react-flow__controls-button:hover {
+  background: hsl(240 5% 96%);
+}
+
+.dark .react-flow__controls-button:hover {
+  background: hsl(240 3.7% 15.9%);
+}
+
+/* Background pattern */
+.react-flow__background pattern circle {
+  fill: hsl(240 5% 84%);
+}
+
+.dark .react-flow__background pattern circle {
+  fill: hsl(240 3.7% 20%);
+}

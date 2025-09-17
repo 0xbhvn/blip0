@@ -19,6 +19,7 @@ import {
   MarkerType,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
+import "./flow-styles.css";
 import { NodeType } from "@/lib/types/nodeEditor";
 import { FlowControlPanel } from "./FlowControlPanel";
 import { getHierarchicalLayout } from "@/lib/utils/autoLayout";
