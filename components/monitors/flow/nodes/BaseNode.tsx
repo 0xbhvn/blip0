@@ -68,17 +68,6 @@ export function BaseNode({
               height: 10,
             }}
           />
-          {/* Handle hover indicator */}
-          <div
-            className="handle-hover-indicator"
-            style={{
-              position: "absolute",
-              top: targetPosition === Position.Top ? "-6px" : "auto",
-              bottom: targetPosition === Position.Bottom ? "-6px" : "auto",
-              left: "50%",
-              transform: "translateX(-50%)",
-            }}
-          />
         </>
       )}
 
