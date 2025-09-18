@@ -8,7 +8,7 @@ import { PanelRightOpen, PanelRightClose } from "lucide-react";
 import { useHeader } from "@/contexts/HeaderContext";
 
 export default function Page() {
-  const [rightSidebarOpen, setRightSidebarOpen] = React.useState(true);
+  const [rightSidebarOpen, setRightSidebarOpen] = React.useState(false);
   const { setHeaderData } = useHeader();
 
   // Set page-specific header content
