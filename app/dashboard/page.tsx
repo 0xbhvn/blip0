@@ -1,73 +1,56 @@
 "use client";
 
 import * as React from "react";
-import { SidebarLeft } from "@/components/sidebar-left";
 import { SidebarRight } from "@/components/sidebar-right";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbList,
-  BreadcrumbPage,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
+import { DashboardHeader } from "@/components/layout/DashboardHeader";
 import { Button } from "@/components/ui/button";
 import { PanelRightOpen, PanelRightClose } from "lucide-react";
+import { useHeader } from "@/contexts/HeaderContext";
 
 export default function Page() {
   const [rightSidebarOpen, setRightSidebarOpen] = React.useState(true);
+  const { setHeaderData } = useHeader();
+
+  // Set page-specific header content
+  React.useEffect(() => {
+    setHeaderData({
+      title: "Project Management & Task Tracking",
+    });
+
+    return () => {
+      setHeaderData({});
+    };
+  }, [setHeaderData]);
 
   return (
-    <SidebarProvider>
-      <div className="flex min-h-svh w-full">
-        <SidebarLeft />
-
-        {/* Main content area that expands */}
-        <SidebarInset className="max-w-none flex-1">
-          <header className="sticky top-0 flex h-14 shrink-0 items-center gap-2 bg-background">
-            <div className="flex flex-1 items-center gap-2 px-3">
-              <SidebarTrigger />
-              <Separator orientation="vertical" className="mr-2 h-4" />
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbPage className="line-clamp-1">
-                      Project Management & Task Tracking
-                    </BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
-            </div>
-          </header>
-          <div className="flex flex-1 flex-col gap-4 p-4">
-            <div className="mx-auto h-24 w-full max-w-3xl rounded-xl bg-muted/50 flex items-center justify-center">
-              {/* Custom trigger for right sidebar */}
-              <Button
-                onClick={() => setRightSidebarOpen(!rightSidebarOpen)}
-                variant="outline"
-                size="lg"
-                className="gap-2"
-              >
-                {rightSidebarOpen ? (
-                  <>
-                    <PanelRightClose className="h-5 w-5" />
-                    Close Right Sidebar
-                  </>
-                ) : (
-                  <>
-                    <PanelRightOpen className="h-5 w-5" />
-                    Open Right Sidebar
-                  </>
-                )}
-              </Button>
-            </div>
-            <div className="mx-auto h-[100vh] w-full max-w-3xl rounded-xl bg-muted/50" />
+    <>
+      <DashboardHeader />
+      <div className="flex h-[calc(100vh-3.5rem)]">
+        {/* Main content area */}
+        <div className="flex-1 flex flex-col gap-4 p-4">
+          <div className="mx-auto h-24 w-full max-w-3xl rounded-xl bg-muted/50 flex items-center justify-center">
+            {/* Custom trigger for right sidebar */}
+            <Button
+              onClick={() => setRightSidebarOpen(!rightSidebarOpen)}
+              variant="outline"
+              size="lg"
+              className="gap-2"
+            >
+              {rightSidebarOpen ? (
+                <>
+                  <PanelRightClose className="h-5 w-5" />
+                  Close Right Sidebar
+                </>
+              ) : (
+                <>
+                  <PanelRightOpen className="h-5 w-5" />
+                  Open Right Sidebar
+                </>
+              )}
+            </Button>
           </div>
-        </SidebarInset>
+          <div className="mx-auto h-[100vh] w-full max-w-3xl rounded-xl bg-muted/50" />
+        </div>
 
         {/* Right Sidebar with smooth transitions */}
         <div
@@ -86,6 +69,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-    </SidebarProvider>
+    </>
   );
 }
