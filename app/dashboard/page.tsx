@@ -53,10 +53,10 @@ export default function Page() {
         {/* Right Sidebar with smooth transitions */}
         <div
           className={`transition-all duration-300 ease-in-out relative overflow-hidden ${
-            rightSidebarOpen ? "w-64" : "w-0"
+            rightSidebarOpen ? "w-80" : "w-0"
           }`}
         >
-          <div className="absolute right-0 top-0 h-full w-64">
+          <div className="absolute right-0 top-0 h-full w-80">
             <div
               className={`h-full transition-transform duration-300 ease-in-out ${
                 rightSidebarOpen ? "translate-x-0" : "translate-x-full"

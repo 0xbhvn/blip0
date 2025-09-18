@@ -44,13 +44,14 @@ export function SidebarRight({
   return (
     <Sidebar
       collapsible="none"
-      className="hidden lg:flex h-full border-l"
+      className="hidden lg:flex h-full border-l w-full"
+      style={{ "--sidebar-width": "100%" } as React.CSSProperties}
       {...props}
     >
       <SidebarHeader className="h-16 border-b border-sidebar-border">
         <NavUser user={data.user} />
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="px-4">
         <DatePicker />
         <SidebarSeparator className="mx-0" />
         <Calendars calendars={data.calendars} />
