@@ -4,7 +4,7 @@ import * as React from "react";
 import { SidebarRight } from "@/components/sidebar-right";
 import { DashboardHeader } from "@/components/layout/DashboardHeader";
 import { Button } from "@/components/ui/button";
-import { PanelRightOpen, PanelRightClose } from "lucide-react";
+import { PanelRightOpen } from "lucide-react";
 import { useHeader } from "@/contexts/HeaderContext";
 
 export default function Page() {
@@ -27,26 +27,24 @@ export default function Page() {
       <DashboardHeader />
       <div className="flex h-[calc(100vh-3.5rem)]">
         {/* Main content area */}
-        <div className="flex-1 flex flex-col gap-4 p-4">
+        <div
+          className="flex-1 flex flex-col gap-4 p-4"
+          onClick={() => rightSidebarOpen && setRightSidebarOpen(false)}
+        >
           <div className="mx-auto h-24 w-full max-w-3xl rounded-xl bg-muted/50 flex items-center justify-center">
             {/* Custom trigger for right sidebar */}
             <Button
-              onClick={() => setRightSidebarOpen(!rightSidebarOpen)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setRightSidebarOpen(true);
+              }}
               variant="outline"
               size="lg"
               className="gap-2"
+              disabled={rightSidebarOpen}
             >
-              {rightSidebarOpen ? (
-                <>
-                  <PanelRightClose className="h-5 w-5" />
-                  Close Right Sidebar
-                </>
-              ) : (
-                <>
-                  <PanelRightOpen className="h-5 w-5" />
-                  Open Right Sidebar
-                </>
-              )}
+              <PanelRightOpen className="h-5 w-5" />
+              Open Right Sidebar
             </Button>
           </div>
           <div className="mx-auto h-[100vh] w-full max-w-3xl rounded-xl bg-muted/50" />
