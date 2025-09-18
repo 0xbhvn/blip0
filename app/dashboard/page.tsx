@@ -25,10 +25,10 @@ export default function Page() {
   return (
     <>
       <DashboardHeader />
-      <div className="flex h-[calc(100vh-3.5rem)]">
+      <div className="flex h-[calc(100vh-3.5rem)] overflow-hidden">
         {/* Main content area */}
         <div
-          className="flex-1 flex flex-col gap-4 p-4"
+          className="flex-1 flex flex-col gap-4 p-4 overflow-hidden"
           onClick={() => rightSidebarOpen && setRightSidebarOpen(false)}
         >
           <div className="mx-auto h-24 w-full max-w-3xl rounded-xl bg-muted/50 flex items-center justify-center">
@@ -47,18 +47,18 @@ export default function Page() {
               Open Right Sidebar
             </Button>
           </div>
-          <div className="mx-auto h-[100vh] w-full max-w-3xl rounded-xl bg-muted/50" />
+          <div className="mx-auto h-full w-full max-w-3xl rounded-xl bg-muted/50" />
         </div>
 
         {/* Right Sidebar with smooth transitions */}
         <div
-          className={`transition-all duration-300 ease-in-out relative ${
+          className={`transition-all duration-300 ease-in-out relative overflow-hidden ${
             rightSidebarOpen ? "w-64" : "w-0"
           }`}
         >
           <div className="absolute right-0 top-0 h-full w-64">
             <div
-              className={`transition-transform duration-300 ease-in-out ${
+              className={`h-full transition-transform duration-300 ease-in-out ${
                 rightSidebarOpen ? "translate-x-0" : "translate-x-full"
               }`}
             >
