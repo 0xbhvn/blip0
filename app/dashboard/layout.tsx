@@ -12,7 +12,7 @@ export default function DashboardLayout({
 }) {
   return (
     <HeaderProvider>
-      <SidebarProvider defaultOpen={true}>
+      <SidebarProvider defaultOpen={false}>
         <div className="flex min-h-svh w-full">
           <SidebarLeft />
 
