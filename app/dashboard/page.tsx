@@ -4,7 +4,7 @@ import * as React from "react";
 import { SidebarRight } from "@/components/sidebar-right";
 import { DashboardHeader } from "@/components/layout/DashboardHeader";
 import { Button } from "@/components/ui/button";
-import PiSidebarRightOpenStroke from "@/lib/icons/general/PiSidebarRightOpenStroke";
+import { SidebarRightOpen } from "@/lib/icons";
 import { useHeader } from "@/contexts/HeaderContext";
 
 export default function Page() {
@@ -43,7 +43,7 @@ export default function Page() {
               className="gap-2"
               disabled={rightSidebarOpen}
             >
-              <PiSidebarRightOpenStroke className="h-5 w-5" />
+              <SidebarRightOpen className="h-5 w-5" />
               Open Right Sidebar
             </Button>
           </div>

@@ -1,10 +1,12 @@
 "use client";
 
-import PiArrowRightUpStroke from "@/lib/icons/arrows-&-chevrons/PiArrowRightUpStroke";
-import PiLinkHorizontalStroke from "@/lib/icons/development/PiLinkHorizontalStroke";
-import PiStarStroke from "@/lib/icons/general/PiStarStroke";
-import PiDeleteDustbin02Stroke from "@/lib/icons/general/PiDeleteDustbin02Stroke";
-import PiThreeDotsMenuHorizontalStroke from "@/lib/icons/general/PiThreeDotsMenuHorizontalStroke";
+import {
+  ArrowRightUp,
+  LinkHorizontal,
+  Star,
+  DeleteDustbin02,
+  ThreeDotsMenuHorizontal,
+} from "@/lib/icons";
 
 import {
   DropdownMenu,
@@ -49,7 +51,7 @@ export function NavFavorites({
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuAction showOnHover>
-                  <PiThreeDotsMenuHorizontalStroke size={16} />
+                  <ThreeDotsMenuHorizontal size={16} />
                   <span className="sr-only">More</span>
                 </SidebarMenuAction>
               </DropdownMenuTrigger>
@@ -59,27 +61,21 @@ export function NavFavorites({
                 align={isMobile ? "end" : "start"}
               >
                 <DropdownMenuItem>
-                  <PiStarStroke className="text-muted-foreground" size={16} />
+                  <Star className="text-muted-foreground" size={16} />
                   <span>Remove from Favorites</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <PiLinkHorizontalStroke
-                    className="text-muted-foreground"
-                    size={16}
-                  />
+                  <LinkHorizontal className="text-muted-foreground" size={16} />
                   <span>Copy Link</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <PiArrowRightUpStroke
-                    className="text-muted-foreground"
-                    size={16}
-                  />
+                  <ArrowRightUp className="text-muted-foreground" size={16} />
                   <span>Open in New Tab</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <PiDeleteDustbin02Stroke
+                  <DeleteDustbin02
                     className="text-muted-foreground"
                     size={16}
                   />
@@ -91,7 +87,7 @@ export function NavFavorites({
         ))}
         <SidebarMenuItem>
           <SidebarMenuButton className="text-sidebar-foreground/70">
-            <PiThreeDotsMenuHorizontalStroke size={16} />
+            <ThreeDotsMenuHorizontal size={16} />
             <span>More</span>
           </SidebarMenuButton>
         </SidebarMenuItem>

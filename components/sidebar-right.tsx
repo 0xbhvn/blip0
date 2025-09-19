@@ -1,5 +1,5 @@
 import * as React from "react";
-import PiPlusDefaultStroke from "@/lib/icons/maths/PiPlusDefaultStroke";
+import { PlusDefault } from "@/lib/icons";
 
 import { Calendars } from "@/components/calendars";
 import { DatePicker } from "@/components/date-picker";
@@ -60,7 +60,7 @@ export function SidebarRight({
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton>
-              <PiPlusDefaultStroke size={16} />
+              <PlusDefault size={16} />
               <span>New Calendar</span>
             </SidebarMenuButton>
           </SidebarMenuItem>

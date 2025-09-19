@@ -1,17 +1,19 @@
 "use client";
 
 import * as React from "react";
-import PiAudioBars01Stroke from "@/lib/icons/media/PiAudioBars01Stroke";
-import PiGrid01Stroke from "@/lib/icons/general/PiGrid01Stroke";
-import PiCalendarDefaultStroke from "@/lib/icons/time/PiCalendarDefaultStroke";
-import PiTerminalConsoleSquareStroke from "@/lib/icons/development/PiTerminalConsoleSquareStroke";
-import PiHomeDefaultStroke from "@/lib/icons/building/PiHomeDefaultStroke";
-import PiInboxDefaultStroke from "@/lib/icons/communication/PiInboxDefaultStroke";
-import PiChatDefaultStroke from "@/lib/icons/communication/PiChatDefaultStroke";
-import PiSearchDefaultStroke from "@/lib/icons/general/PiSearchDefaultStroke";
-import PiSettings02Stroke from "@/lib/icons/general/PiSettings02Stroke";
-import PiSparkleAI02Stroke from "@/lib/icons/general/PiSparkleAI02Stroke";
-import PiDeleteDustbin02Stroke from "@/lib/icons/general/PiDeleteDustbin02Stroke";
+import {
+  AudioBars01,
+  Grid01,
+  CalendarDefault,
+  TerminalConsoleSquare,
+  HomeDefault,
+  InboxDefault,
+  ChatDefault,
+  SearchDefault,
+  Settings02,
+  SparkleAI02,
+  DeleteDustbin02,
+} from "@/lib/icons";
 
 import { NavFavorites } from "@/components/nav-favorites";
 import { NavMain } from "@/components/nav-main";
@@ -30,17 +32,17 @@ const data = {
   teams: [
     {
       name: "Acme Inc",
-      logo: PiTerminalConsoleSquareStroke,
+      logo: TerminalConsoleSquare,
       plan: "Enterprise",
     },
     {
       name: "Acme Corp.",
-      logo: PiAudioBars01Stroke,
+      logo: AudioBars01,
       plan: "Startup",
     },
     {
       name: "Evil Corp.",
-      logo: PiTerminalConsoleSquareStroke,
+      logo: TerminalConsoleSquare,
       plan: "Free",
     },
   ],
@@ -48,23 +50,23 @@ const data = {
     {
       title: "Search",
       url: "#",
-      icon: PiSearchDefaultStroke,
+      icon: SearchDefault,
     },
     {
       title: "Ask AI",
       url: "#",
-      icon: PiSparkleAI02Stroke,
+      icon: SparkleAI02,
     },
     {
       title: "Home",
       url: "#",
-      icon: PiHomeDefaultStroke,
+      icon: HomeDefault,
       isActive: true,
     },
     {
       title: "Inbox",
       url: "#",
-      icon: PiInboxDefaultStroke,
+      icon: InboxDefault,
       badge: "10",
     },
   ],
@@ -72,27 +74,27 @@ const data = {
     {
       title: "Calendar",
       url: "#",
-      icon: PiCalendarDefaultStroke,
+      icon: CalendarDefault,
     },
     {
       title: "Settings",
       url: "#",
-      icon: PiSettings02Stroke,
+      icon: Settings02,
     },
     {
       title: "Templates",
       url: "#",
-      icon: PiGrid01Stroke,
+      icon: Grid01,
     },
     {
       title: "Trash",
       url: "#",
-      icon: PiDeleteDustbin02Stroke,
+      icon: DeleteDustbin02,
     },
     {
       title: "Help",
       url: "#",
-      icon: PiChatDefaultStroke,
+      icon: ChatDefault,
     },
   ],
   favorites: [

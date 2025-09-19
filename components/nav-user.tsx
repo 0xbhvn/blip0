@@ -1,11 +1,13 @@
 "use client";
 
-import PiCheckTickCircleStroke from "@/lib/icons/general/PiCheckTickCircleStroke";
-import PiNotificationBellOnStroke from "@/lib/icons/alerts/PiNotificationBellOnStroke";
-import PiChevronSortVerticalStroke from "@/lib/icons/arrows-&-chevrons/PiChevronSortVerticalStroke";
-import PiCreditCardStroke from "@/lib/icons/money-&-payments/PiCreditCardStroke";
-import PiLogOutLeftStroke from "@/lib/icons/general/PiLogOutLeftStroke";
-import PiSparkleAI02Stroke from "@/lib/icons/general/PiSparkleAI02Stroke";
+import {
+  CheckTickCircle,
+  NotificationBellOn,
+  ChevronSortVertical,
+  CreditCard,
+  LogOutLeft,
+  SparkleAI02,
+} from "@/lib/icons";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -52,7 +54,7 @@ export function NavUser({
                 <span className="truncate font-semibold">{user.name}</span>
                 <span className="truncate text-xs">{user.email}</span>
               </div>
-              <PiChevronSortVerticalStroke className="ml-auto size-4" />
+              <ChevronSortVertical className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -76,28 +78,28 @@ export function NavUser({
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <PiSparkleAI02Stroke size={16} />
+                <SparkleAI02 size={16} />
                 Upgrade to Pro
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <PiCheckTickCircleStroke size={16} />
+                <CheckTickCircle size={16} />
                 Account
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <PiCreditCardStroke size={16} />
+                <CreditCard size={16} />
                 Billing
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <PiNotificationBellOnStroke size={16} />
+                <NotificationBellOn size={16} />
                 Notifications
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <PiLogOutLeftStroke size={16} />
+              <LogOutLeft size={16} />
               Log out
             </DropdownMenuItem>
           </DropdownMenuContent>

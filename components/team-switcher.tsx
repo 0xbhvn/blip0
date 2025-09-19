@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from "react";
-import PiChevronDownStroke from "@/lib/icons/arrows-&-chevrons/PiChevronDownStroke";
-import PiPlusDefaultStroke from "@/lib/icons/maths/PiPlusDefaultStroke";
+import { ChevronDown, PlusDefault } from "@/lib/icons";
 
 import {
   DropdownMenu,
@@ -44,7 +43,7 @@ export function TeamSwitcher({
                 <activeTeam.logo className="size-3" />
               </div>
               <span className="truncate font-semibold">{activeTeam.name}</span>
-              <PiChevronDownStroke className="opacity-50" size={16} />
+              <ChevronDown className="opacity-50" size={16} />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -72,7 +71,7 @@ export function TeamSwitcher({
             <DropdownMenuSeparator />
             <DropdownMenuItem className="gap-2 p-2">
               <div className="flex size-6 items-center justify-center rounded-md border bg-background">
-                <PiPlusDefaultStroke className="size-4" />
+                <PlusDefault className="size-4" />
               </div>
               <div className="font-medium text-muted-foreground">Add team</div>
             </DropdownMenuItem>

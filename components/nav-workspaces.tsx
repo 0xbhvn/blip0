@@ -1,6 +1,8 @@
-import PiChevronRightStroke from "@/lib/icons/arrows-&-chevrons/PiChevronRightStroke";
-import PiPlusDefaultStroke from "@/lib/icons/maths/PiPlusDefaultStroke";
-import PiThreeDotsMenuHorizontalStroke from "@/lib/icons/general/PiThreeDotsMenuHorizontalStroke";
+import {
+  ChevronRight,
+  PlusDefault,
+  ThreeDotsMenuHorizontal,
+} from "@/lib/icons";
 
 import {
   Collapsible,
@@ -51,11 +53,11 @@ export function NavWorkspaces({
                     className="left-2 bg-sidebar-accent text-sidebar-accent-foreground data-[state=open]:rotate-90"
                     showOnHover
                   >
-                    <PiChevronRightStroke size={16} />
+                    <ChevronRight size={16} />
                   </SidebarMenuAction>
                 </CollapsibleTrigger>
                 <SidebarMenuAction showOnHover>
-                  <PiPlusDefaultStroke size={16} />
+                  <PlusDefault size={16} />
                 </SidebarMenuAction>
                 <CollapsibleContent>
                   <SidebarMenuSub>
@@ -76,7 +78,7 @@ export function NavWorkspaces({
           ))}
           <SidebarMenuItem>
             <SidebarMenuButton className="text-sidebar-foreground/70">
-              <PiThreeDotsMenuHorizontalStroke size={16} />
+              <ThreeDotsMenuHorizontal size={16} />
               <span>More</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
