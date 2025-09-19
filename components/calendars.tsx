@@ -1,11 +1,12 @@
-import * as React from "react"
-import { Check, ChevronRight } from "lucide-react"
+import * as React from "react";
+import PiCheckTickSingleStroke from "@/lib/icons/general/PiCheckTickSingleStroke";
+import PiChevronRightStroke from "@/lib/icons/arrows-&-chevrons/PiChevronRightStroke";
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+} from "@/components/ui/collapsible";
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -14,15 +15,15 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarSeparator,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 export function Calendars({
   calendars,
 }: {
   calendars: {
-    name: string
-    items: string[]
-  }[]
+    name: string;
+    items: string[];
+  }[];
 }) {
   return (
     <>
@@ -39,7 +40,10 @@ export function Calendars({
               >
                 <CollapsibleTrigger>
                   {calendar.name}{" "}
-                  <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
+                  <PiChevronRightStroke
+                    className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90"
+                    size={16}
+                  />
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
               <CollapsibleContent>
@@ -52,7 +56,7 @@ export function Calendars({
                             data-active={index < 2}
                             className="group/calendar-item flex aspect-square size-4 shrink-0 items-center justify-center rounded-sm border border-sidebar-border text-sidebar-primary-foreground data-[active=true]:border-sidebar-primary data-[active=true]:bg-sidebar-primary"
                           >
-                            <Check className="hidden size-3 group-data-[active=true]/calendar-item:block" />
+                            <PiCheckTickSingleStroke className="hidden size-3 group-data-[active=true]/calendar-item:block" />
                           </div>
                           {item}
                         </SidebarMenuButton>
@@ -67,5 +71,5 @@ export function Calendars({
         </React.Fragment>
       ))}
     </>
-  )
+  );
 }

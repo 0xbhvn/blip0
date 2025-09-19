@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Plus } from "lucide-react";
+import PiPlusDefaultStroke from "@/lib/icons/maths/PiPlusDefaultStroke";
 
 import { Calendars } from "@/components/calendars";
 import { DatePicker } from "@/components/date-picker";
@@ -60,7 +60,7 @@ export function SidebarRight({
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton>
-              <Plus />
+              <PiPlusDefaultStroke size={16} />
               <span>New Calendar</span>
             </SidebarMenuButton>
           </SidebarMenuItem>

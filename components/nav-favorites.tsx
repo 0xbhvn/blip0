@@ -1,12 +1,10 @@
-"use client"
+"use client";
 
-import {
-  ArrowUpRight,
-  Link,
-  MoreHorizontal,
-  StarOff,
-  Trash2,
-} from "lucide-react"
+import PiArrowRightUpStroke from "@/lib/icons/arrows-&-chevrons/PiArrowRightUpStroke";
+import PiLinkHorizontalStroke from "@/lib/icons/development/PiLinkHorizontalStroke";
+import PiStarStroke from "@/lib/icons/general/PiStarStroke";
+import PiDeleteDustbin02Stroke from "@/lib/icons/general/PiDeleteDustbin02Stroke";
+import PiThreeDotsMenuHorizontalStroke from "@/lib/icons/general/PiThreeDotsMenuHorizontalStroke";
 
 import {
   DropdownMenu,
@@ -14,7 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -23,18 +21,18 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 export function NavFavorites({
   favorites,
 }: {
   favorites: {
-    name: string
-    url: string
-    emoji: string
-  }[]
+    name: string;
+    url: string;
+    emoji: string;
+  }[];
 }) {
-  const { isMobile } = useSidebar()
+  const { isMobile } = useSidebar();
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
@@ -51,7 +49,7 @@ export function NavFavorites({
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuAction showOnHover>
-                  <MoreHorizontal />
+                  <PiThreeDotsMenuHorizontalStroke size={16} />
                   <span className="sr-only">More</span>
                 </SidebarMenuAction>
               </DropdownMenuTrigger>
@@ -61,21 +59,30 @@ export function NavFavorites({
                 align={isMobile ? "end" : "start"}
               >
                 <DropdownMenuItem>
-                  <StarOff className="text-muted-foreground" />
+                  <PiStarStroke className="text-muted-foreground" size={16} />
                   <span>Remove from Favorites</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <Link className="text-muted-foreground" />
+                  <PiLinkHorizontalStroke
+                    className="text-muted-foreground"
+                    size={16}
+                  />
                   <span>Copy Link</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <ArrowUpRight className="text-muted-foreground" />
+                  <PiArrowRightUpStroke
+                    className="text-muted-foreground"
+                    size={16}
+                  />
                   <span>Open in New Tab</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <Trash2 className="text-muted-foreground" />
+                  <PiDeleteDustbin02Stroke
+                    className="text-muted-foreground"
+                    size={16}
+                  />
                   <span>Delete</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -84,11 +91,11 @@ export function NavFavorites({
         ))}
         <SidebarMenuItem>
           <SidebarMenuButton className="text-sidebar-foreground/70">
-            <MoreHorizontal />
+            <PiThreeDotsMenuHorizontalStroke size={16} />
             <span>More</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarMenu>
     </SidebarGroup>
-  )
+  );
 }

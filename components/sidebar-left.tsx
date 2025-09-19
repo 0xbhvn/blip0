@@ -1,48 +1,46 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import {
-  AudioWaveform,
-  Blocks,
-  Calendar,
-  Command,
-  Home,
-  Inbox,
-  MessageCircleQuestion,
-  Search,
-  Settings2,
-  Sparkles,
-  Trash2,
-} from "lucide-react"
+import * as React from "react";
+import PiAudioBars01Stroke from "@/lib/icons/media/PiAudioBars01Stroke";
+import PiGrid01Stroke from "@/lib/icons/general/PiGrid01Stroke";
+import PiCalendarDefaultStroke from "@/lib/icons/time/PiCalendarDefaultStroke";
+import PiTerminalConsoleSquareStroke from "@/lib/icons/development/PiTerminalConsoleSquareStroke";
+import PiHomeDefaultStroke from "@/lib/icons/building/PiHomeDefaultStroke";
+import PiInboxDefaultStroke from "@/lib/icons/communication/PiInboxDefaultStroke";
+import PiChatDefaultStroke from "@/lib/icons/communication/PiChatDefaultStroke";
+import PiSearchDefaultStroke from "@/lib/icons/general/PiSearchDefaultStroke";
+import PiSettings02Stroke from "@/lib/icons/general/PiSettings02Stroke";
+import PiSparkleAI02Stroke from "@/lib/icons/general/PiSparkleAI02Stroke";
+import PiDeleteDustbin02Stroke from "@/lib/icons/general/PiDeleteDustbin02Stroke";
 
-import { NavFavorites } from "@/components/nav-favorites"
-import { NavMain } from "@/components/nav-main"
-import { NavSecondary } from "@/components/nav-secondary"
-import { NavWorkspaces } from "@/components/nav-workspaces"
-import { TeamSwitcher } from "@/components/team-switcher"
+import { NavFavorites } from "@/components/nav-favorites";
+import { NavMain } from "@/components/nav-main";
+import { NavSecondary } from "@/components/nav-secondary";
+import { NavWorkspaces } from "@/components/nav-workspaces";
+import { TeamSwitcher } from "@/components/team-switcher";
 import {
   Sidebar,
   SidebarContent,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 // This is sample data.
 const data = {
   teams: [
     {
       name: "Acme Inc",
-      logo: Command,
+      logo: PiTerminalConsoleSquareStroke,
       plan: "Enterprise",
     },
     {
       name: "Acme Corp.",
-      logo: AudioWaveform,
+      logo: PiAudioBars01Stroke,
       plan: "Startup",
     },
     {
       name: "Evil Corp.",
-      logo: Command,
+      logo: PiTerminalConsoleSquareStroke,
       plan: "Free",
     },
   ],
@@ -50,23 +48,23 @@ const data = {
     {
       title: "Search",
       url: "#",
-      icon: Search,
+      icon: PiSearchDefaultStroke,
     },
     {
       title: "Ask AI",
       url: "#",
-      icon: Sparkles,
+      icon: PiSparkleAI02Stroke,
     },
     {
       title: "Home",
       url: "#",
-      icon: Home,
+      icon: PiHomeDefaultStroke,
       isActive: true,
     },
     {
       title: "Inbox",
       url: "#",
-      icon: Inbox,
+      icon: PiInboxDefaultStroke,
       badge: "10",
     },
   ],
@@ -74,27 +72,27 @@ const data = {
     {
       title: "Calendar",
       url: "#",
-      icon: Calendar,
+      icon: PiCalendarDefaultStroke,
     },
     {
       title: "Settings",
       url: "#",
-      icon: Settings2,
+      icon: PiSettings02Stroke,
     },
     {
       title: "Templates",
       url: "#",
-      icon: Blocks,
+      icon: PiGrid01Stroke,
     },
     {
       title: "Trash",
       url: "#",
-      icon: Trash2,
+      icon: PiDeleteDustbin02Stroke,
     },
     {
       title: "Help",
       url: "#",
-      icon: MessageCircleQuestion,
+      icon: PiChatDefaultStroke,
     },
   ],
   favorites: [
@@ -256,7 +254,7 @@ const data = {
       ],
     },
   ],
-}
+};
 
 export function SidebarLeft({
   ...props
@@ -274,5 +272,5 @@ export function SidebarLeft({
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
