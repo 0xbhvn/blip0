@@ -1,0 +1,37 @@
+import React from 'react';
+
+/**
+ * PiBluetoothOnStroke icon from the stroke style in media category.
+ */
+interface PiBluetoothOnStrokeProps extends React.SVGProps<SVGSVGElement> {
+  size?: number;
+  color?: string;
+  className?: string;
+  ariaLabel?: string;
+}
+
+export default function PiBluetoothOnStroke({
+  size = 24,
+  color,
+  className,
+  ariaLabel = 'bluetooth-on icon',
+  ...props
+}: PiBluetoothOnStrokeProps): JSX.Element {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      fill="none"
+      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{color: color || "currentColor"}}
+      
+      role="img"
+      aria-label={ariaLabel}
+      {...props}
+    >
+      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7.935c2.614 1.08 5.125 2.222 7.484 3.605m0 0q.386.226.765.46m-.765-.46-.305-9.023c0-.384.418-.633.774-.462 2.055.992 3.92 2.093 5.577 3.692a1.51 1.51 0 0 1 0 2.188c-1.643 1.586-3.411 2.91-5.28 4.065m-.766-.46v.92m.765-.46c1.87 1.155 3.638 2.48 5.281 4.065a1.51 1.51 0 0 1 0 2.188c-1.655 1.597-3.528 2.703-5.577 3.692-.356.171-.774-.078-.774-.462l.305-9.023m.765-.46q-.38.235-.765.46m0 0c-2.36 1.383-4.87 2.525-7.484 3.605" fill="none"/>
+    </svg>
+  );
+}
