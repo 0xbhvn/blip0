@@ -23,6 +23,7 @@ interface FlowWithControlsProps {
   onNodesChange?: OnNodesChange;
   onEdgesChange?: OnEdgesChange;
   onNodeClick?: NodeMouseHandler;
+  onPaneClick?: () => void;
   centerOnInit?: boolean;
   initialZoom?: number;
 }
@@ -34,6 +35,7 @@ function FlowWithControls({
   onNodesChange,
   onEdgesChange,
   onNodeClick,
+  onPaneClick,
   centerOnInit = true,
   initialZoom = 1.2,
 }: FlowWithControlsProps) {
@@ -45,6 +47,7 @@ function FlowWithControls({
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
       onNodeClick={onNodeClick}
+      onPaneClick={onPaneClick}
       fitView={centerOnInit}
       fitViewOptions={{
         maxZoom: initialZoom,
@@ -74,6 +77,7 @@ interface FlowCanvasProps {
   onNodesChange?: OnNodesChange;
   onEdgesChange?: OnEdgesChange;
   onNodeClick?: NodeMouseHandler;
+  onPaneClick?: () => void;
   centerOnInit?: boolean;
   initialZoom?: number;
 }

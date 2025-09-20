@@ -104,12 +104,13 @@ export default function Page() {
       <DashboardHeader />
       <div className="flex h-[calc(100vh-3.5rem)] overflow-hidden">
         {/* Main content area */}
-        <div className="flex-1 relative bg-muted" onClick={handleCanvasClick}>
+        <div className="flex-1 relative bg-muted">
           {/* React Flow canvas with button as node */}
           <FlowCanvas
             nodes={nodes}
             nodeTypes={nodeTypes}
             onNodesChange={onNodesChange}
+            onPaneClick={handleCanvasClick}
           />
         </div>
 
