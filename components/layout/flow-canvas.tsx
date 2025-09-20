@@ -37,13 +37,6 @@ function FlowWithControls({
   centerOnInit = true,
   initialZoom = 1.2,
 }: FlowWithControlsProps) {
-  // Use state to avoid hydration mismatch
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <ReactFlow
       nodes={nodes}
@@ -62,14 +55,12 @@ function FlowWithControls({
       nodesConnectable={false}
       elementsSelectable={false}
       proOptions={{ hideAttribution: true }}
-      colorMode={mounted ? "system" : "light"}
-      className="bg-gray-50 dark:bg-gray-950"
     >
       <Background
         variant={BackgroundVariant.Dots}
         gap={16}
         size={1}
-        className="[&>pattern>circle]:fill-gray-300 dark:[&>pattern>circle]:fill-gray-700"
+        className="[&>pattern>circle]:fill-border dark:[&>pattern>circle]:fill-border"
       />
       <FlowControls />
     </ReactFlow>

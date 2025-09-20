@@ -28,7 +28,7 @@ const SidebarButtonNode = React.memo(function SidebarButtonNode({
       onClick={handleClick}
       variant="outline"
       size="lg"
-      className="gap-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm"
+      className="gap-2 bg-background/90 backdrop-blur-sm border-border dark:border-muted-foreground/50"
       disabled={Boolean(data?.isDisabled)}
     >
       <SidebarRightOpen className="h-5 w-5" />
@@ -104,10 +104,7 @@ export default function Page() {
       <DashboardHeader />
       <div className="flex h-[calc(100vh-3.5rem)] overflow-hidden">
         {/* Main content area */}
-        <div
-          className="flex-1 relative bg-gray-50 dark:bg-gray-950"
-          onClick={handleCanvasClick}
-        >
+        <div className="flex-1 relative bg-muted" onClick={handleCanvasClick}>
           {/* React Flow canvas with button as node */}
           <FlowCanvas
             nodes={nodes}

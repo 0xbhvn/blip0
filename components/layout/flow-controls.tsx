@@ -46,20 +46,19 @@ export function FlowControls({
       showInteractive={false}
       fitViewOptions={fitViewOptions}
       className={cn(
-        // // Base container styles
-        "!bg-white/95 dark:!bg-gray-900/95",
-        "!border !border-gray-200 dark:!border-gray-700",
-        "!shadow-lg dark:!shadow-gray-900/50",
+        // Base container styles
+        "!bg-background/95",
+        "!border !border-border",
+        "!shadow-lg",
         "!backdrop-blur-sm",
         "!rounded-lg",
         "!gap-0.5",
         "!p-0.5",
-        // // Button styles
+        // Button styles
         "[&>button]:!bg-transparent",
         "[&>button]:!border-0",
         "[&>button]:!shadow-none",
-        "[&>button]:hover:!bg-gray-100",
-        "[&>button]:dark:hover:!bg-gray-800",
+        "[&>button]:hover:!bg-muted",
         "[&>button]:!w-9",
         "[&>button]:!h-9",
         "[&>button]:!rounded-md",
@@ -67,8 +66,7 @@ export function FlowControls({
         // Icon styles
         "[&_svg]:!w-7",
         "[&_svg]:!h-7",
-        "[&_svg]:!fill-gray-600",
-        "[&_svg]:dark:!fill-gray-300",
+        "[&_svg]:!fill-muted-foreground",
         className,
       )}
     >
