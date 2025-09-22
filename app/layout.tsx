@@ -29,11 +29,12 @@ export default function RootLayout({
 }>) {
   return (
     <ConvexAuthNextjsServerProvider>
-      {/* `suppressHydrationWarning` only affects the html tag,
-      // and is needed by `ThemeProvider` which sets the theme
-      // class attribute on it */}
+      {/* `suppressHydrationWarning` is used on:
+      // - html tag: needed by ThemeProvider for theme class attribute
+      // - body tag: prevents browser extensions (like Grammarly) from causing hydration mismatches */}
       <html lang="en" suppressHydrationWarning className="h-full">
         <body
+          suppressHydrationWarning
           className={`${geistSans.variable} ${geistMono.variable} antialiased h-full overscroll-none font-sans dark:[color-scheme:dark]`}
         >
           <ThemeProvider attribute="class">{children}</ThemeProvider>
