@@ -8,6 +8,7 @@ import { FlowCanvas } from "@/components/layout/flow-canvas";
 import { SidebarRightOpen } from "@/lib/icons";
 import { useHeader } from "@/contexts/HeaderContext";
 import { useNodesState, NodeProps, Node } from "@xyflow/react";
+import { useSidebar } from "@/components/ui/sidebar";
 
 // Custom node component for the sidebar button - memoized for performance
 const SidebarButtonNode = React.memo(function SidebarButtonNode({
@@ -44,6 +45,13 @@ const nodeTypes = {
 export default function Page() {
   const [rightSidebarOpen, setRightSidebarOpen] = React.useState(false);
   const { setHeaderData } = useHeader();
+  const { open: leftSidebarOpen } = useSidebar();
+  const [autoFitTrigger, setAutoFitTrigger] = React.useState(0);
+
+  // Trigger auto-fit when either sidebar state changes
+  React.useEffect(() => {
+    setAutoFitTrigger((prev) => prev + 1);
+  }, [leftSidebarOpen, rightSidebarOpen]);
 
   // Stable callback to avoid recreating function references
   const openSidebar = React.useCallback(() => {
@@ -111,6 +119,7 @@ export default function Page() {
             nodeTypes={nodeTypes}
             onNodesChange={onNodesChange}
             onPaneClick={handleCanvasClick}
+            autoFitTrigger={autoFitTrigger}
           />
         </div>
 

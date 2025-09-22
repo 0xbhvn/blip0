@@ -12,6 +12,7 @@ import {
   OnEdgesChange,
   NodeTypes,
   NodeMouseHandler,
+  useReactFlow,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { FlowControls } from "./flow-controls";
@@ -26,6 +27,7 @@ interface FlowWithControlsProps {
   onPaneClick?: () => void;
   centerOnInit?: boolean;
   initialZoom?: number;
+  autoFitTrigger?: number;
 }
 
 function FlowWithControls({
@@ -38,7 +40,26 @@ function FlowWithControls({
   onPaneClick,
   centerOnInit = true,
   initialZoom = 1.2,
+  autoFitTrigger,
 }: FlowWithControlsProps) {
+  const { fitView } = useReactFlow();
+
+  // Auto-fit when trigger changes (sidebar state changes)
+  React.useEffect(() => {
+    if (autoFitTrigger !== undefined && autoFitTrigger > 0) {
+      // Add a small delay to wait for sidebar animation to complete
+      const timer = setTimeout(() => {
+        fitView({
+          maxZoom: initialZoom,
+          duration: 300,
+          padding: 0.1,
+        });
+      }, 350); // Wait for sidebar animation
+
+      return () => clearTimeout(timer);
+    }
+  }, [autoFitTrigger, fitView, initialZoom]);
+
   return (
     <ReactFlow
       nodes={nodes}
@@ -80,6 +101,7 @@ interface FlowCanvasProps {
   onPaneClick?: () => void;
   centerOnInit?: boolean;
   initialZoom?: number;
+  autoFitTrigger?: number;
 }
 
 export function FlowCanvas(props: FlowCanvasProps) {
