@@ -63,6 +63,7 @@ interface ButtonProps {
 ## Icon Naming Convention
 
 Icons are named with simplified identifiers:
+
 - Original: `PiAI01Stroke.tsx` → Export name: `AI01`
 - Original: `PiCheckTickSingleStroke.tsx` → Export name: `CheckTickSingle`
 - Original: `Pi3dSphereStroke.tsx` → Export name: `ThreeDSphere`
@@ -70,6 +71,7 @@ Icons are named with simplified identifiers:
 ## Available Icon Categories
 
 The library includes icons from 27 categories:
+
 - **AI & Tech**: ai, development, web3-&-crypto
 - **UI Elements**: alerts, arrows-&-chevrons, general
 - **Communication**: communication, apps-&-social
@@ -83,24 +85,28 @@ The library includes icons from 27 categories:
 ### From Old to New
 
 **Before:**
+
 ```typescript
 import { AI01 } from '@/lib/icons';
 <AI01 size={24} />
 ```
 
 **After (Option 1 - No change needed):**
+
 ```typescript
 import { AI01 } from '@/lib/icons';
 <AI01 size={24} />  // Still works!
 ```
 
 **After (Option 2 - Recommended):**
+
 ```typescript
 import { Stroke } from '@/lib/icons';
 <Stroke.AI01 size={24} />
 ```
 
 **After (Option 3 - For solid variant):**
+
 ```typescript
 import { Solid } from '@/lib/icons';
 <Solid.AI01 size={24} />
@@ -111,19 +117,21 @@ import { Solid } from '@/lib/icons';
 1. **Tree-Shaking**: The library is fully tree-shakeable. Only imported icons are included in your bundle.
 
 2. **Memoization**: For frequently re-rendered icons:
-```typescript
-import { memoizeIcon } from '@/lib/icons/utils';
-import { Stroke } from '@/lib/icons';
 
-const MemoizedCheck = memoizeIcon(Stroke.Check);
-```
+    ```typescript
+    import { memoizeIcon } from '@/lib/icons/utils';
+    import { Stroke } from '@/lib/icons';
+
+    const MemoizedCheck = memoizeIcon(Stroke.Check);
+    ```
 
 3. **Dynamic Imports**: For code-splitting:
-```typescript
-const IconComponent = lazy(() =>
-  import('@/lib/icons/stroke').then(m => ({ default: m.Check }))
-);
-```
+
+    ```typescript
+    const IconComponent = lazy(() =>
+      import('@/lib/icons/stroke').then(m => ({ default: m.Check }))
+    );
+    ```
 
 ## Icon Props
 
@@ -142,18 +150,21 @@ interface IconProps {
 ## Examples
 
 ### Basic Usage
+
 ```tsx
 <Stroke.Heart size={32} color="red" />
 <Solid.Star size={24} className="text-yellow-500" />
 ```
 
 ### With Tailwind CSS
+
 ```tsx
 <Stroke.Check className="w-6 h-6 text-green-500" />
 <Solid.AlertCircle className="w-5 h-5 text-red-600" />
 ```
 
 ### Dynamic Selection
+
 ```tsx
 const [variant, setVariant] = useState<'stroke' | 'solid'>('stroke');
 const Icon = variant === 'stroke' ? Stroke.Heart : Solid.Heart;
@@ -162,6 +173,7 @@ const Icon = variant === 'stroke' ? Stroke.Heart : Solid.Heart;
 ```
 
 ### In Buttons
+
 ```tsx
 <button className="flex items-center gap-2">
   <Stroke.Plus size={16} />
@@ -172,6 +184,7 @@ const Icon = variant === 'stroke' ? Stroke.Heart : Solid.Heart;
 ## TypeScript Support
 
 The library provides full TypeScript support with:
+
 - Auto-completion for all icon names
 - Type-safe props
 - Variant type literals ('stroke' | 'solid')
@@ -179,7 +192,7 @@ The library provides full TypeScript support with:
 
 ## File Structure
 
-```
+```bash
 lib/icons/
 ├── index.ts           # Main export file
 ├── stroke.ts          # All stroke icon exports
