@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { AlertCircle } from "lucide-react";
 import { BaseNodeData } from "@/lib/types/nodeEditor";
 import { NodeType } from "@/lib/types/nodeEditor";
+import { NODE_SIZE_CLASSES, NodeSizeVariant } from "@/lib/design-system/tokens";
 
 interface BaseNodeProps extends NodeProps {
   icon?: React.ReactNode;
@@ -17,6 +18,7 @@ interface BaseNodeProps extends NodeProps {
   nodeType?: NodeType;
   statusBadge?: number;
   showTriggerIndicator?: boolean;
+  size?: NodeSizeVariant;
 }
 
 export function BaseNode({
@@ -31,6 +33,7 @@ export function BaseNode({
   type,
   statusBadge,
   showTriggerIndicator = false,
+  size = "compact", // Changed from "standard" to "compact" to match dashboard (40px height)
 }: BaseNodeProps) {
   const nodeData = data as unknown as BaseNodeData;
   const hasErrors =
@@ -74,11 +77,13 @@ export function BaseNode({
       <div
         className={cn(
           "flow-node-card",
-          "w-[320px] h-[48px]",
-          "rounded-xl border",
+          NODE_SIZE_CLASSES[size].container,
+          "rounded-md border", // Changed from rounded-xl/rounded-lg to rounded-md to match Button
+          "shadow-xs", // Changed to match Button's shadow-xs
           "transition-all duration-75",
           "cursor-pointer",
           "hover:border-blue-500",
+          "hover:bg-accent hover:text-accent-foreground", // Match Button hover behavior
           "active:bg-slate-50 dark:active:bg-zinc-800",
           getNodeStyle(),
           selected && "!ring-2 !ring-blue-500",
@@ -86,93 +91,85 @@ export function BaseNode({
           nodeData.isEditing && "!ring-2 !ring-blue-600",
           className,
         )}
-        style={{
-          boxShadow:
-            "0 0 0 1px rgba(0, 0, 0, 0.05), 0 -0.5px 1.6px 0 rgba(0, 0, 0, 0.1) inset",
-        }}
       >
-        <div className="h-full overflow-hidden">
-          <div className="flex flex-row items-start justify-between h-full gap-0">
-            <div className="min-w-0 flex-1 overflow-hidden">
-              <div className="relative h-full overflow-hidden p-3">
-                <div className="flex flex-col gap-2 justify-start h-full items-start">
-                  <div className="flex flex-row gap-2 w-full items-center justify-start">
-                    {/* Icon container */}
-                    {icon && (
-                      <div className="relative">
-                        <div className="node-icon-container border-slate-200 dark:border-zinc-700">
-                          {React.isValidElement(icon)
-                            ? React.cloneElement(
-                                icon as React.ReactElement<{
-                                  className?: string;
-                                }>,
-                                {
-                                  className: "h-4 w-4",
-                                },
-                              )
-                            : icon}
-                        </div>
-                        {/* Trigger indicator (lightning bolt) */}
-                        {showTriggerIndicator && (
-                          <svg
-                            viewBox="0 0 11 13"
-                            width="11"
-                            height="13"
-                            className="trigger-indicator absolute"
-                          >
-                            <g>
-                              <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M 2.5 7.5 L 5 7.5 L 5 10.5 L 8.5 5.5 L 6 5.5 L 6 2.5 Z"
-                                className="trigger-indicator-bg fill-white dark:fill-zinc-900"
-                                strokeWidth="5"
-                                strokeLinejoin="round"
-                              />
-                              <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M 2.5 7.5 L 5 7.5 L 5 10.5 L 8.5 5.5 L 6 5.5 L 6 2.5 Z"
-                                className="trigger-indicator-bolt"
-                                strokeWidth="1"
-                                strokeLinejoin="round"
-                              />
-                            </g>
-                          </svg>
-                        )}
+        <div className="h-full flex items-center overflow-hidden">
+          <div className="flex flex-row items-center justify-between w-full gap-0">
+            <div className="min-w-0 flex-1 flex items-center overflow-hidden">
+              <div className={cn("relative w-full overflow-hidden", NODE_SIZE_CLASSES[size].padding)}>
+                <div className="flex flex-row gap-2 w-full items-center justify-start">
+                  {/* Icon */}
+                  {icon && (
+                    <div className="relative flex-shrink-0">
+                      <div className="node-icon-container border-slate-200 dark:border-zinc-700">
+                        {React.isValidElement(icon)
+                          ? React.cloneElement(
+                              icon as React.ReactElement<{
+                                className?: string;
+                              }>,
+                              {
+                                className: "h-4 w-4",
+                              },
+                            )
+                          : icon}
                       </div>
-                    )}
 
-                    {/* Label */}
-                    <div className="flex min-w-0 grow flex-row items-baseline justify-start gap-2 overflow-hidden">
-                      <p className="text-sm font-medium text-slate-900 dark:text-zinc-100 truncate">
-                        {nodeData.label}
-                      </p>
+                      {/* Trigger indicator overlay */}
+                      {showTriggerIndicator && (
+                        <svg
+                          width="11"
+                          height="11"
+                          viewBox="0 0 11 11"
+                          className="trigger-indicator absolute"
+                        >
+                          <g>
+                            <path
+                              fillRule="evenodd"
+                              clipRule="evenodd"
+                              d="M 2.5 7.5 L 5 7.5 L 5 10.5 L 8.5 5.5 L 6 5.5 L 6 2.5 Z"
+                              className="trigger-indicator-bg fill-white dark:fill-zinc-900"
+                              strokeWidth="5"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              fillRule="evenodd"
+                              clipRule="evenodd"
+                              d="M 2.5 7.5 L 5 7.5 L 5 10.5 L 8.5 5.5 L 6 5.5 L 6 2.5 Z"
+                              className="trigger-indicator-bolt"
+                              strokeWidth="1"
+                              strokeLinejoin="round"
+                            />
+                          </g>
+                        </svg>
+                      )}
                     </div>
+                  )}
 
-                    {/* Status badge */}
-                    {statusBadge !== undefined && (
-                      <div className="node-status-badge">{statusBadge}</div>
-                    )}
+                  {/* Label */}
+                  <div className="flex min-w-0 grow flex-row items-center justify-start gap-2 overflow-hidden">
+                    <p className="text-sm font-medium text-slate-900 dark:text-zinc-100 truncate">
+                      {nodeData.label}
+                    </p>
                   </div>
+
+                  {/* Status badge */}
+                  {statusBadge !== undefined && (
+                    <div className="node-status-badge flex-shrink-0">{statusBadge}</div>
+                  )}
                 </div>
               </div>
             </div>
 
             {/* Right side actions */}
-            <div className="shrink-0">
-              <div className="flex flex-row gap-2 justify-start h-full items-center gap-x-2 py-3 pr-3">
-                {/* Validation warning */}
-                {!nodeData.isValid && (
-                  <button
-                    type="button"
-                    className="focus:outline-none rounded-md border-0 transition-colors flex h-5 w-5 items-center justify-center p-0.5 hover:bg-slate-100 dark:hover:bg-zinc-800"
-                  >
-                    <AlertCircle className="node-warning-icon h-4 w-4" />
-                  </button>
-                )}
+            {hasErrors && (
+              <div className="shrink-0 pr-3">
+                <button
+                  type="button"
+                  className="focus:outline-none rounded-md border-0 transition-colors flex h-5 w-5 items-center justify-center p-0.5 hover:bg-slate-100 dark:hover:bg-zinc-800"
+                >
+                  <AlertCircle className="node-warning-icon h-4 w-4" />
+                </button>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
@@ -186,17 +183,6 @@ export function BaseNode({
             style={{
               width: 10,
               height: 10,
-            }}
-          />
-          {/* Handle hover indicator */}
-          <div
-            className="handle-hover-indicator"
-            style={{
-              position: "absolute",
-              top: sourcePosition === Position.Top ? "-6px" : "auto",
-              bottom: sourcePosition === Position.Bottom ? "-6px" : "auto",
-              left: "50%",
-              transform: "translateX(-50%)",
             }}
           />
         </>
