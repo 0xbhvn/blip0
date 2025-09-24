@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
 import { Handle, Position, NodeProps } from "@xyflow/react";
 import { cn } from "@/lib/utils";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle } from "@/lib/icons";
 import { BaseNodeData } from "@/lib/types/nodeEditor";
 import { NodeType } from "@/lib/types/nodeEditor";
 import { NODE_SIZE_CLASSES, NodeSizeVariant } from "@/lib/design-system/tokens";
@@ -47,14 +46,14 @@ export function BaseNode({
       case NodeType.EVENT_CONDITION:
       case NodeType.FUNCTION_CONDITION:
       case NodeType.TRANSACTION_CONDITION:
-        return "bg-amber-50 border-amber-400 dark:bg-amber-950/20 dark:border-amber-700";
+        return "bg-amber-50/50 border-amber-300 dark:bg-amber-950/20 dark:border-amber-700";
 
       case NodeType.TRIGGER:
       case NodeType.NOTIFICATION:
-        return "bg-white border-slate-200 dark:bg-zinc-900 dark:border-zinc-800";
+        return "bg-white border-zinc-300/60 dark:bg-zinc-900 dark:border-zinc-700";
 
       default:
-        return "bg-white border-slate-200 dark:bg-zinc-900 dark:border-zinc-800";
+        return "bg-white border-zinc-300/60 dark:bg-zinc-900 dark:border-zinc-700";
     }
   };
 
@@ -65,7 +64,7 @@ export function BaseNode({
           <Handle
             type="target"
             position={targetPosition}
-            className="!bg-transparent !border-0 hover:scale-110 transition-all"
+            className="!bg-transparent !border-0"
             style={{
               width: 10,
               height: 10,
@@ -78,17 +77,16 @@ export function BaseNode({
         className={cn(
           "flow-node-card",
           NODE_SIZE_CLASSES[size].container,
-          "rounded-md border", // Changed from rounded-xl/rounded-lg to rounded-md to match Button
-          "shadow-xs", // Changed to match Button's shadow-xs
+          "rounded-xl border", // Premium rounded corners like Lindy
+          "shadow-sm", // Subtle shadow for depth
           "transition-all duration-75",
           "cursor-pointer",
-          "hover:border-blue-500",
-          "hover:bg-accent hover:text-accent-foreground", // Match Button hover behavior
-          "active:bg-slate-50 dark:active:bg-zinc-800",
+          "hover:border-blue-600", // Only border color changes on hover
+          "active:bg-zinc-100/50 dark:active:bg-zinc-800/50", // Softer active state
           getNodeStyle(),
-          selected && "!ring-2 !ring-blue-500",
+          selected && "!border-blue-500",
           hasErrors && "!border-orange-500",
-          nodeData.isEditing && "!ring-2 !ring-blue-600",
+          nodeData.isEditing && "!border-blue-600",
           className,
         )}
       >
@@ -100,17 +98,8 @@ export function BaseNode({
                   {/* Icon */}
                   {icon && (
                     <div className="relative flex-shrink-0">
-                      <div className="node-icon-container border-slate-200 dark:border-zinc-700">
-                        {React.isValidElement(icon)
-                          ? React.cloneElement(
-                              icon as React.ReactElement<{
-                                className?: string;
-                              }>,
-                              {
-                                className: "h-4 w-4",
-                              },
-                            )
-                          : icon}
+                      <div className="node-icon-container w-5 h-5 rounded border border-zinc-200/50 dark:border-zinc-700/50 flex items-center justify-center bg-gradient-to-br from-zinc-50 to-white dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
+                        {icon}
                       </div>
 
                       {/* Trigger indicator overlay */}
@@ -146,7 +135,7 @@ export function BaseNode({
 
                   {/* Label */}
                   <div className="flex min-w-0 grow flex-row items-center justify-start gap-2 overflow-hidden">
-                    <p className="text-sm font-medium text-slate-900 dark:text-zinc-100 truncate">
+                    <p className="text-sm font-medium text-zinc-800 dark:text-zinc-100 truncate tracking-tight">
                       {nodeData.label}
                     </p>
                   </div>
@@ -166,7 +155,7 @@ export function BaseNode({
                   type="button"
                   className="focus:outline-none rounded-md border-0 transition-colors flex h-5 w-5 items-center justify-center p-0.5 hover:bg-slate-100 dark:hover:bg-zinc-800"
                 >
-                  <AlertCircle className="node-warning-icon h-4 w-4" />
+                  <AlertCircle size={16} className="node-warning-icon" />
                 </button>
               </div>
             )}
@@ -179,7 +168,7 @@ export function BaseNode({
           <Handle
             type="source"
             position={sourcePosition}
-            className="!bg-transparent !border-0 hover:scale-110 transition-all"
+            className="!bg-transparent !border-0"
             style={{
               width: 10,
               height: 10,

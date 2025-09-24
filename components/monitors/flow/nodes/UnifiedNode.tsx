@@ -6,16 +6,17 @@ import { BaseNode } from "./BaseNode";
 import { NodeType } from "@/lib/types/nodeEditor";
 import { NotificationNodeData } from "@/lib/types/nodeEditor";
 import {
-  Network,
+  GlobeNetwork,
   FileCode,
-  Zap,
-  Code,
-  ArrowRightLeft,
-  Bell,
-  Mail,
+  LightningThunderElectricOn,
+  CodeAI,
+  Exchange01,
+  ClockDefault,
+  NotificationBellOn,
+  EnvelopeAI,
   Globe,
-  MessageSquare,
-} from "lucide-react";
+  ChatDefault,
+} from "@/lib/icons";
 
 function UnifiedNode(props: NodeProps) {
   const getIcon = () => {
@@ -23,35 +24,35 @@ function UnifiedNode(props: NodeProps) {
 
     switch (nodeType) {
       case NodeType.NETWORK:
-        return <Network className="h-4 w-4" />;
+        return <GlobeNetwork size={14} />;
 
       case NodeType.ADDRESS:
-        return <FileCode className="h-4 w-4" />;
+        return <FileCode size={14} />;
 
       case NodeType.EVENT_CONDITION:
-        return <Zap className="h-4 w-4" />;
+        return <LightningThunderElectricOn size={14} />;
 
       case NodeType.FUNCTION_CONDITION:
-        return <Code className="h-4 w-4" />;
+        return <CodeAI size={14} />;
 
       case NodeType.TRANSACTION_CONDITION:
-        return <ArrowRightLeft className="h-4 w-4" />;
+        return <Exchange01 size={14} />;
 
       case NodeType.TRIGGER:
-        return <Bell className="h-4 w-4" />;
+        return <ClockDefault size={14} />;
 
       case NodeType.NOTIFICATION:
         // Special case: notification icon changes based on type
         const notificationData = props.data as unknown as NotificationNodeData;
         switch (notificationData.type) {
           case "email":
-            return <Mail className="h-4 w-4" />;
+            return <EnvelopeAI size={14} />;
           case "webhook":
-            return <Globe className="h-4 w-4" />;
+            return <Globe size={14} />;
           case "slack":
-            return <MessageSquare className="h-4 w-4" />;
+            return <ChatDefault size={14} />;
           default:
-            return <Mail className="h-4 w-4" />;
+            return <NotificationBellOn size={14} />;
         }
 
       default:

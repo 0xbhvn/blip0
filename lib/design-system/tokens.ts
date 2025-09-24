@@ -222,16 +222,16 @@ export const NODE_SIZE_CLASSES: Record<NodeSizeVariant, {
   padding: string;
 }> = {
   compact: {
-    container: 'w-60 h-10',    // 240px x 40px
-    padding: 'p-3',            // 12px
+    container: 'w-[280px] h-11',    // 280px x 44px - slightly bigger for better readability
+    padding: 'px-3 py-2.5',         // More balanced padding
   },
   standard: {
-    container: 'w-[320px] h-12', // 320px x 48px
-    padding: 'p-3',              // 12px
+    container: 'w-[320px] h-12', // 320px x 48px - matches Lindy exactly
+    padding: 'px-3 py-3',        // 12px horizontal, 12px vertical
   },
   large: {
     container: 'w-[400px] h-14', // 400px x 56px
-    padding: 'p-4',              // 16px
+    padding: 'px-4 py-3.5',      // More balanced padding
   },
 } as const;
 

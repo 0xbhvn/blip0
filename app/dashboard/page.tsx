@@ -29,11 +29,15 @@ const SidebarButtonNode = React.memo(function SidebarButtonNode({
       onClick={handleClick}
       variant="outline"
       size="lg"
-      className="gap-2 bg-background/90 backdrop-blur-sm border-border dark:border-muted-foreground/50"
+      className="gap-2 bg-white dark:bg-zinc-900 shadow-sm rounded-xl hover:border-blue-600 transition-all duration-75 border-zinc-300/60 dark:border-zinc-700"
       disabled={Boolean(data?.isDisabled)}
     >
-      <SidebarRightOpen className="h-5 w-5" />
-      Open Right Sidebar
+      <div className="w-5 h-5 rounded border border-zinc-200/50 dark:border-zinc-700/50 flex items-center justify-center bg-gradient-to-br from-zinc-50 to-white dark:from-zinc-800 dark:to-zinc-900">
+        <SidebarRightOpen className="h-4 w-4" />
+      </div>
+      <span className="text-sm font-medium text-zinc-800 dark:text-zinc-100 tracking-tight">
+        Open Right Sidebar
+      </span>
     </Button>
   );
 });
