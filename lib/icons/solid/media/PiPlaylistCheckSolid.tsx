@@ -16,7 +16,7 @@ export default function PiPlaylistCheckSolid({
   className,
   ariaLabel = 'playlist-check icon',
   ...props
-}: PiPlaylistCheckSolidProps): JSX.Element {
+}: PiPlaylistCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

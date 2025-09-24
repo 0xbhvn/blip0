@@ -16,7 +16,7 @@ export default function PiCookieSolid({
   className,
   ariaLabel = 'cookie icon',
   ...props
-}: PiCookieSolidProps): JSX.Element {
+}: PiCookieSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

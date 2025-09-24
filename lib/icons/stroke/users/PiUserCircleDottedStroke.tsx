@@ -16,7 +16,7 @@ export default function PiUserCircleDottedStroke({
   className,
   ariaLabel = 'user-circle-dotted icon',
   ...props
-}: PiUserCircleDottedStrokeProps): JSX.Element {
+}: PiUserCircleDottedStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiExternalLinkSquareSolid({
   className,
   ariaLabel = 'external-link-square icon',
   ...props
-}: PiExternalLinkSquareSolidProps): JSX.Element {
+}: PiExternalLinkSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

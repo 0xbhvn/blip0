@@ -16,7 +16,7 @@ export default function PiCookieStroke({
   className,
   ariaLabel = 'cookie icon',
   ...props
-}: PiCookieStrokeProps): JSX.Element {
+}: PiCookieStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

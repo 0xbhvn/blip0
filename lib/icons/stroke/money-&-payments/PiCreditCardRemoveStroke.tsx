@@ -16,7 +16,7 @@ export default function PiCreditCardRemoveStroke({
   className,
   ariaLabel = 'credit-card-remove icon',
   ...props
-}: PiCreditCardRemoveStrokeProps): JSX.Element {
+}: PiCreditCardRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

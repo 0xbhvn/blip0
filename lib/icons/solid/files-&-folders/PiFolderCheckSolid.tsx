@@ -16,7 +16,7 @@ export default function PiFolderCheckSolid({
   className,
   ariaLabel = 'folder-check icon',
   ...props
-}: PiFolderCheckSolidProps): JSX.Element {
+}: PiFolderCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

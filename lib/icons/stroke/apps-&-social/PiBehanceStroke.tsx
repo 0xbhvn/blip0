@@ -16,7 +16,7 @@ export default function PiBehanceStroke({
   className,
   ariaLabel = 'behance icon',
   ...props
-}: PiBehanceStrokeProps): JSX.Element {
+}: PiBehanceStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiActivitySquareSolid({
   className,
   ariaLabel = 'activity-square icon',
   ...props
-}: PiActivitySquareSolidProps): JSX.Element {
+}: PiActivitySquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

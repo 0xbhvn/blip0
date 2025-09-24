@@ -16,7 +16,7 @@ export default function PiPackage02Solid({
   className,
   ariaLabel = 'package-02 icon',
   ...props
-}: PiPackage02SolidProps): JSX.Element {
+}: PiPackage02SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

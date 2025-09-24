@@ -16,7 +16,7 @@ export default function PiScreenUploadStroke({
   className,
   ariaLabel = 'screen-upload icon',
   ...props
-}: PiScreenUploadStrokeProps): JSX.Element {
+}: PiScreenUploadStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiLogOutRightStroke({
   className,
   ariaLabel = 'log-out-right icon',
   ...props
-}: PiLogOutRightStrokeProps): JSX.Element {
+}: PiLogOutRightStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

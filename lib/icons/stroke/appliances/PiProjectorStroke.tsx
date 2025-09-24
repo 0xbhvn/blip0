@@ -16,7 +16,7 @@ export default function PiProjectorStroke({
   className,
   ariaLabel = 'projector icon',
   ...props
-}: PiProjectorStrokeProps): JSX.Element {
+}: PiProjectorStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiWalletReloadStroke({
   className,
   ariaLabel = 'wallet-reload icon',
   ...props
-}: PiWalletReloadStrokeProps): JSX.Element {
+}: PiWalletReloadStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

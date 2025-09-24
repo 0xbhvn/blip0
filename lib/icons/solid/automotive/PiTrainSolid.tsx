@@ -16,7 +16,7 @@ export default function PiTrainSolid({
   className,
   ariaLabel = 'train icon',
   ...props
-}: PiTrainSolidProps): JSX.Element {
+}: PiTrainSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

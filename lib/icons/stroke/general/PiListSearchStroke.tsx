@@ -16,7 +16,7 @@ export default function PiListSearchStroke({
   className,
   ariaLabel = 'list-search icon',
   ...props
-}: PiListSearchStrokeProps): JSX.Element {
+}: PiListSearchStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

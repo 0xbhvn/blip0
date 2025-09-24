@@ -16,7 +16,7 @@ export default function PiListArrowDownStroke({
   className,
   ariaLabel = 'list-arrow-down icon',
   ...props
-}: PiListArrowDownStrokeProps): JSX.Element {
+}: PiListArrowDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

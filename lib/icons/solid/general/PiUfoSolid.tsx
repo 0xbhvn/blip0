@@ -16,7 +16,7 @@ export default function PiUfoSolid({
   className,
   ariaLabel = 'ufo icon',
   ...props
-}: PiUfoSolidProps): JSX.Element {
+}: PiUfoSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPrinterStroke({
   className,
   ariaLabel = 'printer icon',
   ...props
-}: PiPrinterStrokeProps): JSX.Element {
+}: PiPrinterStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

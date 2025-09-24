@@ -16,7 +16,7 @@ export default function PiListArrowUpSolid({
   className,
   ariaLabel = 'list-arrow-up icon',
   ...props
-}: PiListArrowUpSolidProps): JSX.Element {
+}: PiListArrowUpSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

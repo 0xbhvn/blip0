@@ -16,7 +16,7 @@ export default function PiCctvSolid({
   className,
   ariaLabel = 'cctv icon',
   ...props
-}: PiCctvSolidProps): JSX.Element {
+}: PiCctvSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

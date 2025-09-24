@@ -16,7 +16,7 @@ export default function PiCalendarCancelStroke({
   className,
   ariaLabel = 'calendar-cancel icon',
   ...props
-}: PiCalendarCancelStrokeProps): JSX.Element {
+}: PiCalendarCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

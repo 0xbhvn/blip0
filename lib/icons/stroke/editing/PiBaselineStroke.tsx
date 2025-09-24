@@ -16,7 +16,7 @@ export default function PiBaselineStroke({
   className,
   ariaLabel = 'baseline icon',
   ...props
-}: PiBaselineStrokeProps): JSX.Element {
+}: PiBaselineStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

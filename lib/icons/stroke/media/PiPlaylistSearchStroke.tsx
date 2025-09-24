@@ -16,7 +16,7 @@ export default function PiPlaylistSearchStroke({
   className,
   ariaLabel = 'playlist-search icon',
   ...props
-}: PiPlaylistSearchStrokeProps): JSX.Element {
+}: PiPlaylistSearchStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

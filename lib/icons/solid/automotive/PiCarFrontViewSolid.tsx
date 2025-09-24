@@ -16,7 +16,7 @@ export default function PiCarFrontViewSolid({
   className,
   ariaLabel = 'car-front-view icon',
   ...props
-}: PiCarFrontViewSolidProps): JSX.Element {
+}: PiCarFrontViewSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

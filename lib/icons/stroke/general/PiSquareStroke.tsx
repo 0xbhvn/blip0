@@ -16,7 +16,7 @@ export default function PiSquareStroke({
   className,
   ariaLabel = 'square icon',
   ...props
-}: PiSquareStrokeProps): JSX.Element {
+}: PiSquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

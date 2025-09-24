@@ -16,7 +16,7 @@ export default function PiGraphTrendLineUpwardStroke({
   className,
   ariaLabel = 'graph-trend-line-upward icon',
   ...props
-}: PiGraphTrendLineUpwardStrokeProps): JSX.Element {
+}: PiGraphTrendLineUpwardStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiAnimation01Stroke({
   className,
   ariaLabel = 'animation-01 icon',
   ...props
-}: PiAnimation01StrokeProps): JSX.Element {
+}: PiAnimation01StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFolderBoltSolid({
   className,
   ariaLabel = 'folder-bolt icon',
   ...props
-}: PiFolderBoltSolidProps): JSX.Element {
+}: PiFolderBoltSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

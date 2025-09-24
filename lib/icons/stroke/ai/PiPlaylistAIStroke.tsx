@@ -16,7 +16,7 @@ export default function PiPlaylistAIStroke({
   className,
   ariaLabel = 'playlist-ai icon',
   ...props
-}: PiPlaylistAIStrokeProps): JSX.Element {
+}: PiPlaylistAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

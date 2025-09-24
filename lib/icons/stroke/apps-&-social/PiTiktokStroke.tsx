@@ -16,7 +16,7 @@ export default function PiTiktokStroke({
   className,
   ariaLabel = 'tiktok icon',
   ...props
-}: PiTiktokStrokeProps): JSX.Element {
+}: PiTiktokStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

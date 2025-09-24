@@ -16,7 +16,7 @@ export default function PiHourglassStroke({
   className,
   ariaLabel = 'hourglass icon',
   ...props
-}: PiHourglassStrokeProps): JSX.Element {
+}: PiHourglassStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

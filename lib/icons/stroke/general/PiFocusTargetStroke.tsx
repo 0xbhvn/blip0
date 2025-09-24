@@ -16,7 +16,7 @@ export default function PiFocusTargetStroke({
   className,
   ariaLabel = 'focus-target icon',
   ...props
-}: PiFocusTargetStrokeProps): JSX.Element {
+}: PiFocusTargetStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

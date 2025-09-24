@@ -16,7 +16,7 @@ export default function PiArchiveHeartSolid({
   className,
   ariaLabel = 'archive-heart icon',
   ...props
-}: PiArchiveHeartSolidProps): JSX.Element {
+}: PiArchiveHeartSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

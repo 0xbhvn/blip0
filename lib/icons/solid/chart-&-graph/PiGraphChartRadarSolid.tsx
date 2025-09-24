@@ -16,7 +16,7 @@ export default function PiGraphChartRadarSolid({
   className,
   ariaLabel = 'graph-chart-radar icon',
   ...props
-}: PiGraphChartRadarSolidProps): JSX.Element {
+}: PiGraphChartRadarSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

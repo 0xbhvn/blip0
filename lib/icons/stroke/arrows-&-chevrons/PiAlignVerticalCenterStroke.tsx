@@ -16,7 +16,7 @@ export default function PiAlignVerticalCenterStroke({
   className,
   ariaLabel = 'align-vertical-center icon',
   ...props
-}: PiAlignVerticalCenterStrokeProps): JSX.Element {
+}: PiAlignVerticalCenterStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

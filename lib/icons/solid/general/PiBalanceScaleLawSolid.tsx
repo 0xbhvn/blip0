@@ -16,7 +16,7 @@ export default function PiBalanceScaleLawSolid({
   className,
   ariaLabel = 'balance-scale-law icon',
   ...props
-}: PiBalanceScaleLawSolidProps): JSX.Element {
+}: PiBalanceScaleLawSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

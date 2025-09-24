@@ -16,7 +16,7 @@ export default function PiUserDefaultStroke({
   className,
   ariaLabel = 'user-default icon',
   ...props
-}: PiUserDefaultStrokeProps): JSX.Element {
+}: PiUserDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

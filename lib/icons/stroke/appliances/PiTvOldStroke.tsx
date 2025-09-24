@@ -16,7 +16,7 @@ export default function PiTvOldStroke({
   className,
   ariaLabel = 'tv-old icon',
   ...props
-}: PiTvOldStrokeProps): JSX.Element {
+}: PiTvOldStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

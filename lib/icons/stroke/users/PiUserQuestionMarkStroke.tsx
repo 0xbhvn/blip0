@@ -16,7 +16,7 @@ export default function PiUserQuestionMarkStroke({
   className,
   ariaLabel = 'user-question-mark icon',
   ...props
-}: PiUserQuestionMarkStrokeProps): JSX.Element {
+}: PiUserQuestionMarkStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

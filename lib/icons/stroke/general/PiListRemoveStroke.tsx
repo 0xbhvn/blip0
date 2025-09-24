@@ -16,7 +16,7 @@ export default function PiListRemoveStroke({
   className,
   ariaLabel = 'list-remove icon',
   ...props
-}: PiListRemoveStrokeProps): JSX.Element {
+}: PiListRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

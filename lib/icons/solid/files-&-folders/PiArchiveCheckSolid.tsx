@@ -16,7 +16,7 @@ export default function PiArchiveCheckSolid({
   className,
   ariaLabel = 'archive-check icon',
   ...props
-}: PiArchiveCheckSolidProps): JSX.Element {
+}: PiArchiveCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

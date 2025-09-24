@@ -16,7 +16,7 @@ export default function PiFileArrowUpSolid({
   className,
   ariaLabel = 'file-arrow-up icon',
   ...props
-}: PiFileArrowUpSolidProps): JSX.Element {
+}: PiFileArrowUpSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

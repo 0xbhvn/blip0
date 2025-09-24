@@ -16,7 +16,7 @@ export default function PiWaterDoubleDropletStroke({
   className,
   ariaLabel = 'water-double-droplet icon',
   ...props
-}: PiWaterDoubleDropletStrokeProps): JSX.Element {
+}: PiWaterDoubleDropletStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

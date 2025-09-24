@@ -16,7 +16,7 @@ export default function PiPeopleMaleStroke({
   className,
   ariaLabel = 'people-male icon',
   ...props
-}: PiPeopleMaleStrokeProps): JSX.Element {
+}: PiPeopleMaleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

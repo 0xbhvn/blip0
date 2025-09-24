@@ -16,7 +16,7 @@ export default function PiToggleOnStroke({
   className,
   ariaLabel = 'toggle-on icon',
   ...props
-}: PiToggleOnStrokeProps): JSX.Element {
+}: PiToggleOnStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFileQuestionMarkSolid({
   className,
   ariaLabel = 'file-question-mark icon',
   ...props
-}: PiFileQuestionMarkSolidProps): JSX.Element {
+}: PiFileQuestionMarkSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

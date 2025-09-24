@@ -16,7 +16,7 @@ export default function PiArchiveArrowLeftSolid({
   className,
   ariaLabel = 'archive-arrow-left icon',
   ...props
-}: PiArchiveArrowLeftSolidProps): JSX.Element {
+}: PiArchiveArrowLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

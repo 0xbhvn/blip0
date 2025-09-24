@@ -16,7 +16,7 @@ export default function PiEncryptedLockStroke({
   className,
   ariaLabel = 'encrypted-lock icon',
   ...props
-}: PiEncryptedLockStrokeProps): JSX.Element {
+}: PiEncryptedLockStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

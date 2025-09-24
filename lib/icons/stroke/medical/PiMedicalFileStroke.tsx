@@ -16,7 +16,7 @@ export default function PiMedicalFileStroke({
   className,
   ariaLabel = 'medical-file icon',
   ...props
-}: PiMedicalFileStrokeProps): JSX.Element {
+}: PiMedicalFileStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiAlignHorizontalCenterStroke({
   className,
   ariaLabel = 'align-horizontal-center icon',
   ...props
-}: PiAlignHorizontalCenterStrokeProps): JSX.Element {
+}: PiAlignHorizontalCenterStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

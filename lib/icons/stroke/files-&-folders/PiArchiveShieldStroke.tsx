@@ -16,7 +16,7 @@ export default function PiArchiveShieldStroke({
   className,
   ariaLabel = 'archive-shield icon',
   ...props
-}: PiArchiveShieldStrokeProps): JSX.Element {
+}: PiArchiveShieldStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCampFireStroke({
   className,
   ariaLabel = 'camp-fire icon',
   ...props
-}: PiCampFireStrokeProps): JSX.Element {
+}: PiCampFireStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

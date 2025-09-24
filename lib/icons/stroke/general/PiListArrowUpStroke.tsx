@@ -16,7 +16,7 @@ export default function PiListArrowUpStroke({
   className,
   ariaLabel = 'list-arrow-up icon',
   ...props
-}: PiListArrowUpStrokeProps): JSX.Element {
+}: PiListArrowUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

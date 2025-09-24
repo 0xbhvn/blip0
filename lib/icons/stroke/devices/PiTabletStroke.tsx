@@ -16,7 +16,7 @@ export default function PiTabletStroke({
   className,
   ariaLabel = 'tablet icon',
   ...props
-}: PiTabletStrokeProps): JSX.Element {
+}: PiTabletStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

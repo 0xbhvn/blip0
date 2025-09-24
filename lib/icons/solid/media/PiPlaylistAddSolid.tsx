@@ -16,7 +16,7 @@ export default function PiPlaylistAddSolid({
   className,
   ariaLabel = 'playlist-add icon',
   ...props
-}: PiPlaylistAddSolidProps): JSX.Element {
+}: PiPlaylistAddSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

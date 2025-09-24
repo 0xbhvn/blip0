@@ -16,7 +16,7 @@ export default function PiFolderCheckStroke({
   className,
   ariaLabel = 'folder-check icon',
   ...props
-}: PiFolderCheckStrokeProps): JSX.Element {
+}: PiFolderCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

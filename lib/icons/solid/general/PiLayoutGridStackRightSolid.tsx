@@ -16,7 +16,7 @@ export default function PiLayoutGridStackRightSolid({
   className,
   ariaLabel = 'layout-grid-stack-right icon',
   ...props
-}: PiLayoutGridStackRightSolidProps): JSX.Element {
+}: PiLayoutGridStackRightSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiAlertCircleStroke({
   className,
   ariaLabel = 'alert-circle icon',
   ...props
-}: PiAlertCircleStrokeProps): JSX.Element {
+}: PiAlertCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

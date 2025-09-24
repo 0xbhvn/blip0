@@ -16,7 +16,7 @@ export default function PiEyeOnStroke({
   className,
   ariaLabel = 'eye-on icon',
   ...props
-}: PiEyeOnStrokeProps): JSX.Element {
+}: PiEyeOnStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiEnvelopeArrowLeftSolid({
   className,
   ariaLabel = 'envelope-arrow-left icon',
   ...props
-}: PiEnvelopeArrowLeftSolidProps): JSX.Element {
+}: PiEnvelopeArrowLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

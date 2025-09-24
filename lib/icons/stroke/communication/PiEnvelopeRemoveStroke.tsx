@@ -16,7 +16,7 @@ export default function PiEnvelopeRemoveStroke({
   className,
   ariaLabel = 'envelope-remove icon',
   ...props
-}: PiEnvelopeRemoveStrokeProps): JSX.Element {
+}: PiEnvelopeRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

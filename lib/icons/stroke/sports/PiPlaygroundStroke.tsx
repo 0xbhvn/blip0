@@ -16,7 +16,7 @@ export default function PiPlaygroundStroke({
   className,
   ariaLabel = 'playground icon',
   ...props
-}: PiPlaygroundStrokeProps): JSX.Element {
+}: PiPlaygroundStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

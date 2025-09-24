@@ -16,7 +16,7 @@ export default function PiAnnotationRemoveSolid({
   className,
   ariaLabel = 'annotation-remove icon',
   ...props
-}: PiAnnotationRemoveSolidProps): JSX.Element {
+}: PiAnnotationRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

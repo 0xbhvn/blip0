@@ -16,7 +16,7 @@ export default function PiDeleteForwardRightSolid({
   className,
   ariaLabel = 'delete-forward-right icon',
   ...props
-}: PiDeleteForwardRightSolidProps): JSX.Element {
+}: PiDeleteForwardRightSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

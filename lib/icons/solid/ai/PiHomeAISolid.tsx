@@ -16,7 +16,7 @@ export default function PiHomeAISolid({
   className,
   ariaLabel = 'home-ai icon',
   ...props
-}: PiHomeAISolidProps): JSX.Element {
+}: PiHomeAISolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPlayCircleSolid({
   className,
   ariaLabel = 'play-circle icon',
   ...props
-}: PiPlayCircleSolidProps): JSX.Element {
+}: PiPlayCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFolderArrowRightSolid({
   className,
   ariaLabel = 'folder-arrow-right icon',
   ...props
-}: PiFolderArrowRightSolidProps): JSX.Element {
+}: PiFolderArrowRightSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

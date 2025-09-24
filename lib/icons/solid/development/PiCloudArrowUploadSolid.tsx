@@ -16,7 +16,7 @@ export default function PiCloudArrowUploadSolid({
   className,
   ariaLabel = 'cloud-arrow-upload icon',
   ...props
-}: PiCloudArrowUploadSolidProps): JSX.Element {
+}: PiCloudArrowUploadSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

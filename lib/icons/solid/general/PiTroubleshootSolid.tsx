@@ -16,7 +16,7 @@ export default function PiTroubleshootSolid({
   className,
   ariaLabel = 'troubleshoot icon',
   ...props
-}: PiTroubleshootSolidProps): JSX.Element {
+}: PiTroubleshootSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFeatherPenSolid({
   className,
   ariaLabel = 'feather-pen icon',
   ...props
-}: PiFeatherPenSolidProps): JSX.Element {
+}: PiFeatherPenSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

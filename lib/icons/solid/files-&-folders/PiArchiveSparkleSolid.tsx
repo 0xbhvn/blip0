@@ -16,7 +16,7 @@ export default function PiArchiveSparkleSolid({
   className,
   ariaLabel = 'archive-sparkle icon',
   ...props
-}: PiArchiveSparkleSolidProps): JSX.Element {
+}: PiArchiveSparkleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

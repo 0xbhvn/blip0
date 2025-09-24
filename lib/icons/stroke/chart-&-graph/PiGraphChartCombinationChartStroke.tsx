@@ -16,7 +16,7 @@ export default function PiGraphChartCombinationChartStroke({
   className,
   ariaLabel = 'graph-chart-combination-chart icon',
   ...props
-}: PiGraphChartCombinationChartStrokeProps): JSX.Element {
+}: PiGraphChartCombinationChartStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

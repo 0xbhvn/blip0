@@ -16,7 +16,7 @@ export default function PiSpotlightStroke({
   className,
   ariaLabel = 'spotlight icon',
   ...props
-}: PiSpotlightStrokeProps): JSX.Element {
+}: PiSpotlightStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

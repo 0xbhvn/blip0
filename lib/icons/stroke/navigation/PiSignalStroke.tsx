@@ -16,7 +16,7 @@ export default function PiSignalStroke({
   className,
   ariaLabel = 'signal icon',
   ...props
-}: PiSignalStrokeProps): JSX.Element {
+}: PiSignalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

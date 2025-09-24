@@ -16,7 +16,7 @@ export default function PiGraphChartCandlestickSolid({
   className,
   ariaLabel = 'graph-chart-candlestick icon',
   ...props
-}: PiGraphChartCandlestickSolidProps): JSX.Element {
+}: PiGraphChartCandlestickSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiDoubleChevronDownSolid({
   className,
   ariaLabel = 'double-chevron-down icon',
   ...props
-}: PiDoubleChevronDownSolidProps): JSX.Element {
+}: PiDoubleChevronDownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

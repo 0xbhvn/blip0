@@ -16,7 +16,7 @@ export default function PiPriorityTrivialSolid({
   className,
   ariaLabel = 'priority-trivial icon',
   ...props
-}: PiPriorityTrivialSolidProps): JSX.Element {
+}: PiPriorityTrivialSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

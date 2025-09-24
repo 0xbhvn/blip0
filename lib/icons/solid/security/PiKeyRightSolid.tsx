@@ -16,7 +16,7 @@ export default function PiKeyRightSolid({
   className,
   ariaLabel = 'key-right icon',
   ...props
-}: PiKeyRightSolidProps): JSX.Element {
+}: PiKeyRightSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

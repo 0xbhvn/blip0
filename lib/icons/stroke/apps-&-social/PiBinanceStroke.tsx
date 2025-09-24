@@ -16,7 +16,7 @@ export default function PiBinanceStroke({
   className,
   ariaLabel = 'binance icon',
   ...props
-}: PiBinanceStrokeProps): JSX.Element {
+}: PiBinanceStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

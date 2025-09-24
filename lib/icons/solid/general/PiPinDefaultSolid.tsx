@@ -16,7 +16,7 @@ export default function PiPinDefaultSolid({
   className,
   ariaLabel = 'pin-default icon',
   ...props
-}: PiPinDefaultSolidProps): JSX.Element {
+}: PiPinDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

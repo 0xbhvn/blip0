@@ -16,7 +16,7 @@ export default function PiRefrigeratorSolid({
   className,
   ariaLabel = 'refrigerator icon',
   ...props
-}: PiRefrigeratorSolidProps): JSX.Element {
+}: PiRefrigeratorSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

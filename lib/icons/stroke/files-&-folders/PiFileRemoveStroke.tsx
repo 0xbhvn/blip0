@@ -16,7 +16,7 @@ export default function PiFileRemoveStroke({
   className,
   ariaLabel = 'file-remove icon',
   ...props
-}: PiFileRemoveStrokeProps): JSX.Element {
+}: PiFileRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

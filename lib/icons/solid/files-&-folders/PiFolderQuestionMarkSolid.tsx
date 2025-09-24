@@ -16,7 +16,7 @@ export default function PiFolderQuestionMarkSolid({
   className,
   ariaLabel = 'folder-question-mark icon',
   ...props
-}: PiFolderQuestionMarkSolidProps): JSX.Element {
+}: PiFolderQuestionMarkSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

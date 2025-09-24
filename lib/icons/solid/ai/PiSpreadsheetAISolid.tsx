@@ -16,7 +16,7 @@ export default function PiSpreadsheetAISolid({
   className,
   ariaLabel = 'spreadsheet-ai icon',
   ...props
-}: PiSpreadsheetAISolidProps): JSX.Element {
+}: PiSpreadsheetAISolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCloudLightningSolid({
   className,
   ariaLabel = 'cloud-lightning icon',
   ...props
-}: PiCloudLightningSolidProps): JSX.Element {
+}: PiCloudLightningSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

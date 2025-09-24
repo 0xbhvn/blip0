@@ -16,7 +16,7 @@ export default function PiTimerDefaultStroke({
   className,
   ariaLabel = 'timer-default icon',
   ...props
-}: PiTimerDefaultStrokeProps): JSX.Element {
+}: PiTimerDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

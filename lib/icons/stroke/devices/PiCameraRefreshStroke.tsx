@@ -16,7 +16,7 @@ export default function PiCameraRefreshStroke({
   className,
   ariaLabel = 'camera-refresh icon',
   ...props
-}: PiCameraRefreshStrokeProps): JSX.Element {
+}: PiCameraRefreshStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

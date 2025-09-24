@@ -16,7 +16,7 @@ export default function PiMessagePlusSolid({
   className,
   ariaLabel = 'message-plus icon',
   ...props
-}: PiMessagePlusSolidProps): JSX.Element {
+}: PiMessagePlusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

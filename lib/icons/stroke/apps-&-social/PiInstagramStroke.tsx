@@ -16,7 +16,7 @@ export default function PiInstagramStroke({
   className,
   ariaLabel = 'instagram icon',
   ...props
-}: PiInstagramStrokeProps): JSX.Element {
+}: PiInstagramStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiMaximizeTwoArrowStroke({
   className,
   ariaLabel = 'maximize-two-arrow icon',
   ...props
-}: PiMaximizeTwoArrowStrokeProps): JSX.Element {
+}: PiMaximizeTwoArrowStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

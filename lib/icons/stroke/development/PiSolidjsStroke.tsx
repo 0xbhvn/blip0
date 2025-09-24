@@ -16,7 +16,7 @@ export default function PiSolidjsStroke({
   className,
   ariaLabel = 'solidjs icon',
   ...props
-}: PiSolidjsStrokeProps): JSX.Element {
+}: PiSolidjsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

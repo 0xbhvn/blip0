@@ -16,7 +16,7 @@ export default function PiTicketTokenOneStroke({
   className,
   ariaLabel = 'ticket-token-one icon',
   ...props
-}: PiTicketTokenOneStrokeProps): JSX.Element {
+}: PiTicketTokenOneStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

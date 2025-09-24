@@ -16,7 +16,7 @@ export default function PiMusicQuaverNoteRemoveSolid({
   className,
   ariaLabel = 'music-quaver-note-remove icon',
   ...props
-}: PiMusicQuaverNoteRemoveSolidProps): JSX.Element {
+}: PiMusicQuaverNoteRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCloudWindSolid({
   className,
   ariaLabel = 'cloud-wind icon',
   ...props
-}: PiCloudWindSolidProps): JSX.Element {
+}: PiCloudWindSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

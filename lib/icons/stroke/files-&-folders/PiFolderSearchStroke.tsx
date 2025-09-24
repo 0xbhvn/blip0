@@ -16,7 +16,7 @@ export default function PiFolderSearchStroke({
   className,
   ariaLabel = 'folder-search icon',
   ...props
-}: PiFolderSearchStrokeProps): JSX.Element {
+}: PiFolderSearchStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

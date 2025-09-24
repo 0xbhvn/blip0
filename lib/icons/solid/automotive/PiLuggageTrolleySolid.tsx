@@ -16,7 +16,7 @@ export default function PiLuggageTrolleySolid({
   className,
   ariaLabel = 'luggage-trolley icon',
   ...props
-}: PiLuggageTrolleySolidProps): JSX.Element {
+}: PiLuggageTrolleySolidProps): React.ReactElement {
   return (
     <svg
       width={size}

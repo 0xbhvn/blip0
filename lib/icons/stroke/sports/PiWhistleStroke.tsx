@@ -16,7 +16,7 @@ export default function PiWhistleStroke({
   className,
   ariaLabel = 'whistle icon',
   ...props
-}: PiWhistleStrokeProps): JSX.Element {
+}: PiWhistleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

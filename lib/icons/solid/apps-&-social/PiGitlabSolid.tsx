@@ -16,7 +16,7 @@ export default function PiGitlabSolid({
   className,
   ariaLabel = 'gitlab icon',
   ...props
-}: PiGitlabSolidProps): JSX.Element {
+}: PiGitlabSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

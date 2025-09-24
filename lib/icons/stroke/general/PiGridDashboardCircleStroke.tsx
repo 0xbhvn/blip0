@@ -16,7 +16,7 @@ export default function PiGridDashboardCircleStroke({
   className,
   ariaLabel = 'grid-dashboard-circle icon',
   ...props
-}: PiGridDashboardCircleStrokeProps): JSX.Element {
+}: PiGridDashboardCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

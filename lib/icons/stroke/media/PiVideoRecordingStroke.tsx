@@ -16,7 +16,7 @@ export default function PiVideoRecordingStroke({
   className,
   ariaLabel = 'video-recording icon',
   ...props
-}: PiVideoRecordingStrokeProps): JSX.Element {
+}: PiVideoRecordingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

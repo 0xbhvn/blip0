@@ -16,7 +16,7 @@ export default function PiCycleCyclingStroke({
   className,
   ariaLabel = 'cycle-cycling icon',
   ...props
-}: PiCycleCyclingStrokeProps): JSX.Element {
+}: PiCycleCyclingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

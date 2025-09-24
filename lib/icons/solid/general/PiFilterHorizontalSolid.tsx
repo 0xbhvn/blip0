@@ -16,7 +16,7 @@ export default function PiFilterHorizontalSolid({
   className,
   ariaLabel = 'filter-horizontal icon',
   ...props
-}: PiFilterHorizontalSolidProps): JSX.Element {
+}: PiFilterHorizontalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

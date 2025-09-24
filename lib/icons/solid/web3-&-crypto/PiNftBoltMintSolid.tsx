@@ -16,7 +16,7 @@ export default function PiNftBoltMintSolid({
   className,
   ariaLabel = 'nft-bolt-mint icon',
   ...props
-}: PiNftBoltMintSolidProps): JSX.Element {
+}: PiNftBoltMintSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

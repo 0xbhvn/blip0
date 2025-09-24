@@ -16,7 +16,7 @@ export default function PiStarHalfSolid({
   className,
   ariaLabel = 'star-half icon',
   ...props
-}: PiStarHalfSolidProps): JSX.Element {
+}: PiStarHalfSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

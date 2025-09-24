@@ -16,7 +16,7 @@ export default function PiFolderGitSolid({
   className,
   ariaLabel = 'folder-git icon',
   ...props
-}: PiFolderGitSolidProps): JSX.Element {
+}: PiFolderGitSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

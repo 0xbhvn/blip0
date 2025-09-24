@@ -16,7 +16,7 @@ export default function PiClipboardPrescriptionSolid({
   className,
   ariaLabel = 'clipboard-prescription icon',
   ...props
-}: PiClipboardPrescriptionSolidProps): JSX.Element {
+}: PiClipboardPrescriptionSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPowerOffStroke({
   className,
   ariaLabel = 'power-off icon',
   ...props
-}: PiPowerOffStrokeProps): JSX.Element {
+}: PiPowerOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

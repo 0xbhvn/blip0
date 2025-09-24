@@ -16,7 +16,7 @@ export default function PiActivitySquareStroke({
   className,
   ariaLabel = 'activity-square icon',
   ...props
-}: PiActivitySquareStrokeProps): JSX.Element {
+}: PiActivitySquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

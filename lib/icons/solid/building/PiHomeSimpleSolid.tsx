@@ -16,7 +16,7 @@ export default function PiHomeSimpleSolid({
   className,
   ariaLabel = 'home-simple icon',
   ...props
-}: PiHomeSimpleSolidProps): JSX.Element {
+}: PiHomeSimpleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

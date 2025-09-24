@@ -16,7 +16,7 @@ export default function PiMaximizeLineArrowSolid({
   className,
   ariaLabel = 'maximize-line-arrow icon',
   ...props
-}: PiMaximizeLineArrowSolidProps): JSX.Element {
+}: PiMaximizeLineArrowSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

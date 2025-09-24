@@ -16,7 +16,7 @@ export default function PiStarStroke({
   className,
   ariaLabel = 'star icon',
   ...props
-}: PiStarStrokeProps): JSX.Element {
+}: PiStarStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCloudLightningStroke({
   className,
   ariaLabel = 'cloud-lightning icon',
   ...props
-}: PiCloudLightningStrokeProps): JSX.Element {
+}: PiCloudLightningStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

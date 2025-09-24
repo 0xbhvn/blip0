@@ -16,7 +16,7 @@ export default function PiSparkleAI02Solid({
   className,
   ariaLabel = 'sparkle-ai-02 icon',
   ...props
-}: PiSparkleAI02SolidProps): JSX.Element {
+}: PiSparkleAI02SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

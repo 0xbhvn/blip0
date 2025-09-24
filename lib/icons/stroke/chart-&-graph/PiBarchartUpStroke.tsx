@@ -16,7 +16,7 @@ export default function PiBarchartUpStroke({
   className,
   ariaLabel = 'barchart-up icon',
   ...props
-}: PiBarchartUpStrokeProps): JSX.Element {
+}: PiBarchartUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

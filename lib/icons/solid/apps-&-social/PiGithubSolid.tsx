@@ -16,7 +16,7 @@ export default function PiGithubSolid({
   className,
   ariaLabel = 'github icon',
   ...props
-}: PiGithubSolidProps): JSX.Element {
+}: PiGithubSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

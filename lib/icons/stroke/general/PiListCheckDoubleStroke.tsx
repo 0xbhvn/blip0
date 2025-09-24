@@ -16,7 +16,7 @@ export default function PiListCheckDoubleStroke({
   className,
   ariaLabel = 'list-check-double icon',
   ...props
-}: PiListCheckDoubleStrokeProps): JSX.Element {
+}: PiListCheckDoubleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

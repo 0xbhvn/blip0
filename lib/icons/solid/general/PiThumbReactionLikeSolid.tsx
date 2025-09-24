@@ -16,7 +16,7 @@ export default function PiThumbReactionLikeSolid({
   className,
   ariaLabel = 'thumb-reaction-like icon',
   ...props
-}: PiThumbReactionLikeSolidProps): JSX.Element {
+}: PiThumbReactionLikeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

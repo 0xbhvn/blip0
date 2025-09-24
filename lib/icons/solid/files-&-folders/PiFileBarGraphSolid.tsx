@@ -16,7 +16,7 @@ export default function PiFileBarGraphSolid({
   className,
   ariaLabel = 'file-bar-graph icon',
   ...props
-}: PiFileBarGraphSolidProps): JSX.Element {
+}: PiFileBarGraphSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

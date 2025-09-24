@@ -16,7 +16,7 @@ export default function PiSpreadsheetAIStroke({
   className,
   ariaLabel = 'spreadsheet-ai icon',
   ...props
-}: PiSpreadsheetAIStrokeProps): JSX.Element {
+}: PiSpreadsheetAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

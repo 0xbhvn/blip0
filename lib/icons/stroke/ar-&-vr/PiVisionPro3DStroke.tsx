@@ -16,7 +16,7 @@ export default function PiVisionPro3DStroke({
   className,
   ariaLabel = 'vision-pro-3-d icon',
   ...props
-}: PiVisionPro3DStrokeProps): JSX.Element {
+}: PiVisionPro3DStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

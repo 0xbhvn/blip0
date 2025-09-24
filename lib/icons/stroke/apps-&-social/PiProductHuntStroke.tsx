@@ -16,7 +16,7 @@ export default function PiProductHuntStroke({
   className,
   ariaLabel = 'product-hunt icon',
   ...props
-}: PiProductHuntStrokeProps): JSX.Element {
+}: PiProductHuntStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

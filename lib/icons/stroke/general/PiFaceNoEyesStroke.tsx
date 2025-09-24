@@ -16,7 +16,7 @@ export default function PiFaceNoEyesStroke({
   className,
   ariaLabel = 'face-no-eyes icon',
   ...props
-}: PiFaceNoEyesStrokeProps): JSX.Element {
+}: PiFaceNoEyesStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

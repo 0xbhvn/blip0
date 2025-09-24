@@ -16,7 +16,7 @@ export default function PiUserCircleDottedSolid({
   className,
   ariaLabel = 'user-circle-dotted icon',
   ...props
-}: PiUserCircleDottedSolidProps): JSX.Element {
+}: PiUserCircleDottedSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiQrScanStroke({
   className,
   ariaLabel = 'qr-scan icon',
   ...props
-}: PiQrScanStrokeProps): JSX.Element {
+}: PiQrScanStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

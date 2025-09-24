@@ -16,7 +16,7 @@ export default function PiBatteryOneCellStroke({
   className,
   ariaLabel = 'battery-one-cell icon',
   ...props
-}: PiBatteryOneCellStrokeProps): JSX.Element {
+}: PiBatteryOneCellStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

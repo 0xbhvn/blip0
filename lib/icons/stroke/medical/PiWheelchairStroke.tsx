@@ -16,7 +16,7 @@ export default function PiWheelchairStroke({
   className,
   ariaLabel = 'wheelchair icon',
   ...props
-}: PiWheelchairStrokeProps): JSX.Element {
+}: PiWheelchairStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

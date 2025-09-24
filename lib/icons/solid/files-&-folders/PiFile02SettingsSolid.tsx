@@ -16,7 +16,7 @@ export default function PiFile02SettingsSolid({
   className,
   ariaLabel = 'file-02-settings icon',
   ...props
-}: PiFile02SettingsSolidProps): JSX.Element {
+}: PiFile02SettingsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

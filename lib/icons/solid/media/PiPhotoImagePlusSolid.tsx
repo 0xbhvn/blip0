@@ -16,7 +16,7 @@ export default function PiPhotoImagePlusSolid({
   className,
   ariaLabel = 'photo-image-plus icon',
   ...props
-}: PiPhotoImagePlusSolidProps): JSX.Element {
+}: PiPhotoImagePlusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

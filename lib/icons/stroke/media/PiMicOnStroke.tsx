@@ -16,7 +16,7 @@ export default function PiMicOnStroke({
   className,
   ariaLabel = 'mic-on icon',
   ...props
-}: PiMicOnStrokeProps): JSX.Element {
+}: PiMicOnStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

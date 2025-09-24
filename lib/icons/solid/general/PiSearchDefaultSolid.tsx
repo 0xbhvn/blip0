@@ -16,7 +16,7 @@ export default function PiSearchDefaultSolid({
   className,
   ariaLabel = 'search-default icon',
   ...props
-}: PiSearchDefaultSolidProps): JSX.Element {
+}: PiSearchDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

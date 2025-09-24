@@ -16,7 +16,7 @@ export default function PiArchiveBoltSolid({
   className,
   ariaLabel = 'archive-bolt icon',
   ...props
-}: PiArchiveBoltSolidProps): JSX.Element {
+}: PiArchiveBoltSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

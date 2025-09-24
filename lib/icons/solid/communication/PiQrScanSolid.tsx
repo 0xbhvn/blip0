@@ -16,7 +16,7 @@ export default function PiQrScanSolid({
   className,
   ariaLabel = 'qr-scan icon',
   ...props
-}: PiQrScanSolidProps): JSX.Element {
+}: PiQrScanSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

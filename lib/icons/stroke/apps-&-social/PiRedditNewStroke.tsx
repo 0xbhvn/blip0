@@ -16,7 +16,7 @@ export default function PiRedditNewStroke({
   className,
   ariaLabel = 'reddit-new icon',
   ...props
-}: PiRedditNewStrokeProps): JSX.Element {
+}: PiRedditNewStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

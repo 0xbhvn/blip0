@@ -16,7 +16,7 @@ export default function PiChevronDownStroke({
   className,
   ariaLabel = 'chevron-down icon',
   ...props
-}: PiChevronDownStrokeProps): JSX.Element {
+}: PiChevronDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

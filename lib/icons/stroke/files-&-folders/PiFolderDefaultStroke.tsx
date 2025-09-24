@@ -16,7 +16,7 @@ export default function PiFolderDefaultStroke({
   className,
   ariaLabel = 'folder-default icon',
   ...props
-}: PiFolderDefaultStrokeProps): JSX.Element {
+}: PiFolderDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

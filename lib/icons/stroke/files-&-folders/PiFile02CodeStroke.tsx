@@ -16,7 +16,7 @@ export default function PiFile02CodeStroke({
   className,
   ariaLabel = 'file-02-code icon',
   ...props
-}: PiFile02CodeStrokeProps): JSX.Element {
+}: PiFile02CodeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

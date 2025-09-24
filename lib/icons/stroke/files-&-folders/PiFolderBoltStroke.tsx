@@ -16,7 +16,7 @@ export default function PiFolderBoltStroke({
   className,
   ariaLabel = 'folder-bolt icon',
   ...props
-}: PiFolderBoltStrokeProps): JSX.Element {
+}: PiFolderBoltStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

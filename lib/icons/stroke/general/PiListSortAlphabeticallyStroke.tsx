@@ -16,7 +16,7 @@ export default function PiListSortAlphabeticallyStroke({
   className,
   ariaLabel = 'list-sort-alphabetically icon',
   ...props
-}: PiListSortAlphabeticallyStrokeProps): JSX.Element {
+}: PiListSortAlphabeticallyStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

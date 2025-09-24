@@ -16,7 +16,7 @@ export default function PiArchiveArrowDownStroke({
   className,
   ariaLabel = 'archive-arrow-down icon',
   ...props
-}: PiArchiveArrowDownStrokeProps): JSX.Element {
+}: PiArchiveArrowDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

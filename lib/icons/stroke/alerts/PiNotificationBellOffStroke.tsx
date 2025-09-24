@@ -16,7 +16,7 @@ export default function PiNotificationBellOffStroke({
   className,
   ariaLabel = 'notification-bell-off icon',
   ...props
-}: PiNotificationBellOffStrokeProps): JSX.Element {
+}: PiNotificationBellOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

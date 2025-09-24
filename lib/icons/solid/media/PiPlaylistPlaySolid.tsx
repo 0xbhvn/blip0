@@ -16,7 +16,7 @@ export default function PiPlaylistPlaySolid({
   className,
   ariaLabel = 'playlist-play icon',
   ...props
-}: PiPlaylistPlaySolidProps): JSX.Element {
+}: PiPlaylistPlaySolidProps): React.ReactElement {
   return (
     <svg
       width={size}

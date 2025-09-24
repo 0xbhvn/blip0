@@ -16,7 +16,7 @@ export default function PiMouseScrollDownStroke({
   className,
   ariaLabel = 'mouse-scroll-down icon',
   ...props
-}: PiMouseScrollDownStrokeProps): JSX.Element {
+}: PiMouseScrollDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

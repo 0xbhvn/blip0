@@ -16,7 +16,7 @@ export default function PiShieldSettingsSolid({
   className,
   ariaLabel = 'shield-settings icon',
   ...props
-}: PiShieldSettingsSolidProps): JSX.Element {
+}: PiShieldSettingsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

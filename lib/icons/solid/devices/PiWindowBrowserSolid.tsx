@@ -16,7 +16,7 @@ export default function PiWindowBrowserSolid({
   className,
   ariaLabel = 'window-browser icon',
   ...props
-}: PiWindowBrowserSolidProps): JSX.Element {
+}: PiWindowBrowserSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

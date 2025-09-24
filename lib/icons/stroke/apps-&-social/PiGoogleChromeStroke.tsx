@@ -16,7 +16,7 @@ export default function PiGoogleChromeStroke({
   className,
   ariaLabel = 'google-chrome icon',
   ...props
-}: PiGoogleChromeStrokeProps): JSX.Element {
+}: PiGoogleChromeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

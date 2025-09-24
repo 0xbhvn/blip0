@@ -16,7 +16,7 @@ export default function PiFilmSolid({
   className,
   ariaLabel = 'film icon',
   ...props
-}: PiFilmSolidProps): JSX.Element {
+}: PiFilmSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

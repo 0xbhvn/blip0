@@ -16,7 +16,7 @@ export default function PiGitCompareStroke({
   className,
   ariaLabel = 'git-compare icon',
   ...props
-}: PiGitCompareStrokeProps): JSX.Element {
+}: PiGitCompareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

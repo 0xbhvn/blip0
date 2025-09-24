@@ -16,7 +16,7 @@ export default function PiServerCheckSolid({
   className,
   ariaLabel = 'server-check icon',
   ...props
-}: PiServerCheckSolidProps): JSX.Element {
+}: PiServerCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

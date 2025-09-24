@@ -16,7 +16,7 @@ export default function PiVerificationCheckSolid({
   className,
   ariaLabel = 'verification-check icon',
   ...props
-}: PiVerificationCheckSolidProps): JSX.Element {
+}: PiVerificationCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

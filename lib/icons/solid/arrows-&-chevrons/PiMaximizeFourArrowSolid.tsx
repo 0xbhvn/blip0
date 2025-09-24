@@ -16,7 +16,7 @@ export default function PiMaximizeFourArrowSolid({
   className,
   ariaLabel = 'maximize-four-arrow icon',
   ...props
-}: PiMaximizeFourArrowSolidProps): JSX.Element {
+}: PiMaximizeFourArrowSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

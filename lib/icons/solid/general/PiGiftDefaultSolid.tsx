@@ -16,7 +16,7 @@ export default function PiGiftDefaultSolid({
   className,
   ariaLabel = 'gift-default icon',
   ...props
-}: PiGiftDefaultSolidProps): JSX.Element {
+}: PiGiftDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

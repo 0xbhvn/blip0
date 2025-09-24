@@ -16,7 +16,7 @@ export default function PiRedditNewSolid({
   className,
   ariaLabel = 'reddit-new icon',
   ...props
-}: PiRedditNewSolidProps): JSX.Element {
+}: PiRedditNewSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

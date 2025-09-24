@@ -16,7 +16,7 @@ export default function PiKeyTopRight02Stroke({
   className,
   ariaLabel = 'key-top-right-02 icon',
   ...props
-}: PiKeyTopRight02StrokeProps): JSX.Element {
+}: PiKeyTopRight02StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiMicrowaveStroke({
   className,
   ariaLabel = 'microwave icon',
   ...props
-}: PiMicrowaveStrokeProps): JSX.Element {
+}: PiMicrowaveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiBallCricketSolid({
   className,
   ariaLabel = 'ball-cricket icon',
   ...props
-}: PiBallCricketSolidProps): JSX.Element {
+}: PiBallCricketSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiExternalLinkSquareStroke({
   className,
   ariaLabel = 'external-link-square icon',
   ...props
-}: PiExternalLinkSquareStrokeProps): JSX.Element {
+}: PiExternalLinkSquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

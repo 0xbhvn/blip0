@@ -16,7 +16,7 @@ export default function PiMinusDefaultStroke({
   className,
   ariaLabel = 'minus-default icon',
   ...props
-}: PiMinusDefaultStrokeProps): JSX.Element {
+}: PiMinusDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiWalletLinkStroke({
   className,
   ariaLabel = 'wallet-link icon',
   ...props
-}: PiWalletLinkStrokeProps): JSX.Element {
+}: PiWalletLinkStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

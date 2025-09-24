@@ -16,7 +16,7 @@ export default function PiGoogleStroke({
   className,
   ariaLabel = 'google icon',
   ...props
-}: PiGoogleStrokeProps): JSX.Element {
+}: PiGoogleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

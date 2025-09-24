@@ -16,7 +16,7 @@ export default function PiTrackpadStroke({
   className,
   ariaLabel = 'trackpad icon',
   ...props
-}: PiTrackpadStrokeProps): JSX.Element {
+}: PiTrackpadStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

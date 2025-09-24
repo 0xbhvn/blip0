@@ -16,7 +16,7 @@ export default function PiCreditCardSettingsSolid({
   className,
   ariaLabel = 'credit-card-settings icon',
   ...props
-}: PiCreditCardSettingsSolidProps): JSX.Element {
+}: PiCreditCardSettingsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

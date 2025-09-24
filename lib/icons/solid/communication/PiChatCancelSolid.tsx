@@ -16,7 +16,7 @@ export default function PiChatCancelSolid({
   className,
   ariaLabel = 'chat-cancel icon',
   ...props
-}: PiChatCancelSolidProps): JSX.Element {
+}: PiChatCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiMacFinderStroke({
   className,
   ariaLabel = 'mac-finder icon',
   ...props
-}: PiMacFinderStrokeProps): JSX.Element {
+}: PiMacFinderStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

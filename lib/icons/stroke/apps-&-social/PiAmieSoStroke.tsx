@@ -16,7 +16,7 @@ export default function PiAmieSoStroke({
   className,
   ariaLabel = 'amie-so icon',
   ...props
-}: PiAmieSoStrokeProps): JSX.Element {
+}: PiAmieSoStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

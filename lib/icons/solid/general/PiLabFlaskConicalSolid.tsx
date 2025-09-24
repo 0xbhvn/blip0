@@ -16,7 +16,7 @@ export default function PiLabFlaskConicalSolid({
   className,
   ariaLabel = 'lab-flask-conical icon',
   ...props
-}: PiLabFlaskConicalSolidProps): JSX.Element {
+}: PiLabFlaskConicalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

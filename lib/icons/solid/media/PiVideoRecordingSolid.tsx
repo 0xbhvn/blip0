@@ -16,7 +16,7 @@ export default function PiVideoRecordingSolid({
   className,
   ariaLabel = 'video-recording icon',
   ...props
-}: PiVideoRecordingSolidProps): JSX.Element {
+}: PiVideoRecordingSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

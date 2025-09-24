@@ -16,7 +16,7 @@ export default function PiMarkdownSolid({
   className,
   ariaLabel = 'markdown icon',
   ...props
-}: PiMarkdownSolidProps): JSX.Element {
+}: PiMarkdownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

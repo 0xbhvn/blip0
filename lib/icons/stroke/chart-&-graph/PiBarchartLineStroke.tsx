@@ -16,7 +16,7 @@ export default function PiBarchartLineStroke({
   className,
   ariaLabel = 'barchart-line icon',
   ...props
-}: PiBarchartLineStrokeProps): JSX.Element {
+}: PiBarchartLineStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

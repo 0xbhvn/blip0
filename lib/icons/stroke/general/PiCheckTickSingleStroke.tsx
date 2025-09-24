@@ -16,7 +16,7 @@ export default function PiCheckTickSingleStroke({
   className,
   ariaLabel = 'check-tick-single icon',
   ...props
-}: PiCheckTickSingleStrokeProps): JSX.Element {
+}: PiCheckTickSingleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

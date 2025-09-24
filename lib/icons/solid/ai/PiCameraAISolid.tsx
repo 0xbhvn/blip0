@@ -16,7 +16,7 @@ export default function PiCameraAISolid({
   className,
   ariaLabel = 'camera-ai icon',
   ...props
-}: PiCameraAISolidProps): JSX.Element {
+}: PiCameraAISolidProps): React.ReactElement {
   return (
     <svg
       width={size}

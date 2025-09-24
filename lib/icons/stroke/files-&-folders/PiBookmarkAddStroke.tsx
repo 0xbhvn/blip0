@@ -16,7 +16,7 @@ export default function PiBookmarkAddStroke({
   className,
   ariaLabel = 'bookmark-add icon',
   ...props
-}: PiBookmarkAddStrokeProps): JSX.Element {
+}: PiBookmarkAddStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

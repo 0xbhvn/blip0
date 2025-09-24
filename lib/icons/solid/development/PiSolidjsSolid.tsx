@@ -16,7 +16,7 @@ export default function PiSolidjsSolid({
   className,
   ariaLabel = 'solidjs icon',
   ...props
-}: PiSolidjsSolidProps): JSX.Element {
+}: PiSolidjsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

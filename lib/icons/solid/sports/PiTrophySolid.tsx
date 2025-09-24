@@ -16,7 +16,7 @@ export default function PiTrophySolid({
   className,
   ariaLabel = 'trophy icon',
   ...props
-}: PiTrophySolidProps): JSX.Element {
+}: PiTrophySolidProps): React.ReactElement {
   return (
     <svg
       width={size}

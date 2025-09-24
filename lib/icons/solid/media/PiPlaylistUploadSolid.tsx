@@ -16,7 +16,7 @@ export default function PiPlaylistUploadSolid({
   className,
   ariaLabel = 'playlist-upload icon',
   ...props
-}: PiPlaylistUploadSolidProps): JSX.Element {
+}: PiPlaylistUploadSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

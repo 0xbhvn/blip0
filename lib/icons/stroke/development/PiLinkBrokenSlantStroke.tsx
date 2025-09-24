@@ -16,7 +16,7 @@ export default function PiLinkBrokenSlantStroke({
   className,
   ariaLabel = 'link-broken-slant icon',
   ...props
-}: PiLinkBrokenSlantStrokeProps): JSX.Element {
+}: PiLinkBrokenSlantStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

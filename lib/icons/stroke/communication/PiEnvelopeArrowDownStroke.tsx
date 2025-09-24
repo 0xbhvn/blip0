@@ -16,7 +16,7 @@ export default function PiEnvelopeArrowDownStroke({
   className,
   ariaLabel = 'envelope-arrow-down icon',
   ...props
-}: PiEnvelopeArrowDownStrokeProps): JSX.Element {
+}: PiEnvelopeArrowDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

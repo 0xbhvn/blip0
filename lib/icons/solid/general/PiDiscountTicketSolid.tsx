@@ -16,7 +16,7 @@ export default function PiDiscountTicketSolid({
   className,
   ariaLabel = 'discount-ticket icon',
   ...props
-}: PiDiscountTicketSolidProps): JSX.Element {
+}: PiDiscountTicketSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

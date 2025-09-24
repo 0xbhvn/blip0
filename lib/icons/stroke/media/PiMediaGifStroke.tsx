@@ -16,7 +16,7 @@ export default function PiMediaGifStroke({
   className,
   ariaLabel = 'media-gif icon',
   ...props
-}: PiMediaGifStrokeProps): JSX.Element {
+}: PiMediaGifStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

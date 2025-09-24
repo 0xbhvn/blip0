@@ -16,7 +16,7 @@ export default function PiMinimizeFourArrowSolid({
   className,
   ariaLabel = 'minimize-four-arrow icon',
   ...props
-}: PiMinimizeFourArrowSolidProps): JSX.Element {
+}: PiMinimizeFourArrowSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

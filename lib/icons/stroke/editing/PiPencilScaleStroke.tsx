@@ -16,7 +16,7 @@ export default function PiPencilScaleStroke({
   className,
   ariaLabel = 'pencil-scale icon',
   ...props
-}: PiPencilScaleStrokeProps): JSX.Element {
+}: PiPencilScaleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

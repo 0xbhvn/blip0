@@ -16,7 +16,7 @@ export default function PiGraphChartGanttStroke({
   className,
   ariaLabel = 'graph-chart-gantt icon',
   ...props
-}: PiGraphChartGanttStrokeProps): JSX.Element {
+}: PiGraphChartGanttStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

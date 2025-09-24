@@ -16,7 +16,7 @@ export default function PiReminderClockwiseStroke({
   className,
   ariaLabel = 'reminder-clockwise icon',
   ...props
-}: PiReminderClockwiseStrokeProps): JSX.Element {
+}: PiReminderClockwiseStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

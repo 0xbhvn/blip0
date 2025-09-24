@@ -16,7 +16,7 @@ export default function PiMicMicrophoneStroke({
   className,
   ariaLabel = 'mic-microphone icon',
   ...props
-}: PiMicMicrophoneStrokeProps): JSX.Element {
+}: PiMicMicrophoneStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

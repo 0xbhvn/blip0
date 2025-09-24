@@ -16,7 +16,7 @@ export default function PiGitlabStroke({
   className,
   ariaLabel = 'gitlab icon',
   ...props
-}: PiGitlabStrokeProps): JSX.Element {
+}: PiGitlabStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

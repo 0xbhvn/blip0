@@ -16,7 +16,7 @@ export default function PiListTextWrapStroke({
   className,
   ariaLabel = 'list-text-wrap icon',
   ...props
-}: PiListTextWrapStrokeProps): JSX.Element {
+}: PiListTextWrapStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

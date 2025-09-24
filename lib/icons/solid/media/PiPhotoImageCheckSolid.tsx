@@ -16,7 +16,7 @@ export default function PiPhotoImageCheckSolid({
   className,
   ariaLabel = 'photo-image-check icon',
   ...props
-}: PiPhotoImageCheckSolidProps): JSX.Element {
+}: PiPhotoImageCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

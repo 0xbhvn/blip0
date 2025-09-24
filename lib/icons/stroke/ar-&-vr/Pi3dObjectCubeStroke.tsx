@@ -16,7 +16,7 @@ export default function Pi3dObjectCubeStroke({
   className,
   ariaLabel = '3d-object-cube icon',
   ...props
-}: Pi3dObjectCubeStrokeProps): JSX.Element {
+}: Pi3dObjectCubeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

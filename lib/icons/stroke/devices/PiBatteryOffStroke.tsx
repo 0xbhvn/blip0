@@ -16,7 +16,7 @@ export default function PiBatteryOffStroke({
   className,
   ariaLabel = 'battery-off icon',
   ...props
-}: PiBatteryOffStrokeProps): JSX.Element {
+}: PiBatteryOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

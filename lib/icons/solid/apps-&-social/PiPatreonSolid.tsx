@@ -16,7 +16,7 @@ export default function PiPatreonSolid({
   className,
   ariaLabel = 'patreon icon',
   ...props
-}: PiPatreonSolidProps): JSX.Element {
+}: PiPatreonSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

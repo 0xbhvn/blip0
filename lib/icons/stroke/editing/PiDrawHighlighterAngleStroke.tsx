@@ -16,7 +16,7 @@ export default function PiDrawHighlighterAngleStroke({
   className,
   ariaLabel = 'draw-highlighter-angle icon',
   ...props
-}: PiDrawHighlighterAngleStrokeProps): JSX.Element {
+}: PiDrawHighlighterAngleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

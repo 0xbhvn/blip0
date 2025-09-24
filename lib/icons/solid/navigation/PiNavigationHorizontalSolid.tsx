@@ -16,7 +16,7 @@ export default function PiNavigationHorizontalSolid({
   className,
   ariaLabel = 'navigation-horizontal icon',
   ...props
-}: PiNavigationHorizontalSolidProps): JSX.Element {
+}: PiNavigationHorizontalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

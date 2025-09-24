@@ -16,7 +16,7 @@ export default function PiPlaylistCheckStroke({
   className,
   ariaLabel = 'playlist-check icon',
   ...props
-}: PiPlaylistCheckStrokeProps): JSX.Element {
+}: PiPlaylistCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

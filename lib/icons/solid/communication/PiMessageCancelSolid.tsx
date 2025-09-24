@@ -16,7 +16,7 @@ export default function PiMessageCancelSolid({
   className,
   ariaLabel = 'message-cancel icon',
   ...props
-}: PiMessageCancelSolidProps): JSX.Element {
+}: PiMessageCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

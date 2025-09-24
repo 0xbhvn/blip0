@@ -16,7 +16,7 @@ export default function PiNftArrowLeftSolid({
   className,
   ariaLabel = 'nft-arrow-left icon',
   ...props
-}: PiNftArrowLeftSolidProps): JSX.Element {
+}: PiNftArrowLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

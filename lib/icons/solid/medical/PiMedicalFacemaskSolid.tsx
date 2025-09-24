@@ -16,7 +16,7 @@ export default function PiMedicalFacemaskSolid({
   className,
   ariaLabel = 'medical-facemask icon',
   ...props
-}: PiMedicalFacemaskSolidProps): JSX.Element {
+}: PiMedicalFacemaskSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

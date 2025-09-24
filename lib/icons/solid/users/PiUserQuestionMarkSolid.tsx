@@ -16,7 +16,7 @@ export default function PiUserQuestionMarkSolid({
   className,
   ariaLabel = 'user-question-mark icon',
   ...props
-}: PiUserQuestionMarkSolidProps): JSX.Element {
+}: PiUserQuestionMarkSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

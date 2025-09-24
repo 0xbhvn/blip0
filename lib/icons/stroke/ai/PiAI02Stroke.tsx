@@ -16,7 +16,7 @@ export default function PiAI02Stroke({
   className,
   ariaLabel = 'ai-02 icon',
   ...props
-}: PiAI02StrokeProps): JSX.Element {
+}: PiAI02StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

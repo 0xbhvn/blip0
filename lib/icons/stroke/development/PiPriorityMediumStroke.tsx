@@ -16,7 +16,7 @@ export default function PiPriorityMediumStroke({
   className,
   ariaLabel = 'priority-medium icon',
   ...props
-}: PiPriorityMediumStrokeProps): JSX.Element {
+}: PiPriorityMediumStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

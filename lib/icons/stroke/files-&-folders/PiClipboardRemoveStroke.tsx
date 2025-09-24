@@ -16,7 +16,7 @@ export default function PiClipboardRemoveStroke({
   className,
   ariaLabel = 'clipboard-remove icon',
   ...props
-}: PiClipboardRemoveStrokeProps): JSX.Element {
+}: PiClipboardRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

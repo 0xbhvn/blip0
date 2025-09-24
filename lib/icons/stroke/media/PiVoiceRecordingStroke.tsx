@@ -16,7 +16,7 @@ export default function PiVoiceRecordingStroke({
   className,
   ariaLabel = 'voice-recording icon',
   ...props
-}: PiVoiceRecordingStrokeProps): JSX.Element {
+}: PiVoiceRecordingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

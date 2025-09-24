@@ -16,7 +16,7 @@ export default function PiFileInformationSolid({
   className,
   ariaLabel = 'file-information icon',
   ...props
-}: PiFileInformationSolidProps): JSX.Element {
+}: PiFileInformationSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

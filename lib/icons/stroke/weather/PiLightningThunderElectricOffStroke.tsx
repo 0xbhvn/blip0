@@ -16,7 +16,7 @@ export default function PiLightningThunderElectricOffStroke({
   className,
   ariaLabel = 'lightning-thunder-electric-off icon',
   ...props
-}: PiLightningThunderElectricOffStrokeProps): JSX.Element {
+}: PiLightningThunderElectricOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiWalletCheckStroke({
   className,
   ariaLabel = 'wallet-check icon',
   ...props
-}: PiWalletCheckStrokeProps): JSX.Element {
+}: PiWalletCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

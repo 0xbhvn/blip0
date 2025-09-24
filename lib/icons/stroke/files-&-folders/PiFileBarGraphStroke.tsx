@@ -16,7 +16,7 @@ export default function PiFileBarGraphStroke({
   className,
   ariaLabel = 'file-bar-graph icon',
   ...props
-}: PiFileBarGraphStrokeProps): JSX.Element {
+}: PiFileBarGraphStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

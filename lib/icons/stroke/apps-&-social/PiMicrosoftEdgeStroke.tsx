@@ -16,7 +16,7 @@ export default function PiMicrosoftEdgeStroke({
   className,
   ariaLabel = 'microsoft-edge icon',
   ...props
-}: PiMicrosoftEdgeStrokeProps): JSX.Element {
+}: PiMicrosoftEdgeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

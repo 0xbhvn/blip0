@@ -16,7 +16,7 @@ export default function PiGitBranchRemoveSolid({
   className,
   ariaLabel = 'git-branch-remove icon',
   ...props
-}: PiGitBranchRemoveSolidProps): JSX.Element {
+}: PiGitBranchRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

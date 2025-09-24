@@ -16,7 +16,7 @@ export default function PiQuestionMarkSquareStroke({
   className,
   ariaLabel = 'question-mark-square icon',
   ...props
-}: PiQuestionMarkSquareStrokeProps): JSX.Element {
+}: PiQuestionMarkSquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

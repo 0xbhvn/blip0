@@ -16,7 +16,7 @@ export default function PiAcWaterSolid({
   className,
   ariaLabel = 'ac-water icon',
   ...props
-}: PiAcWaterSolidProps): JSX.Element {
+}: PiAcWaterSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

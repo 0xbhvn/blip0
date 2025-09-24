@@ -16,7 +16,7 @@ export default function PiPlaylistUserStroke({
   className,
   ariaLabel = 'playlist-user icon',
   ...props
-}: PiPlaylistUserStrokeProps): JSX.Element {
+}: PiPlaylistUserStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

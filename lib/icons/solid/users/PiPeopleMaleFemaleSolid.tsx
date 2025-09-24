@@ -16,7 +16,7 @@ export default function PiPeopleMaleFemaleSolid({
   className,
   ariaLabel = 'people-male-female icon',
   ...props
-}: PiPeopleMaleFemaleSolidProps): JSX.Element {
+}: PiPeopleMaleFemaleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

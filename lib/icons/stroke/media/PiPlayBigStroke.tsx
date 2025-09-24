@@ -16,7 +16,7 @@ export default function PiPlayBigStroke({
   className,
   ariaLabel = 'play-big icon',
   ...props
-}: PiPlayBigStrokeProps): JSX.Element {
+}: PiPlayBigStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

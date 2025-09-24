@@ -16,7 +16,7 @@ export default function PiFilterHorizontalStroke({
   className,
   ariaLabel = 'filter-horizontal icon',
   ...props
-}: PiFilterHorizontalStrokeProps): JSX.Element {
+}: PiFilterHorizontalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

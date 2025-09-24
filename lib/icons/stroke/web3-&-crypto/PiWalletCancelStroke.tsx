@@ -16,7 +16,7 @@ export default function PiWalletCancelStroke({
   className,
   ariaLabel = 'wallet-cancel icon',
   ...props
-}: PiWalletCancelStrokeProps): JSX.Element {
+}: PiWalletCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

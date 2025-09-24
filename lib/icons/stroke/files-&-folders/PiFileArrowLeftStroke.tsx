@@ -16,7 +16,7 @@ export default function PiFileArrowLeftStroke({
   className,
   ariaLabel = 'file-arrow-left icon',
   ...props
-}: PiFileArrowLeftStrokeProps): JSX.Element {
+}: PiFileArrowLeftStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

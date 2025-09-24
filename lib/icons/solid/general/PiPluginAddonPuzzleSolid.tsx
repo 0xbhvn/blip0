@@ -16,7 +16,7 @@ export default function PiPluginAddonPuzzleSolid({
   className,
   ariaLabel = 'plugin-addon-puzzle icon',
   ...props
-}: PiPluginAddonPuzzleSolidProps): JSX.Element {
+}: PiPluginAddonPuzzleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

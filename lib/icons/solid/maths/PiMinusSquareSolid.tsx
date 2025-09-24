@@ -16,7 +16,7 @@ export default function PiMinusSquareSolid({
   className,
   ariaLabel = 'minus-square icon',
   ...props
-}: PiMinusSquareSolidProps): JSX.Element {
+}: PiMinusSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

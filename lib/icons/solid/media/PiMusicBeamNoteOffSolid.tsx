@@ -16,7 +16,7 @@ export default function PiMusicBeamNoteOffSolid({
   className,
   ariaLabel = 'music-beam-note-off icon',
   ...props
-}: PiMusicBeamNoteOffSolidProps): JSX.Element {
+}: PiMusicBeamNoteOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiMoonSolid({
   className,
   ariaLabel = 'moon icon',
   ...props
-}: PiMoonSolidProps): JSX.Element {
+}: PiMoonSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiArchiveAddSolid({
   className,
   ariaLabel = 'archive-add icon',
   ...props
-}: PiArchiveAddSolidProps): JSX.Element {
+}: PiArchiveAddSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

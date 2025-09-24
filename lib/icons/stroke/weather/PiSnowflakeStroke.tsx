@@ -16,7 +16,7 @@ export default function PiSnowflakeStroke({
   className,
   ariaLabel = 'snowflake icon',
   ...props
-}: PiSnowflakeStrokeProps): JSX.Element {
+}: PiSnowflakeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

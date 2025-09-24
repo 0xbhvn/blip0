@@ -16,7 +16,7 @@ export default function PiAirplaneLiftoffSolid({
   className,
   ariaLabel = 'airplane-liftoff icon',
   ...props
-}: PiAirplaneLiftoffSolidProps): JSX.Element {
+}: PiAirplaneLiftoffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

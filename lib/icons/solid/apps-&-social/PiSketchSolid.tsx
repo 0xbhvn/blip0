@@ -16,7 +16,7 @@ export default function PiSketchSolid({
   className,
   ariaLabel = 'sketch icon',
   ...props
-}: PiSketchSolidProps): JSX.Element {
+}: PiSketchSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

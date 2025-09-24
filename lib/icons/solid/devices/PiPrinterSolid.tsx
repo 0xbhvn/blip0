@@ -16,7 +16,7 @@ export default function PiPrinterSolid({
   className,
   ariaLabel = 'printer icon',
   ...props
-}: PiPrinterSolidProps): JSX.Element {
+}: PiPrinterSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

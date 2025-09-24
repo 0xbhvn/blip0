@@ -16,7 +16,7 @@ export default function PiFileJpgFormatSolid({
   className,
   ariaLabel = 'file-jpg-format icon',
   ...props
-}: PiFileJpgFormatSolidProps): JSX.Element {
+}: PiFileJpgFormatSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

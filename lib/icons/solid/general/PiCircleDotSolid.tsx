@@ -16,7 +16,7 @@ export default function PiCircleDotSolid({
   className,
   ariaLabel = 'circle-dot icon',
   ...props
-}: PiCircleDotSolidProps): JSX.Element {
+}: PiCircleDotSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

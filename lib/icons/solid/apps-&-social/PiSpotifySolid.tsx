@@ -16,7 +16,7 @@ export default function PiSpotifySolid({
   className,
   ariaLabel = 'spotify icon',
   ...props
-}: PiSpotifySolidProps): JSX.Element {
+}: PiSpotifySolidProps): React.ReactElement {
   return (
     <svg
       width={size}

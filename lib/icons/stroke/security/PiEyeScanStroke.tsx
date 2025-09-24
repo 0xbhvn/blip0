@@ -16,7 +16,7 @@ export default function PiEyeScanStroke({
   className,
   ariaLabel = 'eye-scan icon',
   ...props
-}: PiEyeScanStrokeProps): JSX.Element {
+}: PiEyeScanStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

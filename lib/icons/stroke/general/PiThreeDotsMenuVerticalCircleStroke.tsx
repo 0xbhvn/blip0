@@ -16,7 +16,7 @@ export default function PiThreeDotsMenuVerticalCircleStroke({
   className,
   ariaLabel = 'three-dots-menu-vertical-circle icon',
   ...props
-}: PiThreeDotsMenuVerticalCircleStrokeProps): JSX.Element {
+}: PiThreeDotsMenuVerticalCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

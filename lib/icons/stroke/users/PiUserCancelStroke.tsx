@@ -16,7 +16,7 @@ export default function PiUserCancelStroke({
   className,
   ariaLabel = 'user-cancel icon',
   ...props
-}: PiUserCancelStrokeProps): JSX.Element {
+}: PiUserCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

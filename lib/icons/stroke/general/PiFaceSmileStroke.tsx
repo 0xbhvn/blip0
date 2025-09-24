@@ -16,7 +16,7 @@ export default function PiFaceSmileStroke({
   className,
   ariaLabel = 'face-smile icon',
   ...props
-}: PiFaceSmileStrokeProps): JSX.Element {
+}: PiFaceSmileStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiSupportMoneyDonationStroke({
   className,
   ariaLabel = 'support-money-donation icon',
   ...props
-}: PiSupportMoneyDonationStrokeProps): JSX.Element {
+}: PiSupportMoneyDonationStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

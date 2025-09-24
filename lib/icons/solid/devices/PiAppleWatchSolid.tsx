@@ -16,7 +16,7 @@ export default function PiAppleWatchSolid({
   className,
   ariaLabel = 'apple-watch icon',
   ...props
-}: PiAppleWatchSolidProps): JSX.Element {
+}: PiAppleWatchSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

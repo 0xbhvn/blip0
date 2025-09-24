@@ -16,7 +16,7 @@ export default function PiAlarmRemoveStroke({
   className,
   ariaLabel = 'alarm-remove icon',
   ...props
-}: PiAlarmRemoveStrokeProps): JSX.Element {
+}: PiAlarmRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

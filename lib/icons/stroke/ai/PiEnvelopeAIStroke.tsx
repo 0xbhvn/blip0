@@ -16,7 +16,7 @@ export default function PiEnvelopeAIStroke({
   className,
   ariaLabel = 'envelope-ai icon',
   ...props
-}: PiEnvelopeAIStrokeProps): JSX.Element {
+}: PiEnvelopeAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

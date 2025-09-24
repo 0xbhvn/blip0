@@ -16,7 +16,7 @@ export default function PiMapPinUserStroke({
   className,
   ariaLabel = 'map-pin-user icon',
   ...props
-}: PiMapPinUserStrokeProps): JSX.Element {
+}: PiMapPinUserStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

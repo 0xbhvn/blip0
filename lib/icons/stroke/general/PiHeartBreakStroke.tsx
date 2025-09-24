@@ -16,7 +16,7 @@ export default function PiHeartBreakStroke({
   className,
   ariaLabel = 'heart-break icon',
   ...props
-}: PiHeartBreakStrokeProps): JSX.Element {
+}: PiHeartBreakStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

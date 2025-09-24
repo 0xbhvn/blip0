@@ -16,7 +16,7 @@ export default function PiSidebarNavigationBarStroke({
   className,
   ariaLabel = 'sidebar-navigation-bar icon',
   ...props
-}: PiSidebarNavigationBarStrokeProps): JSX.Element {
+}: PiSidebarNavigationBarStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

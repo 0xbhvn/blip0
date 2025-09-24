@@ -16,7 +16,7 @@ export default function PiSolscanSolid({
   className,
   ariaLabel = 'solscan icon',
   ...props
-}: PiSolscanSolidProps): JSX.Element {
+}: PiSolscanSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

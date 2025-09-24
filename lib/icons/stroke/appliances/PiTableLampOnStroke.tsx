@@ -16,7 +16,7 @@ export default function PiTableLampOnStroke({
   className,
   ariaLabel = 'table-lamp-on icon',
   ...props
-}: PiTableLampOnStrokeProps): JSX.Element {
+}: PiTableLampOnStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

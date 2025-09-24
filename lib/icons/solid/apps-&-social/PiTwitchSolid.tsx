@@ -16,7 +16,7 @@ export default function PiTwitchSolid({
   className,
   ariaLabel = 'twitch icon',
   ...props
-}: PiTwitchSolidProps): JSX.Element {
+}: PiTwitchSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

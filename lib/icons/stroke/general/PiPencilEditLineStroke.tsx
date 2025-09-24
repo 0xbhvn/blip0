@@ -16,7 +16,7 @@ export default function PiPencilEditLineStroke({
   className,
   ariaLabel = 'pencil-edit-line icon',
   ...props
-}: PiPencilEditLineStrokeProps): JSX.Element {
+}: PiPencilEditLineStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

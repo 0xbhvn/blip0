@@ -16,7 +16,7 @@ export default function PiEyedropperRemoveStroke({
   className,
   ariaLabel = 'eyedropper-remove icon',
   ...props
-}: PiEyedropperRemoveStrokeProps): JSX.Element {
+}: PiEyedropperRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

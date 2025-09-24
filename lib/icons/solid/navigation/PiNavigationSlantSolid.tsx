@@ -16,7 +16,7 @@ export default function PiNavigationSlantSolid({
   className,
   ariaLabel = 'navigation-slant icon',
   ...props
-}: PiNavigationSlantSolidProps): JSX.Element {
+}: PiNavigationSlantSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

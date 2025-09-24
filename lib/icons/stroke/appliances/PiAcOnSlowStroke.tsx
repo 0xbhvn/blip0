@@ -16,7 +16,7 @@ export default function PiAcOnSlowStroke({
   className,
   ariaLabel = 'ac-on-slow icon',
   ...props
-}: PiAcOnSlowStrokeProps): JSX.Element {
+}: PiAcOnSlowStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

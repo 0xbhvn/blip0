@@ -16,7 +16,7 @@ export default function PiAnnotationCancelSolid({
   className,
   ariaLabel = 'annotation-cancel icon',
   ...props
-}: PiAnnotationCancelSolidProps): JSX.Element {
+}: PiAnnotationCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

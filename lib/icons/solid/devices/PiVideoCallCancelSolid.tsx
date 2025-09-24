@@ -16,7 +16,7 @@ export default function PiVideoCallCancelSolid({
   className,
   ariaLabel = 'video-call-cancel icon',
   ...props
-}: PiVideoCallCancelSolidProps): JSX.Element {
+}: PiVideoCallCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

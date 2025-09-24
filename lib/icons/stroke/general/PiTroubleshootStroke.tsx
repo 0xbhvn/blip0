@@ -16,7 +16,7 @@ export default function PiTroubleshootStroke({
   className,
   ariaLabel = 'troubleshoot icon',
   ...props
-}: PiTroubleshootStrokeProps): JSX.Element {
+}: PiTroubleshootStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiStickerCornerFoldedStroke({
   className,
   ariaLabel = 'sticker-corner-folded icon',
   ...props
-}: PiStickerCornerFoldedStrokeProps): JSX.Element {
+}: PiStickerCornerFoldedStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiClipboardArrowLeftSolid({
   className,
   ariaLabel = 'clipboard-arrow-left icon',
   ...props
-}: PiClipboardArrowLeftSolidProps): JSX.Element {
+}: PiClipboardArrowLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

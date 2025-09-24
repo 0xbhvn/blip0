@@ -16,7 +16,7 @@ export default function PiCheckTickSquareBrokenSolid({
   className,
   ariaLabel = 'check-tick-square-broken icon',
   ...props
-}: PiCheckTickSquareBrokenSolidProps): JSX.Element {
+}: PiCheckTickSquareBrokenSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

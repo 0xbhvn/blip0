@@ -16,7 +16,7 @@ export default function PiFaceAnnoyedBoredStroke({
   className,
   ariaLabel = 'face-annoyed-bored icon',
   ...props
-}: PiFaceAnnoyedBoredStrokeProps): JSX.Element {
+}: PiFaceAnnoyedBoredStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

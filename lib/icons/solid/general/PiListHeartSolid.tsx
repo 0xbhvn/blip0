@@ -16,7 +16,7 @@ export default function PiListHeartSolid({
   className,
   ariaLabel = 'list-heart icon',
   ...props
-}: PiListHeartSolidProps): JSX.Element {
+}: PiListHeartSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

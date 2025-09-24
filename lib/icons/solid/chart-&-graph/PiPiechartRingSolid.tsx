@@ -16,7 +16,7 @@ export default function PiPiechartRingSolid({
   className,
   ariaLabel = 'piechart-ring icon',
   ...props
-}: PiPiechartRingSolidProps): JSX.Element {
+}: PiPiechartRingSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFolderRemoveStroke({
   className,
   ariaLabel = 'folder-remove icon',
   ...props
-}: PiFolderRemoveStrokeProps): JSX.Element {
+}: PiFolderRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

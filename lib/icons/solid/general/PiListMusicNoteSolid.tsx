@@ -16,7 +16,7 @@ export default function PiListMusicNoteSolid({
   className,
   ariaLabel = 'list-music-note icon',
   ...props
-}: PiListMusicNoteSolidProps): JSX.Element {
+}: PiListMusicNoteSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

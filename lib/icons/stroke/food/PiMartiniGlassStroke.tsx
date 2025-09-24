@@ -16,7 +16,7 @@ export default function PiMartiniGlassStroke({
   className,
   ariaLabel = 'martini-glass icon',
   ...props
-}: PiMartiniGlassStrokeProps): JSX.Element {
+}: PiMartiniGlassStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

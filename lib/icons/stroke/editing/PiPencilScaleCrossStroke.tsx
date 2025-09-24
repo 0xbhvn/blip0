@@ -16,7 +16,7 @@ export default function PiPencilScaleCrossStroke({
   className,
   ariaLabel = 'pencil-scale-cross icon',
   ...props
-}: PiPencilScaleCrossStrokeProps): JSX.Element {
+}: PiPencilScaleCrossStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

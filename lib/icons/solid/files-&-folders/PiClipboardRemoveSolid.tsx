@@ -16,7 +16,7 @@ export default function PiClipboardRemoveSolid({
   className,
   ariaLabel = 'clipboard-remove icon',
   ...props
-}: PiClipboardRemoveSolidProps): JSX.Element {
+}: PiClipboardRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

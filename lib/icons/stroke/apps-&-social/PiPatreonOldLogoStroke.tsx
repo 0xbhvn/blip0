@@ -16,7 +16,7 @@ export default function PiPatreonOldLogoStroke({
   className,
   ariaLabel = 'patreon-old-logo icon',
   ...props
-}: PiPatreonOldLogoStrokeProps): JSX.Element {
+}: PiPatreonOldLogoStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiWalletRefreshStroke({
   className,
   ariaLabel = 'wallet-refresh icon',
   ...props
-}: PiWalletRefreshStrokeProps): JSX.Element {
+}: PiWalletRefreshStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

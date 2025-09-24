@@ -16,7 +16,7 @@ export default function PiUserThreeStroke({
   className,
   ariaLabel = 'user-three icon',
   ...props
-}: PiUserThreeStrokeProps): JSX.Element {
+}: PiUserThreeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

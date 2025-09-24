@@ -16,7 +16,7 @@ export default function PiRedditOldSolid({
   className,
   ariaLabel = 'reddit-old icon',
   ...props
-}: PiRedditOldSolidProps): JSX.Element {
+}: PiRedditOldSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

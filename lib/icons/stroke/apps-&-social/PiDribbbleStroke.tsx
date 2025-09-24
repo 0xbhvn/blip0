@@ -16,7 +16,7 @@ export default function PiDribbbleStroke({
   className,
   ariaLabel = 'dribbble icon',
   ...props
-}: PiDribbbleStrokeProps): JSX.Element {
+}: PiDribbbleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

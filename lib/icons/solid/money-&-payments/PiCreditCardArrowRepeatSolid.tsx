@@ -16,7 +16,7 @@ export default function PiCreditCardArrowRepeatSolid({
   className,
   ariaLabel = 'credit-card-arrow-repeat icon',
   ...props
-}: PiCreditCardArrowRepeatSolidProps): JSX.Element {
+}: PiCreditCardArrowRepeatSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

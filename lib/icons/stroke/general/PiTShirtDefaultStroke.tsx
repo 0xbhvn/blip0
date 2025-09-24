@@ -16,7 +16,7 @@ export default function PiTShirtDefaultStroke({
   className,
   ariaLabel = 't-shirt-default icon',
   ...props
-}: PiTShirtDefaultStrokeProps): JSX.Element {
+}: PiTShirtDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

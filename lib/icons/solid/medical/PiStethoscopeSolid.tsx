@@ -16,7 +16,7 @@ export default function PiStethoscopeSolid({
   className,
   ariaLabel = 'stethoscope icon',
   ...props
-}: PiStethoscopeSolidProps): JSX.Element {
+}: PiStethoscopeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFolderShieldSolid({
   className,
   ariaLabel = 'folder-shield icon',
   ...props
-}: PiFolderShieldSolidProps): JSX.Element {
+}: PiFolderShieldSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

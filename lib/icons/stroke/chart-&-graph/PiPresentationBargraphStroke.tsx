@@ -16,7 +16,7 @@ export default function PiPresentationBargraphStroke({
   className,
   ariaLabel = 'presentation-bargraph icon',
   ...props
-}: PiPresentationBargraphStrokeProps): JSX.Element {
+}: PiPresentationBargraphStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

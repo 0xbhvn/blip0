@@ -16,7 +16,7 @@ export default function PiLockOpenSolid({
   className,
   ariaLabel = 'lock-open icon',
   ...props
-}: PiLockOpenSolidProps): JSX.Element {
+}: PiLockOpenSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

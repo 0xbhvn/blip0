@@ -16,7 +16,7 @@ export default function PiWineGlassEmptySolid({
   className,
   ariaLabel = 'wine-glass-empty icon',
   ...props
-}: PiWineGlassEmptySolidProps): JSX.Element {
+}: PiWineGlassEmptySolidProps): React.ReactElement {
   return (
     <svg
       width={size}

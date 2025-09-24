@@ -16,7 +16,7 @@ export default function PiRepeatSquareSolid({
   className,
   ariaLabel = 'repeat-square icon',
   ...props
-}: PiRepeatSquareSolidProps): JSX.Element {
+}: PiRepeatSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

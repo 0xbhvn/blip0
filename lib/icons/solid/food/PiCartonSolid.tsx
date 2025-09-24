@@ -16,7 +16,7 @@ export default function PiCartonSolid({
   className,
   ariaLabel = 'carton icon',
   ...props
-}: PiCartonSolidProps): JSX.Element {
+}: PiCartonSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

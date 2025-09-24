@@ -16,7 +16,7 @@ export default function PiVolumeOffSolid({
   className,
   ariaLabel = 'volume-off icon',
   ...props
-}: PiVolumeOffSolidProps): JSX.Element {
+}: PiVolumeOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCheckTickSquareSolid({
   className,
   ariaLabel = 'check-tick-square icon',
   ...props
-}: PiCheckTickSquareSolidProps): JSX.Element {
+}: PiCheckTickSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

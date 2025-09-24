@@ -16,7 +16,7 @@ export default function PiIdCardHorizontalSolid({
   className,
   ariaLabel = 'id-card-horizontal icon',
   ...props
-}: PiIdCardHorizontalSolidProps): JSX.Element {
+}: PiIdCardHorizontalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

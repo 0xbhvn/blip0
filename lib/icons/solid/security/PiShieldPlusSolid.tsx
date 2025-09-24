@@ -16,7 +16,7 @@ export default function PiShieldPlusSolid({
   className,
   ariaLabel = 'shield-plus icon',
   ...props
-}: PiShieldPlusSolidProps): JSX.Element {
+}: PiShieldPlusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

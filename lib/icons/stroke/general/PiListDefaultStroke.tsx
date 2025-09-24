@@ -16,7 +16,7 @@ export default function PiListDefaultStroke({
   className,
   ariaLabel = 'list-default icon',
   ...props
-}: PiListDefaultStrokeProps): JSX.Element {
+}: PiListDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiClipboardArrowRightStroke({
   className,
   ariaLabel = 'clipboard-arrow-right icon',
   ...props
-}: PiClipboardArrowRightStrokeProps): JSX.Element {
+}: PiClipboardArrowRightStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

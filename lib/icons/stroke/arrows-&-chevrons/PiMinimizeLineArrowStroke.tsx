@@ -16,7 +16,7 @@ export default function PiMinimizeLineArrowStroke({
   className,
   ariaLabel = 'minimize-line-arrow icon',
   ...props
-}: PiMinimizeLineArrowStrokeProps): JSX.Element {
+}: PiMinimizeLineArrowStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

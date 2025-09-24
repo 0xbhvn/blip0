@@ -16,7 +16,7 @@ export default function PiIdCardSolid({
   className,
   ariaLabel = 'id-card icon',
   ...props
-}: PiIdCardSolidProps): JSX.Element {
+}: PiIdCardSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

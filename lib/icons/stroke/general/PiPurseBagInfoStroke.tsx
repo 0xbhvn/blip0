@@ -16,7 +16,7 @@ export default function PiPurseBagInfoStroke({
   className,
   ariaLabel = 'purse-bag-info icon',
   ...props
-}: PiPurseBagInfoStrokeProps): JSX.Element {
+}: PiPurseBagInfoStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

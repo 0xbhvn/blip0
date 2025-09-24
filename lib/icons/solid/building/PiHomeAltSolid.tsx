@@ -16,7 +16,7 @@ export default function PiHomeAltSolid({
   className,
   ariaLabel = 'home-alt icon',
   ...props
-}: PiHomeAltSolidProps): JSX.Element {
+}: PiHomeAltSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

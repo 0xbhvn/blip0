@@ -16,7 +16,7 @@ export default function PiMedicalFacemaskStroke({
   className,
   ariaLabel = 'medical-facemask icon',
   ...props
-}: PiMedicalFacemaskStrokeProps): JSX.Element {
+}: PiMedicalFacemaskStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

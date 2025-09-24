@@ -16,7 +16,7 @@ export default function PiUserRemoveSolid({
   className,
   ariaLabel = 'user-remove icon',
   ...props
-}: PiUserRemoveSolidProps): JSX.Element {
+}: PiUserRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

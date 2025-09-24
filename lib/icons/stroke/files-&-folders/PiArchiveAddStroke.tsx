@@ -16,7 +16,7 @@ export default function PiArchiveAddStroke({
   className,
   ariaLabel = 'archive-add icon',
   ...props
-}: PiArchiveAddStrokeProps): JSX.Element {
+}: PiArchiveAddStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

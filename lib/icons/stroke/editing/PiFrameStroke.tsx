@@ -16,7 +16,7 @@ export default function PiFrameStroke({
   className,
   ariaLabel = 'frame icon',
   ...props
-}: PiFrameStrokeProps): JSX.Element {
+}: PiFrameStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiGraphBarLineHorizontalStroke({
   className,
   ariaLabel = 'graph-bar-line-horizontal icon',
   ...props
-}: PiGraphBarLineHorizontalStrokeProps): JSX.Element {
+}: PiGraphBarLineHorizontalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

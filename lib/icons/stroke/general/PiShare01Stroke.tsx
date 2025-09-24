@@ -16,7 +16,7 @@ export default function PiShare01Stroke({
   className,
   ariaLabel = 'share-01 icon',
   ...props
-}: PiShare01StrokeProps): JSX.Element {
+}: PiShare01StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiSpatialMarkStroke({
   className,
   ariaLabel = 'spatial-mark icon',
   ...props
-}: PiSpatialMarkStrokeProps): JSX.Element {
+}: PiSpatialMarkStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

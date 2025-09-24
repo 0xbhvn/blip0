@@ -16,7 +16,7 @@ export default function PiArrowDownSquareSolid({
   className,
   ariaLabel = 'arrow-down-square icon',
   ...props
-}: PiArrowDownSquareSolidProps): JSX.Element {
+}: PiArrowDownSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

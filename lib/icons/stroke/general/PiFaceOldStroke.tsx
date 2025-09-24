@@ -16,7 +16,7 @@ export default function PiFaceOldStroke({
   className,
   ariaLabel = 'face-old icon',
   ...props
-}: PiFaceOldStrokeProps): JSX.Element {
+}: PiFaceOldStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

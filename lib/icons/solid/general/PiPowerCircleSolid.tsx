@@ -16,7 +16,7 @@ export default function PiPowerCircleSolid({
   className,
   ariaLabel = 'power-circle icon',
   ...props
-}: PiPowerCircleSolidProps): JSX.Element {
+}: PiPowerCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

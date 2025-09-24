@@ -16,7 +16,7 @@ export default function PiMicMicrophoneSolid({
   className,
   ariaLabel = 'mic-microphone icon',
   ...props
-}: PiMicMicrophoneSolidProps): JSX.Element {
+}: PiMicMicrophoneSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

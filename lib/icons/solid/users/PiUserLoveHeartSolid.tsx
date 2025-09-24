@@ -16,7 +16,7 @@ export default function PiUserLoveHeartSolid({
   className,
   ariaLabel = 'user-love-heart icon',
   ...props
-}: PiUserLoveHeartSolidProps): JSX.Element {
+}: PiUserLoveHeartSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

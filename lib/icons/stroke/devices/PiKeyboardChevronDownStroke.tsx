@@ -16,7 +16,7 @@ export default function PiKeyboardChevronDownStroke({
   className,
   ariaLabel = 'keyboard-chevron-down icon',
   ...props
-}: PiKeyboardChevronDownStrokeProps): JSX.Element {
+}: PiKeyboardChevronDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

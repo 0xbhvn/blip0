@@ -16,7 +16,7 @@ export default function PiPinSlantSolid({
   className,
   ariaLabel = 'pin-slant icon',
   ...props
-}: PiPinSlantSolidProps): JSX.Element {
+}: PiPinSlantSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

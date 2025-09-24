@@ -16,7 +16,7 @@ export default function PiHourglassSolid({
   className,
   ariaLabel = 'hourglass icon',
   ...props
-}: PiHourglassSolidProps): JSX.Element {
+}: PiHourglassSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

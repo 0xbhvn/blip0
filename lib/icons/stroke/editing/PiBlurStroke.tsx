@@ -16,7 +16,7 @@ export default function PiBlurStroke({
   className,
   ariaLabel = 'blur icon',
   ...props
-}: PiBlurStrokeProps): JSX.Element {
+}: PiBlurStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

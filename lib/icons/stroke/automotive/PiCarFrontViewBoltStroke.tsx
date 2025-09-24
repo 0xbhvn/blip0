@@ -16,7 +16,7 @@ export default function PiCarFrontViewBoltStroke({
   className,
   ariaLabel = 'car-front-view-bolt icon',
   ...props
-}: PiCarFrontViewBoltStrokeProps): JSX.Element {
+}: PiCarFrontViewBoltStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

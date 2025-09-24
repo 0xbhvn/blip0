@@ -16,7 +16,7 @@ export default function PiMusicQuaverNotePlusStroke({
   className,
   ariaLabel = 'music-quaver-note-plus icon',
   ...props
-}: PiMusicQuaverNotePlusStrokeProps): JSX.Element {
+}: PiMusicQuaverNotePlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

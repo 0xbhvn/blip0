@@ -16,7 +16,7 @@ export default function PiPaintBrushSolid({
   className,
   ariaLabel = 'paint-brush icon',
   ...props
-}: PiPaintBrushSolidProps): JSX.Element {
+}: PiPaintBrushSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

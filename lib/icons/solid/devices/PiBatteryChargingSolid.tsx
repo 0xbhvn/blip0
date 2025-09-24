@@ -16,7 +16,7 @@ export default function PiBatteryChargingSolid({
   className,
   ariaLabel = 'battery-charging icon',
   ...props
-}: PiBatteryChargingSolidProps): JSX.Element {
+}: PiBatteryChargingSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

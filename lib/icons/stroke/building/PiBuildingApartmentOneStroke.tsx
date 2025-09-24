@@ -16,7 +16,7 @@ export default function PiBuildingApartmentOneStroke({
   className,
   ariaLabel = 'building-apartment-one icon',
   ...props
-}: PiBuildingApartmentOneStrokeProps): JSX.Element {
+}: PiBuildingApartmentOneStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

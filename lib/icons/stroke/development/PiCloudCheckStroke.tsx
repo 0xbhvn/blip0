@@ -16,7 +16,7 @@ export default function PiCloudCheckStroke({
   className,
   ariaLabel = 'cloud-check icon',
   ...props
-}: PiCloudCheckStrokeProps): JSX.Element {
+}: PiCloudCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

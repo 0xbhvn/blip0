@@ -16,7 +16,7 @@ export default function PiEyedropperRemoveSolid({
   className,
   ariaLabel = 'eyedropper-remove icon',
   ...props
-}: PiEyedropperRemoveSolidProps): JSX.Element {
+}: PiEyedropperRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

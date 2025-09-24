@@ -16,7 +16,7 @@ export default function PiListShortStroke({
   className,
   ariaLabel = 'list-short icon',
   ...props
-}: PiListShortStrokeProps): JSX.Element {
+}: PiListShortStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

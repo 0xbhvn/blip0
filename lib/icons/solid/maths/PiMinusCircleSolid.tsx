@@ -16,7 +16,7 @@ export default function PiMinusCircleSolid({
   className,
   ariaLabel = 'minus-circle icon',
   ...props
-}: PiMinusCircleSolidProps): JSX.Element {
+}: PiMinusCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCaptionOnSolid({
   className,
   ariaLabel = 'caption-on icon',
   ...props
-}: PiCaptionOnSolidProps): JSX.Element {
+}: PiCaptionOnSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

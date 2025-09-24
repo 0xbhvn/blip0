@@ -16,7 +16,7 @@ export default function PiEnvelopeFastSolid({
   className,
   ariaLabel = 'envelope-fast icon',
   ...props
-}: PiEnvelopeFastSolidProps): JSX.Element {
+}: PiEnvelopeFastSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiTerminalConsoleSquareSolid({
   className,
   ariaLabel = 'terminal-console-square icon',
   ...props
-}: PiTerminalConsoleSquareSolidProps): JSX.Element {
+}: PiTerminalConsoleSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFolderGitStroke({
   className,
   ariaLabel = 'folder-git icon',
   ...props
-}: PiFolderGitStrokeProps): JSX.Element {
+}: PiFolderGitStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

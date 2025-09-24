@@ -16,7 +16,7 @@ export default function PiGitCommitStroke({
   className,
   ariaLabel = 'git-commit icon',
   ...props
-}: PiGitCommitStrokeProps): JSX.Element {
+}: PiGitCommitStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

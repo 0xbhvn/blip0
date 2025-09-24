@@ -16,7 +16,7 @@ export default function PiEqualsSquareStroke({
   className,
   ariaLabel = 'equals-square icon',
   ...props
-}: PiEqualsSquareStrokeProps): JSX.Element {
+}: PiEqualsSquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

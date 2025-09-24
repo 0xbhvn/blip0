@@ -16,7 +16,7 @@ export default function PiMouseDefaultSolid({
   className,
   ariaLabel = 'mouse-default icon',
   ...props
-}: PiMouseDefaultSolidProps): JSX.Element {
+}: PiMouseDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

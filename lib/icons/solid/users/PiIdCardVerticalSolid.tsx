@@ -16,7 +16,7 @@ export default function PiIdCardVerticalSolid({
   className,
   ariaLabel = 'id-card-vertical icon',
   ...props
-}: PiIdCardVerticalSolidProps): JSX.Element {
+}: PiIdCardVerticalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

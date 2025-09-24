@@ -16,7 +16,7 @@ export default function PiUserRectangleStroke({
   className,
   ariaLabel = 'user-rectangle icon',
   ...props
-}: PiUserRectangleStrokeProps): JSX.Element {
+}: PiUserRectangleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

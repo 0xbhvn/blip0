@@ -16,7 +16,7 @@ export default function PiWalletLinkSolid({
   className,
   ariaLabel = 'wallet-link icon',
   ...props
-}: PiWalletLinkSolidProps): JSX.Element {
+}: PiWalletLinkSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

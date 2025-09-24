@@ -16,7 +16,7 @@ export default function PiLayerOneSolid({
   className,
   ariaLabel = 'layer-one icon',
   ...props
-}: PiLayerOneSolidProps): JSX.Element {
+}: PiLayerOneSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

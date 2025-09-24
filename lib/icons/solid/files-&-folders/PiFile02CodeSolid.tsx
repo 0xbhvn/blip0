@@ -16,7 +16,7 @@ export default function PiFile02CodeSolid({
   className,
   ariaLabel = 'file-02-code icon',
   ...props
-}: PiFile02CodeSolidProps): JSX.Element {
+}: PiFile02CodeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

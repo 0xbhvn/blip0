@@ -16,7 +16,7 @@ export default function PiRocketShipSolid({
   className,
   ariaLabel = 'rocket-ship icon',
   ...props
-}: PiRocketShipSolidProps): JSX.Element {
+}: PiRocketShipSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFileDefaultSolid({
   className,
   ariaLabel = 'file-default icon',
   ...props
-}: PiFileDefaultSolidProps): JSX.Element {
+}: PiFileDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

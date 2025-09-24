@@ -16,7 +16,7 @@ export default function PiAlarmOffStroke({
   className,
   ariaLabel = 'alarm-off icon',
   ...props
-}: PiAlarmOffStrokeProps): JSX.Element {
+}: PiAlarmOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiMessageUserStroke({
   className,
   ariaLabel = 'message-user icon',
   ...props
-}: PiMessageUserStrokeProps): JSX.Element {
+}: PiMessageUserStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

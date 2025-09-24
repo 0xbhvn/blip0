@@ -16,7 +16,7 @@ export default function PiAirplaneDefaultSolid({
   className,
   ariaLabel = 'airplane-default icon',
   ...props
-}: PiAirplaneDefaultSolidProps): JSX.Element {
+}: PiAirplaneDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

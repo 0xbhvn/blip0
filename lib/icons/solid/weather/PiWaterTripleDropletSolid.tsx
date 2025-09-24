@@ -16,7 +16,7 @@ export default function PiWaterTripleDropletSolid({
   className,
   ariaLabel = 'water-triple-droplet icon',
   ...props
-}: PiWaterTripleDropletSolidProps): JSX.Element {
+}: PiWaterTripleDropletSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

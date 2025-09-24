@@ -16,7 +16,7 @@ export default function PiAirbnbStroke({
   className,
   ariaLabel = 'airbnb icon',
   ...props
-}: PiAirbnbStrokeProps): JSX.Element {
+}: PiAirbnbStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

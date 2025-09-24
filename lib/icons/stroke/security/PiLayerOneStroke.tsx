@@ -16,7 +16,7 @@ export default function PiLayerOneStroke({
   className,
   ariaLabel = 'layer-one icon',
   ...props
-}: PiLayerOneStrokeProps): JSX.Element {
+}: PiLayerOneStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

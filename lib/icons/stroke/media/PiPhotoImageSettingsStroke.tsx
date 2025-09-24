@@ -16,7 +16,7 @@ export default function PiPhotoImageSettingsStroke({
   className,
   ariaLabel = 'photo-image-settings icon',
   ...props
-}: PiPhotoImageSettingsStrokeProps): JSX.Element {
+}: PiPhotoImageSettingsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCurrencySignRupeesStroke({
   className,
   ariaLabel = 'currency-sign-rupees icon',
   ...props
-}: PiCurrencySignRupeesStrokeProps): JSX.Element {
+}: PiCurrencySignRupeesStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

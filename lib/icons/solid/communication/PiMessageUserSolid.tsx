@@ -16,7 +16,7 @@ export default function PiMessageUserSolid({
   className,
   ariaLabel = 'message-user icon',
   ...props
-}: PiMessageUserSolidProps): JSX.Element {
+}: PiMessageUserSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

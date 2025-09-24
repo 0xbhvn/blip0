@@ -16,7 +16,7 @@ export default function PiBedSolid({
   className,
   ariaLabel = 'bed icon',
   ...props
-}: PiBedSolidProps): JSX.Element {
+}: PiBedSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

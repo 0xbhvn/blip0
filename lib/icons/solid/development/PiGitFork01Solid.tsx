@@ -16,7 +16,7 @@ export default function PiGitFork01Solid({
   className,
   ariaLabel = 'git-fork-01 icon',
   ...props
-}: PiGitFork01SolidProps): JSX.Element {
+}: PiGitFork01SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

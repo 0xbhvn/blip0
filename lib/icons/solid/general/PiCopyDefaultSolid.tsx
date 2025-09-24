@@ -16,7 +16,7 @@ export default function PiCopyDefaultSolid({
   className,
   ariaLabel = 'copy-default icon',
   ...props
-}: PiCopyDefaultSolidProps): JSX.Element {
+}: PiCopyDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

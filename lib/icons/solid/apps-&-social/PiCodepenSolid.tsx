@@ -16,7 +16,7 @@ export default function PiCodepenSolid({
   className,
   ariaLabel = 'codepen icon',
   ...props
-}: PiCodepenSolidProps): JSX.Element {
+}: PiCodepenSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiSolanaFmStroke({
   className,
   ariaLabel = 'solana-fm icon',
   ...props
-}: PiSolanaFmStrokeProps): JSX.Element {
+}: PiSolanaFmStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

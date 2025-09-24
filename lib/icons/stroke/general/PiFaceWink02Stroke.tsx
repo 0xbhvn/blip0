@@ -16,7 +16,7 @@ export default function PiFaceWink02Stroke({
   className,
   ariaLabel = 'face-wink-02 icon',
   ...props
-}: PiFaceWink02StrokeProps): JSX.Element {
+}: PiFaceWink02StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

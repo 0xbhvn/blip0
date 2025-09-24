@@ -16,7 +16,7 @@ export default function PiPhonePlusStroke({
   className,
   ariaLabel = 'phone-plus icon',
   ...props
-}: PiPhonePlusStrokeProps): JSX.Element {
+}: PiPhonePlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

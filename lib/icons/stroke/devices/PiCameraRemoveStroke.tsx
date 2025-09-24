@@ -16,7 +16,7 @@ export default function PiCameraRemoveStroke({
   className,
   ariaLabel = 'camera-remove icon',
   ...props
-}: PiCameraRemoveStrokeProps): JSX.Element {
+}: PiCameraRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

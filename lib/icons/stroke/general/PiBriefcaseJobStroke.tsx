@@ -16,7 +16,7 @@ export default function PiBriefcaseJobStroke({
   className,
   ariaLabel = 'briefcase-job icon',
   ...props
-}: PiBriefcaseJobStrokeProps): JSX.Element {
+}: PiBriefcaseJobStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

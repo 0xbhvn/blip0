@@ -16,7 +16,7 @@ export default function PiBathTubSolid({
   className,
   ariaLabel = 'bath-tub icon',
   ...props
-}: PiBathTubSolidProps): JSX.Element {
+}: PiBathTubSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

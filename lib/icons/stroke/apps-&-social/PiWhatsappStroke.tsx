@@ -16,7 +16,7 @@ export default function PiWhatsappStroke({
   className,
   ariaLabel = 'whatsapp icon',
   ...props
-}: PiWhatsappStrokeProps): JSX.Element {
+}: PiWhatsappStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

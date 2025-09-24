@@ -16,7 +16,7 @@ export default function PiCubeSolid({
   className,
   ariaLabel = 'cube icon',
   ...props
-}: PiCubeSolidProps): JSX.Element {
+}: PiCubeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

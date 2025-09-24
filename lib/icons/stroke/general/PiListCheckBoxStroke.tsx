@@ -16,7 +16,7 @@ export default function PiListCheckBoxStroke({
   className,
   ariaLabel = 'list-check-box icon',
   ...props
-}: PiListCheckBoxStrokeProps): JSX.Element {
+}: PiListCheckBoxStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

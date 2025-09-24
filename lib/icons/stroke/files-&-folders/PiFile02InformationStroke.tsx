@@ -16,7 +16,7 @@ export default function PiFile02InformationStroke({
   className,
   ariaLabel = 'file-02-information icon',
   ...props
-}: PiFile02InformationStrokeProps): JSX.Element {
+}: PiFile02InformationStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

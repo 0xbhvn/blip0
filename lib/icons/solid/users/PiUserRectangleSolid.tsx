@@ -16,7 +16,7 @@ export default function PiUserRectangleSolid({
   className,
   ariaLabel = 'user-rectangle icon',
   ...props
-}: PiUserRectangleSolidProps): JSX.Element {
+}: PiUserRectangleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiTimerCheckStroke({
   className,
   ariaLabel = 'timer-check icon',
   ...props
-}: PiTimerCheckStrokeProps): JSX.Element {
+}: PiTimerCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

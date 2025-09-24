@@ -16,7 +16,7 @@ export default function PiEnvelopeArrowUpSolid({
   className,
   ariaLabel = 'envelope-arrow-up icon',
   ...props
-}: PiEnvelopeArrowUpSolidProps): JSX.Element {
+}: PiEnvelopeArrowUpSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

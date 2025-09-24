@@ -16,7 +16,7 @@ export default function PiCryptoCurrencyEurcStroke({
   className,
   ariaLabel = 'crypto-currency-eurc icon',
   ...props
-}: PiCryptoCurrencyEurcStrokeProps): JSX.Element {
+}: PiCryptoCurrencyEurcStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

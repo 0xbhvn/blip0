@@ -16,7 +16,7 @@ export default function PiScriptStroke({
   className,
   ariaLabel = 'script icon',
   ...props
-}: PiScriptStrokeProps): JSX.Element {
+}: PiScriptStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

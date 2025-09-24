@@ -16,7 +16,7 @@ export default function PiCalendarSettingsStroke({
   className,
   ariaLabel = 'calendar-settings icon',
   ...props
-}: PiCalendarSettingsStrokeProps): JSX.Element {
+}: PiCalendarSettingsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

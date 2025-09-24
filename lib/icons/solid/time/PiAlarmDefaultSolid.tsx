@@ -16,7 +16,7 @@ export default function PiAlarmDefaultSolid({
   className,
   ariaLabel = 'alarm-default icon',
   ...props
-}: PiAlarmDefaultSolidProps): JSX.Element {
+}: PiAlarmDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

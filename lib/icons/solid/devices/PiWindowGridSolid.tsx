@@ -16,7 +16,7 @@ export default function PiWindowGridSolid({
   className,
   ariaLabel = 'window-grid icon',
   ...props
-}: PiWindowGridSolidProps): JSX.Element {
+}: PiWindowGridSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

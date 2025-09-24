@@ -16,7 +16,7 @@ export default function PiYoutubeStroke({
   className,
   ariaLabel = 'youtube icon',
   ...props
-}: PiYoutubeStrokeProps): JSX.Element {
+}: PiYoutubeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

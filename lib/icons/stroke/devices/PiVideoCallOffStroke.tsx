@@ -16,7 +16,7 @@ export default function PiVideoCallOffStroke({
   className,
   ariaLabel = 'video-call-off icon',
   ...props
-}: PiVideoCallOffStrokeProps): JSX.Element {
+}: PiVideoCallOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

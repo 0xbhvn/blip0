@@ -16,7 +16,7 @@ export default function PiFuelerSolid({
   className,
   ariaLabel = 'fueler icon',
   ...props
-}: PiFuelerSolidProps): JSX.Element {
+}: PiFuelerSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

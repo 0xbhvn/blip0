@@ -16,7 +16,7 @@ export default function PiPlusCircleStroke({
   className,
   ariaLabel = 'plus-circle icon',
   ...props
-}: PiPlusCircleStrokeProps): JSX.Element {
+}: PiPlusCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

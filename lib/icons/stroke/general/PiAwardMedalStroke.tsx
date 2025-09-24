@@ -16,7 +16,7 @@ export default function PiAwardMedalStroke({
   className,
   ariaLabel = 'award-medal icon',
   ...props
-}: PiAwardMedalStrokeProps): JSX.Element {
+}: PiAwardMedalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

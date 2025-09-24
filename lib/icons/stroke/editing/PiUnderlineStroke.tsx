@@ -16,7 +16,7 @@ export default function PiUnderlineStroke({
   className,
   ariaLabel = 'underline icon',
   ...props
-}: PiUnderlineStrokeProps): JSX.Element {
+}: PiUnderlineStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

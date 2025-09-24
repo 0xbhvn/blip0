@@ -16,7 +16,7 @@ export default function PiFolderOpenSolid({
   className,
   ariaLabel = 'folder-open icon',
   ...props
-}: PiFolderOpenSolidProps): JSX.Element {
+}: PiFolderOpenSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

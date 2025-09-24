@@ -16,7 +16,7 @@ export default function PiClipboardTextStroke({
   className,
   ariaLabel = 'clipboard-text icon',
   ...props
-}: PiClipboardTextStrokeProps): JSX.Element {
+}: PiClipboardTextStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

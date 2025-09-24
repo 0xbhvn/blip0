@@ -16,7 +16,7 @@ export default function PiBatteryOffSolid({
   className,
   ariaLabel = 'battery-off icon',
   ...props
-}: PiBatteryOffSolidProps): JSX.Element {
+}: PiBatteryOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

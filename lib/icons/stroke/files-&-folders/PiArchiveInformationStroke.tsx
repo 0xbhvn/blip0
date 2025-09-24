@@ -16,7 +16,7 @@ export default function PiArchiveInformationStroke({
   className,
   ariaLabel = 'archive-information icon',
   ...props
-}: PiArchiveInformationStrokeProps): JSX.Element {
+}: PiArchiveInformationStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFileStarStroke({
   className,
   ariaLabel = 'file-star icon',
   ...props
-}: PiFileStarStrokeProps): JSX.Element {
+}: PiFileStarStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

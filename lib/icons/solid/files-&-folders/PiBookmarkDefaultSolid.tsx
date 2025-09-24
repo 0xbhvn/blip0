@@ -16,7 +16,7 @@ export default function PiBookmarkDefaultSolid({
   className,
   ariaLabel = 'bookmark-default icon',
   ...props
-}: PiBookmarkDefaultSolidProps): JSX.Element {
+}: PiBookmarkDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

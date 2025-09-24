@@ -16,7 +16,7 @@ export default function PiGraphChartMinimumStroke({
   className,
   ariaLabel = 'graph-chart-minimum icon',
   ...props
-}: PiGraphChartMinimumStrokeProps): JSX.Element {
+}: PiGraphChartMinimumStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

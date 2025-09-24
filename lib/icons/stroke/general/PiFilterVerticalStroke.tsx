@@ -16,7 +16,7 @@ export default function PiFilterVerticalStroke({
   className,
   ariaLabel = 'filter-vertical icon',
   ...props
-}: PiFilterVerticalStrokeProps): JSX.Element {
+}: PiFilterVerticalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

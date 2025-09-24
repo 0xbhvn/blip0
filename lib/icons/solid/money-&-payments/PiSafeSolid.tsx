@@ -16,7 +16,7 @@ export default function PiSafeSolid({
   className,
   ariaLabel = 'safe icon',
   ...props
-}: PiSafeSolidProps): JSX.Element {
+}: PiSafeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiRotateRightStroke({
   className,
   ariaLabel = 'rotate-right icon',
   ...props
-}: PiRotateRightStrokeProps): JSX.Element {
+}: PiRotateRightStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

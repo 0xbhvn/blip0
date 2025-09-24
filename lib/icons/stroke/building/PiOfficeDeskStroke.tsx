@@ -16,7 +16,7 @@ export default function PiOfficeDeskStroke({
   className,
   ariaLabel = 'office-desk icon',
   ...props
-}: PiOfficeDeskStrokeProps): JSX.Element {
+}: PiOfficeDeskStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

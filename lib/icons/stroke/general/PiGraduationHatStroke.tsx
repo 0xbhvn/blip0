@@ -16,7 +16,7 @@ export default function PiGraduationHatStroke({
   className,
   ariaLabel = 'graduation-hat icon',
   ...props
-}: PiGraduationHatStrokeProps): JSX.Element {
+}: PiGraduationHatStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

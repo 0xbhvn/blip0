@@ -16,7 +16,7 @@ export default function PiBanLeftStroke({
   className,
   ariaLabel = 'ban-left icon',
   ...props
-}: PiBanLeftStrokeProps): JSX.Element {
+}: PiBanLeftStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

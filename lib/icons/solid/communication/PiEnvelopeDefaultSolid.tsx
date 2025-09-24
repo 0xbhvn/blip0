@@ -16,7 +16,7 @@ export default function PiEnvelopeDefaultSolid({
   className,
   ariaLabel = 'envelope-default icon',
   ...props
-}: PiEnvelopeDefaultSolidProps): JSX.Element {
+}: PiEnvelopeDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

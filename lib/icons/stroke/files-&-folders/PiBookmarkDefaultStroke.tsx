@@ -16,7 +16,7 @@ export default function PiBookmarkDefaultStroke({
   className,
   ariaLabel = 'bookmark-default icon',
   ...props
-}: PiBookmarkDefaultStrokeProps): JSX.Element {
+}: PiBookmarkDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

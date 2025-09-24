@@ -16,7 +16,7 @@ export default function PiPhotoImageCancelSolid({
   className,
   ariaLabel = 'photo-image-cancel icon',
   ...props
-}: PiPhotoImageCancelSolidProps): JSX.Element {
+}: PiPhotoImageCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

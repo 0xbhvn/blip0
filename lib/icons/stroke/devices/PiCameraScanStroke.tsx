@@ -16,7 +16,7 @@ export default function PiCameraScanStroke({
   className,
   ariaLabel = 'camera-scan icon',
   ...props
-}: PiCameraScanStrokeProps): JSX.Element {
+}: PiCameraScanStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

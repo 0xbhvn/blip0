@@ -16,7 +16,7 @@ export default function PiFaceIdSadStroke({
   className,
   ariaLabel = 'face-id-sad icon',
   ...props
-}: PiFaceIdSadStrokeProps): JSX.Element {
+}: PiFaceIdSadStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

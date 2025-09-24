@@ -16,7 +16,7 @@ export default function PiFile02StarStroke({
   className,
   ariaLabel = 'file-02-star icon',
   ...props
-}: PiFile02StarStrokeProps): JSX.Element {
+}: PiFile02StarStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

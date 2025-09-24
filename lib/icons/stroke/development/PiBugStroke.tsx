@@ -16,7 +16,7 @@ export default function PiBugStroke({
   className,
   ariaLabel = 'bug icon',
   ...props
-}: PiBugStrokeProps): JSX.Element {
+}: PiBugStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

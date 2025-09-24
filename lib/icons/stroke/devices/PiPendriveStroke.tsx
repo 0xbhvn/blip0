@@ -16,7 +16,7 @@ export default function PiPendriveStroke({
   className,
   ariaLabel = 'pendrive icon',
   ...props
-}: PiPendriveStrokeProps): JSX.Element {
+}: PiPendriveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

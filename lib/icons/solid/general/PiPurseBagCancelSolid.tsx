@@ -16,7 +16,7 @@ export default function PiPurseBagCancelSolid({
   className,
   ariaLabel = 'purse-bag-cancel icon',
   ...props
-}: PiPurseBagCancelSolidProps): JSX.Element {
+}: PiPurseBagCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

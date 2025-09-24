@@ -16,7 +16,7 @@ export default function PiCameraAIStroke({
   className,
   ariaLabel = 'camera-ai icon',
   ...props
-}: PiCameraAIStrokeProps): JSX.Element {
+}: PiCameraAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

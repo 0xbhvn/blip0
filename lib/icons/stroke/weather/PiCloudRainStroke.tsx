@@ -16,7 +16,7 @@ export default function PiCloudRainStroke({
   className,
   ariaLabel = 'cloud-rain icon',
   ...props
-}: PiCloudRainStrokeProps): JSX.Element {
+}: PiCloudRainStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

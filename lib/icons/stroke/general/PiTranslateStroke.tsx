@@ -16,7 +16,7 @@ export default function PiTranslateStroke({
   className,
   ariaLabel = 'translate icon',
   ...props
-}: PiTranslateStrokeProps): JSX.Element {
+}: PiTranslateStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

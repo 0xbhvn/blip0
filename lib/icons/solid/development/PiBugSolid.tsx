@@ -16,7 +16,7 @@ export default function PiBugSolid({
   className,
   ariaLabel = 'bug icon',
   ...props
-}: PiBugSolidProps): JSX.Element {
+}: PiBugSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

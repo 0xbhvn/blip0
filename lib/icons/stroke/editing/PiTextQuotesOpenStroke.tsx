@@ -16,7 +16,7 @@ export default function PiTextQuotesOpenStroke({
   className,
   ariaLabel = 'text-quotes-open icon',
   ...props
-}: PiTextQuotesOpenStrokeProps): JSX.Element {
+}: PiTextQuotesOpenStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

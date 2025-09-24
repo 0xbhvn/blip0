@@ -16,7 +16,7 @@ export default function PiTruckTrashStroke({
   className,
   ariaLabel = 'truck-trash icon',
   ...props
-}: PiTruckTrashStrokeProps): JSX.Element {
+}: PiTruckTrashStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

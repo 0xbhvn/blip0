@@ -16,7 +16,7 @@ export default function PiKeyBottomLeft02Stroke({
   className,
   ariaLabel = 'key-bottom-left-02 icon',
   ...props
-}: PiKeyBottomLeft02StrokeProps): JSX.Element {
+}: PiKeyBottomLeft02StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

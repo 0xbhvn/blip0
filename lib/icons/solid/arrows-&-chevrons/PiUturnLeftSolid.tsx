@@ -16,7 +16,7 @@ export default function PiUturnLeftSolid({
   className,
   ariaLabel = 'uturn-left icon',
   ...props
-}: PiUturnLeftSolidProps): JSX.Element {
+}: PiUturnLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

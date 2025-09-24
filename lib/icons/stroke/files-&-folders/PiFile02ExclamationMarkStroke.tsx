@@ -16,7 +16,7 @@ export default function PiFile02ExclamationMarkStroke({
   className,
   ariaLabel = 'file-02-exclamation-mark icon',
   ...props
-}: PiFile02ExclamationMarkStrokeProps): JSX.Element {
+}: PiFile02ExclamationMarkStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

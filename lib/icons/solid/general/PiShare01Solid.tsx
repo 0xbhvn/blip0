@@ -16,7 +16,7 @@ export default function PiShare01Solid({
   className,
   ariaLabel = 'share-01 icon',
   ...props
-}: PiShare01SolidProps): JSX.Element {
+}: PiShare01SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

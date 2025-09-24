@@ -16,7 +16,7 @@ export default function PiSupportHeartStroke({
   className,
   ariaLabel = 'support-heart icon',
   ...props
-}: PiSupportHeartStrokeProps): JSX.Element {
+}: PiSupportHeartStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

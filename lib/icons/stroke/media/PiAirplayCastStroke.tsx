@@ -16,7 +16,7 @@ export default function PiAirplayCastStroke({
   className,
   ariaLabel = 'airplay-cast icon',
   ...props
-}: PiAirplayCastStrokeProps): JSX.Element {
+}: PiAirplayCastStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

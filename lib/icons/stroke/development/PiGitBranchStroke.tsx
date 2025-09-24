@@ -16,7 +16,7 @@ export default function PiGitBranchStroke({
   className,
   ariaLabel = 'git-branch icon',
   ...props
-}: PiGitBranchStrokeProps): JSX.Element {
+}: PiGitBranchStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

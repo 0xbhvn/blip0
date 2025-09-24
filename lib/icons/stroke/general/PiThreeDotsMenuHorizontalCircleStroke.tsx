@@ -16,7 +16,7 @@ export default function PiThreeDotsMenuHorizontalCircleStroke({
   className,
   ariaLabel = 'three-dots-menu-horizontal-circle icon',
   ...props
-}: PiThreeDotsMenuHorizontalCircleStrokeProps): JSX.Element {
+}: PiThreeDotsMenuHorizontalCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFeatherPenStroke({
   className,
   ariaLabel = 'feather-pen icon',
   ...props
-}: PiFeatherPenStrokeProps): JSX.Element {
+}: PiFeatherPenStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

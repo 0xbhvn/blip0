@@ -16,7 +16,7 @@ export default function PiPeerlistSolid({
   className,
   ariaLabel = 'peerlist icon',
   ...props
-}: PiPeerlistSolidProps): JSX.Element {
+}: PiPeerlistSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

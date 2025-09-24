@@ -16,7 +16,7 @@ export default function PiGiftStarSolid({
   className,
   ariaLabel = 'gift-star icon',
   ...props
-}: PiGiftStarSolidProps): JSX.Element {
+}: PiGiftStarSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

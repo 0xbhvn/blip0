@@ -16,7 +16,7 @@ export default function PiListCodeStroke({
   className,
   ariaLabel = 'list-code icon',
   ...props
-}: PiListCodeStrokeProps): JSX.Element {
+}: PiListCodeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

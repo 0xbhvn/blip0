@@ -16,7 +16,7 @@ export default function PiSpatialCurvedScreenSolid({
   className,
   ariaLabel = 'spatial-curved-screen icon',
   ...props
-}: PiSpatialCurvedScreenSolidProps): JSX.Element {
+}: PiSpatialCurvedScreenSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

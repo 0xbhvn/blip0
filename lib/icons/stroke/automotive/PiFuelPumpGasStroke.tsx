@@ -16,7 +16,7 @@ export default function PiFuelPumpGasStroke({
   className,
   ariaLabel = 'fuel-pump-gas icon',
   ...props
-}: PiFuelPumpGasStrokeProps): JSX.Element {
+}: PiFuelPumpGasStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

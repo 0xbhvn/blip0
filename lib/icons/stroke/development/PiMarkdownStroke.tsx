@@ -16,7 +16,7 @@ export default function PiMarkdownStroke({
   className,
   ariaLabel = 'markdown icon',
   ...props
-}: PiMarkdownStrokeProps): JSX.Element {
+}: PiMarkdownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPhotoImageRemoveStroke({
   className,
   ariaLabel = 'photo-image-remove icon',
   ...props
-}: PiPhotoImageRemoveStrokeProps): JSX.Element {
+}: PiPhotoImageRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

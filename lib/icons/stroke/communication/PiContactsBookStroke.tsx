@@ -16,7 +16,7 @@ export default function PiContactsBookStroke({
   className,
   ariaLabel = 'contacts-book icon',
   ...props
-}: PiContactsBookStrokeProps): JSX.Element {
+}: PiContactsBookStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

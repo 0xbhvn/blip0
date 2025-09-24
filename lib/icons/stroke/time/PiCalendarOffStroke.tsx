@@ -16,7 +16,7 @@ export default function PiCalendarOffStroke({
   className,
   ariaLabel = 'calendar-off icon',
   ...props
-}: PiCalendarOffStrokeProps): JSX.Element {
+}: PiCalendarOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

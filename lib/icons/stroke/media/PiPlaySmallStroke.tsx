@@ -16,7 +16,7 @@ export default function PiPlaySmallStroke({
   className,
   ariaLabel = 'play-small icon',
   ...props
-}: PiPlaySmallStrokeProps): JSX.Element {
+}: PiPlaySmallStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

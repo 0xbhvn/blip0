@@ -16,7 +16,7 @@ export default function PiWindowFullscreenSolid({
   className,
   ariaLabel = 'window-fullscreen icon',
   ...props
-}: PiWindowFullscreenSolidProps): JSX.Element {
+}: PiWindowFullscreenSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

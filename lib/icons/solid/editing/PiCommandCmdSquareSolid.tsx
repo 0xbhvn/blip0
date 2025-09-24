@@ -16,7 +16,7 @@ export default function PiCommandCmdSquareSolid({
   className,
   ariaLabel = 'command-cmd-square icon',
   ...props
-}: PiCommandCmdSquareSolidProps): JSX.Element {
+}: PiCommandCmdSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

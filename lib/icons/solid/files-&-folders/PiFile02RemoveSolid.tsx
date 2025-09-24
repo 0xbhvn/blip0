@@ -16,7 +16,7 @@ export default function PiFile02RemoveSolid({
   className,
   ariaLabel = 'file-02-remove icon',
   ...props
-}: PiFile02RemoveSolidProps): JSX.Element {
+}: PiFile02RemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

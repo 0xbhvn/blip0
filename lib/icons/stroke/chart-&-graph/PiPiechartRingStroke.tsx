@@ -16,7 +16,7 @@ export default function PiPiechartRingStroke({
   className,
   ariaLabel = 'piechart-ring icon',
   ...props
-}: PiPiechartRingStrokeProps): JSX.Element {
+}: PiPiechartRingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

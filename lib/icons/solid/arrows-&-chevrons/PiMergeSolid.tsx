@@ -16,7 +16,7 @@ export default function PiMergeSolid({
   className,
   ariaLabel = 'merge icon',
   ...props
-}: PiMergeSolidProps): JSX.Element {
+}: PiMergeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

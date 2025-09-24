@@ -16,7 +16,7 @@ export default function PiListCheckStroke({
   className,
   ariaLabel = 'list-check icon',
   ...props
-}: PiListCheckStrokeProps): JSX.Element {
+}: PiListCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

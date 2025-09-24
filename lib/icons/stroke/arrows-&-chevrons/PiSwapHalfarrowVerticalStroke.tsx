@@ -16,7 +16,7 @@ export default function PiSwapHalfarrowVerticalStroke({
   className,
   ariaLabel = 'swap-halfarrow-vertical icon',
   ...props
-}: PiSwapHalfarrowVerticalStrokeProps): JSX.Element {
+}: PiSwapHalfarrowVerticalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiSpreadsheetDefaultStroke({
   className,
   ariaLabel = 'spreadsheet-default icon',
   ...props
-}: PiSpreadsheetDefaultStrokeProps): JSX.Element {
+}: PiSpreadsheetDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

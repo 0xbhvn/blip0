@@ -16,7 +16,7 @@ export default function PiPhoneCancelSolid({
   className,
   ariaLabel = 'phone-cancel icon',
   ...props
-}: PiPhoneCancelSolidProps): JSX.Element {
+}: PiPhoneCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

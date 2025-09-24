@@ -16,7 +16,7 @@ export default function PiCalendarCheckSolid({
   className,
   ariaLabel = 'calendar-check icon',
   ...props
-}: PiCalendarCheckSolidProps): JSX.Element {
+}: PiCalendarCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

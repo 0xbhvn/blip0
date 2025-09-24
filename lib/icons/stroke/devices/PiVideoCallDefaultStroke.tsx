@@ -16,7 +16,7 @@ export default function PiVideoCallDefaultStroke({
   className,
   ariaLabel = 'video-call-default icon',
   ...props
-}: PiVideoCallDefaultStrokeProps): JSX.Element {
+}: PiVideoCallDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

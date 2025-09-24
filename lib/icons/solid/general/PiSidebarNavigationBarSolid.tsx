@@ -16,7 +16,7 @@ export default function PiSidebarNavigationBarSolid({
   className,
   ariaLabel = 'sidebar-navigation-bar icon',
   ...props
-}: PiSidebarNavigationBarSolidProps): JSX.Element {
+}: PiSidebarNavigationBarSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

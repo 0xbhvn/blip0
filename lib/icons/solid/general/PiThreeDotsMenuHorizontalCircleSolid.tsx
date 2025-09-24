@@ -16,7 +16,7 @@ export default function PiThreeDotsMenuHorizontalCircleSolid({
   className,
   ariaLabel = 'three-dots-menu-horizontal-circle icon',
   ...props
-}: PiThreeDotsMenuHorizontalCircleSolidProps): JSX.Element {
+}: PiThreeDotsMenuHorizontalCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

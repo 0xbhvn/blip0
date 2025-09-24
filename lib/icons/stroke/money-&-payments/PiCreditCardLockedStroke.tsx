@@ -16,7 +16,7 @@ export default function PiCreditCardLockedStroke({
   className,
   ariaLabel = 'credit-card-locked icon',
   ...props
-}: PiCreditCardLockedStrokeProps): JSX.Element {
+}: PiCreditCardLockedStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

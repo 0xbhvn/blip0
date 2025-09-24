@@ -16,7 +16,7 @@ export default function PiCloudRainSolid({
   className,
   ariaLabel = 'cloud-rain icon',
   ...props
-}: PiCloudRainSolidProps): JSX.Element {
+}: PiCloudRainSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

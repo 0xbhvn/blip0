@@ -16,7 +16,7 @@ export default function PiFile02DefaultStroke({
   className,
   ariaLabel = 'file-02-default icon',
   ...props
-}: PiFile02DefaultStrokeProps): JSX.Element {
+}: PiFile02DefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

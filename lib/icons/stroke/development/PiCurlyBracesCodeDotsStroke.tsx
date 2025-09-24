@@ -16,7 +16,7 @@ export default function PiCurlyBracesCodeDotsStroke({
   className,
   ariaLabel = 'curly-braces-code-dots icon',
   ...props
-}: PiCurlyBracesCodeDotsStrokeProps): JSX.Element {
+}: PiCurlyBracesCodeDotsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

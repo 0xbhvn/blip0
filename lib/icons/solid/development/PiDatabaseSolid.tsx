@@ -16,7 +16,7 @@ export default function PiDatabaseSolid({
   className,
   ariaLabel = 'database icon',
   ...props
-}: PiDatabaseSolidProps): JSX.Element {
+}: PiDatabaseSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

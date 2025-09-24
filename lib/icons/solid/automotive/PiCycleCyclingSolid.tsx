@@ -16,7 +16,7 @@ export default function PiCycleCyclingSolid({
   className,
   ariaLabel = 'cycle-cycling icon',
   ...props
-}: PiCycleCyclingSolidProps): JSX.Element {
+}: PiCycleCyclingSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

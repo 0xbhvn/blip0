@@ -16,7 +16,7 @@ export default function PiTimerPlusSolid({
   className,
   ariaLabel = 'timer-plus icon',
   ...props
-}: PiTimerPlusSolidProps): JSX.Element {
+}: PiTimerPlusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

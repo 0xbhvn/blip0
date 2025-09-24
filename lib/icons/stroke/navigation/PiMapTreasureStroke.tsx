@@ -16,7 +16,7 @@ export default function PiMapTreasureStroke({
   className,
   ariaLabel = 'map-treasure icon',
   ...props
-}: PiMapTreasureStrokeProps): JSX.Element {
+}: PiMapTreasureStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

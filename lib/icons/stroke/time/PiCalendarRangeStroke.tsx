@@ -16,7 +16,7 @@ export default function PiCalendarRangeStroke({
   className,
   ariaLabel = 'calendar-range icon',
   ...props
-}: PiCalendarRangeStrokeProps): JSX.Element {
+}: PiCalendarRangeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

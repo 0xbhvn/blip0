@@ -16,7 +16,7 @@ export default function PiCalendarFilledSolid({
   className,
   ariaLabel = 'calendar-filled icon',
   ...props
-}: PiCalendarFilledSolidProps): JSX.Element {
+}: PiCalendarFilledSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

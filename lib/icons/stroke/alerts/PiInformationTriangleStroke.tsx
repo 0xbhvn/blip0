@@ -16,7 +16,7 @@ export default function PiInformationTriangleStroke({
   className,
   ariaLabel = 'information-triangle icon',
   ...props
-}: PiInformationTriangleStrokeProps): JSX.Element {
+}: PiInformationTriangleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

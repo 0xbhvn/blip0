@@ -16,7 +16,7 @@ export default function PiWebhookStroke({
   className,
   ariaLabel = 'webhook icon',
   ...props
-}: PiWebhookStrokeProps): JSX.Element {
+}: PiWebhookStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

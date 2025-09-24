@@ -16,7 +16,7 @@ export default function PiEarthGlobeSolid({
   className,
   ariaLabel = 'earth-globe icon',
   ...props
-}: PiEarthGlobeSolidProps): JSX.Element {
+}: PiEarthGlobeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

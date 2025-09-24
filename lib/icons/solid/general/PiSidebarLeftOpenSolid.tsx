@@ -16,7 +16,7 @@ export default function PiSidebarLeftOpenSolid({
   className,
   ariaLabel = 'sidebar-left-open icon',
   ...props
-}: PiSidebarLeftOpenSolidProps): JSX.Element {
+}: PiSidebarLeftOpenSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

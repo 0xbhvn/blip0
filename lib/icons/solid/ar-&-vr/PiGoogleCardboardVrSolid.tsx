@@ -16,7 +16,7 @@ export default function PiGoogleCardboardVrSolid({
   className,
   ariaLabel = 'google-cardboard-vr icon',
   ...props
-}: PiGoogleCardboardVrSolidProps): JSX.Element {
+}: PiGoogleCardboardVrSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

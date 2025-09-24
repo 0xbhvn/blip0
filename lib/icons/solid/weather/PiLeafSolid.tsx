@@ -16,7 +16,7 @@ export default function PiLeafSolid({
   className,
   ariaLabel = 'leaf icon',
   ...props
-}: PiLeafSolidProps): JSX.Element {
+}: PiLeafSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

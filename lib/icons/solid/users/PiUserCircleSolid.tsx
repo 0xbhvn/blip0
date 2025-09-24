@@ -16,7 +16,7 @@ export default function PiUserCircleSolid({
   className,
   ariaLabel = 'user-circle icon',
   ...props
-}: PiUserCircleSolidProps): JSX.Element {
+}: PiUserCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

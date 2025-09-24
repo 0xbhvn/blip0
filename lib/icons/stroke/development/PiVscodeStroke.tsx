@@ -16,7 +16,7 @@ export default function PiVscodeStroke({
   className,
   ariaLabel = 'vscode icon',
   ...props
-}: PiVscodeStrokeProps): JSX.Element {
+}: PiVscodeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

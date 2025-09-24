@@ -16,7 +16,7 @@ export default function PiSpatialScreenStroke({
   className,
   ariaLabel = 'spatial-screen icon',
   ...props
-}: PiSpatialScreenStrokeProps): JSX.Element {
+}: PiSpatialScreenStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

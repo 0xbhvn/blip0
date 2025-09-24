@@ -16,7 +16,7 @@ export default function PiEnvelopeRemoveSolid({
   className,
   ariaLabel = 'envelope-remove icon',
   ...props
-}: PiEnvelopeRemoveSolidProps): JSX.Element {
+}: PiEnvelopeRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

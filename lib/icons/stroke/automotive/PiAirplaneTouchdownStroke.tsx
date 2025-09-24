@@ -16,7 +16,7 @@ export default function PiAirplaneTouchdownStroke({
   className,
   ariaLabel = 'airplane-touchdown icon',
   ...props
-}: PiAirplaneTouchdownStrokeProps): JSX.Element {
+}: PiAirplaneTouchdownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

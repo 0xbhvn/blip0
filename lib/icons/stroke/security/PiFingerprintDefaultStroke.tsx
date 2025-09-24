@@ -16,7 +16,7 @@ export default function PiFingerprintDefaultStroke({
   className,
   ariaLabel = 'fingerprint-default icon',
   ...props
-}: PiFingerprintDefaultStrokeProps): JSX.Element {
+}: PiFingerprintDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

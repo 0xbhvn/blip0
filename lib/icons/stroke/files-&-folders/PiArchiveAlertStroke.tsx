@@ -16,7 +16,7 @@ export default function PiArchiveAlertStroke({
   className,
   ariaLabel = 'archive-alert icon',
   ...props
-}: PiArchiveAlertStrokeProps): JSX.Element {
+}: PiArchiveAlertStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFolderSearchSolid({
   className,
   ariaLabel = 'folder-search icon',
   ...props
-}: PiFolderSearchSolidProps): JSX.Element {
+}: PiFolderSearchSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

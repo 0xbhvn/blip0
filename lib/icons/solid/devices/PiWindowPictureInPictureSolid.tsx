@@ -16,7 +16,7 @@ export default function PiWindowPictureInPictureSolid({
   className,
   ariaLabel = 'window-picture-in-picture icon',
   ...props
-}: PiWindowPictureInPictureSolidProps): JSX.Element {
+}: PiWindowPictureInPictureSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

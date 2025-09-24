@@ -16,7 +16,7 @@ export default function PiChevronBigLeftSolid({
   className,
   ariaLabel = 'chevron-big-left icon',
   ...props
-}: PiChevronBigLeftSolidProps): JSX.Element {
+}: PiChevronBigLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPatreonOldLogoSolid({
   className,
   ariaLabel = 'patreon-old-logo icon',
   ...props
-}: PiPatreonOldLogoSolidProps): JSX.Element {
+}: PiPatreonOldLogoSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

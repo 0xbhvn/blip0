@@ -16,7 +16,7 @@ export default function PiShieldOffStroke({
   className,
   ariaLabel = 'shield-off icon',
   ...props
-}: PiShieldOffStrokeProps): JSX.Element {
+}: PiShieldOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

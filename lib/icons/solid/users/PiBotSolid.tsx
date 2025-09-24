@@ -16,7 +16,7 @@ export default function PiBotSolid({
   className,
   ariaLabel = 'bot icon',
   ...props
-}: PiBotSolidProps): JSX.Element {
+}: PiBotSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

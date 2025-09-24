@@ -16,7 +16,7 @@ export default function PiScreenAddStroke({
   className,
   ariaLabel = 'screen-add icon',
   ...props
-}: PiScreenAddStrokeProps): JSX.Element {
+}: PiScreenAddStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

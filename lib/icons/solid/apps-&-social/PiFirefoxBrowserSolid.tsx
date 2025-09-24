@@ -16,7 +16,7 @@ export default function PiFirefoxBrowserSolid({
   className,
   ariaLabel = 'firefox-browser icon',
   ...props
-}: PiFirefoxBrowserSolidProps): JSX.Element {
+}: PiFirefoxBrowserSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

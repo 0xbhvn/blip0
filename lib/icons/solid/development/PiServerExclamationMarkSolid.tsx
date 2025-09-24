@@ -16,7 +16,7 @@ export default function PiServerExclamationMarkSolid({
   className,
   ariaLabel = 'server-exclamation-mark icon',
   ...props
-}: PiServerExclamationMarkSolidProps): JSX.Element {
+}: PiServerExclamationMarkSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

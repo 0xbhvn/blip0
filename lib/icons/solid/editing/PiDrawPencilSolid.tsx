@@ -16,7 +16,7 @@ export default function PiDrawPencilSolid({
   className,
   ariaLabel = 'draw-pencil icon',
   ...props
-}: PiDrawPencilSolidProps): JSX.Element {
+}: PiDrawPencilSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

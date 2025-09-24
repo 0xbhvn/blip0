@@ -16,7 +16,7 @@ export default function PiTinderStroke({
   className,
   ariaLabel = 'tinder icon',
   ...props
-}: PiTinderStrokeProps): JSX.Element {
+}: PiTinderStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

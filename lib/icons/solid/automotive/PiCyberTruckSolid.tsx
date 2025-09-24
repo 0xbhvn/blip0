@@ -16,7 +16,7 @@ export default function PiCyberTruckSolid({
   className,
   ariaLabel = 'cyber-truck icon',
   ...props
-}: PiCyberTruckSolidProps): JSX.Element {
+}: PiCyberTruckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

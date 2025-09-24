@@ -16,7 +16,7 @@ export default function PiListArrowDownSolid({
   className,
   ariaLabel = 'list-arrow-down icon',
   ...props
-}: PiListArrowDownSolidProps): JSX.Element {
+}: PiListArrowDownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

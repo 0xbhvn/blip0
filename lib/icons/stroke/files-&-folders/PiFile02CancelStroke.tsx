@@ -16,7 +16,7 @@ export default function PiFile02CancelStroke({
   className,
   ariaLabel = 'file-02-cancel icon',
   ...props
-}: PiFile02CancelStrokeProps): JSX.Element {
+}: PiFile02CancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

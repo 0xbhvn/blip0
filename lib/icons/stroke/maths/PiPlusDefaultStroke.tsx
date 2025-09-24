@@ -16,7 +16,7 @@ export default function PiPlusDefaultStroke({
   className,
   ariaLabel = 'plus-default icon',
   ...props
-}: PiPlusDefaultStrokeProps): JSX.Element {
+}: PiPlusDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

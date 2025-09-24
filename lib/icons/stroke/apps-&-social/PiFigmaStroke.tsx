@@ -16,7 +16,7 @@ export default function PiFigmaStroke({
   className,
   ariaLabel = 'figma icon',
   ...props
-}: PiFigmaStrokeProps): JSX.Element {
+}: PiFigmaStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

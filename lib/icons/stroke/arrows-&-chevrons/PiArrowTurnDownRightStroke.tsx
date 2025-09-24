@@ -16,7 +16,7 @@ export default function PiArrowTurnDownRightStroke({
   className,
   ariaLabel = 'arrow-turn-down-right icon',
   ...props
-}: PiArrowTurnDownRightStrokeProps): JSX.Element {
+}: PiArrowTurnDownRightStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

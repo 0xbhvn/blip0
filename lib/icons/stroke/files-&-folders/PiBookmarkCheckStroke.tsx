@@ -16,7 +16,7 @@ export default function PiBookmarkCheckStroke({
   className,
   ariaLabel = 'bookmark-check icon',
   ...props
-}: PiBookmarkCheckStrokeProps): JSX.Element {
+}: PiBookmarkCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

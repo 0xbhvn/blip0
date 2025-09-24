@@ -16,7 +16,7 @@ export default function PiCaptionOffSolid({
   className,
   ariaLabel = 'caption-off icon',
   ...props
-}: PiCaptionOffSolidProps): JSX.Element {
+}: PiCaptionOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

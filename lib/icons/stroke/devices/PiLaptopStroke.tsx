@@ -16,7 +16,7 @@ export default function PiLaptopStroke({
   className,
   ariaLabel = 'laptop icon',
   ...props
-}: PiLaptopStrokeProps): JSX.Element {
+}: PiLaptopStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

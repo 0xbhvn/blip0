@@ -16,7 +16,7 @@ export default function PiArchiveCancelSolid({
   className,
   ariaLabel = 'archive-cancel icon',
   ...props
-}: PiArchiveCancelSolidProps): JSX.Element {
+}: PiArchiveCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

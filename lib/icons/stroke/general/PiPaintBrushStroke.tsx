@@ -16,7 +16,7 @@ export default function PiPaintBrushStroke({
   className,
   ariaLabel = 'paint-brush icon',
   ...props
-}: PiPaintBrushStrokeProps): JSX.Element {
+}: PiPaintBrushStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

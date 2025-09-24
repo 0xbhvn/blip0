@@ -16,7 +16,7 @@ export default function PiUserAISolid({
   className,
   ariaLabel = 'user-ai icon',
   ...props
-}: PiUserAISolidProps): JSX.Element {
+}: PiUserAISolidProps): React.ReactElement {
   return (
     <svg
       width={size}

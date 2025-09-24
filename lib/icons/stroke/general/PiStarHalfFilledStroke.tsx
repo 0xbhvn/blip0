@@ -16,7 +16,7 @@ export default function PiStarHalfFilledStroke({
   className,
   ariaLabel = 'star-half-filled icon',
   ...props
-}: PiStarHalfFilledStrokeProps): JSX.Element {
+}: PiStarHalfFilledStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

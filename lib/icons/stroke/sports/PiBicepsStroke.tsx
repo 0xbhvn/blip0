@@ -16,7 +16,7 @@ export default function PiBicepsStroke({
   className,
   ariaLabel = 'biceps icon',
   ...props
-}: PiBicepsStrokeProps): JSX.Element {
+}: PiBicepsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

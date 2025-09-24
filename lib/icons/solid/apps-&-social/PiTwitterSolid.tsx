@@ -16,7 +16,7 @@ export default function PiTwitterSolid({
   className,
   ariaLabel = 'twitter icon',
   ...props
-}: PiTwitterSolidProps): JSX.Element {
+}: PiTwitterSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

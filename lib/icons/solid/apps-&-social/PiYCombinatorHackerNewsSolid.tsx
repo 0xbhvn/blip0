@@ -16,7 +16,7 @@ export default function PiYCombinatorHackerNewsSolid({
   className,
   ariaLabel = 'y-combinator-hacker-news icon',
   ...props
-}: PiYCombinatorHackerNewsSolidProps): JSX.Element {
+}: PiYCombinatorHackerNewsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

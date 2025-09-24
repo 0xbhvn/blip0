@@ -16,7 +16,7 @@ export default function PiBankStroke({
   className,
   ariaLabel = 'bank icon',
   ...props
-}: PiBankStrokeProps): JSX.Element {
+}: PiBankStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

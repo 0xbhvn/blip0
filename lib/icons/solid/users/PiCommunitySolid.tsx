@@ -16,7 +16,7 @@ export default function PiCommunitySolid({
   className,
   ariaLabel = 'community icon',
   ...props
-}: PiCommunitySolidProps): JSX.Element {
+}: PiCommunitySolidProps): React.ReactElement {
   return (
     <svg
       width={size}

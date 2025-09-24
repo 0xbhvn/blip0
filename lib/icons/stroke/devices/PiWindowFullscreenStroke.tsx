@@ -16,7 +16,7 @@ export default function PiWindowFullscreenStroke({
   className,
   ariaLabel = 'window-fullscreen icon',
   ...props
-}: PiWindowFullscreenStrokeProps): JSX.Element {
+}: PiWindowFullscreenStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

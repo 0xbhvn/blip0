@@ -16,7 +16,7 @@ export default function PiRssSquareSolid({
   className,
   ariaLabel = 'rss-square icon',
   ...props
-}: PiRssSquareSolidProps): JSX.Element {
+}: PiRssSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

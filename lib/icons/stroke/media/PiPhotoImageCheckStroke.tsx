@@ -16,7 +16,7 @@ export default function PiPhotoImageCheckStroke({
   className,
   ariaLabel = 'photo-image-check icon',
   ...props
-}: PiPhotoImageCheckStrokeProps): JSX.Element {
+}: PiPhotoImageCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

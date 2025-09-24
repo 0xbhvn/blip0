@@ -16,7 +16,7 @@ export default function PiCreditCardSettingsStroke({
   className,
   ariaLabel = 'credit-card-settings icon',
   ...props
-}: PiCreditCardSettingsStrokeProps): JSX.Element {
+}: PiCreditCardSettingsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

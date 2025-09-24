@@ -16,7 +16,7 @@ export default function PiCopyCopiedStroke({
   className,
   ariaLabel = 'copy-copied icon',
   ...props
-}: PiCopyCopiedStrokeProps): JSX.Element {
+}: PiCopyCopiedStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

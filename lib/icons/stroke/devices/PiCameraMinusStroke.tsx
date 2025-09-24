@@ -16,7 +16,7 @@ export default function PiCameraMinusStroke({
   className,
   ariaLabel = 'camera-minus icon',
   ...props
-}: PiCameraMinusStrokeProps): JSX.Element {
+}: PiCameraMinusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

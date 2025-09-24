@@ -16,7 +16,7 @@ export default function PiBookmarkRemoveStroke({
   className,
   ariaLabel = 'bookmark-remove icon',
   ...props
-}: PiBookmarkRemoveStrokeProps): JSX.Element {
+}: PiBookmarkRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

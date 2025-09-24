@@ -16,7 +16,7 @@ export default function PiUserRemoveStroke({
   className,
   ariaLabel = 'user-remove icon',
   ...props
-}: PiUserRemoveStrokeProps): JSX.Element {
+}: PiUserRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

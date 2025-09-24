@@ -16,7 +16,7 @@ export default function PiPhoneIncomingSolid({
   className,
   ariaLabel = 'phone-incoming icon',
   ...props
-}: PiPhoneIncomingSolidProps): JSX.Element {
+}: PiPhoneIncomingSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

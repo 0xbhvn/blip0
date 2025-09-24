@@ -16,7 +16,7 @@ export default function PiFloorLampOffStroke({
   className,
   ariaLabel = 'floor-lamp-off icon',
   ...props
-}: PiFloorLampOffStrokeProps): JSX.Element {
+}: PiFloorLampOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

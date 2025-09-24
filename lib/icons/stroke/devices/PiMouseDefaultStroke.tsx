@@ -16,7 +16,7 @@ export default function PiMouseDefaultStroke({
   className,
   ariaLabel = 'mouse-default icon',
   ...props
-}: PiMouseDefaultStrokeProps): JSX.Element {
+}: PiMouseDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

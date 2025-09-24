@@ -16,7 +16,7 @@ export default function PiCloudMoonStroke({
   className,
   ariaLabel = 'cloud-moon icon',
   ...props
-}: PiCloudMoonStrokeProps): JSX.Element {
+}: PiCloudMoonStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiVolumeZeroSolid({
   className,
   ariaLabel = 'volume-zero icon',
   ...props
-}: PiVolumeZeroSolidProps): JSX.Element {
+}: PiVolumeZeroSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiAlarmCheckStroke({
   className,
   ariaLabel = 'alarm-check icon',
   ...props
-}: PiAlarmCheckStrokeProps): JSX.Element {
+}: PiAlarmCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

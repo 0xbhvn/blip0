@@ -16,7 +16,7 @@ export default function PiTruckTrashSolid({
   className,
   ariaLabel = 'truck-trash icon',
   ...props
-}: PiTruckTrashSolidProps): JSX.Element {
+}: PiTruckTrashSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

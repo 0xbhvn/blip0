@@ -16,7 +16,7 @@ export default function PiShieldOffSolid({
   className,
   ariaLabel = 'shield-off icon',
   ...props
-}: PiShieldOffSolidProps): JSX.Element {
+}: PiShieldOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

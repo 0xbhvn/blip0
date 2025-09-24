@@ -16,7 +16,7 @@ export default function PiPlaylistNextStroke({
   className,
   ariaLabel = 'playlist-next icon',
   ...props
-}: PiPlaylistNextStrokeProps): JSX.Element {
+}: PiPlaylistNextStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

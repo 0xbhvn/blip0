@@ -16,7 +16,7 @@ export default function PiLibraryStroke({
   className,
   ariaLabel = 'library icon',
   ...props
-}: PiLibraryStrokeProps): JSX.Element {
+}: PiLibraryStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiInformationTriangleSolid({
   className,
   ariaLabel = 'information-triangle icon',
   ...props
-}: PiInformationTriangleSolidProps): JSX.Element {
+}: PiInformationTriangleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

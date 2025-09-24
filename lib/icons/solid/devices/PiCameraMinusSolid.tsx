@@ -16,7 +16,7 @@ export default function PiCameraMinusSolid({
   className,
   ariaLabel = 'camera-minus icon',
   ...props
-}: PiCameraMinusSolidProps): JSX.Element {
+}: PiCameraMinusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

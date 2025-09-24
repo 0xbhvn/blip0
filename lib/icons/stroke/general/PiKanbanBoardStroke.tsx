@@ -16,7 +16,7 @@ export default function PiKanbanBoardStroke({
   className,
   ariaLabel = 'kanban-board icon',
   ...props
-}: PiKanbanBoardStrokeProps): JSX.Element {
+}: PiKanbanBoardStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

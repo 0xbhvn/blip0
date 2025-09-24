@@ -16,7 +16,7 @@ export default function PiCrownWinnerKingStroke({
   className,
   ariaLabel = 'crown-winner-king icon',
   ...props
-}: PiCrownWinnerKingStrokeProps): JSX.Element {
+}: PiCrownWinnerKingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

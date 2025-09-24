@@ -16,7 +16,7 @@ export default function PiFireplaceSolid({
   className,
   ariaLabel = 'fireplace icon',
   ...props
-}: PiFireplaceSolidProps): JSX.Element {
+}: PiFireplaceSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

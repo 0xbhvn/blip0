@@ -16,7 +16,7 @@ export default function PiFilterFunnelStroke({
   className,
   ariaLabel = 'filter-funnel icon',
   ...props
-}: PiFilterFunnelStrokeProps): JSX.Element {
+}: PiFilterFunnelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

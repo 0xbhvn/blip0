@@ -16,7 +16,7 @@ export default function PiPriorityTrivialStroke({
   className,
   ariaLabel = 'priority-trivial icon',
   ...props
-}: PiPriorityTrivialStrokeProps): JSX.Element {
+}: PiPriorityTrivialStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

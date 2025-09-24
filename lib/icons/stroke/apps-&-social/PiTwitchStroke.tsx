@@ -16,7 +16,7 @@ export default function PiTwitchStroke({
   className,
   ariaLabel = 'twitch icon',
   ...props
-}: PiTwitchStrokeProps): JSX.Element {
+}: PiTwitchStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

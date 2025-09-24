@@ -16,7 +16,7 @@ export default function PiBurgerMenuFourStroke({
   className,
   ariaLabel = 'burger-menu-four icon',
   ...props
-}: PiBurgerMenuFourStrokeProps): JSX.Element {
+}: PiBurgerMenuFourStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

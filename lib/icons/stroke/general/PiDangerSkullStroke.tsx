@@ -16,7 +16,7 @@ export default function PiDangerSkullStroke({
   className,
   ariaLabel = 'danger-skull icon',
   ...props
-}: PiDangerSkullStrokeProps): JSX.Element {
+}: PiDangerSkullStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiTerminalConsoleCircleSolid({
   className,
   ariaLabel = 'terminal-console-circle icon',
   ...props
-}: PiTerminalConsoleCircleSolidProps): JSX.Element {
+}: PiTerminalConsoleCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

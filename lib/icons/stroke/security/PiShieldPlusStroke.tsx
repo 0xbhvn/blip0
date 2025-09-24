@@ -16,7 +16,7 @@ export default function PiShieldPlusStroke({
   className,
   ariaLabel = 'shield-plus icon',
   ...props
-}: PiShieldPlusStrokeProps): JSX.Element {
+}: PiShieldPlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

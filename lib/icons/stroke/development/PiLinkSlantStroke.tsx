@@ -16,7 +16,7 @@ export default function PiLinkSlantStroke({
   className,
   ariaLabel = 'link-slant icon',
   ...props
-}: PiLinkSlantStrokeProps): JSX.Element {
+}: PiLinkSlantStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

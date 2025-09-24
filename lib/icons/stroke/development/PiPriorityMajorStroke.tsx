@@ -16,7 +16,7 @@ export default function PiPriorityMajorStroke({
   className,
   ariaLabel = 'priority-major icon',
   ...props
-}: PiPriorityMajorStrokeProps): JSX.Element {
+}: PiPriorityMajorStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

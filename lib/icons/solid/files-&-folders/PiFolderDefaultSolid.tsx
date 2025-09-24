@@ -16,7 +16,7 @@ export default function PiFolderDefaultSolid({
   className,
   ariaLabel = 'folder-default icon',
   ...props
-}: PiFolderDefaultSolidProps): JSX.Element {
+}: PiFolderDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiTrendlineDownSquareSolid({
   className,
   ariaLabel = 'trendline-down-square icon',
   ...props
-}: PiTrendlineDownSquareSolidProps): JSX.Element {
+}: PiTrendlineDownSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

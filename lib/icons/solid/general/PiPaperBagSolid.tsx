@@ -16,7 +16,7 @@ export default function PiPaperBagSolid({
   className,
   ariaLabel = 'paper-bag icon',
   ...props
-}: PiPaperBagSolidProps): JSX.Element {
+}: PiPaperBagSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

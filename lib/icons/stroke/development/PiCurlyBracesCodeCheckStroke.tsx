@@ -16,7 +16,7 @@ export default function PiCurlyBracesCodeCheckStroke({
   className,
   ariaLabel = 'curly-braces-code-check icon',
   ...props
-}: PiCurlyBracesCodeCheckStrokeProps): JSX.Element {
+}: PiCurlyBracesCodeCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

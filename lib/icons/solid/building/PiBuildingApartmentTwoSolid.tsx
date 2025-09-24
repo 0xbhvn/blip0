@@ -16,7 +16,7 @@ export default function PiBuildingApartmentTwoSolid({
   className,
   ariaLabel = 'building-apartment-two icon',
   ...props
-}: PiBuildingApartmentTwoSolidProps): JSX.Element {
+}: PiBuildingApartmentTwoSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

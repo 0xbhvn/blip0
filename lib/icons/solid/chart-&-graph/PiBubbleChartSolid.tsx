@@ -16,7 +16,7 @@ export default function PiBubbleChartSolid({
   className,
   ariaLabel = 'bubble-chart icon',
   ...props
-}: PiBubbleChartSolidProps): JSX.Element {
+}: PiBubbleChartSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

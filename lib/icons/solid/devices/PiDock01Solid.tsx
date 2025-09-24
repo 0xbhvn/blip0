@@ -16,7 +16,7 @@ export default function PiDock01Solid({
   className,
   ariaLabel = 'dock-01 icon',
   ...props
-}: PiDock01SolidProps): JSX.Element {
+}: PiDock01SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

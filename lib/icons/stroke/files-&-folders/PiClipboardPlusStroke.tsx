@@ -16,7 +16,7 @@ export default function PiClipboardPlusStroke({
   className,
   ariaLabel = 'clipboard-plus icon',
   ...props
-}: PiClipboardPlusStrokeProps): JSX.Element {
+}: PiClipboardPlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPlaylistPlayStroke({
   className,
   ariaLabel = 'playlist-play icon',
   ...props
-}: PiPlaylistPlayStrokeProps): JSX.Element {
+}: PiPlaylistPlayStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

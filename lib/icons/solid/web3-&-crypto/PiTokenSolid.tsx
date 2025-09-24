@@ -16,7 +16,7 @@ export default function PiTokenSolid({
   className,
   ariaLabel = 'token icon',
   ...props
-}: PiTokenSolidProps): JSX.Element {
+}: PiTokenSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

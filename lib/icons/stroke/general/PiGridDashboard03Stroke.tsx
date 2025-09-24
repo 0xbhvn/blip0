@@ -16,7 +16,7 @@ export default function PiGridDashboard03Stroke({
   className,
   ariaLabel = 'grid-dashboard-03 icon',
   ...props
-}: PiGridDashboard03StrokeProps): JSX.Element {
+}: PiGridDashboard03StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiWifiOnStroke({
   className,
   ariaLabel = 'wifi-on icon',
   ...props
-}: PiWifiOnStrokeProps): JSX.Element {
+}: PiWifiOnStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

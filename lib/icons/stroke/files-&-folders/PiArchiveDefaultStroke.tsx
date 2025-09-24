@@ -16,7 +16,7 @@ export default function PiArchiveDefaultStroke({
   className,
   ariaLabel = 'archive-default icon',
   ...props
-}: PiArchiveDefaultStrokeProps): JSX.Element {
+}: PiArchiveDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

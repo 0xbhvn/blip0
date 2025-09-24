@@ -16,7 +16,7 @@ export default function PiMedicinePillCapsuleStroke({
   className,
   ariaLabel = 'medicine-pill-capsule icon',
   ...props
-}: PiMedicinePillCapsuleStrokeProps): JSX.Element {
+}: PiMedicinePillCapsuleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

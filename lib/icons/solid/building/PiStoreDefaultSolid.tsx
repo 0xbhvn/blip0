@@ -16,7 +16,7 @@ export default function PiStoreDefaultSolid({
   className,
   ariaLabel = 'store-default icon',
   ...props
-}: PiStoreDefaultSolidProps): JSX.Element {
+}: PiStoreDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

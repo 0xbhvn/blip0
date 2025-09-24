@@ -16,7 +16,7 @@ export default function PiChocolateBarSolid({
   className,
   ariaLabel = 'chocolate-bar icon',
   ...props
-}: PiChocolateBarSolidProps): JSX.Element {
+}: PiChocolateBarSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

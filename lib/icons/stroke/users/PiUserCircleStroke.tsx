@@ -16,7 +16,7 @@ export default function PiUserCircleStroke({
   className,
   ariaLabel = 'user-circle icon',
   ...props
-}: PiUserCircleStrokeProps): JSX.Element {
+}: PiUserCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPlaylistDownloadStroke({
   className,
   ariaLabel = 'playlist-download icon',
   ...props
-}: PiPlaylistDownloadStrokeProps): JSX.Element {
+}: PiPlaylistDownloadStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

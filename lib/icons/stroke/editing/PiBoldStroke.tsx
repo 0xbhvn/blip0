@@ -16,7 +16,7 @@ export default function PiBoldStroke({
   className,
   ariaLabel = 'bold icon',
   ...props
-}: PiBoldStrokeProps): JSX.Element {
+}: PiBoldStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

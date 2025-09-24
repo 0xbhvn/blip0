@@ -16,7 +16,7 @@ export default function PiNotificationBellRemoveSolid({
   className,
   ariaLabel = 'notification-bell-remove icon',
   ...props
-}: PiNotificationBellRemoveSolidProps): JSX.Element {
+}: PiNotificationBellRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

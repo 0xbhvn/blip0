@@ -16,7 +16,7 @@ export default function PiStrikeThroughStroke({
   className,
   ariaLabel = 'strike-through icon',
   ...props
-}: PiStrikeThroughStrokeProps): JSX.Element {
+}: PiStrikeThroughStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

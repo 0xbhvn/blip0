@@ -16,7 +16,7 @@ export default function PiRiveStroke({
   className,
   ariaLabel = 'rive icon',
   ...props
-}: PiRiveStrokeProps): JSX.Element {
+}: PiRiveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

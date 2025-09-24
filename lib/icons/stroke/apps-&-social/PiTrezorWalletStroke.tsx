@@ -16,7 +16,7 @@ export default function PiTrezorWalletStroke({
   className,
   ariaLabel = 'trezor-wallet icon',
   ...props
-}: PiTrezorWalletStrokeProps): JSX.Element {
+}: PiTrezorWalletStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

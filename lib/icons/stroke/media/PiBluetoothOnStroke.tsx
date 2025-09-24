@@ -16,7 +16,7 @@ export default function PiBluetoothOnStroke({
   className,
   ariaLabel = 'bluetooth-on icon',
   ...props
-}: PiBluetoothOnStrokeProps): JSX.Element {
+}: PiBluetoothOnStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

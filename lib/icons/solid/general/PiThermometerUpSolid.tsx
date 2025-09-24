@@ -16,7 +16,7 @@ export default function PiThermometerUpSolid({
   className,
   ariaLabel = 'thermometer-up icon',
   ...props
-}: PiThermometerUpSolidProps): JSX.Element {
+}: PiThermometerUpSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

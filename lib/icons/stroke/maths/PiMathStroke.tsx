@@ -16,7 +16,7 @@ export default function PiMathStroke({
   className,
   ariaLabel = 'math icon',
   ...props
-}: PiMathStrokeProps): JSX.Element {
+}: PiMathStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

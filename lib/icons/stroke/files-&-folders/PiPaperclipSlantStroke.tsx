@@ -16,7 +16,7 @@ export default function PiPaperclipSlantStroke({
   className,
   ariaLabel = 'paperclip-slant icon',
   ...props
-}: PiPaperclipSlantStrokeProps): JSX.Element {
+}: PiPaperclipSlantStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

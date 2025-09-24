@@ -16,7 +16,7 @@ export default function PiWindowBrowserStroke({
   className,
   ariaLabel = 'window-browser icon',
   ...props
-}: PiWindowBrowserStrokeProps): JSX.Element {
+}: PiWindowBrowserStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

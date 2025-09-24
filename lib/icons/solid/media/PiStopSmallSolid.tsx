@@ -16,7 +16,7 @@ export default function PiStopSmallSolid({
   className,
   ariaLabel = 'stop-small icon',
   ...props
-}: PiStopSmallSolidProps): JSX.Element {
+}: PiStopSmallSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

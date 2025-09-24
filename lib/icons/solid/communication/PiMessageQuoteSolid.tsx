@@ -16,7 +16,7 @@ export default function PiMessageQuoteSolid({
   className,
   ariaLabel = 'message-quote icon',
   ...props
-}: PiMessageQuoteSolidProps): JSX.Element {
+}: PiMessageQuoteSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

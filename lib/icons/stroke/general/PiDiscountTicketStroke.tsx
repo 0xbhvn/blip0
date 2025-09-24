@@ -16,7 +16,7 @@ export default function PiDiscountTicketStroke({
   className,
   ariaLabel = 'discount-ticket icon',
   ...props
-}: PiDiscountTicketStrokeProps): JSX.Element {
+}: PiDiscountTicketStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

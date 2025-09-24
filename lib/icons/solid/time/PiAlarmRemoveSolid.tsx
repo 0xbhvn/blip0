@@ -16,7 +16,7 @@ export default function PiAlarmRemoveSolid({
   className,
   ariaLabel = 'alarm-remove icon',
   ...props
-}: PiAlarmRemoveSolidProps): JSX.Element {
+}: PiAlarmRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

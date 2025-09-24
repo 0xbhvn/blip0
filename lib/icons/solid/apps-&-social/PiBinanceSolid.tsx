@@ -16,7 +16,7 @@ export default function PiBinanceSolid({
   className,
   ariaLabel = 'binance icon',
   ...props
-}: PiBinanceSolidProps): JSX.Element {
+}: PiBinanceSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

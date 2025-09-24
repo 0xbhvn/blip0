@@ -16,7 +16,7 @@ export default function PiCaptionOffStroke({
   className,
   ariaLabel = 'caption-off icon',
   ...props
-}: PiCaptionOffStrokeProps): JSX.Element {
+}: PiCaptionOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

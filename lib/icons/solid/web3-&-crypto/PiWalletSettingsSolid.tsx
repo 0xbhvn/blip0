@@ -16,7 +16,7 @@ export default function PiWalletSettingsSolid({
   className,
   ariaLabel = 'wallet-settings icon',
   ...props
-}: PiWalletSettingsSolidProps): JSX.Element {
+}: PiWalletSettingsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

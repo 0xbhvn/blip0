@@ -16,7 +16,7 @@ export default function PiTimerCheckSolid({
   className,
   ariaLabel = 'timer-check icon',
   ...props
-}: PiTimerCheckSolidProps): JSX.Element {
+}: PiTimerCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiNftProfileUser02Solid({
   className,
   ariaLabel = 'nft-profile-user-02 icon',
   ...props
-}: PiNftProfileUser02SolidProps): JSX.Element {
+}: PiNftProfileUser02SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

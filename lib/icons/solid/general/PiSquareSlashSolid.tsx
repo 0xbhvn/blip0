@@ -16,7 +16,7 @@ export default function PiSquareSlashSolid({
   className,
   ariaLabel = 'square-slash icon',
   ...props
-}: PiSquareSlashSolidProps): JSX.Element {
+}: PiSquareSlashSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

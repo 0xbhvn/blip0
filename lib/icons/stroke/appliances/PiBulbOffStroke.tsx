@@ -16,7 +16,7 @@ export default function PiBulbOffStroke({
   className,
   ariaLabel = 'bulb-off icon',
   ...props
-}: PiBulbOffStrokeProps): JSX.Element {
+}: PiBulbOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiDiscountBadgeSolid({
   className,
   ariaLabel = 'discount-badge icon',
   ...props
-}: PiDiscountBadgeSolidProps): JSX.Element {
+}: PiDiscountBadgeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

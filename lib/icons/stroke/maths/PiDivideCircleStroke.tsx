@@ -16,7 +16,7 @@ export default function PiDivideCircleStroke({
   className,
   ariaLabel = 'divide-circle icon',
   ...props
-}: PiDivideCircleStrokeProps): JSX.Element {
+}: PiDivideCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

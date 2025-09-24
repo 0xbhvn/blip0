@@ -16,7 +16,7 @@ export default function PiClipboardTextSolid({
   className,
   ariaLabel = 'clipboard-text icon',
   ...props
-}: PiClipboardTextSolidProps): JSX.Element {
+}: PiClipboardTextSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

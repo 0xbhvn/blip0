@@ -16,7 +16,7 @@ export default function PiWalletRemoveSolid({
   className,
   ariaLabel = 'wallet-remove icon',
   ...props
-}: PiWalletRemoveSolidProps): JSX.Element {
+}: PiWalletRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

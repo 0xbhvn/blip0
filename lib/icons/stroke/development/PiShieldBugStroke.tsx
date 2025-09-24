@@ -16,7 +16,7 @@ export default function PiShieldBugStroke({
   className,
   ariaLabel = 'shield-bug icon',
   ...props
-}: PiShieldBugStrokeProps): JSX.Element {
+}: PiShieldBugStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

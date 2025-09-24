@@ -16,7 +16,7 @@ export default function PiHeartBreakSolid({
   className,
   ariaLabel = 'heart-break icon',
   ...props
-}: PiHeartBreakSolidProps): JSX.Element {
+}: PiHeartBreakSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

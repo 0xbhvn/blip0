@@ -16,7 +16,7 @@ export default function PiCalendarExclamationMarkStroke({
   className,
   ariaLabel = 'calendar-exclamation-mark icon',
   ...props
-}: PiCalendarExclamationMarkStrokeProps): JSX.Element {
+}: PiCalendarExclamationMarkStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

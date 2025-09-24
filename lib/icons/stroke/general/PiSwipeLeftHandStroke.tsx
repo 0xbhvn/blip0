@@ -16,7 +16,7 @@ export default function PiSwipeLeftHandStroke({
   className,
   ariaLabel = 'swipe-left-hand icon',
   ...props
-}: PiSwipeLeftHandStrokeProps): JSX.Element {
+}: PiSwipeLeftHandStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

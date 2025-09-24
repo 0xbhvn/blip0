@@ -16,7 +16,7 @@ export default function PiUserShieldStroke({
   className,
   ariaLabel = 'user-shield icon',
   ...props
-}: PiUserShieldStrokeProps): JSX.Element {
+}: PiUserShieldStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

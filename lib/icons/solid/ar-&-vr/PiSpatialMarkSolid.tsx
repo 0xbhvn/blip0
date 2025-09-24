@@ -16,7 +16,7 @@ export default function PiSpatialMarkSolid({
   className,
   ariaLabel = 'spatial-mark icon',
   ...props
-}: PiSpatialMarkSolidProps): JSX.Element {
+}: PiSpatialMarkSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

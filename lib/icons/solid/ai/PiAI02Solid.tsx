@@ -16,7 +16,7 @@ export default function PiAI02Solid({
   className,
   ariaLabel = 'ai-02 icon',
   ...props
-}: PiAI02SolidProps): JSX.Element {
+}: PiAI02SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

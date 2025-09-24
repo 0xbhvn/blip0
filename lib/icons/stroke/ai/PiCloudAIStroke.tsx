@@ -16,7 +16,7 @@ export default function PiCloudAIStroke({
   className,
   ariaLabel = 'cloud-ai icon',
   ...props
-}: PiCloudAIStrokeProps): JSX.Element {
+}: PiCloudAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

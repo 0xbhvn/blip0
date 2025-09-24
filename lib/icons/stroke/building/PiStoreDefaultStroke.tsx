@@ -16,7 +16,7 @@ export default function PiStoreDefaultStroke({
   className,
   ariaLabel = 'store-default icon',
   ...props
-}: PiStoreDefaultStrokeProps): JSX.Element {
+}: PiStoreDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

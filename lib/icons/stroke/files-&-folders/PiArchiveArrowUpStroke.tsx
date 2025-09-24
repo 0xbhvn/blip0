@@ -16,7 +16,7 @@ export default function PiArchiveArrowUpStroke({
   className,
   ariaLabel = 'archive-arrow-up icon',
   ...props
-}: PiArchiveArrowUpStrokeProps): JSX.Element {
+}: PiArchiveArrowUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

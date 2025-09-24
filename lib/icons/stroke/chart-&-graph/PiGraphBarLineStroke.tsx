@@ -16,7 +16,7 @@ export default function PiGraphBarLineStroke({
   className,
   ariaLabel = 'graph-bar-line icon',
   ...props
-}: PiGraphBarLineStrokeProps): JSX.Element {
+}: PiGraphBarLineStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

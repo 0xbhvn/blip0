@@ -16,7 +16,7 @@ export default function PiSidebarDefaultStroke({
   className,
   ariaLabel = 'sidebar-default icon',
   ...props
-}: PiSidebarDefaultStrokeProps): JSX.Element {
+}: PiSidebarDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

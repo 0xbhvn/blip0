@@ -16,7 +16,7 @@ export default function PiCodeStroke({
   className,
   ariaLabel = 'code icon',
   ...props
-}: PiCodeStrokeProps): JSX.Element {
+}: PiCodeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

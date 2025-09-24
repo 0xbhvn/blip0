@@ -16,7 +16,7 @@ export default function PiSolscanStroke({
   className,
   ariaLabel = 'solscan icon',
   ...props
-}: PiSolscanStrokeProps): JSX.Element {
+}: PiSolscanStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

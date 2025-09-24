@@ -16,7 +16,7 @@ export default function PiServerReloadSolid({
   className,
   ariaLabel = 'server-reload icon',
   ...props
-}: PiServerReloadSolidProps): JSX.Element {
+}: PiServerReloadSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

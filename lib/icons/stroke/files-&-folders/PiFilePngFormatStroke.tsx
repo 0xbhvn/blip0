@@ -16,7 +16,7 @@ export default function PiFilePngFormatStroke({
   className,
   ariaLabel = 'file-png-format icon',
   ...props
-}: PiFilePngFormatStrokeProps): JSX.Element {
+}: PiFilePngFormatStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

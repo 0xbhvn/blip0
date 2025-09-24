@@ -16,7 +16,7 @@ export default function PiFolderAISolid({
   className,
   ariaLabel = 'folder-ai icon',
   ...props
-}: PiFolderAISolidProps): JSX.Element {
+}: PiFolderAISolidProps): React.ReactElement {
   return (
     <svg
       width={size}

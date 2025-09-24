@@ -16,7 +16,7 @@ export default function PiSendPlaneHorizontalSolid({
   className,
   ariaLabel = 'send-plane-horizontal icon',
   ...props
-}: PiSendPlaneHorizontalSolidProps): JSX.Element {
+}: PiSendPlaneHorizontalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

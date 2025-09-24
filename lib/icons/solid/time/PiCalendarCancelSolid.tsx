@@ -16,7 +16,7 @@ export default function PiCalendarCancelSolid({
   className,
   ariaLabel = 'calendar-cancel icon',
   ...props
-}: PiCalendarCancelSolidProps): JSX.Element {
+}: PiCalendarCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

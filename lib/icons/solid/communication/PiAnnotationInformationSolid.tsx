@@ -16,7 +16,7 @@ export default function PiAnnotationInformationSolid({
   className,
   ariaLabel = 'annotation-information icon',
   ...props
-}: PiAnnotationInformationSolidProps): JSX.Element {
+}: PiAnnotationInformationSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

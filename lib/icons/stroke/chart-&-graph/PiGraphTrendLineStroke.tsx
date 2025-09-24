@@ -16,7 +16,7 @@ export default function PiGraphTrendLineStroke({
   className,
   ariaLabel = 'graph-trend-line icon',
   ...props
-}: PiGraphTrendLineStrokeProps): JSX.Element {
+}: PiGraphTrendLineStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

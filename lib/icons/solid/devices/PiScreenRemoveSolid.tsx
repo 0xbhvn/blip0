@@ -16,7 +16,7 @@ export default function PiScreenRemoveSolid({
   className,
   ariaLabel = 'screen-remove icon',
   ...props
-}: PiScreenRemoveSolidProps): JSX.Element {
+}: PiScreenRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

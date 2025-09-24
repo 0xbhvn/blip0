@@ -16,7 +16,7 @@ export default function PiPlaylistPreviousStroke({
   className,
   ariaLabel = 'playlist-previous icon',
   ...props
-}: PiPlaylistPreviousStrokeProps): JSX.Element {
+}: PiPlaylistPreviousStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

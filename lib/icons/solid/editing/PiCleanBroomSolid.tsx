@@ -16,7 +16,7 @@ export default function PiCleanBroomSolid({
   className,
   ariaLabel = 'clean-broom icon',
   ...props
-}: PiCleanBroomSolidProps): JSX.Element {
+}: PiCleanBroomSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

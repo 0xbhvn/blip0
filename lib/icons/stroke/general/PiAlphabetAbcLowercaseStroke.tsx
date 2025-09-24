@@ -16,7 +16,7 @@ export default function PiAlphabetAbcLowercaseStroke({
   className,
   ariaLabel = 'alphabet-abc-lowercase icon',
   ...props
-}: PiAlphabetAbcLowercaseStrokeProps): JSX.Element {
+}: PiAlphabetAbcLowercaseStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

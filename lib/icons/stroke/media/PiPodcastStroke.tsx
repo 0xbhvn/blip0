@@ -16,7 +16,7 @@ export default function PiPodcastStroke({
   className,
   ariaLabel = 'podcast icon',
   ...props
-}: PiPodcastStrokeProps): JSX.Element {
+}: PiPodcastStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

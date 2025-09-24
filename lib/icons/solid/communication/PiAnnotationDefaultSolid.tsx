@@ -16,7 +16,7 @@ export default function PiAnnotationDefaultSolid({
   className,
   ariaLabel = 'annotation-default icon',
   ...props
-}: PiAnnotationDefaultSolidProps): JSX.Element {
+}: PiAnnotationDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

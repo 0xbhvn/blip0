@@ -16,7 +16,7 @@ export default function PiRemoteAppleTvSolid({
   className,
   ariaLabel = 'remote-apple-tv icon',
   ...props
-}: PiRemoteAppleTvSolidProps): JSX.Element {
+}: PiRemoteAppleTvSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

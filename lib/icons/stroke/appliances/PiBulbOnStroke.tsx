@@ -16,7 +16,7 @@ export default function PiBulbOnStroke({
   className,
   ariaLabel = 'bulb-on icon',
   ...props
-}: PiBulbOnStrokeProps): JSX.Element {
+}: PiBulbOnStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiTokenStroke({
   className,
   ariaLabel = 'token icon',
   ...props
-}: PiTokenStrokeProps): JSX.Element {
+}: PiTokenStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

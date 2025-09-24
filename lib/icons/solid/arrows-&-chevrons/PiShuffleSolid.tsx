@@ -16,7 +16,7 @@ export default function PiShuffleSolid({
   className,
   ariaLabel = 'shuffle icon',
   ...props
-}: PiShuffleSolidProps): JSX.Element {
+}: PiShuffleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCoinbaseSolid({
   className,
   ariaLabel = 'coinbase icon',
   ...props
-}: PiCoinbaseSolidProps): JSX.Element {
+}: PiCoinbaseSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiDemergeSolid({
   className,
   ariaLabel = 'demerge icon',
   ...props
-}: PiDemergeSolidProps): JSX.Element {
+}: PiDemergeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

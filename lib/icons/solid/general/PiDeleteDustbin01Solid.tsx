@@ -16,7 +16,7 @@ export default function PiDeleteDustbin01Solid({
   className,
   ariaLabel = 'delete-dustbin-01 icon',
   ...props
-}: PiDeleteDustbin01SolidProps): JSX.Element {
+}: PiDeleteDustbin01SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

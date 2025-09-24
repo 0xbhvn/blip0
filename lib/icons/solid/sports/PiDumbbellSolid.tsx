@@ -16,7 +16,7 @@ export default function PiDumbbellSolid({
   className,
   ariaLabel = 'dumbbell icon',
   ...props
-}: PiDumbbellSolidProps): JSX.Element {
+}: PiDumbbellSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

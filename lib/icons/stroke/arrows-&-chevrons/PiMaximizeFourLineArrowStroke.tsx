@@ -16,7 +16,7 @@ export default function PiMaximizeFourLineArrowStroke({
   className,
   ariaLabel = 'maximize-four-line-arrow icon',
   ...props
-}: PiMaximizeFourLineArrowStrokeProps): JSX.Element {
+}: PiMaximizeFourLineArrowStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

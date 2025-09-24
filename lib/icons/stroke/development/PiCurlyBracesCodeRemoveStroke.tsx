@@ -16,7 +16,7 @@ export default function PiCurlyBracesCodeRemoveStroke({
   className,
   ariaLabel = 'curly-braces-code-remove icon',
   ...props
-}: PiCurlyBracesCodeRemoveStrokeProps): JSX.Element {
+}: PiCurlyBracesCodeRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

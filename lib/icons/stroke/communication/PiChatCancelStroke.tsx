@@ -16,7 +16,7 @@ export default function PiChatCancelStroke({
   className,
   ariaLabel = 'chat-cancel icon',
   ...props
-}: PiChatCancelStrokeProps): JSX.Element {
+}: PiChatCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

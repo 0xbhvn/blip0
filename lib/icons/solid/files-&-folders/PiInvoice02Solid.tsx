@@ -16,7 +16,7 @@ export default function PiInvoice02Solid({
   className,
   ariaLabel = 'invoice-02 icon',
   ...props
-}: PiInvoice02SolidProps): JSX.Element {
+}: PiInvoice02SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

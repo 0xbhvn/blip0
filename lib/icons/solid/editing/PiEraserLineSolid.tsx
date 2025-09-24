@@ -16,7 +16,7 @@ export default function PiEraserLineSolid({
   className,
   ariaLabel = 'eraser-line icon',
   ...props
-}: PiEraserLineSolidProps): JSX.Element {
+}: PiEraserLineSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

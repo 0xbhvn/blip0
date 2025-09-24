@@ -16,7 +16,7 @@ export default function PiPhotoImageArrowUpStroke({
   className,
   ariaLabel = 'photo-image-arrow-up icon',
   ...props
-}: PiPhotoImageArrowUpStrokeProps): JSX.Element {
+}: PiPhotoImageArrowUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

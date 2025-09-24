@@ -16,7 +16,7 @@ export default function PiLabFlaskConicalStroke({
   className,
   ariaLabel = 'lab-flask-conical icon',
   ...props
-}: PiLabFlaskConicalStrokeProps): JSX.Element {
+}: PiLabFlaskConicalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

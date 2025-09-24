@@ -16,7 +16,7 @@ export default function PiHomeVLineSolid({
   className,
   ariaLabel = 'home-v-line icon',
   ...props
-}: PiHomeVLineSolidProps): JSX.Element {
+}: PiHomeVLineSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

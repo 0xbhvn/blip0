@@ -16,7 +16,7 @@ export default function PiGitBranchCancelStroke({
   className,
   ariaLabel = 'git-branch-cancel icon',
   ...props
-}: PiGitBranchCancelStrokeProps): JSX.Element {
+}: PiGitBranchCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

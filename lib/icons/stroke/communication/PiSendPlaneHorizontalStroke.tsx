@@ -16,7 +16,7 @@ export default function PiSendPlaneHorizontalStroke({
   className,
   ariaLabel = 'send-plane-horizontal icon',
   ...props
-}: PiSendPlaneHorizontalStrokeProps): JSX.Element {
+}: PiSendPlaneHorizontalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

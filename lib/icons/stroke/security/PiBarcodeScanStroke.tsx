@@ -16,7 +16,7 @@ export default function PiBarcodeScanStroke({
   className,
   ariaLabel = 'barcode-scan icon',
   ...props
-}: PiBarcodeScanStrokeProps): JSX.Element {
+}: PiBarcodeScanStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPhonePlusSolid({
   className,
   ariaLabel = 'phone-plus icon',
   ...props
-}: PiPhonePlusSolidProps): JSX.Element {
+}: PiPhonePlusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

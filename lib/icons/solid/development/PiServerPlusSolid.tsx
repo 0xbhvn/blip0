@@ -16,7 +16,7 @@ export default function PiServerPlusSolid({
   className,
   ariaLabel = 'server-plus icon',
   ...props
-}: PiServerPlusSolidProps): JSX.Element {
+}: PiServerPlusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

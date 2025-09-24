@@ -16,7 +16,7 @@ export default function PiClipboardArrowDownRightSolid({
   className,
   ariaLabel = 'clipboard-arrow-down-right icon',
   ...props
-}: PiClipboardArrowDownRightSolidProps): JSX.Element {
+}: PiClipboardArrowDownRightSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

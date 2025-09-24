@@ -16,7 +16,7 @@ export default function PiBottleSoapStroke({
   className,
   ariaLabel = 'bottle-soap icon',
   ...props
-}: PiBottleSoapStrokeProps): JSX.Element {
+}: PiBottleSoapStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

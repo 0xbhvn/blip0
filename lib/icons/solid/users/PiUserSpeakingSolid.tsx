@@ -16,7 +16,7 @@ export default function PiUserSpeakingSolid({
   className,
   ariaLabel = 'user-speaking icon',
   ...props
-}: PiUserSpeakingSolidProps): JSX.Element {
+}: PiUserSpeakingSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiBlueskySolid({
   className,
   ariaLabel = 'bluesky icon',
   ...props
-}: PiBlueskySolidProps): JSX.Element {
+}: PiBlueskySolidProps): React.ReactElement {
   return (
     <svg
       width={size}

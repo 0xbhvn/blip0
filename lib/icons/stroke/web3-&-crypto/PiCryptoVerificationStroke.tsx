@@ -16,7 +16,7 @@ export default function PiCryptoVerificationStroke({
   className,
   ariaLabel = 'crypto-verification icon',
   ...props
-}: PiCryptoVerificationStrokeProps): JSX.Element {
+}: PiCryptoVerificationStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

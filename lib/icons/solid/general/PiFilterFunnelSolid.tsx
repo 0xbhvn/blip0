@@ -16,7 +16,7 @@ export default function PiFilterFunnelSolid({
   className,
   ariaLabel = 'filter-funnel icon',
   ...props
-}: PiFilterFunnelSolidProps): JSX.Element {
+}: PiFilterFunnelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

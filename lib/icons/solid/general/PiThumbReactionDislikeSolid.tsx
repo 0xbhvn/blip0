@@ -16,7 +16,7 @@ export default function PiThumbReactionDislikeSolid({
   className,
   ariaLabel = 'thumb-reaction-dislike icon',
   ...props
-}: PiThumbReactionDislikeSolidProps): JSX.Element {
+}: PiThumbReactionDislikeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

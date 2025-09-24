@@ -16,7 +16,7 @@ export default function PiArchiveCancelStroke({
   className,
   ariaLabel = 'archive-cancel icon',
   ...props
-}: PiArchiveCancelStrokeProps): JSX.Element {
+}: PiArchiveCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

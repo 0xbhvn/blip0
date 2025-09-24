@@ -16,7 +16,7 @@ export default function PiItalicStroke({
   className,
   ariaLabel = 'italic icon',
   ...props
-}: PiItalicStrokeProps): JSX.Element {
+}: PiItalicStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

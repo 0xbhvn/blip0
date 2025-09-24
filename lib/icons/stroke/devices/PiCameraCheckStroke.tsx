@@ -16,7 +16,7 @@ export default function PiCameraCheckStroke({
   className,
   ariaLabel = 'camera-check icon',
   ...props
-}: PiCameraCheckStrokeProps): JSX.Element {
+}: PiCameraCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

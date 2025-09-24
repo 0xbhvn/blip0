@@ -16,7 +16,7 @@ export default function PiListCancelStroke({
   className,
   ariaLabel = 'list-cancel icon',
   ...props
-}: PiListCancelStrokeProps): JSX.Element {
+}: PiListCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

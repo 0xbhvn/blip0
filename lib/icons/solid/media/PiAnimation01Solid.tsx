@@ -16,7 +16,7 @@ export default function PiAnimation01Solid({
   className,
   ariaLabel = 'animation-01 icon',
   ...props
-}: PiAnimation01SolidProps): JSX.Element {
+}: PiAnimation01SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

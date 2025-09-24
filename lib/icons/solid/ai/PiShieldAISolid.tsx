@@ -16,7 +16,7 @@ export default function PiShieldAISolid({
   className,
   ariaLabel = 'shield-ai icon',
   ...props
-}: PiShieldAISolidProps): JSX.Element {
+}: PiShieldAISolidProps): React.ReactElement {
   return (
     <svg
       width={size}

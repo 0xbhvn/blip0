@@ -16,7 +16,7 @@ export default function PiEggBrokenStroke({
   className,
   ariaLabel = 'egg-broken icon',
   ...props
-}: PiEggBrokenStrokeProps): JSX.Element {
+}: PiEggBrokenStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

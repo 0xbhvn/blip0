@@ -16,7 +16,7 @@ export default function PiKeySlantSolid({
   className,
   ariaLabel = 'key-slant icon',
   ...props
-}: PiKeySlantSolidProps): JSX.Element {
+}: PiKeySlantSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

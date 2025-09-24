@@ -16,7 +16,7 @@ export default function PiDivideSquareSolid({
   className,
   ariaLabel = 'divide-square icon',
   ...props
-}: PiDivideSquareSolidProps): JSX.Element {
+}: PiDivideSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

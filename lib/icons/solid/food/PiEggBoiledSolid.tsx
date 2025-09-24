@@ -16,7 +16,7 @@ export default function PiEggBoiledSolid({
   className,
   ariaLabel = 'egg-boiled icon',
   ...props
-}: PiEggBoiledSolidProps): JSX.Element {
+}: PiEggBoiledSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

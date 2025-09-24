@@ -16,7 +16,7 @@ export default function PiEarthGlobeTimezoneSolid({
   className,
   ariaLabel = 'earth-globe-timezone icon',
   ...props
-}: PiEarthGlobeTimezoneSolidProps): JSX.Element {
+}: PiEarthGlobeTimezoneSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiGraphChartMaximumStroke({
   className,
   ariaLabel = 'graph-chart-maximum icon',
   ...props
-}: PiGraphChartMaximumStrokeProps): JSX.Element {
+}: PiGraphChartMaximumStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

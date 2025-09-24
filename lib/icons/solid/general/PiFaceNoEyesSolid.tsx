@@ -16,7 +16,7 @@ export default function PiFaceNoEyesSolid({
   className,
   ariaLabel = 'face-no-eyes icon',
   ...props
-}: PiFaceNoEyesSolidProps): JSX.Element {
+}: PiFaceNoEyesSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

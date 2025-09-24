@@ -16,7 +16,7 @@ export default function PiGitPullRequestDraftSolid({
   className,
   ariaLabel = 'git-pull-request-draft icon',
   ...props
-}: PiGitPullRequestDraftSolidProps): JSX.Element {
+}: PiGitPullRequestDraftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

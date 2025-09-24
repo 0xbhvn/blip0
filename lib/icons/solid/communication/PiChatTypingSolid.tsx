@@ -16,7 +16,7 @@ export default function PiChatTypingSolid({
   className,
   ariaLabel = 'chat-typing icon',
   ...props
-}: PiChatTypingSolidProps): JSX.Element {
+}: PiChatTypingSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

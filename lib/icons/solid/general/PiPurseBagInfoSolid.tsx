@@ -16,7 +16,7 @@ export default function PiPurseBagInfoSolid({
   className,
   ariaLabel = 'purse-bag-info icon',
   ...props
-}: PiPurseBagInfoSolidProps): JSX.Element {
+}: PiPurseBagInfoSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

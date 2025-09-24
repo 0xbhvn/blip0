@@ -16,7 +16,7 @@ export default function PiPlaylistPauseSolid({
   className,
   ariaLabel = 'playlist-pause icon',
   ...props
-}: PiPlaylistPauseSolidProps): JSX.Element {
+}: PiPlaylistPauseSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

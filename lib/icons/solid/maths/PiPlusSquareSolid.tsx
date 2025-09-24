@@ -16,7 +16,7 @@ export default function PiPlusSquareSolid({
   className,
   ariaLabel = 'plus-square icon',
   ...props
-}: PiPlusSquareSolidProps): JSX.Element {
+}: PiPlusSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

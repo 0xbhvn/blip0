@@ -16,7 +16,7 @@ export default function PiVolumeOneSolid({
   className,
   ariaLabel = 'volume-one icon',
   ...props
-}: PiVolumeOneSolidProps): JSX.Element {
+}: PiVolumeOneSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

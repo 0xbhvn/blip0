@@ -16,7 +16,7 @@ export default function PiDrawHighlighterStroke({
   className,
   ariaLabel = 'draw-highlighter icon',
   ...props
-}: PiDrawHighlighterStrokeProps): JSX.Element {
+}: PiDrawHighlighterStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

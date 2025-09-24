@@ -16,7 +16,7 @@ export default function PiMetamaskSolid({
   className,
   ariaLabel = 'metamask icon',
   ...props
-}: PiMetamaskSolidProps): JSX.Element {
+}: PiMetamaskSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiGodlyWebsiteStroke({
   className,
   ariaLabel = 'godly-website icon',
   ...props
-}: PiGodlyWebsiteStrokeProps): JSX.Element {
+}: PiGodlyWebsiteStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

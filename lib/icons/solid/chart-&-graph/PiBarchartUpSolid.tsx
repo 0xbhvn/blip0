@@ -16,7 +16,7 @@ export default function PiBarchartUpSolid({
   className,
   ariaLabel = 'barchart-up icon',
   ...props
-}: PiBarchartUpSolidProps): JSX.Element {
+}: PiBarchartUpSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

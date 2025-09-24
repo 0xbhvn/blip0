@@ -16,7 +16,7 @@ export default function PiVideoCallRemoveStroke({
   className,
   ariaLabel = 'video-call-remove icon',
   ...props
-}: PiVideoCallRemoveStrokeProps): JSX.Element {
+}: PiVideoCallRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

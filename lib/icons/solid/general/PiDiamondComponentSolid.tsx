@@ -16,7 +16,7 @@ export default function PiDiamondComponentSolid({
   className,
   ariaLabel = 'diamond-component icon',
   ...props
-}: PiDiamondComponentSolidProps): JSX.Element {
+}: PiDiamondComponentSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiBluetoothOffStroke({
   className,
   ariaLabel = 'bluetooth-off icon',
   ...props
-}: PiBluetoothOffStrokeProps): JSX.Element {
+}: PiBluetoothOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

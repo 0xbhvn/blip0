@@ -16,7 +16,7 @@ export default function PiAcOnFastStroke({
   className,
   ariaLabel = 'ac-on-fast icon',
   ...props
-}: PiAcOnFastStrokeProps): JSX.Element {
+}: PiAcOnFastStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

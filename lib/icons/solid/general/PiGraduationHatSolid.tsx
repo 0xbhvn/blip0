@@ -16,7 +16,7 @@ export default function PiGraduationHatSolid({
   className,
   ariaLabel = 'graduation-hat icon',
   ...props
-}: PiGraduationHatSolidProps): JSX.Element {
+}: PiGraduationHatSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

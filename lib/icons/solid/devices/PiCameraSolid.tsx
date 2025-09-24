@@ -16,7 +16,7 @@ export default function PiCameraSolid({
   className,
   ariaLabel = 'camera icon',
   ...props
-}: PiCameraSolidProps): JSX.Element {
+}: PiCameraSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiSupabaseSolid({
   className,
   ariaLabel = 'supabase icon',
   ...props
-}: PiSupabaseSolidProps): JSX.Element {
+}: PiSupabaseSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFramerStroke({
   className,
   ariaLabel = 'framer icon',
   ...props
-}: PiFramerStrokeProps): JSX.Element {
+}: PiFramerStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

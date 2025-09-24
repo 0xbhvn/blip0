@@ -16,7 +16,7 @@ export default function PiDemergeStroke({
   className,
   ariaLabel = 'demerge icon',
   ...props
-}: PiDemergeStrokeProps): JSX.Element {
+}: PiDemergeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

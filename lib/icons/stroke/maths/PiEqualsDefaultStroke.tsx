@@ -16,7 +16,7 @@ export default function PiEqualsDefaultStroke({
   className,
   ariaLabel = 'equals-default icon',
   ...props
-}: PiEqualsDefaultStrokeProps): JSX.Element {
+}: PiEqualsDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiUserLoveHeartStroke({
   className,
   ariaLabel = 'user-love-heart icon',
   ...props
-}: PiUserLoveHeartStrokeProps): JSX.Element {
+}: PiUserLoveHeartStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

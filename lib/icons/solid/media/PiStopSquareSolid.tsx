@@ -16,7 +16,7 @@ export default function PiStopSquareSolid({
   className,
   ariaLabel = 'stop-square icon',
   ...props
-}: PiStopSquareSolidProps): JSX.Element {
+}: PiStopSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

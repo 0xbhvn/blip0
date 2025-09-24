@@ -16,7 +16,7 @@ export default function PiInformationSquareStroke({
   className,
   ariaLabel = 'information-square icon',
   ...props
-}: PiInformationSquareStrokeProps): JSX.Element {
+}: PiInformationSquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

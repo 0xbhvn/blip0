@@ -16,7 +16,7 @@ export default function PiPresentationBargraphSolid({
   className,
   ariaLabel = 'presentation-bargraph icon',
   ...props
-}: PiPresentationBargraphSolidProps): JSX.Element {
+}: PiPresentationBargraphSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

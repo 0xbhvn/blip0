@@ -16,7 +16,7 @@ export default function PiScissorsRightCutStroke({
   className,
   ariaLabel = 'scissors-right-cut icon',
   ...props
-}: PiScissorsRightCutStrokeProps): JSX.Element {
+}: PiScissorsRightCutStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

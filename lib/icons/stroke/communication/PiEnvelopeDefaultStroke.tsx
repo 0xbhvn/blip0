@@ -16,7 +16,7 @@ export default function PiEnvelopeDefaultStroke({
   className,
   ariaLabel = 'envelope-default icon',
   ...props
-}: PiEnvelopeDefaultStrokeProps): JSX.Element {
+}: PiEnvelopeDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

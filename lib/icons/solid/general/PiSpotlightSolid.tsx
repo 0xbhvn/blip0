@@ -16,7 +16,7 @@ export default function PiSpotlightSolid({
   className,
   ariaLabel = 'spotlight icon',
   ...props
-}: PiSpotlightSolidProps): JSX.Element {
+}: PiSpotlightSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

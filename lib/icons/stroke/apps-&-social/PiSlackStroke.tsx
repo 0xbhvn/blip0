@@ -16,7 +16,7 @@ export default function PiSlackStroke({
   className,
   ariaLabel = 'slack icon',
   ...props
-}: PiSlackStrokeProps): JSX.Element {
+}: PiSlackStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

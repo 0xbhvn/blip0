@@ -16,7 +16,7 @@ export default function PiTelegramStroke({
   className,
   ariaLabel = 'telegram icon',
   ...props
-}: PiTelegramStrokeProps): JSX.Element {
+}: PiTelegramStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

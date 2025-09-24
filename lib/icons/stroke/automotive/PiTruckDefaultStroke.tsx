@@ -16,7 +16,7 @@ export default function PiTruckDefaultStroke({
   className,
   ariaLabel = 'truck-default icon',
   ...props
-}: PiTruckDefaultStrokeProps): JSX.Element {
+}: PiTruckDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

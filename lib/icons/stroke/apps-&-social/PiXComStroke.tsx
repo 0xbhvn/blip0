@@ -16,7 +16,7 @@ export default function PiXComStroke({
   className,
   ariaLabel = 'x-com icon',
   ...props
-}: PiXComStrokeProps): JSX.Element {
+}: PiXComStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

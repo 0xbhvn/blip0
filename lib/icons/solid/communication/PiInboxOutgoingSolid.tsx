@@ -16,7 +16,7 @@ export default function PiInboxOutgoingSolid({
   className,
   ariaLabel = 'inbox-outgoing icon',
   ...props
-}: PiInboxOutgoingSolidProps): JSX.Element {
+}: PiInboxOutgoingSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

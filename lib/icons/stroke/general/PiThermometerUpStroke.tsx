@@ -16,7 +16,7 @@ export default function PiThermometerUpStroke({
   className,
   ariaLabel = 'thermometer-up icon',
   ...props
-}: PiThermometerUpStrokeProps): JSX.Element {
+}: PiThermometerUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

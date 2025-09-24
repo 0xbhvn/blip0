@@ -16,7 +16,7 @@ export default function PiRemoteAppleTvStroke({
   className,
   ariaLabel = 'remote-apple-tv icon',
   ...props
-}: PiRemoteAppleTvStrokeProps): JSX.Element {
+}: PiRemoteAppleTvStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiEggDefaultStroke({
   className,
   ariaLabel = 'egg-default icon',
   ...props
-}: PiEggDefaultStrokeProps): JSX.Element {
+}: PiEggDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

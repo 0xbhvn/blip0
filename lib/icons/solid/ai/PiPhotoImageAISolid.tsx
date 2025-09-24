@@ -16,7 +16,7 @@ export default function PiPhotoImageAISolid({
   className,
   ariaLabel = 'photo-image-ai icon',
   ...props
-}: PiPhotoImageAISolidProps): JSX.Element {
+}: PiPhotoImageAISolidProps): React.ReactElement {
   return (
     <svg
       width={size}

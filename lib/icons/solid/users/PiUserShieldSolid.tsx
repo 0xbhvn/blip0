@@ -16,7 +16,7 @@ export default function PiUserShieldSolid({
   className,
   ariaLabel = 'user-shield icon',
   ...props
-}: PiUserShieldSolidProps): JSX.Element {
+}: PiUserShieldSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

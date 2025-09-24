@@ -16,7 +16,7 @@ export default function PiCalendarPlusStroke({
   className,
   ariaLabel = 'calendar-plus icon',
   ...props
-}: PiCalendarPlusStrokeProps): JSX.Element {
+}: PiCalendarPlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

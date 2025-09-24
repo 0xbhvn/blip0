@@ -16,7 +16,7 @@ export default function PiMediaPlaySquareStroke({
   className,
   ariaLabel = 'media-play-square icon',
   ...props
-}: PiMediaPlaySquareStrokeProps): JSX.Element {
+}: PiMediaPlaySquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

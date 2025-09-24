@@ -16,7 +16,7 @@ export default function PiKeyTopRight02Solid({
   className,
   ariaLabel = 'key-top-right-02 icon',
   ...props
-}: PiKeyTopRight02SolidProps): JSX.Element {
+}: PiKeyTopRight02SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

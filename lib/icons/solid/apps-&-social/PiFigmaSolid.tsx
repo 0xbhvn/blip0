@@ -16,7 +16,7 @@ export default function PiFigmaSolid({
   className,
   ariaLabel = 'figma icon',
   ...props
-}: PiFigmaSolidProps): JSX.Element {
+}: PiFigmaSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiMessageCheckStroke({
   className,
   ariaLabel = 'message-check icon',
   ...props
-}: PiMessageCheckStrokeProps): JSX.Element {
+}: PiMessageCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

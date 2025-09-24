@@ -16,7 +16,7 @@ export default function PiLayoutGridStackLeftStroke({
   className,
   ariaLabel = 'layout-grid-stack-left icon',
   ...props
-}: PiLayoutGridStackLeftStrokeProps): JSX.Element {
+}: PiLayoutGridStackLeftStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

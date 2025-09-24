@@ -16,7 +16,7 @@ export default function PiAwardMedalSolid({
   className,
   ariaLabel = 'award-medal icon',
   ...props
-}: PiAwardMedalSolidProps): JSX.Element {
+}: PiAwardMedalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

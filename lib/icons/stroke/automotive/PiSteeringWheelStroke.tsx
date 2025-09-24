@@ -16,7 +16,7 @@ export default function PiSteeringWheelStroke({
   className,
   ariaLabel = 'steering-wheel icon',
   ...props
-}: PiSteeringWheelStrokeProps): JSX.Element {
+}: PiSteeringWheelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

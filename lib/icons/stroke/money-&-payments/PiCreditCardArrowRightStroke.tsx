@@ -16,7 +16,7 @@ export default function PiCreditCardArrowRightStroke({
   className,
   ariaLabel = 'credit-card-arrow-right icon',
   ...props
-}: PiCreditCardArrowRightStrokeProps): JSX.Element {
+}: PiCreditCardArrowRightStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

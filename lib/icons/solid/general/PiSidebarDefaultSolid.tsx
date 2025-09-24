@@ -16,7 +16,7 @@ export default function PiSidebarDefaultSolid({
   className,
   ariaLabel = 'sidebar-default icon',
   ...props
-}: PiSidebarDefaultSolidProps): JSX.Element {
+}: PiSidebarDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

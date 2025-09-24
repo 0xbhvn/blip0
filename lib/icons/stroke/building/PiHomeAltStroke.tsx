@@ -16,7 +16,7 @@ export default function PiHomeAltStroke({
   className,
   ariaLabel = 'home-alt icon',
   ...props
-}: PiHomeAltStrokeProps): JSX.Element {
+}: PiHomeAltStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

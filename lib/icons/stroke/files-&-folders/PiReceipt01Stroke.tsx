@@ -16,7 +16,7 @@ export default function PiReceipt01Stroke({
   className,
   ariaLabel = 'receipt-01 icon',
   ...props
-}: PiReceipt01StrokeProps): JSX.Element {
+}: PiReceipt01StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

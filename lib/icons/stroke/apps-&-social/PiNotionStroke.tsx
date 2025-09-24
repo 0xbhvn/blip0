@@ -16,7 +16,7 @@ export default function PiNotionStroke({
   className,
   ariaLabel = 'notion icon',
   ...props
-}: PiNotionStrokeProps): JSX.Element {
+}: PiNotionStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

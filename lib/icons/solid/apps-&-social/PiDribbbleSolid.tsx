@@ -16,7 +16,7 @@ export default function PiDribbbleSolid({
   className,
   ariaLabel = 'dribbble icon',
   ...props
-}: PiDribbbleSolidProps): JSX.Element {
+}: PiDribbbleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

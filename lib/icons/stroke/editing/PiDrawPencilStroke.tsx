@@ -16,7 +16,7 @@ export default function PiDrawPencilStroke({
   className,
   ariaLabel = 'draw-pencil icon',
   ...props
-}: PiDrawPencilStrokeProps): JSX.Element {
+}: PiDrawPencilStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

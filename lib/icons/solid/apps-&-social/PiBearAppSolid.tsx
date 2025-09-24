@@ -16,7 +16,7 @@ export default function PiBearAppSolid({
   className,
   ariaLabel = 'bear-app icon',
   ...props
-}: PiBearAppSolidProps): JSX.Element {
+}: PiBearAppSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

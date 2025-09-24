@@ -16,7 +16,7 @@ export default function PiGaugeSpeedometerTimerStroke({
   className,
   ariaLabel = 'gauge-speedometer-timer icon',
   ...props
-}: PiGaugeSpeedometerTimerStrokeProps): JSX.Element {
+}: PiGaugeSpeedometerTimerStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

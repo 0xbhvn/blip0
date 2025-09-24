@@ -16,7 +16,7 @@ export default function PiVideoCallRemoveSolid({
   className,
   ariaLabel = 'video-call-remove icon',
   ...props
-}: PiVideoCallRemoveSolidProps): JSX.Element {
+}: PiVideoCallRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

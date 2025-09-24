@@ -16,7 +16,7 @@ export default function PiSpotifyStroke({
   className,
   ariaLabel = 'spotify icon',
   ...props
-}: PiSpotifyStrokeProps): JSX.Element {
+}: PiSpotifyStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

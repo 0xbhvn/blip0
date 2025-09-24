@@ -16,7 +16,7 @@ export default function PiPiggyBankStroke({
   className,
   ariaLabel = 'piggy-bank icon',
   ...props
-}: PiPiggyBankStrokeProps): JSX.Element {
+}: PiPiggyBankStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

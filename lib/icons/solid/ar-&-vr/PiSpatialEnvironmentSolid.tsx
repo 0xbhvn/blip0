@@ -16,7 +16,7 @@ export default function PiSpatialEnvironmentSolid({
   className,
   ariaLabel = 'spatial-environment icon',
   ...props
-}: PiSpatialEnvironmentSolidProps): JSX.Element {
+}: PiSpatialEnvironmentSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCodepenStroke({
   className,
   ariaLabel = 'codepen icon',
   ...props
-}: PiCodepenStrokeProps): JSX.Element {
+}: PiCodepenStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiNotebookSolid({
   className,
   ariaLabel = 'notebook icon',
   ...props
-}: PiNotebookSolidProps): JSX.Element {
+}: PiNotebookSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiContactsBookSolid({
   className,
   ariaLabel = 'contacts-book icon',
   ...props
-}: PiContactsBookSolidProps): JSX.Element {
+}: PiContactsBookSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

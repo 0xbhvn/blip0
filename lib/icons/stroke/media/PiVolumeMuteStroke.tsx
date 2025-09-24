@@ -16,7 +16,7 @@ export default function PiVolumeMuteStroke({
   className,
   ariaLabel = 'volume-mute icon',
   ...props
-}: PiVolumeMuteStrokeProps): JSX.Element {
+}: PiVolumeMuteStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

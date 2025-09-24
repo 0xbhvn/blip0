@@ -16,7 +16,7 @@ export default function PiTerminalConsoleSquareStroke({
   className,
   ariaLabel = 'terminal-console-square icon',
   ...props
-}: PiTerminalConsoleSquareStrokeProps): JSX.Element {
+}: PiTerminalConsoleSquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

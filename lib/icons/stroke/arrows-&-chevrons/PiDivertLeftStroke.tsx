@@ -16,7 +16,7 @@ export default function PiDivertLeftStroke({
   className,
   ariaLabel = 'divert-left icon',
   ...props
-}: PiDivertLeftStrokeProps): JSX.Element {
+}: PiDivertLeftStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

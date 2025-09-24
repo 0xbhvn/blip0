@@ -16,7 +16,7 @@ export default function PiMessageArrowLeftSolid({
   className,
   ariaLabel = 'message-arrow-left icon',
   ...props
-}: PiMessageArrowLeftSolidProps): JSX.Element {
+}: PiMessageArrowLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

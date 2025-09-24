@@ -16,7 +16,7 @@ export default function PiQrDefaultStroke({
   className,
   ariaLabel = 'qr-default icon',
   ...props
-}: PiQrDefaultStrokeProps): JSX.Element {
+}: PiQrDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

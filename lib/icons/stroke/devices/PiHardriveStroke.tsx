@@ -16,7 +16,7 @@ export default function PiHardriveStroke({
   className,
   ariaLabel = 'hardrive icon',
   ...props
-}: PiHardriveStrokeProps): JSX.Element {
+}: PiHardriveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

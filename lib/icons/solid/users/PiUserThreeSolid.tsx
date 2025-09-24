@@ -16,7 +16,7 @@ export default function PiUserThreeSolid({
   className,
   ariaLabel = 'user-three icon',
   ...props
-}: PiUserThreeSolidProps): JSX.Element {
+}: PiUserThreeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

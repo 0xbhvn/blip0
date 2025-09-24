@@ -16,7 +16,7 @@ export default function PiCryptoVerificationSolid({
   className,
   ariaLabel = 'crypto-verification icon',
   ...props
-}: PiCryptoVerificationSolidProps): JSX.Element {
+}: PiCryptoVerificationSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

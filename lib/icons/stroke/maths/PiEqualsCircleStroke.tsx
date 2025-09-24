@@ -16,7 +16,7 @@ export default function PiEqualsCircleStroke({
   className,
   ariaLabel = 'equals-circle icon',
   ...props
-}: PiEqualsCircleStrokeProps): JSX.Element {
+}: PiEqualsCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

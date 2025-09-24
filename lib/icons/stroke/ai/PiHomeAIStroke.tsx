@@ -16,7 +16,7 @@ export default function PiHomeAIStroke({
   className,
   ariaLabel = 'home-ai icon',
   ...props
-}: PiHomeAIStrokeProps): JSX.Element {
+}: PiHomeAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

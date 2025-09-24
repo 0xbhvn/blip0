@@ -16,7 +16,7 @@ export default function PiTerminalConsoleCircleStroke({
   className,
   ariaLabel = 'terminal-console-circle icon',
   ...props
-}: PiTerminalConsoleCircleStrokeProps): JSX.Element {
+}: PiTerminalConsoleCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

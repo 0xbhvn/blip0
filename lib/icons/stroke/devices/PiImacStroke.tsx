@@ -16,7 +16,7 @@ export default function PiImacStroke({
   className,
   ariaLabel = 'imac icon',
   ...props
-}: PiImacStrokeProps): JSX.Element {
+}: PiImacStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

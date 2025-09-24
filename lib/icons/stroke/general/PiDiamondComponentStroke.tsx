@@ -16,7 +16,7 @@ export default function PiDiamondComponentStroke({
   className,
   ariaLabel = 'diamond-component icon',
   ...props
-}: PiDiamondComponentStrokeProps): JSX.Element {
+}: PiDiamondComponentStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

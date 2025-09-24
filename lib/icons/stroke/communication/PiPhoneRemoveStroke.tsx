@@ -16,7 +16,7 @@ export default function PiPhoneRemoveStroke({
   className,
   ariaLabel = 'phone-remove icon',
   ...props
-}: PiPhoneRemoveStrokeProps): JSX.Element {
+}: PiPhoneRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

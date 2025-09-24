@@ -16,7 +16,7 @@ export default function PiFolderPlusStroke({
   className,
   ariaLabel = 'folder-plus icon',
   ...props
-}: PiFolderPlusStrokeProps): JSX.Element {
+}: PiFolderPlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

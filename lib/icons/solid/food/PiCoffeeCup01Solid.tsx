@@ -16,7 +16,7 @@ export default function PiCoffeeCup01Solid({
   className,
   ariaLabel = 'coffee-cup-01 icon',
   ...props
-}: PiCoffeeCup01SolidProps): JSX.Element {
+}: PiCoffeeCup01SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

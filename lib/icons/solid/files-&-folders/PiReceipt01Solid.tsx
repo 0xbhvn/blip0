@@ -16,7 +16,7 @@ export default function PiReceipt01Solid({
   className,
   ariaLabel = 'receipt-01 icon',
   ...props
-}: PiReceipt01SolidProps): JSX.Element {
+}: PiReceipt01SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

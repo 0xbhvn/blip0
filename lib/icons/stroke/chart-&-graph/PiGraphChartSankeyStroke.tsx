@@ -16,7 +16,7 @@ export default function PiGraphChartSankeyStroke({
   className,
   ariaLabel = 'graph-chart-sankey icon',
   ...props
-}: PiGraphChartSankeyStrokeProps): JSX.Element {
+}: PiGraphChartSankeyStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

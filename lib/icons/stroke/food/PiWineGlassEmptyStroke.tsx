@@ -16,7 +16,7 @@ export default function PiWineGlassEmptyStroke({
   className,
   ariaLabel = 'wine-glass-empty icon',
   ...props
-}: PiWineGlassEmptyStrokeProps): JSX.Element {
+}: PiWineGlassEmptyStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

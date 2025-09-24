@@ -16,7 +16,7 @@ export default function PiScreenUploadSolid({
   className,
   ariaLabel = 'screen-upload icon',
   ...props
-}: PiScreenUploadSolidProps): JSX.Element {
+}: PiScreenUploadSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

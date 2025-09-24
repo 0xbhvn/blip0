@@ -16,7 +16,7 @@ export default function PiServerCheckStroke({
   className,
   ariaLabel = 'server-check icon',
   ...props
-}: PiServerCheckStrokeProps): JSX.Element {
+}: PiServerCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

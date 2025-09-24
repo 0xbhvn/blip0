@@ -16,7 +16,7 @@ export default function PiUserEditSolid({
   className,
   ariaLabel = 'user-edit icon',
   ...props
-}: PiUserEditSolidProps): JSX.Element {
+}: PiUserEditSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

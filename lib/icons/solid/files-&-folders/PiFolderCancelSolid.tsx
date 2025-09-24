@@ -16,7 +16,7 @@ export default function PiFolderCancelSolid({
   className,
   ariaLabel = 'folder-cancel icon',
   ...props
-}: PiFolderCancelSolidProps): JSX.Element {
+}: PiFolderCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

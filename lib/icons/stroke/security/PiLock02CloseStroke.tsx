@@ -16,7 +16,7 @@ export default function PiLock02CloseStroke({
   className,
   ariaLabel = 'lock-02-close icon',
   ...props
-}: PiLock02CloseStrokeProps): JSX.Element {
+}: PiLock02CloseStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

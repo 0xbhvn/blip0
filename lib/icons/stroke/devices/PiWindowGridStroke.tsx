@@ -16,7 +16,7 @@ export default function PiWindowGridStroke({
   className,
   ariaLabel = 'window-grid icon',
   ...props
-}: PiWindowGridStrokeProps): JSX.Element {
+}: PiWindowGridStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

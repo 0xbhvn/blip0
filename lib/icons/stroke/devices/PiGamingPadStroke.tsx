@@ -16,7 +16,7 @@ export default function PiGamingPadStroke({
   className,
   ariaLabel = 'gaming-pad icon',
   ...props
-}: PiGamingPadStrokeProps): JSX.Element {
+}: PiGamingPadStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

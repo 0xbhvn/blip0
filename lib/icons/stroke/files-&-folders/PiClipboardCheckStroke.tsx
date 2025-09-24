@@ -16,7 +16,7 @@ export default function PiClipboardCheckStroke({
   className,
   ariaLabel = 'clipboard-check icon',
   ...props
-}: PiClipboardCheckStrokeProps): JSX.Element {
+}: PiClipboardCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

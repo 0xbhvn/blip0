@@ -16,7 +16,7 @@ export default function PiPluginAddonDefaultStroke({
   className,
   ariaLabel = 'plugin-addon-default icon',
   ...props
-}: PiPluginAddonDefaultStrokeProps): JSX.Element {
+}: PiPluginAddonDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

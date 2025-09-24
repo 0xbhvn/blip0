@@ -16,7 +16,7 @@ export default function PiFaceNoMouthStroke({
   className,
   ariaLabel = 'face-no-mouth icon',
   ...props
-}: PiFaceNoMouthStrokeProps): JSX.Element {
+}: PiFaceNoMouthStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

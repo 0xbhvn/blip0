@@ -16,7 +16,7 @@ export default function PiGitBranchCancelSolid({
   className,
   ariaLabel = 'git-branch-cancel icon',
   ...props
-}: PiGitBranchCancelSolidProps): JSX.Element {
+}: PiGitBranchCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

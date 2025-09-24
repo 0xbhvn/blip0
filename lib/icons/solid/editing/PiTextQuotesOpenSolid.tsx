@@ -16,7 +16,7 @@ export default function PiTextQuotesOpenSolid({
   className,
   ariaLabel = 'text-quotes-open icon',
   ...props
-}: PiTextQuotesOpenSolidProps): JSX.Element {
+}: PiTextQuotesOpenSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

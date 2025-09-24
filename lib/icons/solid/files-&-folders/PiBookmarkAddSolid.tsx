@@ -16,7 +16,7 @@ export default function PiBookmarkAddSolid({
   className,
   ariaLabel = 'bookmark-add icon',
   ...props
-}: PiBookmarkAddSolidProps): JSX.Element {
+}: PiBookmarkAddSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiTableChairStroke({
   className,
   ariaLabel = 'table-chair icon',
   ...props
-}: PiTableChairStrokeProps): JSX.Element {
+}: PiTableChairStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

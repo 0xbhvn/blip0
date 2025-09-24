@@ -16,7 +16,7 @@ export default function PiInformationCircleSolid({
   className,
   ariaLabel = 'information-circle icon',
   ...props
-}: PiInformationCircleSolidProps): JSX.Element {
+}: PiInformationCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

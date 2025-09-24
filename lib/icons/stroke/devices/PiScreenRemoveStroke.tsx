@@ -16,7 +16,7 @@ export default function PiScreenRemoveStroke({
   className,
   ariaLabel = 'screen-remove icon',
   ...props
-}: PiScreenRemoveStrokeProps): JSX.Element {
+}: PiScreenRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

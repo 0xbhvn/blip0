@@ -16,7 +16,7 @@ export default function PiTrainStroke({
   className,
   ariaLabel = 'train icon',
   ...props
-}: PiTrainStrokeProps): JSX.Element {
+}: PiTrainStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

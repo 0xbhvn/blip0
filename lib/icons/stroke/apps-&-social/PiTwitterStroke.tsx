@@ -16,7 +16,7 @@ export default function PiTwitterStroke({
   className,
   ariaLabel = 'twitter icon',
   ...props
-}: PiTwitterStrokeProps): JSX.Element {
+}: PiTwitterStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

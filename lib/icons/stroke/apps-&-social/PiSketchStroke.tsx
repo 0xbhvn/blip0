@@ -16,7 +16,7 @@ export default function PiSketchStroke({
   className,
   ariaLabel = 'sketch icon',
   ...props
-}: PiSketchStrokeProps): JSX.Element {
+}: PiSketchStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCurrencySignYuanStroke({
   className,
   ariaLabel = 'currency-sign-yuan icon',
   ...props
-}: PiCurrencySignYuanStrokeProps): JSX.Element {
+}: PiCurrencySignYuanStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

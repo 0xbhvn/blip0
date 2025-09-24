@@ -16,7 +16,7 @@ export default function PiPhotoImageRemoveSolid({
   className,
   ariaLabel = 'photo-image-remove icon',
   ...props
-}: PiPhotoImageRemoveSolidProps): JSX.Element {
+}: PiPhotoImageRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

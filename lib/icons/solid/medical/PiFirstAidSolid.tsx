@@ -16,7 +16,7 @@ export default function PiFirstAidSolid({
   className,
   ariaLabel = 'first-aid icon',
   ...props
-}: PiFirstAidSolidProps): JSX.Element {
+}: PiFirstAidSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

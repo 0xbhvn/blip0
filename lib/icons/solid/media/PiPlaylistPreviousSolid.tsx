@@ -16,7 +16,7 @@ export default function PiPlaylistPreviousSolid({
   className,
   ariaLabel = 'playlist-previous icon',
   ...props
-}: PiPlaylistPreviousSolidProps): JSX.Element {
+}: PiPlaylistPreviousSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

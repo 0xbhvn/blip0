@@ -16,7 +16,7 @@ export default function PiBatteryEmptyStroke({
   className,
   ariaLabel = 'battery-empty icon',
   ...props
-}: PiBatteryEmptyStrokeProps): JSX.Element {
+}: PiBatteryEmptyStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

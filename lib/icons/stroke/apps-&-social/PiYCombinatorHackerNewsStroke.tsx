@@ -16,7 +16,7 @@ export default function PiYCombinatorHackerNewsStroke({
   className,
   ariaLabel = 'y-combinator-hacker-news icon',
   ...props
-}: PiYCombinatorHackerNewsStrokeProps): JSX.Element {
+}: PiYCombinatorHackerNewsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

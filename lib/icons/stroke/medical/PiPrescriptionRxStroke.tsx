@@ -16,7 +16,7 @@ export default function PiPrescriptionRxStroke({
   className,
   ariaLabel = 'prescription-rx icon',
   ...props
-}: PiPrescriptionRxStrokeProps): JSX.Element {
+}: PiPrescriptionRxStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

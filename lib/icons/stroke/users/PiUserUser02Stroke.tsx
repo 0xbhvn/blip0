@@ -16,7 +16,7 @@ export default function PiUserUser02Stroke({
   className,
   ariaLabel = 'user-user-02 icon',
   ...props
-}: PiUserUser02StrokeProps): JSX.Element {
+}: PiUserUser02StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

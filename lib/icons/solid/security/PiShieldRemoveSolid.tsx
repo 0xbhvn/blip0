@@ -16,7 +16,7 @@ export default function PiShieldRemoveSolid({
   className,
   ariaLabel = 'shield-remove icon',
   ...props
-}: PiShieldRemoveSolidProps): JSX.Element {
+}: PiShieldRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

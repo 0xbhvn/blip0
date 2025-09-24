@@ -16,7 +16,7 @@ export default function PiCeilingLampOnSolid({
   className,
   ariaLabel = 'ceiling-lamp-on icon',
   ...props
-}: PiCeilingLampOnSolidProps): JSX.Element {
+}: PiCeilingLampOnSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

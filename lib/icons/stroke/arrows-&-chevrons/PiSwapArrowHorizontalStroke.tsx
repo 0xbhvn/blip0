@@ -16,7 +16,7 @@ export default function PiSwapArrowHorizontalStroke({
   className,
   ariaLabel = 'swap-arrow-horizontal icon',
   ...props
-}: PiSwapArrowHorizontalStrokeProps): JSX.Element {
+}: PiSwapArrowHorizontalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

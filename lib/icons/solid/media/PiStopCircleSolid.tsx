@@ -16,7 +16,7 @@ export default function PiStopCircleSolid({
   className,
   ariaLabel = 'stop-circle icon',
   ...props
-}: PiStopCircleSolidProps): JSX.Element {
+}: PiStopCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

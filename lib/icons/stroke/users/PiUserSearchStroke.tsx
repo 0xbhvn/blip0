@@ -16,7 +16,7 @@ export default function PiUserSearchStroke({
   className,
   ariaLabel = 'user-search icon',
   ...props
-}: PiUserSearchStrokeProps): JSX.Element {
+}: PiUserSearchStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

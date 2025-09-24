@@ -16,7 +16,7 @@ export default function PiStopSquareStroke({
   className,
   ariaLabel = 'stop-square icon',
   ...props
-}: PiStopSquareStrokeProps): JSX.Element {
+}: PiStopSquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

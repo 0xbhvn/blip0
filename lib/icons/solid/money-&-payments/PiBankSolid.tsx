@@ -16,7 +16,7 @@ export default function PiBankSolid({
   className,
   ariaLabel = 'bank icon',
   ...props
-}: PiBankSolidProps): JSX.Element {
+}: PiBankSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

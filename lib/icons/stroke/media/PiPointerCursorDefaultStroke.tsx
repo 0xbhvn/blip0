@@ -16,7 +16,7 @@ export default function PiPointerCursorDefaultStroke({
   className,
   ariaLabel = 'pointer-cursor-default icon',
   ...props
-}: PiPointerCursorDefaultStrokeProps): JSX.Element {
+}: PiPointerCursorDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiShoppingCartStroke({
   className,
   ariaLabel = 'shopping-cart icon',
   ...props
-}: PiShoppingCartStrokeProps): JSX.Element {
+}: PiShoppingCartStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

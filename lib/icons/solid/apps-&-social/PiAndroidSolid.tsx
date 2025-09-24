@@ -16,7 +16,7 @@ export default function PiAndroidSolid({
   className,
   ariaLabel = 'android icon',
   ...props
-}: PiAndroidSolidProps): JSX.Element {
+}: PiAndroidSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

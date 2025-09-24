@@ -16,7 +16,7 @@ export default function PiGraphChartScatterStroke({
   className,
   ariaLabel = 'graph-chart-scatter icon',
   ...props
-}: PiGraphChartScatterStrokeProps): JSX.Element {
+}: PiGraphChartScatterStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

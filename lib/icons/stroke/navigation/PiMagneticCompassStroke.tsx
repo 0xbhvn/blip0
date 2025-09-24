@@ -16,7 +16,7 @@ export default function PiMagneticCompassStroke({
   className,
   ariaLabel = 'magnetic-compass icon',
   ...props
-}: PiMagneticCompassStrokeProps): JSX.Element {
+}: PiMagneticCompassStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

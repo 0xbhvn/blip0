@@ -16,7 +16,7 @@ export default function PiArchiveLockedSolid({
   className,
   ariaLabel = 'archive-locked icon',
   ...props
-}: PiArchiveLockedSolidProps): JSX.Element {
+}: PiArchiveLockedSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

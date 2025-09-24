@@ -16,7 +16,7 @@ export default function PiLock02OpenStroke({
   className,
   ariaLabel = 'lock-02-open icon',
   ...props
-}: PiLock02OpenStrokeProps): JSX.Element {
+}: PiLock02OpenStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiColorPaletteStroke({
   className,
   ariaLabel = 'color-palette icon',
   ...props
-}: PiColorPaletteStrokeProps): JSX.Element {
+}: PiColorPaletteStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

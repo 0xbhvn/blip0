@@ -16,7 +16,7 @@ export default function PiWindowDockTopStroke({
   className,
   ariaLabel = 'window-dock-top icon',
   ...props
-}: PiWindowDockTopStrokeProps): JSX.Element {
+}: PiWindowDockTopStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

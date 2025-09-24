@@ -16,7 +16,7 @@ export default function PiSparkleAI01Stroke({
   className,
   ariaLabel = 'sparkle-ai-01 icon',
   ...props
-}: PiSparkleAI01StrokeProps): JSX.Element {
+}: PiSparkleAI01StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

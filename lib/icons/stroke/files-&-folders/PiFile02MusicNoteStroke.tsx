@@ -16,7 +16,7 @@ export default function PiFile02MusicNoteStroke({
   className,
   ariaLabel = 'file-02-music-note icon',
   ...props
-}: PiFile02MusicNoteStrokeProps): JSX.Element {
+}: PiFile02MusicNoteStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

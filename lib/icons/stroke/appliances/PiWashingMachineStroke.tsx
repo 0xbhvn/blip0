@@ -16,7 +16,7 @@ export default function PiWashingMachineStroke({
   className,
   ariaLabel = 'washing-machine icon',
   ...props
-}: PiWashingMachineStrokeProps): JSX.Element {
+}: PiWashingMachineStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiSidebarRightDottedStroke({
   className,
   ariaLabel = 'sidebar-right-dotted icon',
   ...props
-}: PiSidebarRightDottedStrokeProps): JSX.Element {
+}: PiSidebarRightDottedStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

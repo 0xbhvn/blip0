@@ -16,7 +16,7 @@ export default function PiMessageSearchSolid({
   className,
   ariaLabel = 'message-search icon',
   ...props
-}: PiMessageSearchSolidProps): JSX.Element {
+}: PiMessageSearchSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

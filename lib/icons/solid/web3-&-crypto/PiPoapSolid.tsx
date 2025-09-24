@@ -16,7 +16,7 @@ export default function PiPoapSolid({
   className,
   ariaLabel = 'poap icon',
   ...props
-}: PiPoapSolidProps): JSX.Element {
+}: PiPoapSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

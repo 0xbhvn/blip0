@@ -16,7 +16,7 @@ export default function PiChevronSortVerticalStroke({
   className,
   ariaLabel = 'chevron-sort-vertical icon',
   ...props
-}: PiChevronSortVerticalStrokeProps): JSX.Element {
+}: PiChevronSortVerticalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

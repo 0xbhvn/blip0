@@ -16,7 +16,7 @@ export default function PiAlignBottomStroke({
   className,
   ariaLabel = 'align-bottom icon',
   ...props
-}: PiAlignBottomStrokeProps): JSX.Element {
+}: PiAlignBottomStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

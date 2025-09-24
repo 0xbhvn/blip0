@@ -16,7 +16,7 @@ export default function PiVolumeOffStroke({
   className,
   ariaLabel = 'volume-off icon',
   ...props
-}: PiVolumeOffStrokeProps): JSX.Element {
+}: PiVolumeOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

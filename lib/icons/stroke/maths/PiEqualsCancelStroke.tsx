@@ -16,7 +16,7 @@ export default function PiEqualsCancelStroke({
   className,
   ariaLabel = 'equals-cancel icon',
   ...props
-}: PiEqualsCancelStrokeProps): JSX.Element {
+}: PiEqualsCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

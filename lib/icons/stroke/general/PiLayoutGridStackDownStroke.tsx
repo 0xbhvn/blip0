@@ -16,7 +16,7 @@ export default function PiLayoutGridStackDownStroke({
   className,
   ariaLabel = 'layout-grid-stack-down icon',
   ...props
-}: PiLayoutGridStackDownStrokeProps): JSX.Element {
+}: PiLayoutGridStackDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

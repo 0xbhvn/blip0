@@ -16,7 +16,7 @@ export default function PiDeleteDustbin01Stroke({
   className,
   ariaLabel = 'delete-dustbin-01 icon',
   ...props
-}: PiDeleteDustbin01StrokeProps): JSX.Element {
+}: PiDeleteDustbin01StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

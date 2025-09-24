@@ -16,7 +16,7 @@ export default function PiGridDashboardBentoSolid({
   className,
   ariaLabel = 'grid-dashboard-bento icon',
   ...props
-}: PiGridDashboardBentoSolidProps): JSX.Element {
+}: PiGridDashboardBentoSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

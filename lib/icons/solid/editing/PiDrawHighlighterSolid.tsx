@@ -16,7 +16,7 @@ export default function PiDrawHighlighterSolid({
   className,
   ariaLabel = 'draw-highlighter icon',
   ...props
-}: PiDrawHighlighterSolidProps): JSX.Element {
+}: PiDrawHighlighterSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

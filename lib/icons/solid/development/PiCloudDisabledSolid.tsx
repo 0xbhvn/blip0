@@ -16,7 +16,7 @@ export default function PiCloudDisabledSolid({
   className,
   ariaLabel = 'cloud-disabled icon',
   ...props
-}: PiCloudDisabledSolidProps): JSX.Element {
+}: PiCloudDisabledSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

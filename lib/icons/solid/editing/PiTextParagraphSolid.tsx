@@ -16,7 +16,7 @@ export default function PiTextParagraphSolid({
   className,
   ariaLabel = 'text-paragraph icon',
   ...props
-}: PiTextParagraphSolidProps): JSX.Element {
+}: PiTextParagraphSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

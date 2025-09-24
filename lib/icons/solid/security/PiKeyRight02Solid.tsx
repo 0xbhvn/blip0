@@ -16,7 +16,7 @@ export default function PiKeyRight02Solid({
   className,
   ariaLabel = 'key-right-02 icon',
   ...props
-}: PiKeyRight02SolidProps): JSX.Element {
+}: PiKeyRight02SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

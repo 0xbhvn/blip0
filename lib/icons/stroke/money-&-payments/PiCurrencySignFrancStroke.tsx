@@ -16,7 +16,7 @@ export default function PiCurrencySignFrancStroke({
   className,
   ariaLabel = 'currency-sign-franc icon',
   ...props
-}: PiCurrencySignFrancStrokeProps): JSX.Element {
+}: PiCurrencySignFrancStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

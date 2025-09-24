@@ -16,7 +16,7 @@ export default function PiPlaylistUploadStroke({
   className,
   ariaLabel = 'playlist-upload icon',
   ...props
-}: PiPlaylistUploadStrokeProps): JSX.Element {
+}: PiPlaylistUploadStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

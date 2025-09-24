@@ -16,7 +16,7 @@ export default function PiListCheckBoxSolid({
   className,
   ariaLabel = 'list-check-box icon',
   ...props
-}: PiListCheckBoxSolidProps): JSX.Element {
+}: PiListCheckBoxSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

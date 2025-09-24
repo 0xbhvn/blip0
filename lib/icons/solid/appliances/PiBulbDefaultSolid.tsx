@@ -16,7 +16,7 @@ export default function PiBulbDefaultSolid({
   className,
   ariaLabel = 'bulb-default icon',
   ...props
-}: PiBulbDefaultSolidProps): JSX.Element {
+}: PiBulbDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

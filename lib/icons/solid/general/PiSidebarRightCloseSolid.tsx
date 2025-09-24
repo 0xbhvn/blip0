@@ -16,7 +16,7 @@ export default function PiSidebarRightCloseSolid({
   className,
   ariaLabel = 'sidebar-right-close icon',
   ...props
-}: PiSidebarRightCloseSolidProps): JSX.Element {
+}: PiSidebarRightCloseSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

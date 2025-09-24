@@ -16,7 +16,7 @@ export default function PiActivityStroke({
   className,
   ariaLabel = 'activity icon',
   ...props
-}: PiActivityStrokeProps): JSX.Element {
+}: PiActivityStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

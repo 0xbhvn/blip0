@@ -16,7 +16,7 @@ export default function PiFontAaStroke({
   className,
   ariaLabel = 'font-aa icon',
   ...props
-}: PiFontAaStrokeProps): JSX.Element {
+}: PiFontAaStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

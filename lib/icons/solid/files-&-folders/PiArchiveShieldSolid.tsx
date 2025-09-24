@@ -16,7 +16,7 @@ export default function PiArchiveShieldSolid({
   className,
   ariaLabel = 'archive-shield icon',
   ...props
-}: PiArchiveShieldSolidProps): JSX.Element {
+}: PiArchiveShieldSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

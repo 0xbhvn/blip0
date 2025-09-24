@@ -16,7 +16,7 @@ export default function PiMapPinAreaSolid({
   className,
   ariaLabel = 'map-pin-area icon',
   ...props
-}: PiMapPinAreaSolidProps): JSX.Element {
+}: PiMapPinAreaSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

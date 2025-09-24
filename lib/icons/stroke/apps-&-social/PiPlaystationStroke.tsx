@@ -16,7 +16,7 @@ export default function PiPlaystationStroke({
   className,
   ariaLabel = 'playstation icon',
   ...props
-}: PiPlaystationStrokeProps): JSX.Element {
+}: PiPlaystationStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

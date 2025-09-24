@@ -16,7 +16,7 @@ export default function PiPendriveSolid({
   className,
   ariaLabel = 'pendrive icon',
   ...props
-}: PiPendriveSolidProps): JSX.Element {
+}: PiPendriveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiMacbookStroke({
   className,
   ariaLabel = 'macbook icon',
   ...props
-}: PiMacbookStrokeProps): JSX.Element {
+}: PiMacbookStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

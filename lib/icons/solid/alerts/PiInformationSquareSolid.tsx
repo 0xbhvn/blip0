@@ -16,7 +16,7 @@ export default function PiInformationSquareSolid({
   className,
   ariaLabel = 'information-square icon',
   ...props
-}: PiInformationSquareSolidProps): JSX.Element {
+}: PiInformationSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

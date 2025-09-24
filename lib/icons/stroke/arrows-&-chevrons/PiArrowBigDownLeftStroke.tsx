@@ -16,7 +16,7 @@ export default function PiArrowBigDownLeftStroke({
   className,
   ariaLabel = 'arrow-big-down-left icon',
   ...props
-}: PiArrowBigDownLeftStrokeProps): JSX.Element {
+}: PiArrowBigDownLeftStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

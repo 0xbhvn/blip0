@@ -16,7 +16,7 @@ export default function PiMinusCircleStroke({
   className,
   ariaLabel = 'minus-circle icon',
   ...props
-}: PiMinusCircleStrokeProps): JSX.Element {
+}: PiMinusCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

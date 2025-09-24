@@ -16,7 +16,7 @@ export default function PiCalendarFilledStroke({
   className,
   ariaLabel = 'calendar-filled icon',
   ...props
-}: PiCalendarFilledStrokeProps): JSX.Element {
+}: PiCalendarFilledStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

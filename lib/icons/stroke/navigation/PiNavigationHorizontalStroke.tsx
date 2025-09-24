@@ -16,7 +16,7 @@ export default function PiNavigationHorizontalStroke({
   className,
   ariaLabel = 'navigation-horizontal icon',
   ...props
-}: PiNavigationHorizontalStrokeProps): JSX.Element {
+}: PiNavigationHorizontalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

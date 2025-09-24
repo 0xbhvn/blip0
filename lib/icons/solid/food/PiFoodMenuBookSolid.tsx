@@ -16,7 +16,7 @@ export default function PiFoodMenuBookSolid({
   className,
   ariaLabel = 'food-menu-book icon',
   ...props
-}: PiFoodMenuBookSolidProps): JSX.Element {
+}: PiFoodMenuBookSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

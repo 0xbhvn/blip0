@@ -16,7 +16,7 @@ export default function PiEraserLineStroke({
   className,
   ariaLabel = 'eraser-line icon',
   ...props
-}: PiEraserLineStrokeProps): JSX.Element {
+}: PiEraserLineStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

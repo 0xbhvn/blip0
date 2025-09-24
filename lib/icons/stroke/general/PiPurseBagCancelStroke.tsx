@@ -16,7 +16,7 @@ export default function PiPurseBagCancelStroke({
   className,
   ariaLabel = 'purse-bag-cancel icon',
   ...props
-}: PiPurseBagCancelStrokeProps): JSX.Element {
+}: PiPurseBagCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

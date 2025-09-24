@@ -16,7 +16,7 @@ export default function PiFolderOpenStroke({
   className,
   ariaLabel = 'folder-open icon',
   ...props
-}: PiFolderOpenStrokeProps): JSX.Element {
+}: PiFolderOpenStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

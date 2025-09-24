@@ -16,7 +16,7 @@ export default function PiExternalLinkCircleStroke({
   className,
   ariaLabel = 'external-link-circle icon',
   ...props
-}: PiExternalLinkCircleStrokeProps): JSX.Element {
+}: PiExternalLinkCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

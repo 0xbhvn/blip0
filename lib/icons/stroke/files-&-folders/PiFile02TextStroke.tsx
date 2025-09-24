@@ -16,7 +16,7 @@ export default function PiFile02TextStroke({
   className,
   ariaLabel = 'file-02-text icon',
   ...props
-}: PiFile02TextStrokeProps): JSX.Element {
+}: PiFile02TextStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

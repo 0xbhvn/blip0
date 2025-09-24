@@ -16,7 +16,7 @@ export default function PiTagStroke({
   className,
   ariaLabel = 'tag icon',
   ...props
-}: PiTagStrokeProps): JSX.Element {
+}: PiTagStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

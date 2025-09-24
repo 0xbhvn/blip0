@@ -16,7 +16,7 @@ export default function PiVolumeZeroStroke({
   className,
   ariaLabel = 'volume-zero icon',
   ...props
-}: PiVolumeZeroStrokeProps): JSX.Element {
+}: PiVolumeZeroStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

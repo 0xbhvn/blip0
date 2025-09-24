@@ -16,7 +16,7 @@ export default function PiFacebookSolid({
   className,
   ariaLabel = 'facebook icon',
   ...props
-}: PiFacebookSolidProps): JSX.Element {
+}: PiFacebookSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

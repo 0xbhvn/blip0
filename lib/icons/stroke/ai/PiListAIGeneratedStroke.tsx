@@ -16,7 +16,7 @@ export default function PiListAIGeneratedStroke({
   className,
   ariaLabel = 'list-ai-generated icon',
   ...props
-}: PiListAIGeneratedStrokeProps): JSX.Element {
+}: PiListAIGeneratedStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

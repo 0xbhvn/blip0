@@ -16,7 +16,7 @@ export default function PiAlertTriangleSolid({
   className,
   ariaLabel = 'alert-triangle icon',
   ...props
-}: PiAlertTriangleSolidProps): JSX.Element {
+}: PiAlertTriangleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

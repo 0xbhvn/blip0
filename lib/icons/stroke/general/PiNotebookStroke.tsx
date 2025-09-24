@@ -16,7 +16,7 @@ export default function PiNotebookStroke({
   className,
   ariaLabel = 'notebook icon',
   ...props
-}: PiNotebookStrokeProps): JSX.Element {
+}: PiNotebookStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

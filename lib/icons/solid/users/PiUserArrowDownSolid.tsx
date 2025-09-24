@@ -16,7 +16,7 @@ export default function PiUserArrowDownSolid({
   className,
   ariaLabel = 'user-arrow-down icon',
   ...props
-}: PiUserArrowDownSolidProps): JSX.Element {
+}: PiUserArrowDownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

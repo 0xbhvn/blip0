@@ -16,7 +16,7 @@ export default function PiLaptopSolid({
   className,
   ariaLabel = 'laptop icon',
   ...props
-}: PiLaptopSolidProps): JSX.Element {
+}: PiLaptopSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiUserEditStroke({
   className,
   ariaLabel = 'user-edit icon',
   ...props
-}: PiUserEditStrokeProps): JSX.Element {
+}: PiUserEditStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

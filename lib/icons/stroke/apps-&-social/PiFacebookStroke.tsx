@@ -16,7 +16,7 @@ export default function PiFacebookStroke({
   className,
   ariaLabel = 'facebook icon',
   ...props
-}: PiFacebookStrokeProps): JSX.Element {
+}: PiFacebookStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

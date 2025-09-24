@@ -16,7 +16,7 @@ export default function PiArrowTurnUpLeftSolid({
   className,
   ariaLabel = 'arrow-turn-up-left icon',
   ...props
-}: PiArrowTurnUpLeftSolidProps): JSX.Element {
+}: PiArrowTurnUpLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

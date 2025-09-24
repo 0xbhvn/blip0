@@ -16,7 +16,7 @@ export default function PiVideoCallIncomingStroke({
   className,
   ariaLabel = 'video-call-incoming icon',
   ...props
-}: PiVideoCallIncomingStrokeProps): JSX.Element {
+}: PiVideoCallIncomingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

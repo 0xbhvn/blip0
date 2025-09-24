@@ -16,7 +16,7 @@ export default function PiArrowLeftSolid({
   className,
   ariaLabel = 'arrow-left icon',
   ...props
-}: PiArrowLeftSolidProps): JSX.Element {
+}: PiArrowLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

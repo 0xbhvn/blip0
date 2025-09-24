@@ -16,7 +16,7 @@ export default function PiGridTableStroke({
   className,
   ariaLabel = 'grid-table icon',
   ...props
-}: PiGridTableStrokeProps): JSX.Element {
+}: PiGridTableStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

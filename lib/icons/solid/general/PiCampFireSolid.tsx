@@ -16,7 +16,7 @@ export default function PiCampFireSolid({
   className,
   ariaLabel = 'camp-fire icon',
   ...props
-}: PiCampFireSolidProps): JSX.Element {
+}: PiCampFireSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

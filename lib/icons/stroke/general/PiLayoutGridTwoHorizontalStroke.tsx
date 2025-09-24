@@ -16,7 +16,7 @@ export default function PiLayoutGridTwoHorizontalStroke({
   className,
   ariaLabel = 'layout-grid-two-horizontal icon',
   ...props
-}: PiLayoutGridTwoHorizontalStrokeProps): JSX.Element {
+}: PiLayoutGridTwoHorizontalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

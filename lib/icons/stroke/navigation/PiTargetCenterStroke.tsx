@@ -16,7 +16,7 @@ export default function PiTargetCenterStroke({
   className,
   ariaLabel = 'target-center icon',
   ...props
-}: PiTargetCenterStrokeProps): JSX.Element {
+}: PiTargetCenterStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

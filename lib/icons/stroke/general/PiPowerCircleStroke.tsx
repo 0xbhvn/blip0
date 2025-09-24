@@ -16,7 +16,7 @@ export default function PiPowerCircleStroke({
   className,
   ariaLabel = 'power-circle icon',
   ...props
-}: PiPowerCircleStrokeProps): JSX.Element {
+}: PiPowerCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

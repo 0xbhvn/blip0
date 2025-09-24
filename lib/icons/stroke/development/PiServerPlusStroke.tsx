@@ -16,7 +16,7 @@ export default function PiServerPlusStroke({
   className,
   ariaLabel = 'server-plus icon',
   ...props
-}: PiServerPlusStrokeProps): JSX.Element {
+}: PiServerPlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

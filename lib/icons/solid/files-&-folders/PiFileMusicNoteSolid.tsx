@@ -16,7 +16,7 @@ export default function PiFileMusicNoteSolid({
   className,
   ariaLabel = 'file-music-note icon',
   ...props
-}: PiFileMusicNoteSolidProps): JSX.Element {
+}: PiFileMusicNoteSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

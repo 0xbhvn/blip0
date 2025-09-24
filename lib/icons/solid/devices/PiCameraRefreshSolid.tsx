@@ -16,7 +16,7 @@ export default function PiCameraRefreshSolid({
   className,
   ariaLabel = 'camera-refresh icon',
   ...props
-}: PiCameraRefreshSolidProps): JSX.Element {
+}: PiCameraRefreshSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiBumbleSolid({
   className,
   ariaLabel = 'bumble icon',
   ...props
-}: PiBumbleSolidProps): JSX.Element {
+}: PiBumbleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

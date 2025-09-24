@@ -16,7 +16,7 @@ export default function PiTextCursorStroke({
   className,
   ariaLabel = 'text-cursor icon',
   ...props
-}: PiTextCursorStrokeProps): JSX.Element {
+}: PiTextCursorStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

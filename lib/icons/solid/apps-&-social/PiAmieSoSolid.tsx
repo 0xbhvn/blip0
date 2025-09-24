@@ -16,7 +16,7 @@ export default function PiAmieSoSolid({
   className,
   ariaLabel = 'amie-so icon',
   ...props
-}: PiAmieSoSolidProps): JSX.Element {
+}: PiAmieSoSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiAlertCircleSolid({
   className,
   ariaLabel = 'alert-circle icon',
   ...props
-}: PiAlertCircleSolidProps): JSX.Element {
+}: PiAlertCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

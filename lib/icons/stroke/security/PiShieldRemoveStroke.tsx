@@ -16,7 +16,7 @@ export default function PiShieldRemoveStroke({
   className,
   ariaLabel = 'shield-remove icon',
   ...props
-}: PiShieldRemoveStrokeProps): JSX.Element {
+}: PiShieldRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

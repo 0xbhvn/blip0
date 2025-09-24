@@ -16,7 +16,7 @@ export default function PiAcLeafSolid({
   className,
   ariaLabel = 'ac-leaf icon',
   ...props
-}: PiAcLeafSolidProps): JSX.Element {
+}: PiAcLeafSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

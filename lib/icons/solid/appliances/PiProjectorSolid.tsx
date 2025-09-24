@@ -16,7 +16,7 @@ export default function PiProjectorSolid({
   className,
   ariaLabel = 'projector icon',
   ...props
-}: PiProjectorSolidProps): JSX.Element {
+}: PiProjectorSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

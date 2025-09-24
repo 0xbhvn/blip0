@@ -16,7 +16,7 @@ export default function PiShieldBugSolid({
   className,
   ariaLabel = 'shield-bug icon',
   ...props
-}: PiShieldBugSolidProps): JSX.Element {
+}: PiShieldBugSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

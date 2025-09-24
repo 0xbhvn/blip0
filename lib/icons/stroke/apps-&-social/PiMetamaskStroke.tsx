@@ -16,7 +16,7 @@ export default function PiMetamaskStroke({
   className,
   ariaLabel = 'metamask icon',
   ...props
-}: PiMetamaskStrokeProps): JSX.Element {
+}: PiMetamaskStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

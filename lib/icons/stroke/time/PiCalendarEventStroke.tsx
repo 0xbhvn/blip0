@@ -16,7 +16,7 @@ export default function PiCalendarEventStroke({
   className,
   ariaLabel = 'calendar-event icon',
   ...props
-}: PiCalendarEventStrokeProps): JSX.Element {
+}: PiCalendarEventStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

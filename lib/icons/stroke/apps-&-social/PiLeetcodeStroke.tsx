@@ -16,7 +16,7 @@ export default function PiLeetcodeStroke({
   className,
   ariaLabel = 'leetcode icon',
   ...props
-}: PiLeetcodeStrokeProps): JSX.Element {
+}: PiLeetcodeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

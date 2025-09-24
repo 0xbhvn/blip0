@@ -16,7 +16,7 @@ export default function PiChatChattingStroke({
   className,
   ariaLabel = 'chat-chatting icon',
   ...props
-}: PiChatChattingStrokeProps): JSX.Element {
+}: PiChatChattingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

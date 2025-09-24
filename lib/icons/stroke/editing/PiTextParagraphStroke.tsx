@@ -16,7 +16,7 @@ export default function PiTextParagraphStroke({
   className,
   ariaLabel = 'text-paragraph icon',
   ...props
-}: PiTextParagraphStrokeProps): JSX.Element {
+}: PiTextParagraphStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

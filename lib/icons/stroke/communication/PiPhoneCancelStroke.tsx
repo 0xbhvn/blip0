@@ -16,7 +16,7 @@ export default function PiPhoneCancelStroke({
   className,
   ariaLabel = 'phone-cancel icon',
   ...props
-}: PiPhoneCancelStrokeProps): JSX.Element {
+}: PiPhoneCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

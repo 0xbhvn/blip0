@@ -16,7 +16,7 @@ export default function PiDangerSkullSolid({
   className,
   ariaLabel = 'danger-skull icon',
   ...props
-}: PiDangerSkullSolidProps): JSX.Element {
+}: PiDangerSkullSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

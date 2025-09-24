@@ -16,7 +16,7 @@ export default function PiAnnotationCancelStroke({
   className,
   ariaLabel = 'annotation-cancel icon',
   ...props
-}: PiAnnotationCancelStrokeProps): JSX.Element {
+}: PiAnnotationCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

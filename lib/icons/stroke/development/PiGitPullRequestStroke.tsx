@@ -16,7 +16,7 @@ export default function PiGitPullRequestStroke({
   className,
   ariaLabel = 'git-pull-request icon',
   ...props
-}: PiGitPullRequestStrokeProps): JSX.Element {
+}: PiGitPullRequestStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

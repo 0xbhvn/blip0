@@ -16,7 +16,7 @@ export default function PiWalletDefaultStroke({
   className,
   ariaLabel = 'wallet-default icon',
   ...props
-}: PiWalletDefaultStrokeProps): JSX.Element {
+}: PiWalletDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

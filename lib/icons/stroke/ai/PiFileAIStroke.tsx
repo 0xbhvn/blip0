@@ -16,7 +16,7 @@ export default function PiFileAIStroke({
   className,
   ariaLabel = 'file-ai icon',
   ...props
-}: PiFileAIStrokeProps): JSX.Element {
+}: PiFileAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

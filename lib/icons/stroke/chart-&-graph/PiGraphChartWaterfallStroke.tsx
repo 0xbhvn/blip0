@@ -16,7 +16,7 @@ export default function PiGraphChartWaterfallStroke({
   className,
   ariaLabel = 'graph-chart-waterfall icon',
   ...props
-}: PiGraphChartWaterfallStrokeProps): JSX.Element {
+}: PiGraphChartWaterfallStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiMouseScrollDownSolid({
   className,
   ariaLabel = 'mouse-scroll-down icon',
   ...props
-}: PiMouseScrollDownSolidProps): JSX.Element {
+}: PiMouseScrollDownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

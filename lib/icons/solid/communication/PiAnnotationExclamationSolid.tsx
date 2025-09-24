@@ -16,7 +16,7 @@ export default function PiAnnotationExclamationSolid({
   className,
   ariaLabel = 'annotation-exclamation icon',
   ...props
-}: PiAnnotationExclamationSolidProps): JSX.Element {
+}: PiAnnotationExclamationSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

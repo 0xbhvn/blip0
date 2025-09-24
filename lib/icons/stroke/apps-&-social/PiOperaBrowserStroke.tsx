@@ -16,7 +16,7 @@ export default function PiOperaBrowserStroke({
   className,
   ariaLabel = 'opera-browser icon',
   ...props
-}: PiOperaBrowserStrokeProps): JSX.Element {
+}: PiOperaBrowserStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFileCheckStroke({
   className,
   ariaLabel = 'file-check icon',
   ...props
-}: PiFileCheckStrokeProps): JSX.Element {
+}: PiFileCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

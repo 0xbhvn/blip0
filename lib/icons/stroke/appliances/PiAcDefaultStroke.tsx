@@ -16,7 +16,7 @@ export default function PiAcDefaultStroke({
   className,
   ariaLabel = 'ac-default icon',
   ...props
-}: PiAcDefaultStrokeProps): JSX.Element {
+}: PiAcDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

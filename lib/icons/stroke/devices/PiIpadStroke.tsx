@@ -16,7 +16,7 @@ export default function PiIpadStroke({
   className,
   ariaLabel = 'ipad icon',
   ...props
-}: PiIpadStrokeProps): JSX.Element {
+}: PiIpadStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

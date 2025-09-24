@@ -16,7 +16,7 @@ export default function PiReactStroke({
   className,
   ariaLabel = 'react icon',
   ...props
-}: PiReactStrokeProps): JSX.Element {
+}: PiReactStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

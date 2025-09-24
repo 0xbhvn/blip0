@@ -16,7 +16,7 @@ export default function PiBarchartDefaultStroke({
   className,
   ariaLabel = 'barchart-default icon',
   ...props
-}: PiBarchartDefaultStrokeProps): JSX.Element {
+}: PiBarchartDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

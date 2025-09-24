@@ -16,7 +16,7 @@ export default function PiWifiExclamationMarkStroke({
   className,
   ariaLabel = 'wifi-exclamation-mark icon',
   ...props
-}: PiWifiExclamationMarkStrokeProps): JSX.Element {
+}: PiWifiExclamationMarkStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

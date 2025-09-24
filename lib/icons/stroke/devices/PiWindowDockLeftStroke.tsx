@@ -16,7 +16,7 @@ export default function PiWindowDockLeftStroke({
   className,
   ariaLabel = 'window-dock-left icon',
   ...props
-}: PiWindowDockLeftStrokeProps): JSX.Element {
+}: PiWindowDockLeftStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

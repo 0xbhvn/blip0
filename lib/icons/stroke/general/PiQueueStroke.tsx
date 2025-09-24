@@ -16,7 +16,7 @@ export default function PiQueueStroke({
   className,
   ariaLabel = 'queue icon',
   ...props
-}: PiQueueStrokeProps): JSX.Element {
+}: PiQueueStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

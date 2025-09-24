@@ -16,7 +16,7 @@ export default function PiCropStroke({
   className,
   ariaLabel = 'crop icon',
   ...props
-}: PiCropStrokeProps): JSX.Element {
+}: PiCropStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

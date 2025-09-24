@@ -16,7 +16,7 @@ export default function PiPriorityLowestStroke({
   className,
   ariaLabel = 'priority-lowest icon',
   ...props
-}: PiPriorityLowestStrokeProps): JSX.Element {
+}: PiPriorityLowestStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

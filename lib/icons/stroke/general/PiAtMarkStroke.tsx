@@ -16,7 +16,7 @@ export default function PiAtMarkStroke({
   className,
   ariaLabel = 'at-mark icon',
   ...props
-}: PiAtMarkStrokeProps): JSX.Element {
+}: PiAtMarkStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

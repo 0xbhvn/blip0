@@ -16,7 +16,7 @@ export default function PiForkKnifeSolid({
   className,
   ariaLabel = 'fork-knife icon',
   ...props
-}: PiForkKnifeSolidProps): JSX.Element {
+}: PiForkKnifeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

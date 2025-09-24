@@ -16,7 +16,7 @@ export default function PiBookmarkCheckSolid({
   className,
   ariaLabel = 'bookmark-check icon',
   ...props
-}: PiBookmarkCheckSolidProps): JSX.Element {
+}: PiBookmarkCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

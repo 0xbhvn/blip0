@@ -16,7 +16,7 @@ export default function PiFacebookMessengerStroke({
   className,
   ariaLabel = 'facebook-messenger icon',
   ...props
-}: PiFacebookMessengerStrokeProps): JSX.Element {
+}: PiFacebookMessengerStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

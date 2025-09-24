@@ -16,7 +16,7 @@ export default function PiStarSolid({
   className,
   ariaLabel = 'star icon',
   ...props
-}: PiStarSolidProps): JSX.Element {
+}: PiStarSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

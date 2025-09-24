@@ -16,7 +16,7 @@ export default function PiCloudSunSolid({
   className,
   ariaLabel = 'cloud-sun icon',
   ...props
-}: PiCloudSunSolidProps): JSX.Element {
+}: PiCloudSunSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

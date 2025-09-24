@@ -16,7 +16,7 @@ export default function PiFile02LockSolid({
   className,
   ariaLabel = 'file-02-lock icon',
   ...props
-}: PiFile02LockSolidProps): JSX.Element {
+}: PiFile02LockSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

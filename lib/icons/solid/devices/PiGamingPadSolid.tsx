@@ -16,7 +16,7 @@ export default function PiGamingPadSolid({
   className,
   ariaLabel = 'gaming-pad icon',
   ...props
-}: PiGamingPadSolidProps): JSX.Element {
+}: PiGamingPadSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

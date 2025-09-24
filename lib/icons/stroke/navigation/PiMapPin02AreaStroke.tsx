@@ -16,7 +16,7 @@ export default function PiMapPin02AreaStroke({
   className,
   ariaLabel = 'map-pin-02-area icon',
   ...props
-}: PiMapPin02AreaStrokeProps): JSX.Element {
+}: PiMapPin02AreaStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

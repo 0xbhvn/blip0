@@ -16,7 +16,7 @@ export default function PiCakeSolid({
   className,
   ariaLabel = 'cake icon',
   ...props
-}: PiCakeSolidProps): JSX.Element {
+}: PiCakeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

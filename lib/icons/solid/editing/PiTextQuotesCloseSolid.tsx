@@ -16,7 +16,7 @@ export default function PiTextQuotesCloseSolid({
   className,
   ariaLabel = 'text-quotes-close icon',
   ...props
-}: PiTextQuotesCloseSolidProps): JSX.Element {
+}: PiTextQuotesCloseSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

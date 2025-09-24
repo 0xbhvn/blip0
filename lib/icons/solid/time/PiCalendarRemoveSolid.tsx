@@ -16,7 +16,7 @@ export default function PiCalendarRemoveSolid({
   className,
   ariaLabel = 'calendar-remove icon',
   ...props
-}: PiCalendarRemoveSolidProps): JSX.Element {
+}: PiCalendarRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

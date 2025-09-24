@@ -16,7 +16,7 @@ export default function PiSwipeRightHandSolid({
   className,
   ariaLabel = 'swipe-right-hand icon',
   ...props
-}: PiSwipeRightHandSolidProps): JSX.Element {
+}: PiSwipeRightHandSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

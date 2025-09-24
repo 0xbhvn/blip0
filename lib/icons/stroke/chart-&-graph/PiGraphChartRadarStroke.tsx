@@ -16,7 +16,7 @@ export default function PiGraphChartRadarStroke({
   className,
   ariaLabel = 'graph-chart-radar icon',
   ...props
-}: PiGraphChartRadarStrokeProps): JSX.Element {
+}: PiGraphChartRadarStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCommandCmdSquareStroke({
   className,
   ariaLabel = 'command-cmd-square icon',
   ...props
-}: PiCommandCmdSquareStrokeProps): JSX.Element {
+}: PiCommandCmdSquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFolderPlusSolid({
   className,
   ariaLabel = 'folder-plus icon',
   ...props
-}: PiFolderPlusSolidProps): JSX.Element {
+}: PiFolderPlusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

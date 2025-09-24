@@ -16,7 +16,7 @@ export default function PiAirplayCastSolid({
   className,
   ariaLabel = 'airplay-cast icon',
   ...props
-}: PiAirplayCastSolidProps): JSX.Element {
+}: PiAirplayCastSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

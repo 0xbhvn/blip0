@@ -16,7 +16,7 @@ export default function PiPointerCursorDefaultSolid({
   className,
   ariaLabel = 'pointer-cursor-default icon',
   ...props
-}: PiPointerCursorDefaultSolidProps): JSX.Element {
+}: PiPointerCursorDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

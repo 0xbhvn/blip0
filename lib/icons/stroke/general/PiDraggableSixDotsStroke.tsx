@@ -16,7 +16,7 @@ export default function PiDraggableSixDotsStroke({
   className,
   ariaLabel = 'draggable-six-dots icon',
   ...props
-}: PiDraggableSixDotsStrokeProps): JSX.Element {
+}: PiDraggableSixDotsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

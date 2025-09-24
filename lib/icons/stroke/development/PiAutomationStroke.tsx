@@ -16,7 +16,7 @@ export default function PiAutomationStroke({
   className,
   ariaLabel = 'automation icon',
   ...props
-}: PiAutomationStrokeProps): JSX.Element {
+}: PiAutomationStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

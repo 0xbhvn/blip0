@@ -16,7 +16,7 @@ export default function PiAirplaySolid({
   className,
   ariaLabel = 'airplay icon',
   ...props
-}: PiAirplaySolidProps): JSX.Element {
+}: PiAirplaySolidProps): React.ReactElement {
   return (
     <svg
       width={size}

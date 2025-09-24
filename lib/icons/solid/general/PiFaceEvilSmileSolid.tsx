@@ -16,7 +16,7 @@ export default function PiFaceEvilSmileSolid({
   className,
   ariaLabel = 'face-evil-smile icon',
   ...props
-}: PiFaceEvilSmileSolidProps): JSX.Element {
+}: PiFaceEvilSmileSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

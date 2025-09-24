@@ -16,7 +16,7 @@ export default function PiBurgerSolid({
   className,
   ariaLabel = 'burger icon',
   ...props
-}: PiBurgerSolidProps): JSX.Element {
+}: PiBurgerSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

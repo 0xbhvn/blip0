@@ -16,7 +16,7 @@ export default function PiInstagramSolid({
   className,
   ariaLabel = 'instagram icon',
   ...props
-}: PiInstagramSolidProps): JSX.Element {
+}: PiInstagramSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

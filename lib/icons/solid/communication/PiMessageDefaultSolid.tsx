@@ -16,7 +16,7 @@ export default function PiMessageDefaultSolid({
   className,
   ariaLabel = 'message-default icon',
   ...props
-}: PiMessageDefaultSolidProps): JSX.Element {
+}: PiMessageDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

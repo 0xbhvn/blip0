@@ -16,7 +16,7 @@ export default function PiSquareDotSolid({
   className,
   ariaLabel = 'square-dot icon',
   ...props
-}: PiSquareDotSolidProps): JSX.Element {
+}: PiSquareDotSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

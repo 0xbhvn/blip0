@@ -16,7 +16,7 @@ export default function PiChevronBigDownSolid({
   className,
   ariaLabel = 'chevron-big-down icon',
   ...props
-}: PiChevronBigDownSolidProps): JSX.Element {
+}: PiChevronBigDownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

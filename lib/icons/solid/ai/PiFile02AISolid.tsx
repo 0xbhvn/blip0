@@ -16,7 +16,7 @@ export default function PiFile02AISolid({
   className,
   ariaLabel = 'file-02-ai icon',
   ...props
-}: PiFile02AISolidProps): JSX.Element {
+}: PiFile02AISolidProps): React.ReactElement {
   return (
     <svg
       width={size}

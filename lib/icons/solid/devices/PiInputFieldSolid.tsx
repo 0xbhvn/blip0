@@ -16,7 +16,7 @@ export default function PiInputFieldSolid({
   className,
   ariaLabel = 'input-field icon',
   ...props
-}: PiInputFieldSolidProps): JSX.Element {
+}: PiInputFieldSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

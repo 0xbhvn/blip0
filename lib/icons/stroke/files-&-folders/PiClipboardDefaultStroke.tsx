@@ -16,7 +16,7 @@ export default function PiClipboardDefaultStroke({
   className,
   ariaLabel = 'clipboard-default icon',
   ...props
-}: PiClipboardDefaultStrokeProps): JSX.Element {
+}: PiClipboardDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

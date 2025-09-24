@@ -16,7 +16,7 @@ export default function PiFileShieldStroke({
   className,
   ariaLabel = 'file-shield icon',
   ...props
-}: PiFileShieldStrokeProps): JSX.Element {
+}: PiFileShieldStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

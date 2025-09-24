@@ -16,7 +16,7 @@ export default function PiAcHeatSolid({
   className,
   ariaLabel = 'ac-heat icon',
   ...props
-}: PiAcHeatSolidProps): JSX.Element {
+}: PiAcHeatSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

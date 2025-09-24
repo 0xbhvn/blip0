@@ -16,7 +16,7 @@ export default function PiBottleSoapSolid({
   className,
   ariaLabel = 'bottle-soap icon',
   ...props
-}: PiBottleSoapSolidProps): JSX.Element {
+}: PiBottleSoapSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

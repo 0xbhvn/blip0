@@ -16,7 +16,7 @@ export default function PiTelescopeSolid({
   className,
   ariaLabel = 'telescope icon',
   ...props
-}: PiTelescopeSolidProps): JSX.Element {
+}: PiTelescopeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

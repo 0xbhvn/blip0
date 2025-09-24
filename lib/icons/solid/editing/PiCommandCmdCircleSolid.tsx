@@ -16,7 +16,7 @@ export default function PiCommandCmdCircleSolid({
   className,
   ariaLabel = 'command-cmd-circle icon',
   ...props
-}: PiCommandCmdCircleSolidProps): JSX.Element {
+}: PiCommandCmdCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

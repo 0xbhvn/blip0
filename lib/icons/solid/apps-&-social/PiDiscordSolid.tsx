@@ -16,7 +16,7 @@ export default function PiDiscordSolid({
   className,
   ariaLabel = 'discord icon',
   ...props
-}: PiDiscordSolidProps): JSX.Element {
+}: PiDiscordSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

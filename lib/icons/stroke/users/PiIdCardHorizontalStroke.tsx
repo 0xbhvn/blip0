@@ -16,7 +16,7 @@ export default function PiIdCardHorizontalStroke({
   className,
   ariaLabel = 'id-card-horizontal icon',
   ...props
-}: PiIdCardHorizontalStrokeProps): JSX.Element {
+}: PiIdCardHorizontalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

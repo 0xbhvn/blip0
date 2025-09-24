@@ -16,7 +16,7 @@ export default function PiFolderAIStroke({
   className,
   ariaLabel = 'folder-ai icon',
   ...props
-}: PiFolderAIStrokeProps): JSX.Element {
+}: PiFolderAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

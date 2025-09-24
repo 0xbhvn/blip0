@@ -16,7 +16,7 @@ export default function PiFolderLockStroke({
   className,
   ariaLabel = 'folder-lock icon',
   ...props
-}: PiFolderLockStrokeProps): JSX.Element {
+}: PiFolderLockStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

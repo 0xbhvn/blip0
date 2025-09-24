@@ -16,7 +16,7 @@ export default function PiAnnotationStarStroke({
   className,
   ariaLabel = 'annotation-star icon',
   ...props
-}: PiAnnotationStarStrokeProps): JSX.Element {
+}: PiAnnotationStarStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

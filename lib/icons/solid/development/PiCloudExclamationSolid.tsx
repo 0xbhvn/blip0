@@ -16,7 +16,7 @@ export default function PiCloudExclamationSolid({
   className,
   ariaLabel = 'cloud-exclamation icon',
   ...props
-}: PiCloudExclamationSolidProps): JSX.Element {
+}: PiCloudExclamationSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

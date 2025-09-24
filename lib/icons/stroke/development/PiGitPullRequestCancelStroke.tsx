@@ -16,7 +16,7 @@ export default function PiGitPullRequestCancelStroke({
   className,
   ariaLabel = 'git-pull-request-cancel icon',
   ...props
-}: PiGitPullRequestCancelStrokeProps): JSX.Element {
+}: PiGitPullRequestCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

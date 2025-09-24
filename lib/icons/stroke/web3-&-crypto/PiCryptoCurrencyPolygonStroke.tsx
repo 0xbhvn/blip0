@@ -16,7 +16,7 @@ export default function PiCryptoCurrencyPolygonStroke({
   className,
   ariaLabel = 'crypto-currency-polygon icon',
   ...props
-}: PiCryptoCurrencyPolygonStrokeProps): JSX.Element {
+}: PiCryptoCurrencyPolygonStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

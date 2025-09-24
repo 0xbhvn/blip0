@@ -16,7 +16,7 @@ export default function PiMonitor02Solid({
   className,
   ariaLabel = 'monitor-02 icon',
   ...props
-}: PiMonitor02SolidProps): JSX.Element {
+}: PiMonitor02SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

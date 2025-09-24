@@ -16,7 +16,7 @@ export default function PiServerRefreshStroke({
   className,
   ariaLabel = 'server-refresh icon',
   ...props
-}: PiServerRefreshStrokeProps): JSX.Element {
+}: PiServerRefreshStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

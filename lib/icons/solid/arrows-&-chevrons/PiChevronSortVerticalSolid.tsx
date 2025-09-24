@@ -16,7 +16,7 @@ export default function PiChevronSortVerticalSolid({
   className,
   ariaLabel = 'chevron-sort-vertical icon',
   ...props
-}: PiChevronSortVerticalSolidProps): JSX.Element {
+}: PiChevronSortVerticalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiAnnotationCheckStroke({
   className,
   ariaLabel = 'annotation-check icon',
   ...props
-}: PiAnnotationCheckStrokeProps): JSX.Element {
+}: PiAnnotationCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

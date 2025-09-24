@@ -16,7 +16,7 @@ export default function PiSearchDefaultZoomOutSolid({
   className,
   ariaLabel = 'search-default-zoom-out icon',
   ...props
-}: PiSearchDefaultZoomOutSolidProps): JSX.Element {
+}: PiSearchDefaultZoomOutSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

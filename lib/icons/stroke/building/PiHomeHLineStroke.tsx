@@ -16,7 +16,7 @@ export default function PiHomeHLineStroke({
   className,
   ariaLabel = 'home-h-line icon',
   ...props
-}: PiHomeHLineStrokeProps): JSX.Element {
+}: PiHomeHLineStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

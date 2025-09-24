@@ -16,7 +16,7 @@ export default function PiAppleWatchStroke({
   className,
   ariaLabel = 'apple-watch icon',
   ...props
-}: PiAppleWatchStrokeProps): JSX.Element {
+}: PiAppleWatchStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

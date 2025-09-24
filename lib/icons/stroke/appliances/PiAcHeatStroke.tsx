@@ -16,7 +16,7 @@ export default function PiAcHeatStroke({
   className,
   ariaLabel = 'ac-heat icon',
   ...props
-}: PiAcHeatStrokeProps): JSX.Element {
+}: PiAcHeatStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiNotificationBellOnSolid({
   className,
   ariaLabel = 'notification-bell-on icon',
   ...props
-}: PiNotificationBellOnSolidProps): JSX.Element {
+}: PiNotificationBellOnSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

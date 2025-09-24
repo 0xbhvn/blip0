@@ -16,7 +16,7 @@ export default function PiPhotoImagePlusStroke({
   className,
   ariaLabel = 'photo-image-plus icon',
   ...props
-}: PiPhotoImagePlusStrokeProps): JSX.Element {
+}: PiPhotoImagePlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

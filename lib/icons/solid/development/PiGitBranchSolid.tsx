@@ -16,7 +16,7 @@ export default function PiGitBranchSolid({
   className,
   ariaLabel = 'git-branch icon',
   ...props
-}: PiGitBranchSolidProps): JSX.Element {
+}: PiGitBranchSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

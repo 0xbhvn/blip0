@@ -16,7 +16,7 @@ export default function PiVercelStroke({
   className,
   ariaLabel = 'vercel icon',
   ...props
-}: PiVercelStrokeProps): JSX.Element {
+}: PiVercelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

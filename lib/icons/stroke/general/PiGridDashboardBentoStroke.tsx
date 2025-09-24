@@ -16,7 +16,7 @@ export default function PiGridDashboardBentoStroke({
   className,
   ariaLabel = 'grid-dashboard-bento icon',
   ...props
-}: PiGridDashboardBentoStrokeProps): JSX.Element {
+}: PiGridDashboardBentoStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

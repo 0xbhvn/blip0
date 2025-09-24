@@ -16,7 +16,7 @@ export default function PiHomeWifiSolid({
   className,
   ariaLabel = 'home-wifi icon',
   ...props
-}: PiHomeWifiSolidProps): JSX.Element {
+}: PiHomeWifiSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

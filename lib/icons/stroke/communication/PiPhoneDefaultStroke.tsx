@@ -16,7 +16,7 @@ export default function PiPhoneDefaultStroke({
   className,
   ariaLabel = 'phone-default icon',
   ...props
-}: PiPhoneDefaultStrokeProps): JSX.Element {
+}: PiPhoneDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiUserSettingsStroke({
   className,
   ariaLabel = 'user-settings icon',
   ...props
-}: PiUserSettingsStrokeProps): JSX.Element {
+}: PiUserSettingsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

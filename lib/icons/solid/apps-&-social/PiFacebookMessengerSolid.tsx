@@ -16,7 +16,7 @@ export default function PiFacebookMessengerSolid({
   className,
   ariaLabel = 'facebook-messenger icon',
   ...props
-}: PiFacebookMessengerSolidProps): JSX.Element {
+}: PiFacebookMessengerSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

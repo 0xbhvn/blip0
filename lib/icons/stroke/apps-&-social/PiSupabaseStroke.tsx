@@ -16,7 +16,7 @@ export default function PiSupabaseStroke({
   className,
   ariaLabel = 'supabase icon',
   ...props
-}: PiSupabaseStrokeProps): JSX.Element {
+}: PiSupabaseStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

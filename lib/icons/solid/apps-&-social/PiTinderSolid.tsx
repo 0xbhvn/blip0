@@ -16,7 +16,7 @@ export default function PiTinderSolid({
   className,
   ariaLabel = 'tinder icon',
   ...props
-}: PiTinderSolidProps): JSX.Element {
+}: PiTinderSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

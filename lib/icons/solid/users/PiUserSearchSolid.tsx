@@ -16,7 +16,7 @@ export default function PiUserSearchSolid({
   className,
   ariaLabel = 'user-search icon',
   ...props
-}: PiUserSearchSolidProps): JSX.Element {
+}: PiUserSearchSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

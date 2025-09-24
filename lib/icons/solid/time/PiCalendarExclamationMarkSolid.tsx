@@ -16,7 +16,7 @@ export default function PiCalendarExclamationMarkSolid({
   className,
   ariaLabel = 'calendar-exclamation-mark icon',
   ...props
-}: PiCalendarExclamationMarkSolidProps): JSX.Element {
+}: PiCalendarExclamationMarkSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

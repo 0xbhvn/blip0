@@ -16,7 +16,7 @@ export default function PiUserArrowDownStroke({
   className,
   ariaLabel = 'user-arrow-down icon',
   ...props
-}: PiUserArrowDownStrokeProps): JSX.Element {
+}: PiUserArrowDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

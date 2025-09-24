@@ -16,7 +16,7 @@ export default function PiCalendarTimerStroke({
   className,
   ariaLabel = 'calendar-timer icon',
   ...props
-}: PiCalendarTimerStrokeProps): JSX.Element {
+}: PiCalendarTimerStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

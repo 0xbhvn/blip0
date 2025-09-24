@@ -16,7 +16,7 @@ export default function PiRssSimpleStroke({
   className,
   ariaLabel = 'rss-simple icon',
   ...props
-}: PiRssSimpleStrokeProps): JSX.Element {
+}: PiRssSimpleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

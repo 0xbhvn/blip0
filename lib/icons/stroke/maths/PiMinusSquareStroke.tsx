@@ -16,7 +16,7 @@ export default function PiMinusSquareStroke({
   className,
   ariaLabel = 'minus-square icon',
   ...props
-}: PiMinusSquareStrokeProps): JSX.Element {
+}: PiMinusSquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

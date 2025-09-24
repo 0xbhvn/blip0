@@ -16,7 +16,7 @@ export default function PiPencilEditBoxStroke({
   className,
   ariaLabel = 'pencil-edit-box icon',
   ...props
-}: PiPencilEditBoxStrokeProps): JSX.Element {
+}: PiPencilEditBoxStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

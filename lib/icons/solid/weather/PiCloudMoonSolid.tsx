@@ -16,7 +16,7 @@ export default function PiCloudMoonSolid({
   className,
   ariaLabel = 'cloud-moon icon',
   ...props
-}: PiCloudMoonSolidProps): JSX.Element {
+}: PiCloudMoonSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

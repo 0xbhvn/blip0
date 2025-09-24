@@ -16,7 +16,7 @@ export default function Pi3dSphereSolid({
   className,
   ariaLabel = '3d-sphere icon',
   ...props
-}: Pi3dSphereSolidProps): JSX.Element {
+}: Pi3dSphereSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

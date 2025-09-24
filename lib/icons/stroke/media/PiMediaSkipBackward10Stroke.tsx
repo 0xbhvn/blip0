@@ -16,7 +16,7 @@ export default function PiMediaSkipBackward10Stroke({
   className,
   ariaLabel = 'media-skip-backward-10 icon',
   ...props
-}: PiMediaSkipBackward10StrokeProps): JSX.Element {
+}: PiMediaSkipBackward10StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

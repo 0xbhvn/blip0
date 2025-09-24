@@ -16,7 +16,7 @@ export default function PiLandlinePhoneStroke({
   className,
   ariaLabel = 'landline-phone icon',
   ...props
-}: PiLandlinePhoneStrokeProps): JSX.Element {
+}: PiLandlinePhoneStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

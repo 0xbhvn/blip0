@@ -16,7 +16,7 @@ export default function PiCreditCardPlusSolid({
   className,
   ariaLabel = 'credit-card-plus icon',
   ...props
-}: PiCreditCardPlusSolidProps): JSX.Element {
+}: PiCreditCardPlusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

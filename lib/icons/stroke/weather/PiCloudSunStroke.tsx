@@ -16,7 +16,7 @@ export default function PiCloudSunStroke({
   className,
   ariaLabel = 'cloud-sun icon',
   ...props
-}: PiCloudSunStrokeProps): JSX.Element {
+}: PiCloudSunStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

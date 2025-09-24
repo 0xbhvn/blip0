@@ -16,7 +16,7 @@ export default function PiTableLampOnSolid({
   className,
   ariaLabel = 'table-lamp-on icon',
   ...props
-}: PiTableLampOnSolidProps): JSX.Element {
+}: PiTableLampOnSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

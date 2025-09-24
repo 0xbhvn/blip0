@@ -16,7 +16,7 @@ export default function PiGiftDefaultStroke({
   className,
   ariaLabel = 'gift-default icon',
   ...props
-}: PiGiftDefaultStrokeProps): JSX.Element {
+}: PiGiftDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCurrencySignPoundStroke({
   className,
   ariaLabel = 'currency-sign-pound icon',
   ...props
-}: PiCurrencySignPoundStrokeProps): JSX.Element {
+}: PiCurrencySignPoundStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

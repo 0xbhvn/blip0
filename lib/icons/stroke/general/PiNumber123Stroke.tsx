@@ -16,7 +16,7 @@ export default function PiNumber123Stroke({
   className,
   ariaLabel = 'number-123 icon',
   ...props
-}: PiNumber123StrokeProps): JSX.Element {
+}: PiNumber123StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiEyeOffSolid({
   className,
   ariaLabel = 'eye-off icon',
   ...props
-}: PiEyeOffSolidProps): JSX.Element {
+}: PiEyeOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiClipboardDefaultSolid({
   className,
   ariaLabel = 'clipboard-default icon',
   ...props
-}: PiClipboardDefaultSolidProps): JSX.Element {
+}: PiClipboardDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

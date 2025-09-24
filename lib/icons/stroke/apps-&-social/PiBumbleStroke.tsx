@@ -16,7 +16,7 @@ export default function PiBumbleStroke({
   className,
   ariaLabel = 'bumble icon',
   ...props
-}: PiBumbleStrokeProps): JSX.Element {
+}: PiBumbleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

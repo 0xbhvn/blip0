@@ -16,7 +16,7 @@ export default function PiShieldSettingsStroke({
   className,
   ariaLabel = 'shield-settings icon',
   ...props
-}: PiShieldSettingsStrokeProps): JSX.Element {
+}: PiShieldSettingsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiArchiveCodeSolid({
   className,
   ariaLabel = 'archive-code icon',
   ...props
-}: PiArchiveCodeSolidProps): JSX.Element {
+}: PiArchiveCodeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

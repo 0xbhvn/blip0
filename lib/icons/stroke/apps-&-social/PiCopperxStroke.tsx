@@ -16,7 +16,7 @@ export default function PiCopperxStroke({
   className,
   ariaLabel = 'copperx icon',
   ...props
-}: PiCopperxStrokeProps): JSX.Element {
+}: PiCopperxStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

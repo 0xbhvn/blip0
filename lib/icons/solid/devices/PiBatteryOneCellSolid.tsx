@@ -16,7 +16,7 @@ export default function PiBatteryOneCellSolid({
   className,
   ariaLabel = 'battery-one-cell icon',
   ...props
-}: PiBatteryOneCellSolidProps): JSX.Element {
+}: PiBatteryOneCellSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

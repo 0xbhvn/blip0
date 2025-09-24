@@ -16,7 +16,7 @@ export default function PiCalendarRangeSolid({
   className,
   ariaLabel = 'calendar-range icon',
   ...props
-}: PiCalendarRangeSolidProps): JSX.Element {
+}: PiCalendarRangeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

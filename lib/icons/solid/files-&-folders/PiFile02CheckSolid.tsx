@@ -16,7 +16,7 @@ export default function PiFile02CheckSolid({
   className,
   ariaLabel = 'file-02-check icon',
   ...props
-}: PiFile02CheckSolidProps): JSX.Element {
+}: PiFile02CheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

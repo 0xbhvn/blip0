@@ -16,7 +16,7 @@ export default function PiMedicalThermometerSolid({
   className,
   ariaLabel = 'medical-thermometer icon',
   ...props
-}: PiMedicalThermometerSolidProps): JSX.Element {
+}: PiMedicalThermometerSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

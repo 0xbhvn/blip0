@@ -16,7 +16,7 @@ export default function PiFolderShieldStroke({
   className,
   ariaLabel = 'folder-shield icon',
   ...props
-}: PiFolderShieldStrokeProps): JSX.Element {
+}: PiFolderShieldStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiOpenaiStroke({
   className,
   ariaLabel = 'openai icon',
   ...props
-}: PiOpenaiStrokeProps): JSX.Element {
+}: PiOpenaiStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

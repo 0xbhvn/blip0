@@ -16,7 +16,7 @@ export default function PiPaperBagStroke({
   className,
   ariaLabel = 'paper-bag icon',
   ...props
-}: PiPaperBagStrokeProps): JSX.Element {
+}: PiPaperBagStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

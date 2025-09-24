@@ -16,7 +16,7 @@ export default function PiChatDefaultStroke({
   className,
   ariaLabel = 'chat-default icon',
   ...props
-}: PiChatDefaultStrokeProps): JSX.Element {
+}: PiChatDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

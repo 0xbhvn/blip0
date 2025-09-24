@@ -16,7 +16,7 @@ export default function PiStoreAltStroke({
   className,
   ariaLabel = 'store-alt icon',
   ...props
-}: PiStoreAltStrokeProps): JSX.Element {
+}: PiStoreAltStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

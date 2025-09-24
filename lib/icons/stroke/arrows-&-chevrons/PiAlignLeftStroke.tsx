@@ -16,7 +16,7 @@ export default function PiAlignLeftStroke({
   className,
   ariaLabel = 'align-left icon',
   ...props
-}: PiAlignLeftStrokeProps): JSX.Element {
+}: PiAlignLeftStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

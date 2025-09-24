@@ -16,7 +16,7 @@ export default function PiLayersToSolid({
   className,
   ariaLabel = 'layers-to icon',
   ...props
-}: PiLayersToSolidProps): JSX.Element {
+}: PiLayersToSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

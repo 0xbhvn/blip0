@@ -16,7 +16,7 @@ export default function PiChevronSortHorizontalSolid({
   className,
   ariaLabel = 'chevron-sort-horizontal icon',
   ...props
-}: PiChevronSortHorizontalSolidProps): JSX.Element {
+}: PiChevronSortHorizontalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

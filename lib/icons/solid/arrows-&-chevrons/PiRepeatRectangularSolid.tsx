@@ -16,7 +16,7 @@ export default function PiRepeatRectangularSolid({
   className,
   ariaLabel = 'repeat-rectangular icon',
   ...props
-}: PiRepeatRectangularSolidProps): JSX.Element {
+}: PiRepeatRectangularSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

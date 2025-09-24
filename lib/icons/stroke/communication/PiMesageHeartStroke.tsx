@@ -16,7 +16,7 @@ export default function PiMesageHeartStroke({
   className,
   ariaLabel = 'mesage-heart icon',
   ...props
-}: PiMesageHeartStrokeProps): JSX.Element {
+}: PiMesageHeartStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

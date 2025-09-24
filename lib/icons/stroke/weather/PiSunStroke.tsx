@@ -16,7 +16,7 @@ export default function PiSunStroke({
   className,
   ariaLabel = 'sun icon',
   ...props
-}: PiSunStrokeProps): JSX.Element {
+}: PiSunStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

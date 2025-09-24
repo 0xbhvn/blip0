@@ -16,7 +16,7 @@ export default function PiAlarmPlusSolid({
   className,
   ariaLabel = 'alarm-plus icon',
   ...props
-}: PiAlarmPlusSolidProps): JSX.Element {
+}: PiAlarmPlusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

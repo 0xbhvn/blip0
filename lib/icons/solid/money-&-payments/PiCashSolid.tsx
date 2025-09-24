@@ -16,7 +16,7 @@ export default function PiCashSolid({
   className,
   ariaLabel = 'cash icon',
   ...props
-}: PiCashSolidProps): JSX.Element {
+}: PiCashSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

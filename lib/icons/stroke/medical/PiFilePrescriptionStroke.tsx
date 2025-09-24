@@ -16,7 +16,7 @@ export default function PiFilePrescriptionStroke({
   className,
   ariaLabel = 'file-prescription icon',
   ...props
-}: PiFilePrescriptionStrokeProps): JSX.Element {
+}: PiFilePrescriptionStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

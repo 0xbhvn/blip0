@@ -16,7 +16,7 @@ export default function PiEyeOnSolid({
   className,
   ariaLabel = 'eye-on icon',
   ...props
-}: PiEyeOnSolidProps): JSX.Element {
+}: PiEyeOnSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

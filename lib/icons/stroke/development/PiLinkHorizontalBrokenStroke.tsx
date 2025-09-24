@@ -16,7 +16,7 @@ export default function PiLinkHorizontalBrokenStroke({
   className,
   ariaLabel = 'link-horizontal-broken icon',
   ...props
-}: PiLinkHorizontalBrokenStrokeProps): JSX.Element {
+}: PiLinkHorizontalBrokenStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

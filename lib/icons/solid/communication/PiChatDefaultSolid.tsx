@@ -16,7 +16,7 @@ export default function PiChatDefaultSolid({
   className,
   ariaLabel = 'chat-default icon',
   ...props
-}: PiChatDefaultSolidProps): JSX.Element {
+}: PiChatDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

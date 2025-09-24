@@ -16,7 +16,7 @@ export default function PiCreditCardRemoveSolid({
   className,
   ariaLabel = 'credit-card-remove icon',
   ...props
-}: PiCreditCardRemoveSolidProps): JSX.Element {
+}: PiCreditCardRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

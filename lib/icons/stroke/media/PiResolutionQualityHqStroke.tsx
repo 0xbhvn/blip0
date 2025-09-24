@@ -16,7 +16,7 @@ export default function PiResolutionQualityHqStroke({
   className,
   ariaLabel = 'resolution-quality-hq icon',
   ...props
-}: PiResolutionQualityHqStrokeProps): JSX.Element {
+}: PiResolutionQualityHqStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

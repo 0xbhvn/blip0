@@ -16,7 +16,7 @@ export default function PiAudioBars02Stroke({
   className,
   ariaLabel = 'audio-bars-02 icon',
   ...props
-}: PiAudioBars02StrokeProps): JSX.Element {
+}: PiAudioBars02StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiChevronRightStroke({
   className,
   ariaLabel = 'chevron-right icon',
   ...props
-}: PiChevronRightStrokeProps): JSX.Element {
+}: PiChevronRightStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiNoteDefaultSolid({
   className,
   ariaLabel = 'note-default icon',
   ...props
-}: PiNoteDefaultSolidProps): JSX.Element {
+}: PiNoteDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

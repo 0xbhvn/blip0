@@ -16,7 +16,7 @@ export default function PiListSearchSolid({
   className,
   ariaLabel = 'list-search icon',
   ...props
-}: PiListSearchSolidProps): JSX.Element {
+}: PiListSearchSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

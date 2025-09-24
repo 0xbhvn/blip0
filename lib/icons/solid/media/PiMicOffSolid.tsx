@@ -16,7 +16,7 @@ export default function PiMicOffSolid({
   className,
   ariaLabel = 'mic-off icon',
   ...props
-}: PiMicOffSolidProps): JSX.Element {
+}: PiMicOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

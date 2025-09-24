@@ -16,7 +16,7 @@ export default function PiListTextWrapSolid({
   className,
   ariaLabel = 'list-text-wrap icon',
   ...props
-}: PiListTextWrapSolidProps): JSX.Element {
+}: PiListTextWrapSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

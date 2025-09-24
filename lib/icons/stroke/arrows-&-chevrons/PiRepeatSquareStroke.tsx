@@ -16,7 +16,7 @@ export default function PiRepeatSquareStroke({
   className,
   ariaLabel = 'repeat-square icon',
   ...props
-}: PiRepeatSquareStrokeProps): JSX.Element {
+}: PiRepeatSquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

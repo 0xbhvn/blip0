@@ -16,7 +16,7 @@ export default function PiTvSolid({
   className,
   ariaLabel = 'tv icon',
   ...props
-}: PiTvSolidProps): JSX.Element {
+}: PiTvSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

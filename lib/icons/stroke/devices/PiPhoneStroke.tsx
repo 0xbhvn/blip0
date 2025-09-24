@@ -16,7 +16,7 @@ export default function PiPhoneStroke({
   className,
   ariaLabel = 'phone icon',
   ...props
-}: PiPhoneStrokeProps): JSX.Element {
+}: PiPhoneStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

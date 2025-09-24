@@ -16,7 +16,7 @@ export default function PiFuelerStroke({
   className,
   ariaLabel = 'fueler icon',
   ...props
-}: PiFuelerStrokeProps): JSX.Element {
+}: PiFuelerStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

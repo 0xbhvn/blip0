@@ -16,7 +16,7 @@ export default function PiGitCommitSolid({
   className,
   ariaLabel = 'git-commit icon',
   ...props
-}: PiGitCommitSolidProps): JSX.Element {
+}: PiGitCommitSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiShieldCheckStroke({
   className,
   ariaLabel = 'shield-check icon',
   ...props
-}: PiShieldCheckStrokeProps): JSX.Element {
+}: PiShieldCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

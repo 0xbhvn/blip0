@@ -16,7 +16,7 @@ export default function PiLuggageTrolleyStroke({
   className,
   ariaLabel = 'luggage-trolley icon',
   ...props
-}: PiLuggageTrolleyStrokeProps): JSX.Element {
+}: PiLuggageTrolleyStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

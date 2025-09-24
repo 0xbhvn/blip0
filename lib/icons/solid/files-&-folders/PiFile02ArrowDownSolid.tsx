@@ -16,7 +16,7 @@ export default function PiFile02ArrowDownSolid({
   className,
   ariaLabel = 'file-02-arrow-down icon',
   ...props
-}: PiFile02ArrowDownSolidProps): JSX.Element {
+}: PiFile02ArrowDownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

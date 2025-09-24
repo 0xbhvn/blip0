@@ -16,7 +16,7 @@ export default function PiMessageAIStroke({
   className,
   ariaLabel = 'message-ai icon',
   ...props
-}: PiMessageAIStrokeProps): JSX.Element {
+}: PiMessageAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

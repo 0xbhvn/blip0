@@ -16,7 +16,7 @@ export default function PiListAIGeneratedSolid({
   className,
   ariaLabel = 'list-ai-generated icon',
   ...props
-}: PiListAIGeneratedSolidProps): JSX.Element {
+}: PiListAIGeneratedSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

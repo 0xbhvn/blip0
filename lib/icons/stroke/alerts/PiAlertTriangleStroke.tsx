@@ -16,7 +16,7 @@ export default function PiAlertTriangleStroke({
   className,
   ariaLabel = 'alert-triangle icon',
   ...props
-}: PiAlertTriangleStrokeProps): JSX.Element {
+}: PiAlertTriangleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

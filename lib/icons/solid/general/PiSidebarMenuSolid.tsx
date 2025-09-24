@@ -16,7 +16,7 @@ export default function PiSidebarMenuSolid({
   className,
   ariaLabel = 'sidebar-menu icon',
   ...props
-}: PiSidebarMenuSolidProps): JSX.Element {
+}: PiSidebarMenuSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

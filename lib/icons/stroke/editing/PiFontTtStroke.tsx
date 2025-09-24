@@ -16,7 +16,7 @@ export default function PiFontTtStroke({
   className,
   ariaLabel = 'font-tt icon',
   ...props
-}: PiFontTtStrokeProps): JSX.Element {
+}: PiFontTtStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

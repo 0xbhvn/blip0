@@ -16,7 +16,7 @@ export default function PiEqualsSquareSolid({
   className,
   ariaLabel = 'equals-square icon',
   ...props
-}: PiEqualsSquareSolidProps): JSX.Element {
+}: PiEqualsSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

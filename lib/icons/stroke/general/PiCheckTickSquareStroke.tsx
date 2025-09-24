@@ -16,7 +16,7 @@ export default function PiCheckTickSquareStroke({
   className,
   ariaLabel = 'check-tick-square icon',
   ...props
-}: PiCheckTickSquareStrokeProps): JSX.Element {
+}: PiCheckTickSquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

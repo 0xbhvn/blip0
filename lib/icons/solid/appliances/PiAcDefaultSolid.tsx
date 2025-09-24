@@ -16,7 +16,7 @@ export default function PiAcDefaultSolid({
   className,
   ariaLabel = 'ac-default icon',
   ...props
-}: PiAcDefaultSolidProps): JSX.Element {
+}: PiAcDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

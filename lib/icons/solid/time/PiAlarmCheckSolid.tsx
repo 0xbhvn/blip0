@@ -16,7 +16,7 @@ export default function PiAlarmCheckSolid({
   className,
   ariaLabel = 'alarm-check icon',
   ...props
-}: PiAlarmCheckSolidProps): JSX.Element {
+}: PiAlarmCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

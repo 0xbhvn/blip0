@@ -16,7 +16,7 @@ export default function PiPhotoImageArrowRightSolid({
   className,
   ariaLabel = 'photo-image-arrow-right icon',
   ...props
-}: PiPhotoImageArrowRightSolidProps): JSX.Element {
+}: PiPhotoImageArrowRightSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiLinkedinStroke({
   className,
   ariaLabel = 'linkedin icon',
   ...props
-}: PiLinkedinStrokeProps): JSX.Element {
+}: PiLinkedinStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

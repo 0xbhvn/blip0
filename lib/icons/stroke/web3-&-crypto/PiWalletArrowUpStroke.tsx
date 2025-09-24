@@ -16,7 +16,7 @@ export default function PiWalletArrowUpStroke({
   className,
   ariaLabel = 'wallet-arrow-up icon',
   ...props
-}: PiWalletArrowUpStrokeProps): JSX.Element {
+}: PiWalletArrowUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

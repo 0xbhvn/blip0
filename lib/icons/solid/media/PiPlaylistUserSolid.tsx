@@ -16,7 +16,7 @@ export default function PiPlaylistUserSolid({
   className,
   ariaLabel = 'playlist-user icon',
   ...props
-}: PiPlaylistUserSolidProps): JSX.Element {
+}: PiPlaylistUserSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

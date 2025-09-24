@@ -16,7 +16,7 @@ export default function PiPlaySquareSolid({
   className,
   ariaLabel = 'play-square icon',
   ...props
-}: PiPlaySquareSolidProps): JSX.Element {
+}: PiPlaySquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

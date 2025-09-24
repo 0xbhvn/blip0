@@ -16,7 +16,7 @@ export default function PiIdCardStroke({
   className,
   ariaLabel = 'id-card icon',
   ...props
-}: PiIdCardStrokeProps): JSX.Element {
+}: PiIdCardStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

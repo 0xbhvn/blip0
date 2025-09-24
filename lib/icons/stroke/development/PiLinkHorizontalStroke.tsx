@@ -16,7 +16,7 @@ export default function PiLinkHorizontalStroke({
   className,
   ariaLabel = 'link-horizontal icon',
   ...props
-}: PiLinkHorizontalStrokeProps): JSX.Element {
+}: PiLinkHorizontalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

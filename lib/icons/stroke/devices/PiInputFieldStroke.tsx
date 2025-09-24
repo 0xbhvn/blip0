@@ -16,7 +16,7 @@ export default function PiInputFieldStroke({
   className,
   ariaLabel = 'input-field icon',
   ...props
-}: PiInputFieldStrokeProps): JSX.Element {
+}: PiInputFieldStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

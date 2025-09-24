@@ -16,7 +16,7 @@ export default function PiFolderQuestionMarkStroke({
   className,
   ariaLabel = 'folder-question-mark icon',
   ...props
-}: PiFolderQuestionMarkStrokeProps): JSX.Element {
+}: PiFolderQuestionMarkStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

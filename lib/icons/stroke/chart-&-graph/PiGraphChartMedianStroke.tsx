@@ -16,7 +16,7 @@ export default function PiGraphChartMedianStroke({
   className,
   ariaLabel = 'graph-chart-median icon',
   ...props
-}: PiGraphChartMedianStrokeProps): JSX.Element {
+}: PiGraphChartMedianStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

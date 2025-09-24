@@ -16,7 +16,7 @@ export default function PiBurgerMenuTwoStroke({
   className,
   ariaLabel = 'burger-menu-two icon',
   ...props
-}: PiBurgerMenuTwoStrokeProps): JSX.Element {
+}: PiBurgerMenuTwoStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

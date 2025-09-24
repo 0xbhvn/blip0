@@ -16,7 +16,7 @@ export default function PiMartiniGlassSolid({
   className,
   ariaLabel = 'martini-glass icon',
   ...props
-}: PiMartiniGlassSolidProps): JSX.Element {
+}: PiMartiniGlassSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

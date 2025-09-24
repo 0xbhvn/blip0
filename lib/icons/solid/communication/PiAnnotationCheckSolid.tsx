@@ -16,7 +16,7 @@ export default function PiAnnotationCheckSolid({
   className,
   ariaLabel = 'annotation-check icon',
   ...props
-}: PiAnnotationCheckSolidProps): JSX.Element {
+}: PiAnnotationCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

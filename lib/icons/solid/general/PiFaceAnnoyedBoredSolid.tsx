@@ -16,7 +16,7 @@ export default function PiFaceAnnoyedBoredSolid({
   className,
   ariaLabel = 'face-annoyed-bored icon',
   ...props
-}: PiFaceAnnoyedBoredSolidProps): JSX.Element {
+}: PiFaceAnnoyedBoredSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiServerRemoveStroke({
   className,
   ariaLabel = 'server-remove icon',
   ...props
-}: PiServerRemoveStrokeProps): JSX.Element {
+}: PiServerRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

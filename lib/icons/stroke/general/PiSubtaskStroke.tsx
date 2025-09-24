@@ -16,7 +16,7 @@ export default function PiSubtaskStroke({
   className,
   ariaLabel = 'subtask icon',
   ...props
-}: PiSubtaskStrokeProps): JSX.Element {
+}: PiSubtaskStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

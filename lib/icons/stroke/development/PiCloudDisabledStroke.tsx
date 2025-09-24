@@ -16,7 +16,7 @@ export default function PiCloudDisabledStroke({
   className,
   ariaLabel = 'cloud-disabled icon',
   ...props
-}: PiCloudDisabledStrokeProps): JSX.Element {
+}: PiCloudDisabledStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiSmartContractStroke({
   className,
   ariaLabel = 'smart-contract icon',
   ...props
-}: PiSmartContractStrokeProps): JSX.Element {
+}: PiSmartContractStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

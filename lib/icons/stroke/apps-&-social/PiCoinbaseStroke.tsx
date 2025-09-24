@@ -16,7 +16,7 @@ export default function PiCoinbaseStroke({
   className,
   ariaLabel = 'coinbase icon',
   ...props
-}: PiCoinbaseStrokeProps): JSX.Element {
+}: PiCoinbaseStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiScalePencilCrossSolid({
   className,
   ariaLabel = 'scale-pencil-cross icon',
   ...props
-}: PiScalePencilCrossSolidProps): JSX.Element {
+}: PiScalePencilCrossSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCloudArrowDownloadStroke({
   className,
   ariaLabel = 'cloud-arrow-download icon',
   ...props
-}: PiCloudArrowDownloadStrokeProps): JSX.Element {
+}: PiCloudArrowDownloadStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

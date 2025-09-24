@@ -16,7 +16,7 @@ export default function PiBusFrontViewBoltStroke({
   className,
   ariaLabel = 'bus-front-view-bolt icon',
   ...props
-}: PiBusFrontViewBoltStrokeProps): JSX.Element {
+}: PiBusFrontViewBoltStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

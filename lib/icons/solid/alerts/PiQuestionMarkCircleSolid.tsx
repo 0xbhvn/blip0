@@ -16,7 +16,7 @@ export default function PiQuestionMarkCircleSolid({
   className,
   ariaLabel = 'question-mark-circle icon',
   ...props
-}: PiQuestionMarkCircleSolidProps): JSX.Element {
+}: PiQuestionMarkCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

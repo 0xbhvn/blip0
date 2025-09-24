@@ -16,7 +16,7 @@ export default function PiPhoneRemoveSolid({
   className,
   ariaLabel = 'phone-remove icon',
   ...props
-}: PiPhoneRemoveSolidProps): JSX.Element {
+}: PiPhoneRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

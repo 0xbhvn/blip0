@@ -16,7 +16,7 @@ export default function PiKanbanBoardSolid({
   className,
   ariaLabel = 'kanban-board icon',
   ...props
-}: PiKanbanBoardSolidProps): JSX.Element {
+}: PiKanbanBoardSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

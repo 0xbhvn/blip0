@@ -16,7 +16,7 @@ export default function PiGaugeRightUpSolid({
   className,
   ariaLabel = 'gauge-right-up icon',
   ...props
-}: PiGaugeRightUpSolidProps): JSX.Element {
+}: PiGaugeRightUpSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

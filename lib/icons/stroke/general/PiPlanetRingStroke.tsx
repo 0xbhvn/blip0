@@ -16,7 +16,7 @@ export default function PiPlanetRingStroke({
   className,
   ariaLabel = 'planet-ring icon',
   ...props
-}: PiPlanetRingStrokeProps): JSX.Element {
+}: PiPlanetRingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

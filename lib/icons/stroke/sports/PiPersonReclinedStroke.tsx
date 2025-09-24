@@ -16,7 +16,7 @@ export default function PiPersonReclinedStroke({
   className,
   ariaLabel = 'person-reclined icon',
   ...props
-}: PiPersonReclinedStrokeProps): JSX.Element {
+}: PiPersonReclinedStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

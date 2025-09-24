@@ -16,7 +16,7 @@ export default function PiRefrigeratorStroke({
   className,
   ariaLabel = 'refrigerator icon',
   ...props
-}: PiRefrigeratorStrokeProps): JSX.Element {
+}: PiRefrigeratorStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

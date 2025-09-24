@@ -16,7 +16,7 @@ export default function PiCommandCmdKStroke({
   className,
   ariaLabel = 'command-cmd-k icon',
   ...props
-}: PiCommandCmdKStrokeProps): JSX.Element {
+}: PiCommandCmdKStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

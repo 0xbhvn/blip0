@@ -16,7 +16,7 @@ export default function PiAlignUpSolid({
   className,
   ariaLabel = 'align-up icon',
   ...props
-}: PiAlignUpSolidProps): JSX.Element {
+}: PiAlignUpSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

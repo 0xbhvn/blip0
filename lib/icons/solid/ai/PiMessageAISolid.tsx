@@ -16,7 +16,7 @@ export default function PiMessageAISolid({
   className,
   ariaLabel = 'message-ai icon',
   ...props
-}: PiMessageAISolidProps): JSX.Element {
+}: PiMessageAISolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPollStroke({
   className,
   ariaLabel = 'poll icon',
   ...props
-}: PiPollStrokeProps): JSX.Element {
+}: PiPollStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

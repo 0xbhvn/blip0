@@ -16,7 +16,7 @@ export default function PiKeyRight02Stroke({
   className,
   ariaLabel = 'key-right-02 icon',
   ...props
-}: PiKeyRight02StrokeProps): JSX.Element {
+}: PiKeyRight02StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFilterLinesStroke({
   className,
   ariaLabel = 'filter-lines icon',
   ...props
-}: PiFilterLinesStrokeProps): JSX.Element {
+}: PiFilterLinesStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

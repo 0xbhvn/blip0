@@ -16,7 +16,7 @@ export default function PiChatTypingStroke({
   className,
   ariaLabel = 'chat-typing icon',
   ...props
-}: PiChatTypingStrokeProps): JSX.Element {
+}: PiChatTypingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

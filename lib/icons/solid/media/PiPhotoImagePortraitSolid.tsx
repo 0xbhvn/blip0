@@ -16,7 +16,7 @@ export default function PiPhotoImagePortraitSolid({
   className,
   ariaLabel = 'photo-image-portrait icon',
   ...props
-}: PiPhotoImagePortraitSolidProps): JSX.Element {
+}: PiPhotoImagePortraitSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiEnvelopePlusStroke({
   className,
   ariaLabel = 'envelope-plus icon',
   ...props
-}: PiEnvelopePlusStrokeProps): JSX.Element {
+}: PiEnvelopePlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

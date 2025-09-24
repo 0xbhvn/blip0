@@ -16,7 +16,7 @@ export default function PiUserSpeakingStroke({
   className,
   ariaLabel = 'user-speaking icon',
   ...props
-}: PiUserSpeakingStrokeProps): JSX.Element {
+}: PiUserSpeakingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPencilEditBoxSolid({
   className,
   ariaLabel = 'pencil-edit-box icon',
   ...props
-}: PiPencilEditBoxSolidProps): JSX.Element {
+}: PiPencilEditBoxSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

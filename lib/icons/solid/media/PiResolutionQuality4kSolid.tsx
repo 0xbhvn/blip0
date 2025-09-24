@@ -16,7 +16,7 @@ export default function PiResolutionQuality4kSolid({
   className,
   ariaLabel = 'resolution-quality-4k icon',
   ...props
-}: PiResolutionQuality4kSolidProps): JSX.Element {
+}: PiResolutionQuality4kSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

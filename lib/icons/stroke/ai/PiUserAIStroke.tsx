@@ -16,7 +16,7 @@ export default function PiUserAIStroke({
   className,
   ariaLabel = 'user-ai icon',
   ...props
-}: PiUserAIStrokeProps): JSX.Element {
+}: PiUserAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiGraphChartCandlestickStroke({
   className,
   ariaLabel = 'graph-chart-candlestick icon',
   ...props
-}: PiGraphChartCandlestickStrokeProps): JSX.Element {
+}: PiGraphChartCandlestickStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

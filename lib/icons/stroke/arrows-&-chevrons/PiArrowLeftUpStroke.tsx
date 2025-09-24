@@ -16,7 +16,7 @@ export default function PiArrowLeftUpStroke({
   className,
   ariaLabel = 'arrow-left-up icon',
   ...props
-}: PiArrowLeftUpStrokeProps): JSX.Element {
+}: PiArrowLeftUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

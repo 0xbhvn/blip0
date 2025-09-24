@@ -16,7 +16,7 @@ export default function PiGaugeRightDownStroke({
   className,
   ariaLabel = 'gauge-right-down icon',
   ...props
-}: PiGaugeRightDownStrokeProps): JSX.Element {
+}: PiGaugeRightDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

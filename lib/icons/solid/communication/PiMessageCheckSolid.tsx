@@ -16,7 +16,7 @@ export default function PiMessageCheckSolid({
   className,
   ariaLabel = 'message-check icon',
   ...props
-}: PiMessageCheckSolidProps): JSX.Element {
+}: PiMessageCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiRedditOldStroke({
   className,
   ariaLabel = 'reddit-old icon',
   ...props
-}: PiRedditOldStrokeProps): JSX.Element {
+}: PiRedditOldStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

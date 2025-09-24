@@ -16,7 +16,7 @@ export default function PiBuildingHotelStroke({
   className,
   ariaLabel = 'building-hotel icon',
   ...props
-}: PiBuildingHotelStrokeProps): JSX.Element {
+}: PiBuildingHotelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

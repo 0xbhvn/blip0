@@ -16,7 +16,7 @@ export default function PiChatCheckStroke({
   className,
   ariaLabel = 'chat-check icon',
   ...props
-}: PiChatCheckStrokeProps): JSX.Element {
+}: PiChatCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

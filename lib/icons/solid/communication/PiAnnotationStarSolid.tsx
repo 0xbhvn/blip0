@@ -16,7 +16,7 @@ export default function PiAnnotationStarSolid({
   className,
   ariaLabel = 'annotation-star icon',
   ...props
-}: PiAnnotationStarSolidProps): JSX.Element {
+}: PiAnnotationStarSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

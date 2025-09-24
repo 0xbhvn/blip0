@@ -16,7 +16,7 @@ export default function PiNftSettingsStroke({
   className,
   ariaLabel = 'nft-settings icon',
   ...props
-}: PiNftSettingsStrokeProps): JSX.Element {
+}: PiNftSettingsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

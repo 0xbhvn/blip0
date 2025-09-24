@@ -16,7 +16,7 @@ export default function PiArchiveMinusStroke({
   className,
   ariaLabel = 'archive-minus icon',
   ...props
-}: PiArchiveMinusStrokeProps): JSX.Element {
+}: PiArchiveMinusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCashStroke({
   className,
   ariaLabel = 'cash icon',
   ...props
-}: PiCashStrokeProps): JSX.Element {
+}: PiCashStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

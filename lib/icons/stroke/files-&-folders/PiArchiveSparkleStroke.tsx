@@ -16,7 +16,7 @@ export default function PiArchiveSparkleStroke({
   className,
   ariaLabel = 'archive-sparkle icon',
   ...props
-}: PiArchiveSparkleStrokeProps): JSX.Element {
+}: PiArchiveSparkleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

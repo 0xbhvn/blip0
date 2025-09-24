@@ -16,7 +16,7 @@ export default function PiCarFrontViewStroke({
   className,
   ariaLabel = 'car-front-view icon',
   ...props
-}: PiCarFrontViewStrokeProps): JSX.Element {
+}: PiCarFrontViewStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

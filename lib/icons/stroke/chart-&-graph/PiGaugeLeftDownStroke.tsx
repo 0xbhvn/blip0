@@ -16,7 +16,7 @@ export default function PiGaugeLeftDownStroke({
   className,
   ariaLabel = 'gauge-left-down icon',
   ...props
-}: PiGaugeLeftDownStrokeProps): JSX.Element {
+}: PiGaugeLeftDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

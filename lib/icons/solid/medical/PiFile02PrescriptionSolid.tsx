@@ -16,7 +16,7 @@ export default function PiFile02PrescriptionSolid({
   className,
   ariaLabel = 'file-02-prescription icon',
   ...props
-}: PiFile02PrescriptionSolidProps): JSX.Element {
+}: PiFile02PrescriptionSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

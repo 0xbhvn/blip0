@@ -16,7 +16,7 @@ export default function PiPollSolid({
   className,
   ariaLabel = 'poll icon',
   ...props
-}: PiPollSolidProps): JSX.Element {
+}: PiPollSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

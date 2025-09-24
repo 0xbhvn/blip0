@@ -16,7 +16,7 @@ export default function PiWalletArrowLeftSolid({
   className,
   ariaLabel = 'wallet-arrow-left icon',
   ...props
-}: PiWalletArrowLeftSolidProps): JSX.Element {
+}: PiWalletArrowLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

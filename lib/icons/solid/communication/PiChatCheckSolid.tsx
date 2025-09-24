@@ -16,7 +16,7 @@ export default function PiChatCheckSolid({
   className,
   ariaLabel = 'chat-check icon',
   ...props
-}: PiChatCheckSolidProps): JSX.Element {
+}: PiChatCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

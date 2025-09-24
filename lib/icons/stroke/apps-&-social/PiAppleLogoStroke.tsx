@@ -16,7 +16,7 @@ export default function PiAppleLogoStroke({
   className,
   ariaLabel = 'apple-logo icon',
   ...props
-}: PiAppleLogoStrokeProps): JSX.Element {
+}: PiAppleLogoStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiExchangeSolid({
   className,
   ariaLabel = 'exchange icon',
   ...props
-}: PiExchangeSolidProps): JSX.Element {
+}: PiExchangeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

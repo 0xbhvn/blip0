@@ -16,7 +16,7 @@ export default function PiArchiveCodeStroke({
   className,
   ariaLabel = 'archive-code icon',
   ...props
-}: PiArchiveCodeStrokeProps): JSX.Element {
+}: PiArchiveCodeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

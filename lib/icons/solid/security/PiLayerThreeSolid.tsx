@@ -16,7 +16,7 @@ export default function PiLayerThreeSolid({
   className,
   ariaLabel = 'layer-three icon',
   ...props
-}: PiLayerThreeSolidProps): JSX.Element {
+}: PiLayerThreeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

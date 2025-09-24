@@ -16,7 +16,7 @@ export default function PiCalendarRemoveStroke({
   className,
   ariaLabel = 'calendar-remove icon',
   ...props
-}: PiCalendarRemoveStrokeProps): JSX.Element {
+}: PiCalendarRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

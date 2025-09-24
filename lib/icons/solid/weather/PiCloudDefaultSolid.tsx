@@ -16,7 +16,7 @@ export default function PiCloudDefaultSolid({
   className,
   ariaLabel = 'cloud-default icon',
   ...props
-}: PiCloudDefaultSolidProps): JSX.Element {
+}: PiCloudDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

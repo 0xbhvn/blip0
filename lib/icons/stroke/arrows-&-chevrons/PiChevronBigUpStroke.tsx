@@ -16,7 +16,7 @@ export default function PiChevronBigUpStroke({
   className,
   ariaLabel = 'chevron-big-up icon',
   ...props
-}: PiChevronBigUpStrokeProps): JSX.Element {
+}: PiChevronBigUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

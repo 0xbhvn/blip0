@@ -16,7 +16,7 @@ export default function PiSpeakerOffSolid({
   className,
   ariaLabel = 'speaker-off icon',
   ...props
-}: PiSpeakerOffSolidProps): JSX.Element {
+}: PiSpeakerOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

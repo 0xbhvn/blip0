@@ -16,7 +16,7 @@ export default function PiVoiceRecordingSolid({
   className,
   ariaLabel = 'voice-recording icon',
   ...props
-}: PiVoiceRecordingSolidProps): JSX.Element {
+}: PiVoiceRecordingSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

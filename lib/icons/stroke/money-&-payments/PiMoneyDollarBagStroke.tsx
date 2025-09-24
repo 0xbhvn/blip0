@@ -16,7 +16,7 @@ export default function PiMoneyDollarBagStroke({
   className,
   ariaLabel = 'money-dollar-bag icon',
   ...props
-}: PiMoneyDollarBagStrokeProps): JSX.Element {
+}: PiMoneyDollarBagStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

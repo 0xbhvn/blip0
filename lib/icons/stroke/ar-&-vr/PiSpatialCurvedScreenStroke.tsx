@@ -16,7 +16,7 @@ export default function PiSpatialCurvedScreenStroke({
   className,
   ariaLabel = 'spatial-curved-screen icon',
   ...props
-}: PiSpatialCurvedScreenStrokeProps): JSX.Element {
+}: PiSpatialCurvedScreenStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

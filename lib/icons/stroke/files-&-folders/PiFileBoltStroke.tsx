@@ -16,7 +16,7 @@ export default function PiFileBoltStroke({
   className,
   ariaLabel = 'file-bolt icon',
   ...props
-}: PiFileBoltStrokeProps): JSX.Element {
+}: PiFileBoltStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiGridDashboardCircleSolid({
   className,
   ariaLabel = 'grid-dashboard-circle icon',
   ...props
-}: PiGridDashboardCircleSolidProps): JSX.Element {
+}: PiGridDashboardCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

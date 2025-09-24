@@ -16,7 +16,7 @@ export default function PiArrowLeftCircleStroke({
   className,
   ariaLabel = 'arrow-left-circle icon',
   ...props
-}: PiArrowLeftCircleStrokeProps): JSX.Element {
+}: PiArrowLeftCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

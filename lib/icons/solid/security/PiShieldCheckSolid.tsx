@@ -16,7 +16,7 @@ export default function PiShieldCheckSolid({
   className,
   ariaLabel = 'shield-check icon',
   ...props
-}: PiShieldCheckSolidProps): JSX.Element {
+}: PiShieldCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

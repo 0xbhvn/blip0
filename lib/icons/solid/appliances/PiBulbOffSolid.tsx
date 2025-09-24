@@ -16,7 +16,7 @@ export default function PiBulbOffSolid({
   className,
   ariaLabel = 'bulb-off icon',
   ...props
-}: PiBulbOffSolidProps): JSX.Element {
+}: PiBulbOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

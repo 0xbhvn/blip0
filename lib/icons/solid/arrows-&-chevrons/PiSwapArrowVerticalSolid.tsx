@@ -16,7 +16,7 @@ export default function PiSwapArrowVerticalSolid({
   className,
   ariaLabel = 'swap-arrow-vertical icon',
   ...props
-}: PiSwapArrowVerticalSolidProps): JSX.Element {
+}: PiSwapArrowVerticalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPinterestStroke({
   className,
   ariaLabel = 'pinterest icon',
   ...props
-}: PiPinterestStrokeProps): JSX.Element {
+}: PiPinterestStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiAnnotationExclamationStroke({
   className,
   ariaLabel = 'annotation-exclamation icon',
   ...props
-}: PiAnnotationExclamationStrokeProps): JSX.Element {
+}: PiAnnotationExclamationStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

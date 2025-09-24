@@ -16,7 +16,7 @@ export default function PiScaleSolid({
   className,
   ariaLabel = 'scale icon',
   ...props
-}: PiScaleSolidProps): JSX.Element {
+}: PiScaleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

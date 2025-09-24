@@ -16,7 +16,7 @@ export default function PiNotificationBellCheckStroke({
   className,
   ariaLabel = 'notification-bell-check icon',
   ...props
-}: PiNotificationBellCheckStrokeProps): JSX.Element {
+}: PiNotificationBellCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

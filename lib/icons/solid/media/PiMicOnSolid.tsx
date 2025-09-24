@@ -16,7 +16,7 @@ export default function PiMicOnSolid({
   className,
   ariaLabel = 'mic-on icon',
   ...props
-}: PiMicOnSolidProps): JSX.Element {
+}: PiMicOnSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

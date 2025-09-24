@@ -16,7 +16,7 @@ export default function PiPeerlistStroke({
   className,
   ariaLabel = 'peerlist icon',
   ...props
-}: PiPeerlistStrokeProps): JSX.Element {
+}: PiPeerlistStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

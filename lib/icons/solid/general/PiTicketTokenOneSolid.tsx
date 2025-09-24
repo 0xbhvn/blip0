@@ -16,7 +16,7 @@ export default function PiTicketTokenOneSolid({
   className,
   ariaLabel = 'ticket-token-one icon',
   ...props
-}: PiTicketTokenOneSolidProps): JSX.Element {
+}: PiTicketTokenOneSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPlayCircleStroke({
   className,
   ariaLabel = 'play-circle icon',
   ...props
-}: PiPlayCircleStrokeProps): JSX.Element {
+}: PiPlayCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

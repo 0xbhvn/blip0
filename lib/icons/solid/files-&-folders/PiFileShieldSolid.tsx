@@ -16,7 +16,7 @@ export default function PiFileShieldSolid({
   className,
   ariaLabel = 'file-shield icon',
   ...props
-}: PiFileShieldSolidProps): JSX.Element {
+}: PiFileShieldSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

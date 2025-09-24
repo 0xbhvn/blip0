@@ -16,7 +16,7 @@ export default function PiArrowDownCircleSolid({
   className,
   ariaLabel = 'arrow-down-circle icon',
   ...props
-}: PiArrowDownCircleSolidProps): JSX.Element {
+}: PiArrowDownCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

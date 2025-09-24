@@ -16,7 +16,7 @@ export default function PiFileLockStroke({
   className,
   ariaLabel = 'file-lock icon',
   ...props
-}: PiFileLockStrokeProps): JSX.Element {
+}: PiFileLockStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

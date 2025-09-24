@@ -16,7 +16,7 @@ export default function PiPoapStroke({
   className,
   ariaLabel = 'poap icon',
   ...props
-}: PiPoapStrokeProps): JSX.Element {
+}: PiPoapStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

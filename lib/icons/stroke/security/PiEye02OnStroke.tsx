@@ -16,7 +16,7 @@ export default function PiEye02OnStroke({
   className,
   ariaLabel = 'eye-02-on icon',
   ...props
-}: PiEye02OnStrokeProps): JSX.Element {
+}: PiEye02OnStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

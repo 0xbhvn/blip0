@@ -16,7 +16,7 @@ export default function PiMessageSearchStroke({
   className,
   ariaLabel = 'message-search icon',
   ...props
-}: PiMessageSearchStrokeProps): JSX.Element {
+}: PiMessageSearchStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiHomeSettingsSolid({
   className,
   ariaLabel = 'home-settings icon',
   ...props
-}: PiHomeSettingsSolidProps): JSX.Element {
+}: PiHomeSettingsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiTargetCenterSolid({
   className,
   ariaLabel = 'target-center icon',
   ...props
-}: PiTargetCenterSolidProps): JSX.Element {
+}: PiTargetCenterSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

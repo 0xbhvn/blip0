@@ -16,7 +16,7 @@ export default function PiNoteOutlineAIStroke({
   className,
   ariaLabel = 'note-outline-ai icon',
   ...props
-}: PiNoteOutlineAIStrokeProps): JSX.Element {
+}: PiNoteOutlineAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

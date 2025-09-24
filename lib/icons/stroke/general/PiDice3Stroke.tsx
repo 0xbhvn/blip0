@@ -16,7 +16,7 @@ export default function PiDice3Stroke({
   className,
   ariaLabel = 'dice-3 icon',
   ...props
-}: PiDice3StrokeProps): JSX.Element {
+}: PiDice3StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiUserSettingsSolid({
   className,
   ariaLabel = 'user-settings icon',
   ...props
-}: PiUserSettingsSolidProps): JSX.Element {
+}: PiUserSettingsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

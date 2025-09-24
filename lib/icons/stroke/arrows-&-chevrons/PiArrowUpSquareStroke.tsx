@@ -16,7 +16,7 @@ export default function PiArrowUpSquareStroke({
   className,
   ariaLabel = 'arrow-up-square icon',
   ...props
-}: PiArrowUpSquareStrokeProps): JSX.Element {
+}: PiArrowUpSquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

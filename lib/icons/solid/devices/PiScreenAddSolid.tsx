@@ -16,7 +16,7 @@ export default function PiScreenAddSolid({
   className,
   ariaLabel = 'screen-add icon',
   ...props
-}: PiScreenAddSolidProps): JSX.Element {
+}: PiScreenAddSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

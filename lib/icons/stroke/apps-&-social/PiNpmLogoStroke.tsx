@@ -16,7 +16,7 @@ export default function PiNpmLogoStroke({
   className,
   ariaLabel = 'npm-logo icon',
   ...props
-}: PiNpmLogoStrokeProps): JSX.Element {
+}: PiNpmLogoStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiLandlinePhoneSolid({
   className,
   ariaLabel = 'landline-phone icon',
   ...props
-}: PiLandlinePhoneSolidProps): JSX.Element {
+}: PiLandlinePhoneSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

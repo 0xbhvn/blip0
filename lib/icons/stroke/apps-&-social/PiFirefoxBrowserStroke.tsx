@@ -16,7 +16,7 @@ export default function PiFirefoxBrowserStroke({
   className,
   ariaLabel = 'firefox-browser icon',
   ...props
-}: PiFirefoxBrowserStrokeProps): JSX.Element {
+}: PiFirefoxBrowserStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

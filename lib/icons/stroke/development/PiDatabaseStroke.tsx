@@ -16,7 +16,7 @@ export default function PiDatabaseStroke({
   className,
   ariaLabel = 'database icon',
   ...props
-}: PiDatabaseStrokeProps): JSX.Element {
+}: PiDatabaseStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

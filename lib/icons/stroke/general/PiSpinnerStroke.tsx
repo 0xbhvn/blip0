@@ -16,7 +16,7 @@ export default function PiSpinnerStroke({
   className,
   ariaLabel = 'spinner icon',
   ...props
-}: PiSpinnerStrokeProps): JSX.Element {
+}: PiSpinnerStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

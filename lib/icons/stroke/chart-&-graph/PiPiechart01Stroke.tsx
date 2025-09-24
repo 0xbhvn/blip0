@@ -16,7 +16,7 @@ export default function PiPiechart01Stroke({
   className,
   ariaLabel = 'piechart-01 icon',
   ...props
-}: PiPiechart01StrokeProps): JSX.Element {
+}: PiPiechart01StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

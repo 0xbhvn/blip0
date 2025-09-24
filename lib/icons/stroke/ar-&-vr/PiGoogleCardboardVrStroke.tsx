@@ -16,7 +16,7 @@ export default function PiGoogleCardboardVrStroke({
   className,
   ariaLabel = 'google-cardboard-vr icon',
   ...props
-}: PiGoogleCardboardVrStrokeProps): JSX.Element {
+}: PiGoogleCardboardVrStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

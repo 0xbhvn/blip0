@@ -16,7 +16,7 @@ export default function PiNotificationBellRemoveStroke({
   className,
   ariaLabel = 'notification-bell-remove icon',
   ...props
-}: PiNotificationBellRemoveStrokeProps): JSX.Element {
+}: PiNotificationBellRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiGitCompareSolid({
   className,
   ariaLabel = 'git-compare icon',
   ...props
-}: PiGitCompareSolidProps): JSX.Element {
+}: PiGitCompareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

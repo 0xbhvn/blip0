@@ -16,7 +16,7 @@ export default function PiPhotoImageCancelStroke({
   className,
   ariaLabel = 'photo-image-cancel icon',
   ...props
-}: PiPhotoImageCancelStrokeProps): JSX.Element {
+}: PiPhotoImageCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

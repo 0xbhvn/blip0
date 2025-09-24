@@ -16,7 +16,7 @@ export default function PiGraphChartPyramidSolid({
   className,
   ariaLabel = 'graph-chart-pyramid icon',
   ...props
-}: PiGraphChartPyramidSolidProps): JSX.Element {
+}: PiGraphChartPyramidSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

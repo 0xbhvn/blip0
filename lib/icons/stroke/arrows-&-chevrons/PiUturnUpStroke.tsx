@@ -16,7 +16,7 @@ export default function PiUturnUpStroke({
   className,
   ariaLabel = 'uturn-up icon',
   ...props
-}: PiUturnUpStrokeProps): JSX.Element {
+}: PiUturnUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

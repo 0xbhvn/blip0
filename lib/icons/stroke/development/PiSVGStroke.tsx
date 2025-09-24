@@ -16,7 +16,7 @@ export default function PiSVGStroke({
   className,
   ariaLabel = 'svg icon',
   ...props
-}: PiSVGStrokeProps): JSX.Element {
+}: PiSVGStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

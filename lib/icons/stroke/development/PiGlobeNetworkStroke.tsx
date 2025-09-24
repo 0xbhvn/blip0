@@ -16,7 +16,7 @@ export default function PiGlobeNetworkStroke({
   className,
   ariaLabel = 'globe-network icon',
   ...props
-}: PiGlobeNetworkStrokeProps): JSX.Element {
+}: PiGlobeNetworkStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

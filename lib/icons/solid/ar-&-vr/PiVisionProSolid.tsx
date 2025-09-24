@@ -16,7 +16,7 @@ export default function PiVisionProSolid({
   className,
   ariaLabel = 'vision-pro icon',
   ...props
-}: PiVisionProSolidProps): JSX.Element {
+}: PiVisionProSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

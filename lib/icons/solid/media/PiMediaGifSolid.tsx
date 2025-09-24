@@ -16,7 +16,7 @@ export default function PiMediaGifSolid({
   className,
   ariaLabel = 'media-gif icon',
   ...props
-}: PiMediaGifSolidProps): JSX.Element {
+}: PiMediaGifSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

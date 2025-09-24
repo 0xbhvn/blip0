@@ -16,7 +16,7 @@ export default function PiKpiDefaultSolid({
   className,
   ariaLabel = 'kpi-default icon',
   ...props
-}: PiKpiDefaultSolidProps): JSX.Element {
+}: PiKpiDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

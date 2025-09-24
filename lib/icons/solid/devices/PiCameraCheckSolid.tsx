@@ -16,7 +16,7 @@ export default function PiCameraCheckSolid({
   className,
   ariaLabel = 'camera-check icon',
   ...props
-}: PiCameraCheckSolidProps): JSX.Element {
+}: PiCameraCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

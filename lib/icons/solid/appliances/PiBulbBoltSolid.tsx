@@ -16,7 +16,7 @@ export default function PiBulbBoltSolid({
   className,
   ariaLabel = 'bulb-bolt icon',
   ...props
-}: PiBulbBoltSolidProps): JSX.Element {
+}: PiBulbBoltSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

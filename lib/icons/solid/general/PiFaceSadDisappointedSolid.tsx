@@ -16,7 +16,7 @@ export default function PiFaceSadDisappointedSolid({
   className,
   ariaLabel = 'face-sad-disappointed icon',
   ...props
-}: PiFaceSadDisappointedSolidProps): JSX.Element {
+}: PiFaceSadDisappointedSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

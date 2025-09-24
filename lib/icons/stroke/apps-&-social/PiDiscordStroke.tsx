@@ -16,7 +16,7 @@ export default function PiDiscordStroke({
   className,
   ariaLabel = 'discord icon',
   ...props
-}: PiDiscordStrokeProps): JSX.Element {
+}: PiDiscordStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

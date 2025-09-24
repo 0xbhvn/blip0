@@ -16,7 +16,7 @@ export default function PiFaceWink02Solid({
   className,
   ariaLabel = 'face-wink-02 icon',
   ...props
-}: PiFaceWink02SolidProps): JSX.Element {
+}: PiFaceWink02SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

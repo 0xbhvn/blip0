@@ -16,7 +16,7 @@ export default function PiFolderHeartSolid({
   className,
   ariaLabel = 'folder-heart icon',
   ...props
-}: PiFolderHeartSolidProps): JSX.Element {
+}: PiFolderHeartSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

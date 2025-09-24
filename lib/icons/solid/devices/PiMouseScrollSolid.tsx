@@ -16,7 +16,7 @@ export default function PiMouseScrollSolid({
   className,
   ariaLabel = 'mouse-scroll icon',
   ...props
-}: PiMouseScrollSolidProps): JSX.Element {
+}: PiMouseScrollSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

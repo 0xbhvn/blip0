@@ -16,7 +16,7 @@ export default function PiCircleDashedStroke({
   className,
   ariaLabel = 'circle-dashed icon',
   ...props
-}: PiCircleDashedStrokeProps): JSX.Element {
+}: PiCircleDashedStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

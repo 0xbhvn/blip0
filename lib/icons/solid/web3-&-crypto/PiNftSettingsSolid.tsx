@@ -16,7 +16,7 @@ export default function PiNftSettingsSolid({
   className,
   ariaLabel = 'nft-settings icon',
   ...props
-}: PiNftSettingsSolidProps): JSX.Element {
+}: PiNftSettingsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

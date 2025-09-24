@@ -16,7 +16,7 @@ export default function PiEraserDefaultStroke({
   className,
   ariaLabel = 'eraser-default icon',
   ...props
-}: PiEraserDefaultStrokeProps): JSX.Element {
+}: PiEraserDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

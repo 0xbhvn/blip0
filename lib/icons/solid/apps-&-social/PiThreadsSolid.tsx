@@ -16,7 +16,7 @@ export default function PiThreadsSolid({
   className,
   ariaLabel = 'threads icon',
   ...props
-}: PiThreadsSolidProps): JSX.Element {
+}: PiThreadsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

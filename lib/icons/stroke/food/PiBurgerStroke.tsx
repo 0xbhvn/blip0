@@ -16,7 +16,7 @@ export default function PiBurgerStroke({
   className,
   ariaLabel = 'burger icon',
   ...props
-}: PiBurgerStrokeProps): JSX.Element {
+}: PiBurgerStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

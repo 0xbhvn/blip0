@@ -16,7 +16,7 @@ export default function PiPhotoImagePortraitStroke({
   className,
   ariaLabel = 'photo-image-portrait icon',
   ...props
-}: PiPhotoImagePortraitStrokeProps): JSX.Element {
+}: PiPhotoImagePortraitStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiSwipeDefaultSolid({
   className,
   ariaLabel = 'swipe-default icon',
   ...props
-}: PiSwipeDefaultSolidProps): JSX.Element {
+}: PiSwipeDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

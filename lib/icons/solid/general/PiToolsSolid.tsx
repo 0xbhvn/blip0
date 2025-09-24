@@ -16,7 +16,7 @@ export default function PiToolsSolid({
   className,
   ariaLabel = 'tools icon',
   ...props
-}: PiToolsSolidProps): JSX.Element {
+}: PiToolsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

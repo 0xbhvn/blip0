@@ -16,7 +16,7 @@ export default function PiFloppy02Solid({
   className,
   ariaLabel = 'floppy-02 icon',
   ...props
-}: PiFloppy02SolidProps): JSX.Element {
+}: PiFloppy02SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

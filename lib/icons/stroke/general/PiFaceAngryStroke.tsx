@@ -16,7 +16,7 @@ export default function PiFaceAngryStroke({
   className,
   ariaLabel = 'face-angry icon',
   ...props
-}: PiFaceAngryStrokeProps): JSX.Element {
+}: PiFaceAngryStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

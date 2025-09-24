@@ -16,7 +16,7 @@ export default function PiClockOffStroke({
   className,
   ariaLabel = 'clock-off icon',
   ...props
-}: PiClockOffStrokeProps): JSX.Element {
+}: PiClockOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

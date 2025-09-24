@@ -16,7 +16,7 @@ export default function PiSpeakerOnStroke({
   className,
   ariaLabel = 'speaker-on icon',
   ...props
-}: PiSpeakerOnStrokeProps): JSX.Element {
+}: PiSpeakerOnStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

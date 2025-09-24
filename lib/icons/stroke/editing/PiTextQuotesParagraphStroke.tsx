@@ -16,7 +16,7 @@ export default function PiTextQuotesParagraphStroke({
   className,
   ariaLabel = 'text-quotes-paragraph icon',
   ...props
-}: PiTextQuotesParagraphStrokeProps): JSX.Element {
+}: PiTextQuotesParagraphStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

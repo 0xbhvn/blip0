@@ -16,7 +16,7 @@ export default function PiBeachUmbrellaSolid({
   className,
   ariaLabel = 'beach-umbrella icon',
   ...props
-}: PiBeachUmbrellaSolidProps): JSX.Element {
+}: PiBeachUmbrellaSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

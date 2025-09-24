@@ -16,7 +16,7 @@ export default function PiFramerSolid({
   className,
   ariaLabel = 'framer icon',
   ...props
-}: PiFramerSolidProps): JSX.Element {
+}: PiFramerSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

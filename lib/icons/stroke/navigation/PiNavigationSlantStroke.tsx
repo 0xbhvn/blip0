@@ -16,7 +16,7 @@ export default function PiNavigationSlantStroke({
   className,
   ariaLabel = 'navigation-slant icon',
   ...props
-}: PiNavigationSlantStrokeProps): JSX.Element {
+}: PiNavigationSlantStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

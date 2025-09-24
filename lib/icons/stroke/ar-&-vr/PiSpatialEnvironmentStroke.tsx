@@ -16,7 +16,7 @@ export default function PiSpatialEnvironmentStroke({
   className,
   ariaLabel = 'spatial-environment icon',
   ...props
-}: PiSpatialEnvironmentStrokeProps): JSX.Element {
+}: PiSpatialEnvironmentStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

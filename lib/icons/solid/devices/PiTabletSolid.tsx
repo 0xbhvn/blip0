@@ -16,7 +16,7 @@ export default function PiTabletSolid({
   className,
   ariaLabel = 'tablet icon',
   ...props
-}: PiTabletSolidProps): JSX.Element {
+}: PiTabletSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

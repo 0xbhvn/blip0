@@ -16,7 +16,7 @@ export default function PiWindowPictureInPictureStroke({
   className,
   ariaLabel = 'window-picture-in-picture icon',
   ...props
-}: PiWindowPictureInPictureStrokeProps): JSX.Element {
+}: PiWindowPictureInPictureStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

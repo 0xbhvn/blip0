@@ -16,7 +16,7 @@ export default function PiListLongStroke({
   className,
   ariaLabel = 'list-long icon',
   ...props
-}: PiListLongStrokeProps): JSX.Element {
+}: PiListLongStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

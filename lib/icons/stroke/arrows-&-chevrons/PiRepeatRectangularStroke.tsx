@@ -16,7 +16,7 @@ export default function PiRepeatRectangularStroke({
   className,
   ariaLabel = 'repeat-rectangular icon',
   ...props
-}: PiRepeatRectangularStrokeProps): JSX.Element {
+}: PiRepeatRectangularStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

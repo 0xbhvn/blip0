@@ -16,7 +16,7 @@ export default function PiOfficeDeskSolid({
   className,
   ariaLabel = 'office-desk icon',
   ...props
-}: PiOfficeDeskSolidProps): JSX.Element {
+}: PiOfficeDeskSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

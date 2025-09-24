@@ -16,7 +16,7 @@ export default function PiMedicalCrossSolid({
   className,
   ariaLabel = 'medical-cross icon',
   ...props
-}: PiMedicalCrossSolidProps): JSX.Element {
+}: PiMedicalCrossSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

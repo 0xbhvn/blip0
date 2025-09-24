@@ -16,7 +16,7 @@ export default function PiMicrowaveSolid({
   className,
   ariaLabel = 'microwave icon',
   ...props
-}: PiMicrowaveSolidProps): JSX.Element {
+}: PiMicrowaveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

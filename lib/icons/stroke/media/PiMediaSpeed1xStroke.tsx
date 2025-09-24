@@ -16,7 +16,7 @@ export default function PiMediaSpeed1xStroke({
   className,
   ariaLabel = 'media-speed-1x icon',
   ...props
-}: PiMediaSpeed1xStrokeProps): JSX.Element {
+}: PiMediaSpeed1xStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

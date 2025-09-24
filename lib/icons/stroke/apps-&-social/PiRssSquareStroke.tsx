@@ -16,7 +16,7 @@ export default function PiRssSquareStroke({
   className,
   ariaLabel = 'rss-square icon',
   ...props
-}: PiRssSquareStrokeProps): JSX.Element {
+}: PiRssSquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

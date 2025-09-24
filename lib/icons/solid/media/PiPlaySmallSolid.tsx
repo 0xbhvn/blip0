@@ -16,7 +16,7 @@ export default function PiPlaySmallSolid({
   className,
   ariaLabel = 'play-small icon',
   ...props
-}: PiPlaySmallSolidProps): JSX.Element {
+}: PiPlaySmallSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

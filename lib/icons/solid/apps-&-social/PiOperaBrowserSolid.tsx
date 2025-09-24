@@ -16,7 +16,7 @@ export default function PiOperaBrowserSolid({
   className,
   ariaLabel = 'opera-browser icon',
   ...props
-}: PiOperaBrowserSolidProps): JSX.Element {
+}: PiOperaBrowserSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

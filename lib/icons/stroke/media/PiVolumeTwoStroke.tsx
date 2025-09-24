@@ -16,7 +16,7 @@ export default function PiVolumeTwoStroke({
   className,
   ariaLabel = 'volume-two icon',
   ...props
-}: PiVolumeTwoStrokeProps): JSX.Element {
+}: PiVolumeTwoStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFileSearchSolid({
   className,
   ariaLabel = 'file-search icon',
   ...props
-}: PiFileSearchSolidProps): JSX.Element {
+}: PiFileSearchSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

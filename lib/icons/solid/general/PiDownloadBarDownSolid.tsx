@@ -16,7 +16,7 @@ export default function PiDownloadBarDownSolid({
   className,
   ariaLabel = 'download-bar-down icon',
   ...props
-}: PiDownloadBarDownSolidProps): JSX.Element {
+}: PiDownloadBarDownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

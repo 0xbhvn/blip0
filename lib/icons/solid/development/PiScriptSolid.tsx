@@ -16,7 +16,7 @@ export default function PiScriptSolid({
   className,
   ariaLabel = 'script icon',
   ...props
-}: PiScriptSolidProps): JSX.Element {
+}: PiScriptSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

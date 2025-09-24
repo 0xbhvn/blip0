@@ -16,7 +16,7 @@ export default function PiScreenCheckSolid({
   className,
   ariaLabel = 'screen-check icon',
   ...props
-}: PiScreenCheckSolidProps): JSX.Element {
+}: PiScreenCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

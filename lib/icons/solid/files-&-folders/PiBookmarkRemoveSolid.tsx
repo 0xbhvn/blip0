@@ -16,7 +16,7 @@ export default function PiBookmarkRemoveSolid({
   className,
   ariaLabel = 'bookmark-remove icon',
   ...props
-}: PiBookmarkRemoveSolidProps): JSX.Element {
+}: PiBookmarkRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

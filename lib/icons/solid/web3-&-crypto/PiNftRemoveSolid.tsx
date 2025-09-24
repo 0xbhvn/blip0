@@ -16,7 +16,7 @@ export default function PiNftRemoveSolid({
   className,
   ariaLabel = 'nft-remove icon',
   ...props
-}: PiNftRemoveSolidProps): JSX.Element {
+}: PiNftRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

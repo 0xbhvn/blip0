@@ -16,7 +16,7 @@ export default function PiStethoscopeStroke({
   className,
   ariaLabel = 'stethoscope icon',
   ...props
-}: PiStethoscopeStrokeProps): JSX.Element {
+}: PiStethoscopeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiSquareDashedStroke({
   className,
   ariaLabel = 'square-dashed icon',
   ...props
-}: PiSquareDashedStrokeProps): JSX.Element {
+}: PiSquareDashedStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

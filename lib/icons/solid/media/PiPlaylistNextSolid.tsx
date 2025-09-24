@@ -16,7 +16,7 @@ export default function PiPlaylistNextSolid({
   className,
   ariaLabel = 'playlist-next icon',
   ...props
-}: PiPlaylistNextSolidProps): JSX.Element {
+}: PiPlaylistNextSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

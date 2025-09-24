@@ -16,7 +16,7 @@ export default function PiMotionEaseOutSolid({
   className,
   ariaLabel = 'motion-ease-out icon',
   ...props
-}: PiMotionEaseOutSolidProps): JSX.Element {
+}: PiMotionEaseOutSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

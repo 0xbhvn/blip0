@@ -16,7 +16,7 @@ export default function PiSidebarMenuStroke({
   className,
   ariaLabel = 'sidebar-menu icon',
   ...props
-}: PiSidebarMenuStrokeProps): JSX.Element {
+}: PiSidebarMenuStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

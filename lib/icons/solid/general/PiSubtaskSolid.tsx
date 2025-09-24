@@ -16,7 +16,7 @@ export default function PiSubtaskSolid({
   className,
   ariaLabel = 'subtask icon',
   ...props
-}: PiSubtaskSolidProps): JSX.Element {
+}: PiSubtaskSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

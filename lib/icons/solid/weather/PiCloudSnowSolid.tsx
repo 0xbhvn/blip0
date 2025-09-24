@@ -16,7 +16,7 @@ export default function PiCloudSnowSolid({
   className,
   ariaLabel = 'cloud-snow icon',
   ...props
-}: PiCloudSnowSolidProps): JSX.Element {
+}: PiCloudSnowSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiNpmLogoSymbolSolid({
   className,
   ariaLabel = 'npm-logo-symbol icon',
   ...props
-}: PiNpmLogoSymbolSolidProps): JSX.Element {
+}: PiNpmLogoSymbolSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCryptoCurrencySolanaSolid({
   className,
   ariaLabel = 'crypto-currency-solana icon',
   ...props
-}: PiCryptoCurrencySolanaSolidProps): JSX.Element {
+}: PiCryptoCurrencySolanaSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

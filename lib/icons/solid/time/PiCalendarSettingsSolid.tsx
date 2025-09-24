@@ -16,7 +16,7 @@ export default function PiCalendarSettingsSolid({
   className,
   ariaLabel = 'calendar-settings icon',
   ...props
-}: PiCalendarSettingsSolidProps): JSX.Element {
+}: PiCalendarSettingsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

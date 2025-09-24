@@ -16,7 +16,7 @@ export default function PiInvoice02Stroke({
   className,
   ariaLabel = 'invoice-02 icon',
   ...props
-}: PiInvoice02StrokeProps): JSX.Element {
+}: PiInvoice02StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

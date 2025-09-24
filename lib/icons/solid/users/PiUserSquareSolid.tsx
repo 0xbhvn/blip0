@@ -16,7 +16,7 @@ export default function PiUserSquareSolid({
   className,
   ariaLabel = 'user-square icon',
   ...props
-}: PiUserSquareSolidProps): JSX.Element {
+}: PiUserSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

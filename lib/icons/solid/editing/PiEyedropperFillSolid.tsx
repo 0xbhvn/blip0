@@ -16,7 +16,7 @@ export default function PiEyedropperFillSolid({
   className,
   ariaLabel = 'eyedropper-fill icon',
   ...props
-}: PiEyedropperFillSolidProps): JSX.Element {
+}: PiEyedropperFillSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

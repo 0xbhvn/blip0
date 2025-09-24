@@ -16,7 +16,7 @@ export default function PiTimerRemoveSolid({
   className,
   ariaLabel = 'timer-remove icon',
   ...props
-}: PiTimerRemoveSolidProps): JSX.Element {
+}: PiTimerRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

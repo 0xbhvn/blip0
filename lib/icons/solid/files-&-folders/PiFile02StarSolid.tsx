@@ -16,7 +16,7 @@ export default function PiFile02StarSolid({
   className,
   ariaLabel = 'file-02-star icon',
   ...props
-}: PiFile02StarSolidProps): JSX.Element {
+}: PiFile02StarSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

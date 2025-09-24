@@ -16,7 +16,7 @@ export default function PiSettings01Stroke({
   className,
   ariaLabel = 'settings-01 icon',
   ...props
-}: PiSettings01StrokeProps): JSX.Element {
+}: PiSettings01StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

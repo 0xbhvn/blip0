@@ -16,7 +16,7 @@ export default function PiRocketShipStroke({
   className,
   ariaLabel = 'rocket-ship icon',
   ...props
-}: PiRocketShipStrokeProps): JSX.Element {
+}: PiRocketShipStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

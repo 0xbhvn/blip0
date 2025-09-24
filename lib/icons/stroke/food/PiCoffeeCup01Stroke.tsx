@@ -16,7 +16,7 @@ export default function PiCoffeeCup01Stroke({
   className,
   ariaLabel = 'coffee-cup-01 icon',
   ...props
-}: PiCoffeeCup01StrokeProps): JSX.Element {
+}: PiCoffeeCup01StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

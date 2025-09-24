@@ -16,7 +16,7 @@ export default function PiToolsStroke({
   className,
   ariaLabel = 'tools icon',
   ...props
-}: PiToolsStrokeProps): JSX.Element {
+}: PiToolsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

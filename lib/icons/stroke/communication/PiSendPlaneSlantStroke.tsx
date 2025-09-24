@@ -16,7 +16,7 @@ export default function PiSendPlaneSlantStroke({
   className,
   ariaLabel = 'send-plane-slant icon',
   ...props
-}: PiSendPlaneSlantStrokeProps): JSX.Element {
+}: PiSendPlaneSlantStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

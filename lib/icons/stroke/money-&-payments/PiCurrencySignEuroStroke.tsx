@@ -16,7 +16,7 @@ export default function PiCurrencySignEuroStroke({
   className,
   ariaLabel = 'currency-sign-euro icon',
   ...props
-}: PiCurrencySignEuroStrokeProps): JSX.Element {
+}: PiCurrencySignEuroStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

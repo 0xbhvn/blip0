@@ -16,7 +16,7 @@ export default function PiBagSackPouchStroke({
   className,
   ariaLabel = 'bag-sack-pouch icon',
   ...props
-}: PiBagSackPouchStrokeProps): JSX.Element {
+}: PiBagSackPouchStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

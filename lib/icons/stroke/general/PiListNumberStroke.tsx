@@ -16,7 +16,7 @@ export default function PiListNumberStroke({
   className,
   ariaLabel = 'list-number icon',
   ...props
-}: PiListNumberStrokeProps): JSX.Element {
+}: PiListNumberStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

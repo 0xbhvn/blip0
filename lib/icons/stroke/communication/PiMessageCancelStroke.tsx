@@ -16,7 +16,7 @@ export default function PiMessageCancelStroke({
   className,
   ariaLabel = 'message-cancel icon',
   ...props
-}: PiMessageCancelStrokeProps): JSX.Element {
+}: PiMessageCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

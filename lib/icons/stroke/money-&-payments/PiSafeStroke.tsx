@@ -16,7 +16,7 @@ export default function PiSafeStroke({
   className,
   ariaLabel = 'safe icon',
   ...props
-}: PiSafeStrokeProps): JSX.Element {
+}: PiSafeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiLibrarySolid({
   className,
   ariaLabel = 'library icon',
   ...props
-}: PiLibrarySolidProps): JSX.Element {
+}: PiLibrarySolidProps): React.ReactElement {
   return (
     <svg
       width={size}

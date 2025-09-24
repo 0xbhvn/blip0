@@ -16,7 +16,7 @@ export default function PiTelescopeStroke({
   className,
   ariaLabel = 'telescope icon',
   ...props
-}: PiTelescopeStrokeProps): JSX.Element {
+}: PiTelescopeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

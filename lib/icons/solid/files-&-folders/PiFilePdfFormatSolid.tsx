@@ -16,7 +16,7 @@ export default function PiFilePdfFormatSolid({
   className,
   ariaLabel = 'file-pdf-format icon',
   ...props
-}: PiFilePdfFormatSolidProps): JSX.Element {
+}: PiFilePdfFormatSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

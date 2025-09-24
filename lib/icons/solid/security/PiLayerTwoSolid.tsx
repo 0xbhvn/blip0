@@ -16,7 +16,7 @@ export default function PiLayerTwoSolid({
   className,
   ariaLabel = 'layer-two icon',
   ...props
-}: PiLayerTwoSolidProps): JSX.Element {
+}: PiLayerTwoSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

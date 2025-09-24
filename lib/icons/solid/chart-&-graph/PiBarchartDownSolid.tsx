@@ -16,7 +16,7 @@ export default function PiBarchartDownSolid({
   className,
   ariaLabel = 'barchart-down icon',
   ...props
-}: PiBarchartDownSolidProps): JSX.Element {
+}: PiBarchartDownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

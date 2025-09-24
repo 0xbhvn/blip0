@@ -16,7 +16,7 @@ export default function PiLabFlaskRoundSolid({
   className,
   ariaLabel = 'lab-flask-round icon',
   ...props
-}: PiLabFlaskRoundSolidProps): JSX.Element {
+}: PiLabFlaskRoundSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

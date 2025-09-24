@@ -16,7 +16,7 @@ export default function PiClipboardCheckSolid({
   className,
   ariaLabel = 'clipboard-check icon',
   ...props
-}: PiClipboardCheckSolidProps): JSX.Element {
+}: PiClipboardCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

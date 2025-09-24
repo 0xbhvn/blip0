@@ -16,7 +16,7 @@ export default function PiHomeVLineStroke({
   className,
   ariaLabel = 'home-v-line icon',
   ...props
-}: PiHomeVLineStrokeProps): JSX.Element {
+}: PiHomeVLineStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

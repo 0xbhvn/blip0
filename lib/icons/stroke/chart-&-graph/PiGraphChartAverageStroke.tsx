@@ -16,7 +16,7 @@ export default function PiGraphChartAverageStroke({
   className,
   ariaLabel = 'graph-chart-average icon',
   ...props
-}: PiGraphChartAverageStrokeProps): JSX.Element {
+}: PiGraphChartAverageStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

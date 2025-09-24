@@ -16,7 +16,7 @@ export default function PiFitnessRunFastStroke({
   className,
   ariaLabel = 'fitness-run-fast icon',
   ...props
-}: PiFitnessRunFastStrokeProps): JSX.Element {
+}: PiFitnessRunFastStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

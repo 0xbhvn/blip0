@@ -16,7 +16,7 @@ export default function PiGrid02Solid({
   className,
   ariaLabel = 'grid-02 icon',
   ...props
-}: PiGrid02SolidProps): JSX.Element {
+}: PiGrid02SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

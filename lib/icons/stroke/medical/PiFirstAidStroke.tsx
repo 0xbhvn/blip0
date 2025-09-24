@@ -16,7 +16,7 @@ export default function PiFirstAidStroke({
   className,
   ariaLabel = 'first-aid icon',
   ...props
-}: PiFirstAidStrokeProps): JSX.Element {
+}: PiFirstAidStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

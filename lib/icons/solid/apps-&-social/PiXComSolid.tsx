@@ -16,7 +16,7 @@ export default function PiXComSolid({
   className,
   ariaLabel = 'x-com icon',
   ...props
-}: PiXComSolidProps): JSX.Element {
+}: PiXComSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

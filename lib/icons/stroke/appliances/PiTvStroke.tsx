@@ -16,7 +16,7 @@ export default function PiTvStroke({
   className,
   ariaLabel = 'tv icon',
   ...props
-}: PiTvStrokeProps): JSX.Element {
+}: PiTvStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

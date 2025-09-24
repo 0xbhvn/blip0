@@ -16,7 +16,7 @@ export default function PiSearchBigStroke({
   className,
   ariaLabel = 'search-big icon',
   ...props
-}: PiSearchBigStrokeProps): JSX.Element {
+}: PiSearchBigStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

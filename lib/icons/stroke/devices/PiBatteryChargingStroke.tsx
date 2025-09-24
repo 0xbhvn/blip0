@@ -16,7 +16,7 @@ export default function PiBatteryChargingStroke({
   className,
   ariaLabel = 'battery-charging icon',
   ...props
-}: PiBatteryChargingStrokeProps): JSX.Element {
+}: PiBatteryChargingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

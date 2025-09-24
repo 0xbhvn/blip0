@@ -16,7 +16,7 @@ export default function PiCodeAIStroke({
   className,
   ariaLabel = 'code-ai icon',
   ...props
-}: PiCodeAIStrokeProps): JSX.Element {
+}: PiCodeAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

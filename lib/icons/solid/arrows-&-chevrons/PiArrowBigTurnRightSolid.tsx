@@ -16,7 +16,7 @@ export default function PiArrowBigTurnRightSolid({
   className,
   ariaLabel = 'arrow-big-turn-right icon',
   ...props
-}: PiArrowBigTurnRightSolidProps): JSX.Element {
+}: PiArrowBigTurnRightSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

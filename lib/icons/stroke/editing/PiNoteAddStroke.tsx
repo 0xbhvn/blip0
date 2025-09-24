@@ -16,7 +16,7 @@ export default function PiNoteAddStroke({
   className,
   ariaLabel = 'note-add icon',
   ...props
-}: PiNoteAddStrokeProps): JSX.Element {
+}: PiNoteAddStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

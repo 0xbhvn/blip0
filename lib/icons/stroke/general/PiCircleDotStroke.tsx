@@ -16,7 +16,7 @@ export default function PiCircleDotStroke({
   className,
   ariaLabel = 'circle-dot icon',
   ...props
-}: PiCircleDotStrokeProps): JSX.Element {
+}: PiCircleDotStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

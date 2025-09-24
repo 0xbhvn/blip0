@@ -16,7 +16,7 @@ export default function PiDivideDefaultStroke({
   className,
   ariaLabel = 'divide-default icon',
   ...props
-}: PiDivideDefaultStrokeProps): JSX.Element {
+}: PiDivideDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiMacFinderSolid({
   className,
   ariaLabel = 'mac-finder icon',
   ...props
-}: PiMacFinderSolidProps): JSX.Element {
+}: PiMacFinderSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

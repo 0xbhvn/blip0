@@ -16,7 +16,7 @@ export default function PiVideoCallCancelStroke({
   className,
   ariaLabel = 'video-call-cancel icon',
   ...props
-}: PiVideoCallCancelStrokeProps): JSX.Element {
+}: PiVideoCallCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

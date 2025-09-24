@@ -16,7 +16,7 @@ export default function PiSlackSolid({
   className,
   ariaLabel = 'slack icon',
   ...props
-}: PiSlackSolidProps): JSX.Element {
+}: PiSlackSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

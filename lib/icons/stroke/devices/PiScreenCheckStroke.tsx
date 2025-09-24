@@ -16,7 +16,7 @@ export default function PiScreenCheckStroke({
   className,
   ariaLabel = 'screen-check icon',
   ...props
-}: PiScreenCheckStrokeProps): JSX.Element {
+}: PiScreenCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

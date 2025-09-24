@@ -16,7 +16,7 @@ export default function PiLayersToStroke({
   className,
   ariaLabel = 'layers-to icon',
   ...props
-}: PiLayersToStrokeProps): JSX.Element {
+}: PiLayersToStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

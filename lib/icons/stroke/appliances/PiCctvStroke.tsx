@@ -16,7 +16,7 @@ export default function PiCctvStroke({
   className,
   ariaLabel = 'cctv icon',
   ...props
-}: PiCctvStrokeProps): JSX.Element {
+}: PiCctvStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

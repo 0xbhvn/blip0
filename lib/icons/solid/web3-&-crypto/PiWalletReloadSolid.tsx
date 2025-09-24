@@ -16,7 +16,7 @@ export default function PiWalletReloadSolid({
   className,
   ariaLabel = 'wallet-reload icon',
   ...props
-}: PiWalletReloadSolidProps): JSX.Element {
+}: PiWalletReloadSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

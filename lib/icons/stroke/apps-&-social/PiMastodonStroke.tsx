@@ -16,7 +16,7 @@ export default function PiMastodonStroke({
   className,
   ariaLabel = 'mastodon icon',
   ...props
-}: PiMastodonStrokeProps): JSX.Element {
+}: PiMastodonStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

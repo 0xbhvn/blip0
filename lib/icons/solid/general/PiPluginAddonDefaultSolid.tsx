@@ -16,7 +16,7 @@ export default function PiPluginAddonDefaultSolid({
   className,
   ariaLabel = 'plugin-addon-default icon',
   ...props
-}: PiPluginAddonDefaultSolidProps): JSX.Element {
+}: PiPluginAddonDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

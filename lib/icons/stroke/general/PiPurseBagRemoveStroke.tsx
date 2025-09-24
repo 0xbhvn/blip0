@@ -16,7 +16,7 @@ export default function PiPurseBagRemoveStroke({
   className,
   ariaLabel = 'purse-bag-remove icon',
   ...props
-}: PiPurseBagRemoveStrokeProps): JSX.Element {
+}: PiPurseBagRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

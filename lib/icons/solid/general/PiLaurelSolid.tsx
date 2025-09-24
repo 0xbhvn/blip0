@@ -16,7 +16,7 @@ export default function PiLaurelSolid({
   className,
   ariaLabel = 'laurel icon',
   ...props
-}: PiLaurelSolidProps): JSX.Element {
+}: PiLaurelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

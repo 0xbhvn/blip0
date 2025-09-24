@@ -16,7 +16,7 @@ export default function PiFoodMenuBookStroke({
   className,
   ariaLabel = 'food-menu-book icon',
   ...props
-}: PiFoodMenuBookStrokeProps): JSX.Element {
+}: PiFoodMenuBookStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

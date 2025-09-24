@@ -16,7 +16,7 @@ export default function PiStarHalfStroke({
   className,
   ariaLabel = 'star-half icon',
   ...props
-}: PiStarHalfStrokeProps): JSX.Element {
+}: PiStarHalfStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

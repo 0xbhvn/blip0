@@ -16,7 +16,7 @@ export default function PiCommandCmdCircleStroke({
   className,
   ariaLabel = 'command-cmd-circle icon',
   ...props
-}: PiCommandCmdCircleStrokeProps): JSX.Element {
+}: PiCommandCmdCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

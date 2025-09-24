@@ -16,7 +16,7 @@ export default function PiWalletExclamationMarkStroke({
   className,
   ariaLabel = 'wallet-exclamation-mark icon',
   ...props
-}: PiWalletExclamationMarkStrokeProps): JSX.Element {
+}: PiWalletExclamationMarkStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

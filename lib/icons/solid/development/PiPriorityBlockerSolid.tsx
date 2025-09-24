@@ -16,7 +16,7 @@ export default function PiPriorityBlockerSolid({
   className,
   ariaLabel = 'priority-blocker icon',
   ...props
-}: PiPriorityBlockerSolidProps): JSX.Element {
+}: PiPriorityBlockerSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiKeySlantStroke({
   className,
   ariaLabel = 'key-slant icon',
   ...props
-}: PiKeySlantStrokeProps): JSX.Element {
+}: PiKeySlantStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

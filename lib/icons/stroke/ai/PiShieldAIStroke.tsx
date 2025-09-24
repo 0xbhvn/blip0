@@ -16,7 +16,7 @@ export default function PiShieldAIStroke({
   className,
   ariaLabel = 'shield-ai icon',
   ...props
-}: PiShieldAIStrokeProps): JSX.Element {
+}: PiShieldAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

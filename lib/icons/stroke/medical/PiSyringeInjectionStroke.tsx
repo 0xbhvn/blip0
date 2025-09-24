@@ -16,7 +16,7 @@ export default function PiSyringeInjectionStroke({
   className,
   ariaLabel = 'syringe-injection icon',
   ...props
-}: PiSyringeInjectionStrokeProps): JSX.Element {
+}: PiSyringeInjectionStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

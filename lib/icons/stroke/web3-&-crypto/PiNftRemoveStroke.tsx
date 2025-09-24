@@ -16,7 +16,7 @@ export default function PiNftRemoveStroke({
   className,
   ariaLabel = 'nft-remove icon',
   ...props
-}: PiNftRemoveStrokeProps): JSX.Element {
+}: PiNftRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

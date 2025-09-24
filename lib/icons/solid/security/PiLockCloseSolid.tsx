@@ -16,7 +16,7 @@ export default function PiLockCloseSolid({
   className,
   ariaLabel = 'lock-close icon',
   ...props
-}: PiLockCloseSolidProps): JSX.Element {
+}: PiLockCloseSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

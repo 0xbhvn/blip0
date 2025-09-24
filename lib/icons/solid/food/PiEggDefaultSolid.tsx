@@ -16,7 +16,7 @@ export default function PiEggDefaultSolid({
   className,
   ariaLabel = 'egg-default icon',
   ...props
-}: PiEggDefaultSolidProps): JSX.Element {
+}: PiEggDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

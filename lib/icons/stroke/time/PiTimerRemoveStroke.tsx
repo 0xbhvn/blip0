@@ -16,7 +16,7 @@ export default function PiTimerRemoveStroke({
   className,
   ariaLabel = 'timer-remove icon',
   ...props
-}: PiTimerRemoveStrokeProps): JSX.Element {
+}: PiTimerRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

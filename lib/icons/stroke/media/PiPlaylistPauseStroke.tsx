@@ -16,7 +16,7 @@ export default function PiPlaylistPauseStroke({
   className,
   ariaLabel = 'playlist-pause icon',
   ...props
-}: PiPlaylistPauseStrokeProps): JSX.Element {
+}: PiPlaylistPauseStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

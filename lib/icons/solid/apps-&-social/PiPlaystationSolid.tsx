@@ -16,7 +16,7 @@ export default function PiPlaystationSolid({
   className,
   ariaLabel = 'playstation icon',
   ...props
-}: PiPlaystationSolidProps): JSX.Element {
+}: PiPlaystationSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

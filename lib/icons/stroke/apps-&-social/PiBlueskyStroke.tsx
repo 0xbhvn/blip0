@@ -16,7 +16,7 @@ export default function PiBlueskyStroke({
   className,
   ariaLabel = 'bluesky icon',
   ...props
-}: PiBlueskyStrokeProps): JSX.Element {
+}: PiBlueskyStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

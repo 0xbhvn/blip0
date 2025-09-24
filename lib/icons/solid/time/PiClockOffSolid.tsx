@@ -16,7 +16,7 @@ export default function PiClockOffSolid({
   className,
   ariaLabel = 'clock-off icon',
   ...props
-}: PiClockOffSolidProps): JSX.Element {
+}: PiClockOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiArchiveCheckStroke({
   className,
   ariaLabel = 'archive-check icon',
   ...props
-}: PiArchiveCheckStrokeProps): JSX.Element {
+}: PiArchiveCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

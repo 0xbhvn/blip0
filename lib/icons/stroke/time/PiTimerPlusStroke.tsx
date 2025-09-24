@@ -16,7 +16,7 @@ export default function PiTimerPlusStroke({
   className,
   ariaLabel = 'timer-plus icon',
   ...props
-}: PiTimerPlusStrokeProps): JSX.Element {
+}: PiTimerPlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

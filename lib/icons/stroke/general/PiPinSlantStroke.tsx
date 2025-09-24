@@ -16,7 +16,7 @@ export default function PiPinSlantStroke({
   className,
   ariaLabel = 'pin-slant icon',
   ...props
-}: PiPinSlantStrokeProps): JSX.Element {
+}: PiPinSlantStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

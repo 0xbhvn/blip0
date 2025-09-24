@@ -16,7 +16,7 @@ export default function PiCheckTickDoubleStroke({
   className,
   ariaLabel = 'check-tick-double icon',
   ...props
-}: PiCheckTickDoubleStrokeProps): JSX.Element {
+}: PiCheckTickDoubleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

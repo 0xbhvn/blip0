@@ -16,7 +16,7 @@ export default function PiLogOutLeftSolid({
   className,
   ariaLabel = 'log-out-left icon',
   ...props
-}: PiLogOutLeftSolidProps): JSX.Element {
+}: PiLogOutLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

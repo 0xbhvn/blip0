@@ -16,7 +16,7 @@ export default function PiWashingMachineSolid({
   className,
   ariaLabel = 'washing-machine icon',
   ...props
-}: PiWashingMachineSolidProps): JSX.Element {
+}: PiWashingMachineSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPartyPopperSolid({
   className,
   ariaLabel = 'party-popper icon',
   ...props
-}: PiPartyPopperSolidProps): JSX.Element {
+}: PiPartyPopperSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

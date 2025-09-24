@@ -16,7 +16,7 @@ export default function PiEarthGlobeStroke({
   className,
   ariaLabel = 'earth-globe icon',
   ...props
-}: PiEarthGlobeStrokeProps): JSX.Element {
+}: PiEarthGlobeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

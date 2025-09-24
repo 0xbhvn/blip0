@@ -16,7 +16,7 @@ export default function PiFolderArrowDownStroke({
   className,
   ariaLabel = 'folder-arrow-down icon',
   ...props
-}: PiFolderArrowDownStrokeProps): JSX.Element {
+}: PiFolderArrowDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

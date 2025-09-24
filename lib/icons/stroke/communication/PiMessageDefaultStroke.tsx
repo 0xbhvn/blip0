@@ -16,7 +16,7 @@ export default function PiMessageDefaultStroke({
   className,
   ariaLabel = 'message-default icon',
   ...props
-}: PiMessageDefaultStrokeProps): JSX.Element {
+}: PiMessageDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

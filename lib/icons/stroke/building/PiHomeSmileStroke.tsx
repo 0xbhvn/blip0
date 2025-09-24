@@ -16,7 +16,7 @@ export default function PiHomeSmileStroke({
   className,
   ariaLabel = 'home-smile icon',
   ...props
-}: PiHomeSmileStrokeProps): JSX.Element {
+}: PiHomeSmileStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

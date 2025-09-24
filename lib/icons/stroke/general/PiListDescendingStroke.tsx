@@ -16,7 +16,7 @@ export default function PiListDescendingStroke({
   className,
   ariaLabel = 'list-descending icon',
   ...props
-}: PiListDescendingStrokeProps): JSX.Element {
+}: PiListDescendingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

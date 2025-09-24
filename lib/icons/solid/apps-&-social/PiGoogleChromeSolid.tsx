@@ -16,7 +16,7 @@ export default function PiGoogleChromeSolid({
   className,
   ariaLabel = 'google-chrome icon',
   ...props
-}: PiGoogleChromeSolidProps): JSX.Element {
+}: PiGoogleChromeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

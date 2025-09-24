@@ -16,7 +16,7 @@ export default function PiPackage02Stroke({
   className,
   ariaLabel = 'package-02 icon',
   ...props
-}: PiPackage02StrokeProps): JSX.Element {
+}: PiPackage02StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

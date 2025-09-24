@@ -16,7 +16,7 @@ export default function PiCloudSnowStroke({
   className,
   ariaLabel = 'cloud-snow icon',
   ...props
-}: PiCloudSnowStrokeProps): JSX.Element {
+}: PiCloudSnowStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

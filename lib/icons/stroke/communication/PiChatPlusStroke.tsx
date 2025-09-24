@@ -16,7 +16,7 @@ export default function PiChatPlusStroke({
   className,
   ariaLabel = 'chat-plus icon',
   ...props
-}: PiChatPlusStrokeProps): JSX.Element {
+}: PiChatPlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

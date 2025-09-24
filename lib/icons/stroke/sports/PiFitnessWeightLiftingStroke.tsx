@@ -16,7 +16,7 @@ export default function PiFitnessWeightLiftingStroke({
   className,
   ariaLabel = 'fitness-weight-lifting icon',
   ...props
-}: PiFitnessWeightLiftingStrokeProps): JSX.Element {
+}: PiFitnessWeightLiftingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

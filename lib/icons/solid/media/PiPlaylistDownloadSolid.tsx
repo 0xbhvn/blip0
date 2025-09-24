@@ -16,7 +16,7 @@ export default function PiPlaylistDownloadSolid({
   className,
   ariaLabel = 'playlist-download icon',
   ...props
-}: PiPlaylistDownloadSolidProps): JSX.Element {
+}: PiPlaylistDownloadSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

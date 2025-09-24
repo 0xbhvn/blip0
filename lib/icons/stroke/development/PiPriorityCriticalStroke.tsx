@@ -16,7 +16,7 @@ export default function PiPriorityCriticalStroke({
   className,
   ariaLabel = 'priority-critical icon',
   ...props
-}: PiPriorityCriticalStrokeProps): JSX.Element {
+}: PiPriorityCriticalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

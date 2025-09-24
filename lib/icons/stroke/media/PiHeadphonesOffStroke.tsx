@@ -16,7 +16,7 @@ export default function PiHeadphonesOffStroke({
   className,
   ariaLabel = 'headphones-off icon',
   ...props
-}: PiHeadphonesOffStrokeProps): JSX.Element {
+}: PiHeadphonesOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

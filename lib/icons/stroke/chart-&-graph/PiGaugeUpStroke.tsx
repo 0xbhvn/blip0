@@ -16,7 +16,7 @@ export default function PiGaugeUpStroke({
   className,
   ariaLabel = 'gauge-up icon',
   ...props
-}: PiGaugeUpStrokeProps): JSX.Element {
+}: PiGaugeUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFile02HeartSolid({
   className,
   ariaLabel = 'file-02-heart icon',
   ...props
-}: PiFile02HeartSolidProps): JSX.Element {
+}: PiFile02HeartSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

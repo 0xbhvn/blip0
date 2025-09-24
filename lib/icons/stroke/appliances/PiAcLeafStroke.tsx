@@ -16,7 +16,7 @@ export default function PiAcLeafStroke({
   className,
   ariaLabel = 'ac-leaf icon',
   ...props
-}: PiAcLeafStrokeProps): JSX.Element {
+}: PiAcLeafStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

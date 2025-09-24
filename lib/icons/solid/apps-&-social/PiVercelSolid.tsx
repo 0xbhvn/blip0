@@ -16,7 +16,7 @@ export default function PiVercelSolid({
   className,
   ariaLabel = 'vercel icon',
   ...props
-}: PiVercelSolidProps): JSX.Element {
+}: PiVercelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

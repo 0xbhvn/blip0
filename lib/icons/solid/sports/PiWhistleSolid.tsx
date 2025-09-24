@@ -16,7 +16,7 @@ export default function PiWhistleSolid({
   className,
   ariaLabel = 'whistle icon',
   ...props
-}: PiWhistleSolidProps): JSX.Element {
+}: PiWhistleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

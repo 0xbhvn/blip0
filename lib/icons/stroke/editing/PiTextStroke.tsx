@@ -16,7 +16,7 @@ export default function PiTextStroke({
   className,
   ariaLabel = 'text icon',
   ...props
-}: PiTextStrokeProps): JSX.Element {
+}: PiTextStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiSunSolid({
   className,
   ariaLabel = 'sun icon',
   ...props
-}: PiSunSolidProps): JSX.Element {
+}: PiSunSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

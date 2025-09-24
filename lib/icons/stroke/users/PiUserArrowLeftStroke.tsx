@@ -16,7 +16,7 @@ export default function PiUserArrowLeftStroke({
   className,
   ariaLabel = 'user-arrow-left icon',
   ...props
-}: PiUserArrowLeftStrokeProps): JSX.Element {
+}: PiUserArrowLeftStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiBatteryThreeCellStroke({
   className,
   ariaLabel = 'battery-three-cell icon',
   ...props
-}: PiBatteryThreeCellStrokeProps): JSX.Element {
+}: PiBatteryThreeCellStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

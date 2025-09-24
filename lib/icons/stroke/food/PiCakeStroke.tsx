@@ -16,7 +16,7 @@ export default function PiCakeStroke({
   className,
   ariaLabel = 'cake icon',
   ...props
-}: PiCakeStrokeProps): JSX.Element {
+}: PiCakeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiGitFork01Stroke({
   className,
   ariaLabel = 'git-fork-01 icon',
   ...props
-}: PiGitFork01StrokeProps): JSX.Element {
+}: PiGitFork01StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

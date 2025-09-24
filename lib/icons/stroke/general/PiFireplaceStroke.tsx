@@ -16,7 +16,7 @@ export default function PiFireplaceStroke({
   className,
   ariaLabel = 'fireplace icon',
   ...props
-}: PiFireplaceStrokeProps): JSX.Element {
+}: PiFireplaceStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

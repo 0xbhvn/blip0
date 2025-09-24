@@ -16,7 +16,7 @@ export default function PiMetaStroke({
   className,
   ariaLabel = 'meta icon',
   ...props
-}: PiMetaStrokeProps): JSX.Element {
+}: PiMetaStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

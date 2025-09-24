@@ -16,7 +16,7 @@ export default function PiEraserDefaultSolid({
   className,
   ariaLabel = 'eraser-default icon',
   ...props
-}: PiEraserDefaultSolidProps): JSX.Element {
+}: PiEraserDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

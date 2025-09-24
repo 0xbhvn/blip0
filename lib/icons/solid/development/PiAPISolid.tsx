@@ -16,7 +16,7 @@ export default function PiAPISolid({
   className,
   ariaLabel = 'api icon',
   ...props
-}: PiAPISolidProps): JSX.Element {
+}: PiAPISolidProps): React.ReactElement {
   return (
     <svg
       width={size}

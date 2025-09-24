@@ -16,7 +16,7 @@ export default function PiPencilEditAIStroke({
   className,
   ariaLabel = 'pencil-edit-ai icon',
   ...props
-}: PiPencilEditAIStrokeProps): JSX.Element {
+}: PiPencilEditAIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

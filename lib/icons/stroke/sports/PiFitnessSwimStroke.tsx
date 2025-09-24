@@ -16,7 +16,7 @@ export default function PiFitnessSwimStroke({
   className,
   ariaLabel = 'fitness-swim icon',
   ...props
-}: PiFitnessSwimStrokeProps): JSX.Element {
+}: PiFitnessSwimStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

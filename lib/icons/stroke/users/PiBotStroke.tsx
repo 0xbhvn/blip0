@@ -16,7 +16,7 @@ export default function PiBotStroke({
   className,
   ariaLabel = 'bot icon',
   ...props
-}: PiBotStrokeProps): JSX.Element {
+}: PiBotStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

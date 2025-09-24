@@ -16,7 +16,7 @@ export default function PiInboxFilledStroke({
   className,
   ariaLabel = 'inbox-filled icon',
   ...props
-}: PiInboxFilledStrokeProps): JSX.Element {
+}: PiInboxFilledStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

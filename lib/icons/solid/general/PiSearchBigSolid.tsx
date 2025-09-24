@@ -16,7 +16,7 @@ export default function PiSearchBigSolid({
   className,
   ariaLabel = 'search-big icon',
   ...props
-}: PiSearchBigSolidProps): JSX.Element {
+}: PiSearchBigSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

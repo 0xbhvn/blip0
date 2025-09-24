@@ -16,7 +16,7 @@ export default function PiGridTableSolid({
   className,
   ariaLabel = 'grid-table icon',
   ...props
-}: PiGridTableSolidProps): JSX.Element {
+}: PiGridTableSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

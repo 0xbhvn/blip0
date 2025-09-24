@@ -16,7 +16,7 @@ export default function PiMultipleCrossCancelDefaultStroke({
   className,
   ariaLabel = 'multiple-cross-cancel-default icon',
   ...props
-}: PiMultipleCrossCancelDefaultStrokeProps): JSX.Element {
+}: PiMultipleCrossCancelDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

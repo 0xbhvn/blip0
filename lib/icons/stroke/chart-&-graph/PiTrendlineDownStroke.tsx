@@ -16,7 +16,7 @@ export default function PiTrendlineDownStroke({
   className,
   ariaLabel = 'trendline-down icon',
   ...props
-}: PiTrendlineDownStrokeProps): JSX.Element {
+}: PiTrendlineDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

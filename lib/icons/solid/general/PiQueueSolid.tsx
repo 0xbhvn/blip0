@@ -16,7 +16,7 @@ export default function PiQueueSolid({
   className,
   ariaLabel = 'queue icon',
   ...props
-}: PiQueueSolidProps): JSX.Element {
+}: PiQueueSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

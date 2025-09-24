@@ -16,7 +16,7 @@ export default function PiMinimizeTwoArrowStroke({
   className,
   ariaLabel = 'minimize-two-arrow icon',
   ...props
-}: PiMinimizeTwoArrowStrokeProps): JSX.Element {
+}: PiMinimizeTwoArrowStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

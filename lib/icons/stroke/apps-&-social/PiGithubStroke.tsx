@@ -16,7 +16,7 @@ export default function PiGithubStroke({
   className,
   ariaLabel = 'github icon',
   ...props
-}: PiGithubStrokeProps): JSX.Element {
+}: PiGithubStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiSearchDefaultStroke({
   className,
   ariaLabel = 'search-default icon',
   ...props
-}: PiSearchDefaultStrokeProps): JSX.Element {
+}: PiSearchDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

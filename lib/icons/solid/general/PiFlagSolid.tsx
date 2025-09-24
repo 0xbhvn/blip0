@@ -16,7 +16,7 @@ export default function PiFlagSolid({
   className,
   ariaLabel = 'flag icon',
   ...props
-}: PiFlagSolidProps): JSX.Element {
+}: PiFlagSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiHashtagStroke({
   className,
   ariaLabel = 'hashtag icon',
   ...props
-}: PiHashtagStrokeProps): JSX.Element {
+}: PiHashtagStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

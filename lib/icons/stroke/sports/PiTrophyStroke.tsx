@@ -16,7 +16,7 @@ export default function PiTrophyStroke({
   className,
   ariaLabel = 'trophy icon',
   ...props
-}: PiTrophyStrokeProps): JSX.Element {
+}: PiTrophyStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

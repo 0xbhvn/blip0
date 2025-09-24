@@ -16,7 +16,7 @@ export default function PiPlaygroundSolid({
   className,
   ariaLabel = 'playground icon',
   ...props
-}: PiPlaygroundSolidProps): JSX.Element {
+}: PiPlaygroundSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCalendarTimerSolid({
   className,
   ariaLabel = 'calendar-timer icon',
   ...props
-}: PiCalendarTimerSolidProps): JSX.Element {
+}: PiCalendarTimerSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

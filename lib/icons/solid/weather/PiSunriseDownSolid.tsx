@@ -16,7 +16,7 @@ export default function PiSunriseDownSolid({
   className,
   ariaLabel = 'sunrise-down icon',
   ...props
-}: PiSunriseDownSolidProps): JSX.Element {
+}: PiSunriseDownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

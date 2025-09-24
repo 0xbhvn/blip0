@@ -16,7 +16,7 @@ export default function PiEyeScanSolid({
   className,
   ariaLabel = 'eye-scan icon',
   ...props
-}: PiEyeScanSolidProps): JSX.Element {
+}: PiEyeScanSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

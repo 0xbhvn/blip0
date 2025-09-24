@@ -16,7 +16,7 @@ export default function PiFaceSadSolid({
   className,
   ariaLabel = 'face-sad icon',
   ...props
-}: PiFaceSadSolidProps): JSX.Element {
+}: PiFaceSadSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

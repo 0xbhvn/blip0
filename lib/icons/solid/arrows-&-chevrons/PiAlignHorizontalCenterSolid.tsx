@@ -16,7 +16,7 @@ export default function PiAlignHorizontalCenterSolid({
   className,
   ariaLabel = 'align-horizontal-center icon',
   ...props
-}: PiAlignHorizontalCenterSolidProps): JSX.Element {
+}: PiAlignHorizontalCenterSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

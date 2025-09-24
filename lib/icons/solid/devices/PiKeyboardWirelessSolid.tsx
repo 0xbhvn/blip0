@@ -16,7 +16,7 @@ export default function PiKeyboardWirelessSolid({
   className,
   ariaLabel = 'keyboard-wireless icon',
   ...props
-}: PiKeyboardWirelessSolidProps): JSX.Element {
+}: PiKeyboardWirelessSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

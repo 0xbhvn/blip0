@@ -16,7 +16,7 @@ export default function PiTelegramSolid({
   className,
   ariaLabel = 'telegram icon',
   ...props
-}: PiTelegramSolidProps): JSX.Element {
+}: PiTelegramSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

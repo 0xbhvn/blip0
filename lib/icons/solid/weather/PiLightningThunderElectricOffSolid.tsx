@@ -16,7 +16,7 @@ export default function PiLightningThunderElectricOffSolid({
   className,
   ariaLabel = 'lightning-thunder-electric-off icon',
   ...props
-}: PiLightningThunderElectricOffSolidProps): JSX.Element {
+}: PiLightningThunderElectricOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

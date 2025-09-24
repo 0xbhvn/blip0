@@ -16,7 +16,7 @@ export default function PiLinkedinSolid({
   className,
   ariaLabel = 'linkedin icon',
   ...props
-}: PiLinkedinSolidProps): JSX.Element {
+}: PiLinkedinSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

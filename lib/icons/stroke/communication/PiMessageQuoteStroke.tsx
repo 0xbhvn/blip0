@@ -16,7 +16,7 @@ export default function PiMessageQuoteStroke({
   className,
   ariaLabel = 'message-quote icon',
   ...props
-}: PiMessageQuoteStrokeProps): JSX.Element {
+}: PiMessageQuoteStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

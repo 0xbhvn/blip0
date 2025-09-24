@@ -16,7 +16,7 @@ export default function PiPiechart01Solid({
   className,
   ariaLabel = 'piechart-01 icon',
   ...props
-}: PiPiechart01SolidProps): JSX.Element {
+}: PiPiechart01SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

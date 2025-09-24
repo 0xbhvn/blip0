@@ -16,7 +16,7 @@ export default function PiFilePlusSolid({
   className,
   ariaLabel = 'file-plus icon',
   ...props
-}: PiFilePlusSolidProps): JSX.Element {
+}: PiFilePlusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

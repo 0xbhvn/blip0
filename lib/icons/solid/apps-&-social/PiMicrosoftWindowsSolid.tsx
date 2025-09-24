@@ -16,7 +16,7 @@ export default function PiMicrosoftWindowsSolid({
   className,
   ariaLabel = 'microsoft-windows icon',
   ...props
-}: PiMicrosoftWindowsSolidProps): JSX.Element {
+}: PiMicrosoftWindowsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

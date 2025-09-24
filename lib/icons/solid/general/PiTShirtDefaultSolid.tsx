@@ -16,7 +16,7 @@ export default function PiTShirtDefaultSolid({
   className,
   ariaLabel = 't-shirt-default icon',
   ...props
-}: PiTShirtDefaultSolidProps): JSX.Element {
+}: PiTShirtDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

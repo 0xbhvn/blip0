@@ -16,7 +16,7 @@ export default function PiAnnotationInformationStroke({
   className,
   ariaLabel = 'annotation-information icon',
   ...props
-}: PiAnnotationInformationStrokeProps): JSX.Element {
+}: PiAnnotationInformationStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

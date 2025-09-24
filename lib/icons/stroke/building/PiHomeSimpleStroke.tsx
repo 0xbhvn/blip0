@@ -16,7 +16,7 @@ export default function PiHomeSimpleStroke({
   className,
   ariaLabel = 'home-simple icon',
   ...props
-}: PiHomeSimpleStrokeProps): JSX.Element {
+}: PiHomeSimpleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

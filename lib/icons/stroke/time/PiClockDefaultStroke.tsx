@@ -16,7 +16,7 @@ export default function PiClockDefaultStroke({
   className,
   ariaLabel = 'clock-default icon',
   ...props
-}: PiClockDefaultStrokeProps): JSX.Element {
+}: PiClockDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

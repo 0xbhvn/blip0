@@ -16,7 +16,7 @@ export default function PiWifiOffStroke({
   className,
   ariaLabel = 'wifi-off icon',
   ...props
-}: PiWifiOffStrokeProps): JSX.Element {
+}: PiWifiOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

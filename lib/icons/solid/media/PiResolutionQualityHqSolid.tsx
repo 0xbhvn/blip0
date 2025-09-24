@@ -16,7 +16,7 @@ export default function PiResolutionQualityHqSolid({
   className,
   ariaLabel = 'resolution-quality-hq icon',
   ...props
-}: PiResolutionQualityHqSolidProps): JSX.Element {
+}: PiResolutionQualityHqSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

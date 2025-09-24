@@ -16,7 +16,7 @@ export default function PiGraphChartLineStroke({
   className,
   ariaLabel = 'graph-chart-line icon',
   ...props
-}: PiGraphChartLineStrokeProps): JSX.Element {
+}: PiGraphChartLineStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

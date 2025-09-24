@@ -16,7 +16,7 @@ export default function PiCameraDefaultStroke({
   className,
   ariaLabel = 'camera-default icon',
   ...props
-}: PiCameraDefaultStrokeProps): JSX.Element {
+}: PiCameraDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

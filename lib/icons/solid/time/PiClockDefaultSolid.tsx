@@ -16,7 +16,7 @@ export default function PiClockDefaultSolid({
   className,
   ariaLabel = 'clock-default icon',
   ...props
-}: PiClockDefaultSolidProps): JSX.Element {
+}: PiClockDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

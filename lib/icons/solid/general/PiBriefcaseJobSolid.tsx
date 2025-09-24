@@ -16,7 +16,7 @@ export default function PiBriefcaseJobSolid({
   className,
   ariaLabel = 'briefcase-job icon',
   ...props
-}: PiBriefcaseJobSolidProps): JSX.Element {
+}: PiBriefcaseJobSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

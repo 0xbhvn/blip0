@@ -16,7 +16,7 @@ export default function PiFuelPumpGasSolid({
   className,
   ariaLabel = 'fuel-pump-gas icon',
   ...props
-}: PiFuelPumpGasSolidProps): JSX.Element {
+}: PiFuelPumpGasSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

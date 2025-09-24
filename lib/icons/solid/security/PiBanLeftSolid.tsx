@@ -16,7 +16,7 @@ export default function PiBanLeftSolid({
   className,
   ariaLabel = 'ban-left icon',
   ...props
-}: PiBanLeftSolidProps): JSX.Element {
+}: PiBanLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

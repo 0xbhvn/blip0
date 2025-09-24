@@ -16,7 +16,7 @@ export default function PiMicrosoftWindowsStroke({
   className,
   ariaLabel = 'microsoft-windows icon',
   ...props
-}: PiMicrosoftWindowsStrokeProps): JSX.Element {
+}: PiMicrosoftWindowsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

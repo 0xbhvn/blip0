@@ -16,7 +16,7 @@ export default function PiAndroidStroke({
   className,
   ariaLabel = 'android icon',
   ...props
-}: PiAndroidStrokeProps): JSX.Element {
+}: PiAndroidStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

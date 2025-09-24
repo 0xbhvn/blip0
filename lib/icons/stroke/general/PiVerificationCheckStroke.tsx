@@ -16,7 +16,7 @@ export default function PiVerificationCheckStroke({
   className,
   ariaLabel = 'verification-check icon',
   ...props
-}: PiVerificationCheckStrokeProps): JSX.Element {
+}: PiVerificationCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

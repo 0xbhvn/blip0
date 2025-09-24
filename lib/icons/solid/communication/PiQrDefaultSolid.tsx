@@ -16,7 +16,7 @@ export default function PiQrDefaultSolid({
   className,
   ariaLabel = 'qr-default icon',
   ...props
-}: PiQrDefaultSolidProps): JSX.Element {
+}: PiQrDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

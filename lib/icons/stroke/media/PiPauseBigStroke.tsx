@@ -16,7 +16,7 @@ export default function PiPauseBigStroke({
   className,
   ariaLabel = 'pause-big icon',
   ...props
-}: PiPauseBigStrokeProps): JSX.Element {
+}: PiPauseBigStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

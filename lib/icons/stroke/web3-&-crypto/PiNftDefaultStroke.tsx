@@ -16,7 +16,7 @@ export default function PiNftDefaultStroke({
   className,
   ariaLabel = 'nft-default icon',
   ...props
-}: PiNftDefaultStrokeProps): JSX.Element {
+}: PiNftDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

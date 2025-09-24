@@ -16,7 +16,7 @@ export default function PiAppleIntelligenceStroke({
   className,
   ariaLabel = 'apple-intelligence icon',
   ...props
-}: PiAppleIntelligenceStrokeProps): JSX.Element {
+}: PiAppleIntelligenceStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiArcBrowserStroke({
   className,
   ariaLabel = 'arc-browser icon',
   ...props
-}: PiArcBrowserStrokeProps): JSX.Element {
+}: PiArcBrowserStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

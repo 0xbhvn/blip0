@@ -16,7 +16,7 @@ export default function PiPlaySquareStroke({
   className,
   ariaLabel = 'play-square icon',
   ...props
-}: PiPlaySquareStrokeProps): JSX.Element {
+}: PiPlaySquareStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

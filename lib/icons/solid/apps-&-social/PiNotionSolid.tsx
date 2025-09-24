@@ -16,7 +16,7 @@ export default function PiNotionSolid({
   className,
   ariaLabel = 'notion icon',
   ...props
-}: PiNotionSolidProps): JSX.Element {
+}: PiNotionSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPlaylistAISolid({
   className,
   ariaLabel = 'playlist-ai icon',
   ...props
-}: PiPlaylistAISolidProps): JSX.Element {
+}: PiPlaylistAISolidProps): React.ReactElement {
   return (
     <svg
       width={size}

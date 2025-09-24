@@ -16,7 +16,7 @@ export default function PiArchiveBoltStroke({
   className,
   ariaLabel = 'archive-bolt icon',
   ...props
-}: PiArchiveBoltStrokeProps): JSX.Element {
+}: PiArchiveBoltStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

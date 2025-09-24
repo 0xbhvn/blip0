@@ -16,7 +16,7 @@ export default function PiWalletRemoveStroke({
   className,
   ariaLabel = 'wallet-remove icon',
   ...props
-}: PiWalletRemoveStrokeProps): JSX.Element {
+}: PiWalletRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

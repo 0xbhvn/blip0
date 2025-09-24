@@ -16,7 +16,7 @@ export default function PiPencilEditSwooshSolid({
   className,
   ariaLabel = 'pencil-edit-swoosh icon',
   ...props
-}: PiPencilEditSwooshSolidProps): JSX.Element {
+}: PiPencilEditSwooshSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

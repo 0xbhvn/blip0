@@ -16,7 +16,7 @@ export default function PiThumbReactionDislikeStroke({
   className,
   ariaLabel = 'thumb-reaction-dislike icon',
   ...props
-}: PiThumbReactionDislikeStrokeProps): JSX.Element {
+}: PiThumbReactionDislikeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPiggyBankSolid({
   className,
   ariaLabel = 'piggy-bank icon',
   ...props
-}: PiPiggyBankSolidProps): JSX.Element {
+}: PiPiggyBankSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

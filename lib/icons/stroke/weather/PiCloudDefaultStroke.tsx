@@ -16,7 +16,7 @@ export default function PiCloudDefaultStroke({
   className,
   ariaLabel = 'cloud-default icon',
   ...props
-}: PiCloudDefaultStrokeProps): JSX.Element {
+}: PiCloudDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

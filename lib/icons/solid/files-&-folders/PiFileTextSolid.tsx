@@ -16,7 +16,7 @@ export default function PiFileTextSolid({
   className,
   ariaLabel = 'file-text icon',
   ...props
-}: PiFileTextSolidProps): JSX.Element {
+}: PiFileTextSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

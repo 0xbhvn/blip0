@@ -16,7 +16,7 @@ export default function PiPoolLadderStroke({
   className,
   ariaLabel = 'pool-ladder icon',
   ...props
-}: PiPoolLadderStrokeProps): JSX.Element {
+}: PiPoolLadderStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

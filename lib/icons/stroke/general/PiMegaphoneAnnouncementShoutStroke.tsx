@@ -16,7 +16,7 @@ export default function PiMegaphoneAnnouncementShoutStroke({
   className,
   ariaLabel = 'megaphone-announcement-shout icon',
   ...props
-}: PiMegaphoneAnnouncementShoutStrokeProps): JSX.Element {
+}: PiMegaphoneAnnouncementShoutStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

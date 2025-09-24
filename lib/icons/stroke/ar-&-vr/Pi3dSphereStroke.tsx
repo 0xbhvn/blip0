@@ -16,7 +16,7 @@ export default function Pi3dSphereStroke({
   className,
   ariaLabel = '3d-sphere icon',
   ...props
-}: Pi3dSphereStrokeProps): JSX.Element {
+}: Pi3dSphereStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

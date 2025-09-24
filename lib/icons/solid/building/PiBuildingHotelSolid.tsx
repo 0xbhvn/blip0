@@ -16,7 +16,7 @@ export default function PiBuildingHotelSolid({
   className,
   ariaLabel = 'building-hotel icon',
   ...props
-}: PiBuildingHotelSolidProps): JSX.Element {
+}: PiBuildingHotelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

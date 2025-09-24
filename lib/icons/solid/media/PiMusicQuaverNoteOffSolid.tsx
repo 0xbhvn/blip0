@@ -16,7 +16,7 @@ export default function PiMusicQuaverNoteOffSolid({
   className,
   ariaLabel = 'music-quaver-note-off icon',
   ...props
-}: PiMusicQuaverNoteOffSolidProps): JSX.Element {
+}: PiMusicQuaverNoteOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPauseSquareSolid({
   className,
   ariaLabel = 'pause-square icon',
   ...props
-}: PiPauseSquareSolidProps): JSX.Element {
+}: PiPauseSquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

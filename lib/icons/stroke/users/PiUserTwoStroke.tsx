@@ -16,7 +16,7 @@ export default function PiUserTwoStroke({
   className,
   ariaLabel = 'user-two icon',
   ...props
-}: PiUserTwoStrokeProps): JSX.Element {
+}: PiUserTwoStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

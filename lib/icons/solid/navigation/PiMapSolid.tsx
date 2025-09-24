@@ -16,7 +16,7 @@ export default function PiMapSolid({
   className,
   ariaLabel = 'map icon',
   ...props
-}: PiMapSolidProps): JSX.Element {
+}: PiMapSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

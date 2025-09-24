@@ -16,7 +16,7 @@ export default function PiAlignBottomSolid({
   className,
   ariaLabel = 'align-bottom icon',
   ...props
-}: PiAlignBottomSolidProps): JSX.Element {
+}: PiAlignBottomSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiLayerTwoStroke({
   className,
   ariaLabel = 'layer-two icon',
   ...props
-}: PiLayerTwoStrokeProps): JSX.Element {
+}: PiLayerTwoStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

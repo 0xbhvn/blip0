@@ -16,7 +16,7 @@ export default function PiUserGraduationHatSolid({
   className,
   ariaLabel = 'user-graduation-hat icon',
   ...props
-}: PiUserGraduationHatSolidProps): JSX.Element {
+}: PiUserGraduationHatSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

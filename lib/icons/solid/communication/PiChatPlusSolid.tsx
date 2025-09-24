@@ -16,7 +16,7 @@ export default function PiChatPlusSolid({
   className,
   ariaLabel = 'chat-plus icon',
   ...props
-}: PiChatPlusSolidProps): JSX.Element {
+}: PiChatPlusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

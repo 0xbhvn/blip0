@@ -16,7 +16,7 @@ export default function PiDoorSolid({
   className,
   ariaLabel = 'door icon',
   ...props
-}: PiDoorSolidProps): JSX.Element {
+}: PiDoorSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

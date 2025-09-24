@@ -16,7 +16,7 @@ export default function PiUfoStroke({
   className,
   ariaLabel = 'ufo icon',
   ...props
-}: PiUfoStrokeProps): JSX.Element {
+}: PiUfoStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

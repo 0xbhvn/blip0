@@ -16,7 +16,7 @@ export default function PiShuffleStroke({
   className,
   ariaLabel = 'shuffle icon',
   ...props
-}: PiShuffleStrokeProps): JSX.Element {
+}: PiShuffleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

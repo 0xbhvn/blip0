@@ -16,7 +16,7 @@ export default function PiAPIStroke({
   className,
   ariaLabel = 'api icon',
   ...props
-}: PiAPIStrokeProps): JSX.Element {
+}: PiAPIStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

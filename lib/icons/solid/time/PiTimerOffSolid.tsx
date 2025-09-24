@@ -16,7 +16,7 @@ export default function PiTimerOffSolid({
   className,
   ariaLabel = 'timer-off icon',
   ...props
-}: PiTimerOffSolidProps): JSX.Element {
+}: PiTimerOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

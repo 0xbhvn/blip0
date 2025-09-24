@@ -16,7 +16,7 @@ export default function PiPlaylistSearchSolid({
   className,
   ariaLabel = 'playlist-search icon',
   ...props
-}: PiPlaylistSearchSolidProps): JSX.Element {
+}: PiPlaylistSearchSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiAirplayStroke({
   className,
   ariaLabel = 'airplay icon',
   ...props
-}: PiAirplayStrokeProps): JSX.Element {
+}: PiAirplayStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

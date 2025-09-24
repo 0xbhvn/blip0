@@ -16,7 +16,7 @@ export default function PiPauseCircleStroke({
   className,
   ariaLabel = 'pause-circle icon',
   ...props
-}: PiPauseCircleStrokeProps): JSX.Element {
+}: PiPauseCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

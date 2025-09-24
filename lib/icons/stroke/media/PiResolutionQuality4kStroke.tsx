@@ -16,7 +16,7 @@ export default function PiResolutionQuality4kStroke({
   className,
   ariaLabel = 'resolution-quality-4k icon',
   ...props
-}: PiResolutionQuality4kStrokeProps): JSX.Element {
+}: PiResolutionQuality4kStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

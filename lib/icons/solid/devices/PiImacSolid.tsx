@@ -16,7 +16,7 @@ export default function PiImacSolid({
   className,
   ariaLabel = 'imac icon',
   ...props
-}: PiImacSolidProps): JSX.Element {
+}: PiImacSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

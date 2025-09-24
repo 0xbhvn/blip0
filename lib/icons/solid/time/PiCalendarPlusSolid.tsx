@@ -16,7 +16,7 @@ export default function PiCalendarPlusSolid({
   className,
   ariaLabel = 'calendar-plus icon',
   ...props
-}: PiCalendarPlusSolidProps): JSX.Element {
+}: PiCalendarPlusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

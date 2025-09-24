@@ -16,7 +16,7 @@ export default function PiControlTowerSolid({
   className,
   ariaLabel = 'control-tower icon',
   ...props
-}: PiControlTowerSolidProps): JSX.Element {
+}: PiControlTowerSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

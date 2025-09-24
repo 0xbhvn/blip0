@@ -16,7 +16,7 @@ export default function PiServerCancelSolid({
   className,
   ariaLabel = 'server-cancel icon',
   ...props
-}: PiServerCancelSolidProps): JSX.Element {
+}: PiServerCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiMedicalFileSolid({
   className,
   ariaLabel = 'medical-file icon',
   ...props
-}: PiMedicalFileSolidProps): JSX.Element {
+}: PiMedicalFileSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiAirplaneFlyingStroke({
   className,
   ariaLabel = 'airplane-flying icon',
   ...props
-}: PiAirplaneFlyingStrokeProps): JSX.Element {
+}: PiAirplaneFlyingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

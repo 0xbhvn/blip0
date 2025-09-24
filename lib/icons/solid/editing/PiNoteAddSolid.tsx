@@ -16,7 +16,7 @@ export default function PiNoteAddSolid({
   className,
   ariaLabel = 'note-add icon',
   ...props
-}: PiNoteAddSolidProps): JSX.Element {
+}: PiNoteAddSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

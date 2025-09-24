@@ -16,7 +16,7 @@ export default function PiAtomStroke({
   className,
   ariaLabel = 'atom icon',
   ...props
-}: PiAtomStrokeProps): JSX.Element {
+}: PiAtomStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

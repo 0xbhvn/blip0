@@ -16,7 +16,7 @@ export default function PiAutomationSolid({
   className,
   ariaLabel = 'automation icon',
   ...props
-}: PiAutomationSolidProps): JSX.Element {
+}: PiAutomationSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

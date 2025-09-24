@@ -16,7 +16,7 @@ export default function PiDeleteBackwardLeftStroke({
   className,
   ariaLabel = 'delete-backward-left icon',
   ...props
-}: PiDeleteBackwardLeftStrokeProps): JSX.Element {
+}: PiDeleteBackwardLeftStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

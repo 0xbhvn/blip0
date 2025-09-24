@@ -16,7 +16,7 @@ export default function PiEarStroke({
   className,
   ariaLabel = 'ear icon',
   ...props
-}: PiEarStrokeProps): JSX.Element {
+}: PiEarStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

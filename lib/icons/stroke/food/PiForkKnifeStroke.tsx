@@ -16,7 +16,7 @@ export default function PiForkKnifeStroke({
   className,
   ariaLabel = 'fork-knife icon',
   ...props
-}: PiForkKnifeStrokeProps): JSX.Element {
+}: PiForkKnifeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

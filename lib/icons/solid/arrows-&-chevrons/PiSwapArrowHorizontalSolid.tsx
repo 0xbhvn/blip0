@@ -16,7 +16,7 @@ export default function PiSwapArrowHorizontalSolid({
   className,
   ariaLabel = 'swap-arrow-horizontal icon',
   ...props
-}: PiSwapArrowHorizontalSolidProps): JSX.Element {
+}: PiSwapArrowHorizontalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

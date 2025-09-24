@@ -16,7 +16,7 @@ export default function PiServerRemoveSolid({
   className,
   ariaLabel = 'server-remove icon',
   ...props
-}: PiServerRemoveSolidProps): JSX.Element {
+}: PiServerRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

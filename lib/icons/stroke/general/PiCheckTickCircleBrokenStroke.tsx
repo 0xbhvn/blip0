@@ -16,7 +16,7 @@ export default function PiCheckTickCircleBrokenStroke({
   className,
   ariaLabel = 'check-tick-circle-broken icon',
   ...props
-}: PiCheckTickCircleBrokenStrokeProps): JSX.Element {
+}: PiCheckTickCircleBrokenStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

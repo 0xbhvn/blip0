@@ -16,7 +16,7 @@ export default function PiPlanetRingSolid({
   className,
   ariaLabel = 'planet-ring icon',
   ...props
-}: PiPlanetRingSolidProps): JSX.Element {
+}: PiPlanetRingSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

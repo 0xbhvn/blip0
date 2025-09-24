@@ -16,7 +16,7 @@ export default function PiFilterVerticalSolid({
   className,
   ariaLabel = 'filter-vertical icon',
   ...props
-}: PiFilterVerticalSolidProps): JSX.Element {
+}: PiFilterVerticalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

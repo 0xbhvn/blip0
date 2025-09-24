@@ -16,7 +16,7 @@ export default function PiTrackpadSolid({
   className,
   ariaLabel = 'trackpad icon',
   ...props
-}: PiTrackpadSolidProps): JSX.Element {
+}: PiTrackpadSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

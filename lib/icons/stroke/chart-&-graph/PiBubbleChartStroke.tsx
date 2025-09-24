@@ -16,7 +16,7 @@ export default function PiBubbleChartStroke({
   className,
   ariaLabel = 'bubble-chart icon',
   ...props
-}: PiBubbleChartStrokeProps): JSX.Element {
+}: PiBubbleChartStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

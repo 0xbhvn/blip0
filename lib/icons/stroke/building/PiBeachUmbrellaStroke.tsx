@@ -16,7 +16,7 @@ export default function PiBeachUmbrellaStroke({
   className,
   ariaLabel = 'beach-umbrella icon',
   ...props
-}: PiBeachUmbrellaStrokeProps): JSX.Element {
+}: PiBeachUmbrellaStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

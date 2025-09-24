@@ -16,7 +16,7 @@ export default function PiMouseButtonRightSolid({
   className,
   ariaLabel = 'mouse-button-right icon',
   ...props
-}: PiMouseButtonRightSolidProps): JSX.Element {
+}: PiMouseButtonRightSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

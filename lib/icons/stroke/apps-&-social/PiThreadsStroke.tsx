@@ -16,7 +16,7 @@ export default function PiThreadsStroke({
   className,
   ariaLabel = 'threads icon',
   ...props
-}: PiThreadsStrokeProps): JSX.Element {
+}: PiThreadsStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

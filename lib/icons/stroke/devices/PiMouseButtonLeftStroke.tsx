@@ -16,7 +16,7 @@ export default function PiMouseButtonLeftStroke({
   className,
   ariaLabel = 'mouse-button-left icon',
   ...props
-}: PiMouseButtonLeftStrokeProps): JSX.Element {
+}: PiMouseButtonLeftStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

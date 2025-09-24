@@ -16,7 +16,7 @@ export default function PiAlignUpStroke({
   className,
   ariaLabel = 'align-up icon',
   ...props
-}: PiAlignUpStrokeProps): JSX.Element {
+}: PiAlignUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

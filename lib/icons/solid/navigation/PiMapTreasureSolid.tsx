@@ -16,7 +16,7 @@ export default function PiMapTreasureSolid({
   className,
   ariaLabel = 'map-treasure icon',
   ...props
-}: PiMapTreasureSolidProps): JSX.Element {
+}: PiMapTreasureSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

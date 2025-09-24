@@ -16,7 +16,7 @@ export default function PiCryptoCurrencyUsdtDiamondStroke({
   className,
   ariaLabel = 'crypto-currency-usdt-diamond icon',
   ...props
-}: PiCryptoCurrencyUsdtDiamondStrokeProps): JSX.Element {
+}: PiCryptoCurrencyUsdtDiamondStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

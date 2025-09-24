@@ -16,7 +16,7 @@ export default function PiChevronSortHorizontalStroke({
   className,
   ariaLabel = 'chevron-sort-horizontal icon',
   ...props
-}: PiChevronSortHorizontalStrokeProps): JSX.Element {
+}: PiChevronSortHorizontalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

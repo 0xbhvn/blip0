@@ -16,7 +16,7 @@ export default function PiDock01Stroke({
   className,
   ariaLabel = 'dock-01 icon',
   ...props
-}: PiDock01StrokeProps): JSX.Element {
+}: PiDock01StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

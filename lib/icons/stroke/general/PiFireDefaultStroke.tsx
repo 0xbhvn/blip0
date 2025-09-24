@@ -16,7 +16,7 @@ export default function PiFireDefaultStroke({
   className,
   ariaLabel = 'fire-default icon',
   ...props
-}: PiFireDefaultStrokeProps): JSX.Element {
+}: PiFireDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

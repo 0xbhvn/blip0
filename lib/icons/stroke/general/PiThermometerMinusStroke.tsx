@@ -16,7 +16,7 @@ export default function PiThermometerMinusStroke({
   className,
   ariaLabel = 'thermometer-minus icon',
   ...props
-}: PiThermometerMinusStrokeProps): JSX.Element {
+}: PiThermometerMinusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

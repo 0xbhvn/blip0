@@ -16,7 +16,7 @@ export default function PiPowerDefaultStroke({
   className,
   ariaLabel = 'power-default icon',
   ...props
-}: PiPowerDefaultStrokeProps): JSX.Element {
+}: PiPowerDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

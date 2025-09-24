@@ -16,7 +16,7 @@ export default function PiAppleNewSiriSolid({
   className,
   ariaLabel = 'apple-new-siri icon',
   ...props
-}: PiAppleNewSiriSolidProps): JSX.Element {
+}: PiAppleNewSiriSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

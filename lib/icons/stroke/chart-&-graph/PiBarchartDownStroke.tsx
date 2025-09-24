@@ -16,7 +16,7 @@ export default function PiBarchartDownStroke({
   className,
   ariaLabel = 'barchart-down icon',
   ...props
-}: PiBarchartDownStrokeProps): JSX.Element {
+}: PiBarchartDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

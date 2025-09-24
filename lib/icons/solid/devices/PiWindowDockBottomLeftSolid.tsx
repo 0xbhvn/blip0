@@ -16,7 +16,7 @@ export default function PiWindowDockBottomLeftSolid({
   className,
   ariaLabel = 'window-dock-bottom-left icon',
   ...props
-}: PiWindowDockBottomLeftSolidProps): JSX.Element {
+}: PiWindowDockBottomLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

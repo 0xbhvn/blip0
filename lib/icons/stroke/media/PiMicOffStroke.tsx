@@ -16,7 +16,7 @@ export default function PiMicOffStroke({
   className,
   ariaLabel = 'mic-off icon',
   ...props
-}: PiMicOffStrokeProps): JSX.Element {
+}: PiMicOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

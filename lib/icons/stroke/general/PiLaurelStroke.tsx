@@ -16,7 +16,7 @@ export default function PiLaurelStroke({
   className,
   ariaLabel = 'laurel icon',
   ...props
-}: PiLaurelStrokeProps): JSX.Element {
+}: PiLaurelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFingerprintAltStroke({
   className,
   ariaLabel = 'fingerprint-alt icon',
   ...props
-}: PiFingerprintAltStrokeProps): JSX.Element {
+}: PiFingerprintAltStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

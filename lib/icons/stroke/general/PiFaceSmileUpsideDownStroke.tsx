@@ -16,7 +16,7 @@ export default function PiFaceSmileUpsideDownStroke({
   className,
   ariaLabel = 'face-smile-upside-down icon',
   ...props
-}: PiFaceSmileUpsideDownStrokeProps): JSX.Element {
+}: PiFaceSmileUpsideDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPlusCircleSolid({
   className,
   ariaLabel = 'plus-circle icon',
   ...props
-}: PiPlusCircleSolidProps): JSX.Element {
+}: PiPlusCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiAirplaneDefaultStroke({
   className,
   ariaLabel = 'airplane-default icon',
   ...props
-}: PiAirplaneDefaultStrokeProps): JSX.Element {
+}: PiAirplaneDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCloudExclamationStroke({
   className,
   ariaLabel = 'cloud-exclamation icon',
   ...props
-}: PiCloudExclamationStrokeProps): JSX.Element {
+}: PiCloudExclamationStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

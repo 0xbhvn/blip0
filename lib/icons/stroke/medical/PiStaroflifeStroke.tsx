@@ -16,7 +16,7 @@ export default function PiStaroflifeStroke({
   className,
   ariaLabel = 'staroflife icon',
   ...props
-}: PiStaroflifeStrokeProps): JSX.Element {
+}: PiStaroflifeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

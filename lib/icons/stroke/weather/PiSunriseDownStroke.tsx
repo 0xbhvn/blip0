@@ -16,7 +16,7 @@ export default function PiSunriseDownStroke({
   className,
   ariaLabel = 'sunrise-down icon',
   ...props
-}: PiSunriseDownStrokeProps): JSX.Element {
+}: PiSunriseDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

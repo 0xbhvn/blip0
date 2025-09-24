@@ -16,7 +16,7 @@ export default function PiPointerCursorClickStroke({
   className,
   ariaLabel = 'pointer-cursor-click icon',
   ...props
-}: PiPointerCursorClickStrokeProps): JSX.Element {
+}: PiPointerCursorClickStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

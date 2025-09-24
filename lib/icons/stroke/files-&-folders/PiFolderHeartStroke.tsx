@@ -16,7 +16,7 @@ export default function PiFolderHeartStroke({
   className,
   ariaLabel = 'folder-heart icon',
   ...props
-}: PiFolderHeartStrokeProps): JSX.Element {
+}: PiFolderHeartStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

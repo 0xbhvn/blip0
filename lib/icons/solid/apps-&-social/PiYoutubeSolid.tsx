@@ -16,7 +16,7 @@ export default function PiYoutubeSolid({
   className,
   ariaLabel = 'youtube icon',
   ...props
-}: PiYoutubeSolidProps): JSX.Element {
+}: PiYoutubeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

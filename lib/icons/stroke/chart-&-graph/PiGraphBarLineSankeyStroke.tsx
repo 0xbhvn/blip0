@@ -16,7 +16,7 @@ export default function PiGraphBarLineSankeyStroke({
   className,
   ariaLabel = 'graph-bar-line-sankey icon',
   ...props
-}: PiGraphBarLineSankeyStrokeProps): JSX.Element {
+}: PiGraphBarLineSankeyStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

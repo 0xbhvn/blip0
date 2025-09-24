@@ -16,7 +16,7 @@ export default function PiMastodonSolid({
   className,
   ariaLabel = 'mastodon icon',
   ...props
-}: PiMastodonSolidProps): JSX.Element {
+}: PiMastodonSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiIdCardVerticalStroke({
   className,
   ariaLabel = 'id-card-vertical icon',
   ...props
-}: PiIdCardVerticalStrokeProps): JSX.Element {
+}: PiIdCardVerticalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

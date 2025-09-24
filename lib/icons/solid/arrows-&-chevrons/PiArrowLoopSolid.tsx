@@ -16,7 +16,7 @@ export default function PiArrowLoopSolid({
   className,
   ariaLabel = 'arrow-loop icon',
   ...props
-}: PiArrowLoopSolidProps): JSX.Element {
+}: PiArrowLoopSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

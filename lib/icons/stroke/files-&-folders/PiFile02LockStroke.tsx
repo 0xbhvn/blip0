@@ -16,7 +16,7 @@ export default function PiFile02LockStroke({
   className,
   ariaLabel = 'file-02-lock icon',
   ...props
-}: PiFile02LockStrokeProps): JSX.Element {
+}: PiFile02LockStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

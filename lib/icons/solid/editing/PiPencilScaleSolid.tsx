@@ -16,7 +16,7 @@ export default function PiPencilScaleSolid({
   className,
   ariaLabel = 'pencil-scale icon',
   ...props
-}: PiPencilScaleSolidProps): JSX.Element {
+}: PiPencilScaleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

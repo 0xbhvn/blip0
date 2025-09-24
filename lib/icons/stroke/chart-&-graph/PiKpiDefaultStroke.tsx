@@ -16,7 +16,7 @@ export default function PiKpiDefaultStroke({
   className,
   ariaLabel = 'kpi-default icon',
   ...props
-}: PiKpiDefaultStrokeProps): JSX.Element {
+}: PiKpiDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

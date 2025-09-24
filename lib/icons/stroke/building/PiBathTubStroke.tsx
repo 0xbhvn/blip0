@@ -16,7 +16,7 @@ export default function PiBathTubStroke({
   className,
   ariaLabel = 'bath-tub icon',
   ...props
-}: PiBathTubStrokeProps): JSX.Element {
+}: PiBathTubStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

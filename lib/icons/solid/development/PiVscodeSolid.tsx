@@ -16,7 +16,7 @@ export default function PiVscodeSolid({
   className,
   ariaLabel = 'vscode icon',
   ...props
-}: PiVscodeSolidProps): JSX.Element {
+}: PiVscodeSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

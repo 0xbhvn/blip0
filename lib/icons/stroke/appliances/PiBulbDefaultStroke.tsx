@@ -16,7 +16,7 @@ export default function PiBulbDefaultStroke({
   className,
   ariaLabel = 'bulb-default icon',
   ...props
-}: PiBulbDefaultStrokeProps): JSX.Element {
+}: PiBulbDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCleanBroomStroke({
   className,
   ariaLabel = 'clean-broom icon',
   ...props
-}: PiCleanBroomStrokeProps): JSX.Element {
+}: PiCleanBroomStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiShoppingCartSolid({
   className,
   ariaLabel = 'shopping-cart icon',
   ...props
-}: PiShoppingCartSolidProps): JSX.Element {
+}: PiShoppingCartSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

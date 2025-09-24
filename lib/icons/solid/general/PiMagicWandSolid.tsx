@@ -16,7 +16,7 @@ export default function PiMagicWandSolid({
   className,
   ariaLabel = 'magic-wand icon',
   ...props
-}: PiMagicWandSolidProps): JSX.Element {
+}: PiMagicWandSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

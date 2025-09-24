@@ -16,7 +16,7 @@ export default function PiPencilEraserEditLineStroke({
   className,
   ariaLabel = 'pencil-eraser-edit-line icon',
   ...props
-}: PiPencilEraserEditLineStrokeProps): JSX.Element {
+}: PiPencilEraserEditLineStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

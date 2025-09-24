@@ -16,7 +16,7 @@ export default function PiGrid02Stroke({
   className,
   ariaLabel = 'grid-02 icon',
   ...props
-}: PiGrid02StrokeProps): JSX.Element {
+}: PiGrid02StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiUserCheckSolid({
   className,
   ariaLabel = 'user-check icon',
   ...props
-}: PiUserCheckSolidProps): JSX.Element {
+}: PiUserCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

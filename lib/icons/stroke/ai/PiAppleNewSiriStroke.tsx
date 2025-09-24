@@ -16,7 +16,7 @@ export default function PiAppleNewSiriStroke({
   className,
   ariaLabel = 'apple-new-siri icon',
   ...props
-}: PiAppleNewSiriStrokeProps): JSX.Element {
+}: PiAppleNewSiriStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

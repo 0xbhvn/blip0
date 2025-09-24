@@ -16,7 +16,7 @@ export default function PiCloudCheckSolid({
   className,
   ariaLabel = 'cloud-check icon',
   ...props
-}: PiCloudCheckSolidProps): JSX.Element {
+}: PiCloudCheckSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

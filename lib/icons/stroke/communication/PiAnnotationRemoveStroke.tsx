@@ -16,7 +16,7 @@ export default function PiAnnotationRemoveStroke({
   className,
   ariaLabel = 'annotation-remove icon',
   ...props
-}: PiAnnotationRemoveStrokeProps): JSX.Element {
+}: PiAnnotationRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiArchiveInformationSolid({
   className,
   ariaLabel = 'archive-information icon',
   ...props
-}: PiArchiveInformationSolidProps): JSX.Element {
+}: PiArchiveInformationSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

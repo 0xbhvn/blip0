@@ -16,7 +16,7 @@ export default function PiDoorStroke({
   className,
   ariaLabel = 'door icon',
   ...props
-}: PiDoorStrokeProps): JSX.Element {
+}: PiDoorStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

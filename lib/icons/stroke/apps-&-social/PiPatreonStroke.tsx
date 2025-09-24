@@ -16,7 +16,7 @@ export default function PiPatreonStroke({
   className,
   ariaLabel = 'patreon icon',
   ...props
-}: PiPatreonStrokeProps): JSX.Element {
+}: PiPatreonStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

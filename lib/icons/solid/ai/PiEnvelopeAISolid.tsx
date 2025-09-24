@@ -16,7 +16,7 @@ export default function PiEnvelopeAISolid({
   className,
   ariaLabel = 'envelope-ai icon',
   ...props
-}: PiEnvelopeAISolidProps): JSX.Element {
+}: PiEnvelopeAISolidProps): React.ReactElement {
   return (
     <svg
       width={size}

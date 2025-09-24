@@ -16,7 +16,7 @@ export default function PiChatRemoveSolid({
   className,
   ariaLabel = 'chat-remove icon',
   ...props
-}: PiChatRemoveSolidProps): JSX.Element {
+}: PiChatRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

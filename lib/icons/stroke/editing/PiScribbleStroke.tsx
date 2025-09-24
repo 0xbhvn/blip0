@@ -16,7 +16,7 @@ export default function PiScribbleStroke({
   className,
   ariaLabel = 'scribble icon',
   ...props
-}: PiScribbleStrokeProps): JSX.Element {
+}: PiScribbleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

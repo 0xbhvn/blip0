@@ -16,7 +16,7 @@ export default function PiWalletArrowDownSolid({
   className,
   ariaLabel = 'wallet-arrow-down icon',
   ...props
-}: PiWalletArrowDownSolidProps): JSX.Element {
+}: PiWalletArrowDownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

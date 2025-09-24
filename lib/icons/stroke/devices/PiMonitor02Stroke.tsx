@@ -16,7 +16,7 @@ export default function PiMonitor02Stroke({
   className,
   ariaLabel = 'monitor-02 icon',
   ...props
-}: PiMonitor02StrokeProps): JSX.Element {
+}: PiMonitor02StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

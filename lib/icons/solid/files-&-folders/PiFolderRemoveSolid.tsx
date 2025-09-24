@@ -16,7 +16,7 @@ export default function PiFolderRemoveSolid({
   className,
   ariaLabel = 'folder-remove icon',
   ...props
-}: PiFolderRemoveSolidProps): JSX.Element {
+}: PiFolderRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

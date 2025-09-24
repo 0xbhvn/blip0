@@ -16,7 +16,7 @@ export default function PiGraphChartFunnelStroke({
   className,
   ariaLabel = 'graph-chart-funnel icon',
   ...props
-}: PiGraphChartFunnelStrokeProps): JSX.Element {
+}: PiGraphChartFunnelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

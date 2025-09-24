@@ -16,7 +16,7 @@ export default function PiMotionEaseInStroke({
   className,
   ariaLabel = 'motion-ease-in icon',
   ...props
-}: PiMotionEaseInStrokeProps): JSX.Element {
+}: PiMotionEaseInStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

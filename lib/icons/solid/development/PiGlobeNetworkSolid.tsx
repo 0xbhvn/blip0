@@ -16,7 +16,7 @@ export default function PiGlobeNetworkSolid({
   className,
   ariaLabel = 'globe-network icon',
   ...props
-}: PiGlobeNetworkSolidProps): JSX.Element {
+}: PiGlobeNetworkSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCameraRemoveSolid({
   className,
   ariaLabel = 'camera-remove icon',
   ...props
-}: PiCameraRemoveSolidProps): JSX.Element {
+}: PiCameraRemoveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

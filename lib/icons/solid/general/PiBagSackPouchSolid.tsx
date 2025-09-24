@@ -16,7 +16,7 @@ export default function PiBagSackPouchSolid({
   className,
   ariaLabel = 'bag-sack-pouch icon',
   ...props
-}: PiBagSackPouchSolidProps): JSX.Element {
+}: PiBagSackPouchSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

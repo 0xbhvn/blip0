@@ -16,7 +16,7 @@ export default function PiTruckDefaultSolid({
   className,
   ariaLabel = 'truck-default icon',
   ...props
-}: PiTruckDefaultSolidProps): JSX.Element {
+}: PiTruckDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

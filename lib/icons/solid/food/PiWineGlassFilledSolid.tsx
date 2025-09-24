@@ -16,7 +16,7 @@ export default function PiWineGlassFilledSolid({
   className,
   ariaLabel = 'wine-glass-filled icon',
   ...props
-}: PiWineGlassFilledSolidProps): JSX.Element {
+}: PiWineGlassFilledSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

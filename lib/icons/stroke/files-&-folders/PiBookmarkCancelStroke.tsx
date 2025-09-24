@@ -16,7 +16,7 @@ export default function PiBookmarkCancelStroke({
   className,
   ariaLabel = 'bookmark-cancel icon',
   ...props
-}: PiBookmarkCancelStrokeProps): JSX.Element {
+}: PiBookmarkCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

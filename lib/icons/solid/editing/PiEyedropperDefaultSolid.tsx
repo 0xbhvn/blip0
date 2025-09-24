@@ -16,7 +16,7 @@ export default function PiEyedropperDefaultSolid({
   className,
   ariaLabel = 'eyedropper-default icon',
   ...props
-}: PiEyedropperDefaultSolidProps): JSX.Element {
+}: PiEyedropperDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

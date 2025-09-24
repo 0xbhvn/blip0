@@ -16,7 +16,7 @@ export default function PiIncognitoStroke({
   className,
   ariaLabel = 'incognito icon',
   ...props
-}: PiIncognitoStrokeProps): JSX.Element {
+}: PiIncognitoStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiBedStroke({
   className,
   ariaLabel = 'bed icon',
   ...props
-}: PiBedStrokeProps): JSX.Element {
+}: PiBedStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

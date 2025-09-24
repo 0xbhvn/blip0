@@ -16,7 +16,7 @@ export default function PiFolderSettingsSolid({
   className,
   ariaLabel = 'folder-settings icon',
   ...props
-}: PiFolderSettingsSolidProps): JSX.Element {
+}: PiFolderSettingsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

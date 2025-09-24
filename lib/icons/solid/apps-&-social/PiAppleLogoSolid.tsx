@@ -16,7 +16,7 @@ export default function PiAppleLogoSolid({
   className,
   ariaLabel = 'apple-logo icon',
   ...props
-}: PiAppleLogoSolidProps): JSX.Element {
+}: PiAppleLogoSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

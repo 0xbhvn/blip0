@@ -16,7 +16,7 @@ export default function PiMedicinePillsCapsulesTabletsSolid({
   className,
   ariaLabel = 'medicine-pills-capsules-tablets icon',
   ...props
-}: PiMedicinePillsCapsulesTabletsSolidProps): JSX.Element {
+}: PiMedicinePillsCapsulesTabletsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

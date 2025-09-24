@@ -16,7 +16,7 @@ export default function PiBottleMilkGlassStroke({
   className,
   ariaLabel = 'bottle-milk-glass icon',
   ...props
-}: PiBottleMilkGlassStrokeProps): JSX.Element {
+}: PiBottleMilkGlassStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

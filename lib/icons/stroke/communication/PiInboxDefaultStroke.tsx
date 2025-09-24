@@ -16,7 +16,7 @@ export default function PiInboxDefaultStroke({
   className,
   ariaLabel = 'inbox-default icon',
   ...props
-}: PiInboxDefaultStrokeProps): JSX.Element {
+}: PiInboxDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

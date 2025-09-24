@@ -16,7 +16,7 @@ export default function PiCartonStroke({
   className,
   ariaLabel = 'carton icon',
   ...props
-}: PiCartonStrokeProps): JSX.Element {
+}: PiCartonStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

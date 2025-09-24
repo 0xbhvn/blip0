@@ -16,7 +16,7 @@ export default function PiListPlusStroke({
   className,
   ariaLabel = 'list-plus icon',
   ...props
-}: PiListPlusStrokeProps): JSX.Element {
+}: PiListPlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

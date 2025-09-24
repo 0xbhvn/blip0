@@ -16,7 +16,7 @@ export default function PiEarSolid({
   className,
   ariaLabel = 'ear icon',
   ...props
-}: PiEarSolidProps): JSX.Element {
+}: PiEarSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

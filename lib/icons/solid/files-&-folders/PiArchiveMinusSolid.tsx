@@ -16,7 +16,7 @@ export default function PiArchiveMinusSolid({
   className,
   ariaLabel = 'archive-minus icon',
   ...props
-}: PiArchiveMinusSolidProps): JSX.Element {
+}: PiArchiveMinusSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

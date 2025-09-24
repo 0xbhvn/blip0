@@ -16,7 +16,7 @@ export default function PiBallBasketballSolid({
   className,
   ariaLabel = 'ball-basketball icon',
   ...props
-}: PiBallBasketballSolidProps): JSX.Element {
+}: PiBallBasketballSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

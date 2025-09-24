@@ -16,7 +16,7 @@ export default function PiClipboardCancelStroke({
   className,
   ariaLabel = 'clipboard-cancel icon',
   ...props
-}: PiClipboardCancelStrokeProps): JSX.Element {
+}: PiClipboardCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

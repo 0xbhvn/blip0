@@ -16,7 +16,7 @@ export default function PiPinDefaultStroke({
   className,
   ariaLabel = 'pin-default icon',
   ...props
-}: PiPinDefaultStrokeProps): JSX.Element {
+}: PiPinDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

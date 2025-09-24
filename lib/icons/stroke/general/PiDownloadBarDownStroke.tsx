@@ -16,7 +16,7 @@ export default function PiDownloadBarDownStroke({
   className,
   ariaLabel = 'download-bar-down icon',
   ...props
-}: PiDownloadBarDownStrokeProps): JSX.Element {
+}: PiDownloadBarDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

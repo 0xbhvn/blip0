@@ -16,7 +16,7 @@ export default function PiHeadingH1Stroke({
   className,
   ariaLabel = 'heading-h1 icon',
   ...props
-}: PiHeadingH1StrokeProps): JSX.Element {
+}: PiHeadingH1StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiMapLocationStroke({
   className,
   ariaLabel = 'map-location icon',
   ...props
-}: PiMapLocationStrokeProps): JSX.Element {
+}: PiMapLocationStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCryptoCurrencyEthereumSolid({
   className,
   ariaLabel = 'crypto-currency-ethereum icon',
   ...props
-}: PiCryptoCurrencyEthereumSolidProps): JSX.Element {
+}: PiCryptoCurrencyEthereumSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

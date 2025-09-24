@@ -16,7 +16,7 @@ export default function PiSpreadsheetSwapStroke({
   className,
   ariaLabel = 'spreadsheet-swap icon',
   ...props
-}: PiSpreadsheetSwapStrokeProps): JSX.Element {
+}: PiSpreadsheetSwapStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

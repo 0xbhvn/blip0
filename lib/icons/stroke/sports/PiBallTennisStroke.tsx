@@ -16,7 +16,7 @@ export default function PiBallTennisStroke({
   className,
   ariaLabel = 'ball-tennis icon',
   ...props
-}: PiBallTennisStrokeProps): JSX.Element {
+}: PiBallTennisStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

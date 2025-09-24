@@ -16,7 +16,7 @@ export default function PiTimerOffStroke({
   className,
   ariaLabel = 'timer-off icon',
   ...props
-}: PiTimerOffStrokeProps): JSX.Element {
+}: PiTimerOffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

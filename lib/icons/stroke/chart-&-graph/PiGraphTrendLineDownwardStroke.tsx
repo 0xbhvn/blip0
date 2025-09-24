@@ -16,7 +16,7 @@ export default function PiGraphTrendLineDownwardStroke({
   className,
   ariaLabel = 'graph-trend-line-downward icon',
   ...props
-}: PiGraphTrendLineDownwardStrokeProps): JSX.Element {
+}: PiGraphTrendLineDownwardStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

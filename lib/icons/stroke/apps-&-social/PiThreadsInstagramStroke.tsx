@@ -16,7 +16,7 @@ export default function PiThreadsInstagramStroke({
   className,
   ariaLabel = 'threads-instagram icon',
   ...props
-}: PiThreadsInstagramStrokeProps): JSX.Element {
+}: PiThreadsInstagramStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

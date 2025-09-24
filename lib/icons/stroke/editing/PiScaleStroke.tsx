@@ -16,7 +16,7 @@ export default function PiScaleStroke({
   className,
   ariaLabel = 'scale icon',
   ...props
-}: PiScaleStrokeProps): JSX.Element {
+}: PiScaleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

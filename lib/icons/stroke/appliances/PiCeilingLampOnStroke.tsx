@@ -16,7 +16,7 @@ export default function PiCeilingLampOnStroke({
   className,
   ariaLabel = 'ceiling-lamp-on icon',
   ...props
-}: PiCeilingLampOnStrokeProps): JSX.Element {
+}: PiCeilingLampOnStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

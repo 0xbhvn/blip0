@@ -16,7 +16,7 @@ export default function PiWhatsappSolid({
   className,
   ariaLabel = 'whatsapp icon',
   ...props
-}: PiWhatsappSolidProps): JSX.Element {
+}: PiWhatsappSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

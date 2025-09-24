@@ -16,7 +16,7 @@ export default function PiBearAppStroke({
   className,
   ariaLabel = 'bear-app icon',
   ...props
-}: PiBearAppStrokeProps): JSX.Element {
+}: PiBearAppStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

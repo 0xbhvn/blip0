@@ -16,7 +16,7 @@ export default function PiUserCheckStroke({
   className,
   ariaLabel = 'user-check icon',
   ...props
-}: PiUserCheckStrokeProps): JSX.Element {
+}: PiUserCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

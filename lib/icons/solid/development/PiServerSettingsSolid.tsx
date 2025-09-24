@@ -16,7 +16,7 @@ export default function PiServerSettingsSolid({
   className,
   ariaLabel = 'server-settings icon',
   ...props
-}: PiServerSettingsSolidProps): JSX.Element {
+}: PiServerSettingsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

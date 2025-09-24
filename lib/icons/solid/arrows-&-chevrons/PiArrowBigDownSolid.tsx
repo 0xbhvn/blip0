@@ -16,7 +16,7 @@ export default function PiArrowBigDownSolid({
   className,
   ariaLabel = 'arrow-big-down icon',
   ...props
-}: PiArrowBigDownSolidProps): JSX.Element {
+}: PiArrowBigDownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

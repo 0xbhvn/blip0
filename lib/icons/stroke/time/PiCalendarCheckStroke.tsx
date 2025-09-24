@@ -16,7 +16,7 @@ export default function PiCalendarCheckStroke({
   className,
   ariaLabel = 'calendar-check icon',
   ...props
-}: PiCalendarCheckStrokeProps): JSX.Element {
+}: PiCalendarCheckStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

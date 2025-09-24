@@ -16,7 +16,7 @@ export default function PiArrowBigUpRightStroke({
   className,
   ariaLabel = 'arrow-big-up-right icon',
   ...props
-}: PiArrowBigUpRightStrokeProps): JSX.Element {
+}: PiArrowBigUpRightStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

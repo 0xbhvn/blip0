@@ -16,7 +16,7 @@ export default function PiKeyBottomLeft02Solid({
   className,
   ariaLabel = 'key-bottom-left-02 icon',
   ...props
-}: PiKeyBottomLeft02SolidProps): JSX.Element {
+}: PiKeyBottomLeft02SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

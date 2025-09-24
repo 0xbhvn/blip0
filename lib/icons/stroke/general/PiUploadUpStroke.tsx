@@ -16,7 +16,7 @@ export default function PiUploadUpStroke({
   className,
   ariaLabel = 'upload-up icon',
   ...props
-}: PiUploadUpStrokeProps): JSX.Element {
+}: PiUploadUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

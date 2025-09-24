@@ -16,7 +16,7 @@ export default function PiLeafStroke({
   className,
   ariaLabel = 'leaf icon',
   ...props
-}: PiLeafStrokeProps): JSX.Element {
+}: PiLeafStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

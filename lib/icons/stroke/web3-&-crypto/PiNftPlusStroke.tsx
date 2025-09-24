@@ -16,7 +16,7 @@ export default function PiNftPlusStroke({
   className,
   ariaLabel = 'nft-plus icon',
   ...props
-}: PiNftPlusStrokeProps): JSX.Element {
+}: PiNftPlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

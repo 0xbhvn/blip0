@@ -16,7 +16,7 @@ export default function PiEqualsCircleSolid({
   className,
   ariaLabel = 'equals-circle icon',
   ...props
-}: PiEqualsCircleSolidProps): JSX.Element {
+}: PiEqualsCircleSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

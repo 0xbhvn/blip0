@@ -16,7 +16,7 @@ export default function PiHomeHLineSolid({
   className,
   ariaLabel = 'home-h-line icon',
   ...props
-}: PiHomeHLineSolidProps): JSX.Element {
+}: PiHomeHLineSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

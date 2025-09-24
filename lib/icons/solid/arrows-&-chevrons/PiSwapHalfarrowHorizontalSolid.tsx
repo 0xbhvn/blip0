@@ -16,7 +16,7 @@ export default function PiSwapHalfarrowHorizontalSolid({
   className,
   ariaLabel = 'swap-halfarrow-horizontal icon',
   ...props
-}: PiSwapHalfarrowHorizontalSolidProps): JSX.Element {
+}: PiSwapHalfarrowHorizontalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

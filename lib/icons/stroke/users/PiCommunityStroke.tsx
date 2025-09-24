@@ -16,7 +16,7 @@ export default function PiCommunityStroke({
   className,
   ariaLabel = 'community icon',
   ...props
-}: PiCommunityStrokeProps): JSX.Element {
+}: PiCommunityStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

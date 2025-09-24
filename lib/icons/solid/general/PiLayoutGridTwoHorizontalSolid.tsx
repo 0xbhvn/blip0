@@ -16,7 +16,7 @@ export default function PiLayoutGridTwoHorizontalSolid({
   className,
   ariaLabel = 'layout-grid-two-horizontal icon',
   ...props
-}: PiLayoutGridTwoHorizontalSolidProps): JSX.Element {
+}: PiLayoutGridTwoHorizontalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiRefreshSolid({
   className,
   ariaLabel = 'refresh icon',
   ...props
-}: PiRefreshSolidProps): JSX.Element {
+}: PiRefreshSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiBottleMilkGlassSolid({
   className,
   ariaLabel = 'bottle-milk-glass icon',
   ...props
-}: PiBottleMilkGlassSolidProps): JSX.Element {
+}: PiBottleMilkGlassSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

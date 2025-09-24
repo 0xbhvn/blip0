@@ -16,7 +16,7 @@ export default function PiMoonStroke({
   className,
   ariaLabel = 'moon icon',
   ...props
-}: PiMoonStrokeProps): JSX.Element {
+}: PiMoonStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

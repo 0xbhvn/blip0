@@ -16,7 +16,7 @@ export default function PiPiechartRoseStroke({
   className,
   ariaLabel = 'piechart-rose icon',
   ...props
-}: PiPiechartRoseStrokeProps): JSX.Element {
+}: PiPiechartRoseStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

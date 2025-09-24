@@ -16,7 +16,7 @@ export default function PiKeyboardWiredSolid({
   className,
   ariaLabel = 'keyboard-wired icon',
   ...props
-}: PiKeyboardWiredSolidProps): JSX.Element {
+}: PiKeyboardWiredSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

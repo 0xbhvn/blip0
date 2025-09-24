@@ -16,7 +16,7 @@ export default function PiFilePlusStroke({
   className,
   ariaLabel = 'file-plus icon',
   ...props
-}: PiFilePlusStrokeProps): JSX.Element {
+}: PiFilePlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

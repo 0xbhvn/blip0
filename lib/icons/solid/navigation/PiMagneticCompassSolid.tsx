@@ -16,7 +16,7 @@ export default function PiMagneticCompassSolid({
   className,
   ariaLabel = 'magnetic-compass icon',
   ...props
-}: PiMagneticCompassSolidProps): JSX.Element {
+}: PiMagneticCompassSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

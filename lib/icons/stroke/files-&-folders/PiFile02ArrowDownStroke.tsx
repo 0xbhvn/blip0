@@ -16,7 +16,7 @@ export default function PiFile02ArrowDownStroke({
   className,
   ariaLabel = 'file-02-arrow-down icon',
   ...props
-}: PiFile02ArrowDownStrokeProps): JSX.Element {
+}: PiFile02ArrowDownStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

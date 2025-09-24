@@ -16,7 +16,7 @@ export default function PiDice2Solid({
   className,
   ariaLabel = 'dice-2 icon',
   ...props
-}: PiDice2SolidProps): JSX.Element {
+}: PiDice2SolidProps): React.ReactElement {
   return (
     <svg
       width={size}

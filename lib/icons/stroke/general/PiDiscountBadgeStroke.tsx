@@ -16,7 +16,7 @@ export default function PiDiscountBadgeStroke({
   className,
   ariaLabel = 'discount-badge icon',
   ...props
-}: PiDiscountBadgeStrokeProps): JSX.Element {
+}: PiDiscountBadgeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

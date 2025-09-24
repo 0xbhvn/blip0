@@ -16,7 +16,7 @@ export default function PiExchange01Stroke({
   className,
   ariaLabel = 'exchange-01 icon',
   ...props
-}: PiExchange01StrokeProps): JSX.Element {
+}: PiExchange01StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

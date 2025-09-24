@@ -16,7 +16,7 @@ export default function PiGitBranchRemoveStroke({
   className,
   ariaLabel = 'git-branch-remove icon',
   ...props
-}: PiGitBranchRemoveStrokeProps): JSX.Element {
+}: PiGitBranchRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

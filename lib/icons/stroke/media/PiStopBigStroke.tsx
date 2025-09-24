@@ -16,7 +16,7 @@ export default function PiStopBigStroke({
   className,
   ariaLabel = 'stop-big icon',
   ...props
-}: PiStopBigStrokeProps): JSX.Element {
+}: PiStopBigStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiMesageHeartSolid({
   className,
   ariaLabel = 'mesage-heart icon',
   ...props
-}: PiMesageHeartSolidProps): JSX.Element {
+}: PiMesageHeartSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFlagStroke({
   className,
   ariaLabel = 'flag icon',
   ...props
-}: PiFlagStrokeProps): JSX.Element {
+}: PiFlagStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

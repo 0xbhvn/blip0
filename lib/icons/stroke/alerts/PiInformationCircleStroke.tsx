@@ -16,7 +16,7 @@ export default function PiInformationCircleStroke({
   className,
   ariaLabel = 'information-circle icon',
   ...props
-}: PiInformationCircleStrokeProps): JSX.Element {
+}: PiInformationCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

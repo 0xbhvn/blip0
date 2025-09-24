@@ -16,7 +16,7 @@ export default function PiSquareDottedStroke({
   className,
   ariaLabel = 'square-dotted icon',
   ...props
-}: PiSquareDottedStrokeProps): JSX.Element {
+}: PiSquareDottedStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

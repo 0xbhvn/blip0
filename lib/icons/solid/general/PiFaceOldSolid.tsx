@@ -16,7 +16,7 @@ export default function PiFaceOldSolid({
   className,
   ariaLabel = 'face-old icon',
   ...props
-}: PiFaceOldSolidProps): JSX.Element {
+}: PiFaceOldSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiFingerprintScanStroke({
   className,
   ariaLabel = 'fingerprint-scan icon',
   ...props
-}: PiFingerprintScanStrokeProps): JSX.Element {
+}: PiFingerprintScanStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

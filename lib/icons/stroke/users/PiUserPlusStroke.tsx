@@ -16,7 +16,7 @@ export default function PiUserPlusStroke({
   className,
   ariaLabel = 'user-plus icon',
   ...props
-}: PiUserPlusStrokeProps): JSX.Element {
+}: PiUserPlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

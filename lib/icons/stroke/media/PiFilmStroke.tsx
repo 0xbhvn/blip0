@@ -16,7 +16,7 @@ export default function PiFilmStroke({
   className,
   ariaLabel = 'film icon',
   ...props
-}: PiFilmStrokeProps): JSX.Element {
+}: PiFilmStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

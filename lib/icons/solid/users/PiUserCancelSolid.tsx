@@ -16,7 +16,7 @@ export default function PiUserCancelSolid({
   className,
   ariaLabel = 'user-cancel icon',
   ...props
-}: PiUserCancelSolidProps): JSX.Element {
+}: PiUserCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

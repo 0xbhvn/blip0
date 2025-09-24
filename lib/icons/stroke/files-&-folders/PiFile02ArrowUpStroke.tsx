@@ -16,7 +16,7 @@ export default function PiFile02ArrowUpStroke({
   className,
   ariaLabel = 'file-02-arrow-up icon',
   ...props
-}: PiFile02ArrowUpStrokeProps): JSX.Element {
+}: PiFile02ArrowUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

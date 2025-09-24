@@ -16,7 +16,7 @@ export default function PiCrownWinnerKingSolid({
   className,
   ariaLabel = 'crown-winner-king icon',
   ...props
-}: PiCrownWinnerKingSolidProps): JSX.Element {
+}: PiCrownWinnerKingSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiAlarmDefaultStroke({
   className,
   ariaLabel = 'alarm-default icon',
   ...props
-}: PiAlarmDefaultStrokeProps): JSX.Element {
+}: PiAlarmDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

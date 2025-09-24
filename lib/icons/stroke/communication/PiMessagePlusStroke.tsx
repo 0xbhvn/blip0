@@ -16,7 +16,7 @@ export default function PiMessagePlusStroke({
   className,
   ariaLabel = 'message-plus icon',
   ...props
-}: PiMessagePlusStrokeProps): JSX.Element {
+}: PiMessagePlusStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

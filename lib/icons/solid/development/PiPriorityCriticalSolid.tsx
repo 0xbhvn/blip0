@@ -16,7 +16,7 @@ export default function PiPriorityCriticalSolid({
   className,
   ariaLabel = 'priority-critical icon',
   ...props
-}: PiPriorityCriticalSolidProps): JSX.Element {
+}: PiPriorityCriticalSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

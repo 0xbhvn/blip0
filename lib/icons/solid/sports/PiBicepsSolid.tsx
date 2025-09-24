@@ -16,7 +16,7 @@ export default function PiBicepsSolid({
   className,
   ariaLabel = 'biceps icon',
   ...props
-}: PiBicepsSolidProps): JSX.Element {
+}: PiBicepsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

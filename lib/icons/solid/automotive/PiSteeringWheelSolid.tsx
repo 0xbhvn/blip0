@@ -16,7 +16,7 @@ export default function PiSteeringWheelSolid({
   className,
   ariaLabel = 'steering-wheel icon',
   ...props
-}: PiSteeringWheelSolidProps): JSX.Element {
+}: PiSteeringWheelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

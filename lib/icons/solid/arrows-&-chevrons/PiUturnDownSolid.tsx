@@ -16,7 +16,7 @@ export default function PiUturnDownSolid({
   className,
   ariaLabel = 'uturn-down icon',
   ...props
-}: PiUturnDownSolidProps): JSX.Element {
+}: PiUturnDownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

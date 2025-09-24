@@ -16,7 +16,7 @@ export default function PiGitPullRequestSolid({
   className,
   ariaLabel = 'git-pull-request icon',
   ...props
-}: PiGitPullRequestSolidProps): JSX.Element {
+}: PiGitPullRequestSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

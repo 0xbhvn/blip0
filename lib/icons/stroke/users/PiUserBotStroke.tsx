@@ -16,7 +16,7 @@ export default function PiUserBotStroke({
   className,
   ariaLabel = 'user-bot icon',
   ...props
-}: PiUserBotStrokeProps): JSX.Element {
+}: PiUserBotStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

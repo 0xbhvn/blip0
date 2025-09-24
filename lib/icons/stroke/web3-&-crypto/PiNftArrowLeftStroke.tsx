@@ -16,7 +16,7 @@ export default function PiNftArrowLeftStroke({
   className,
   ariaLabel = 'nft-arrow-left icon',
   ...props
-}: PiNftArrowLeftStrokeProps): JSX.Element {
+}: PiNftArrowLeftStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

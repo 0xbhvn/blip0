@@ -16,7 +16,7 @@ export default function PiThumbReactionLikeStroke({
   className,
   ariaLabel = 'thumb-reaction-like icon',
   ...props
-}: PiThumbReactionLikeStrokeProps): JSX.Element {
+}: PiThumbReactionLikeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

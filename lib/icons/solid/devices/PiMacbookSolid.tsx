@@ -16,7 +16,7 @@ export default function PiMacbookSolid({
   className,
   ariaLabel = 'macbook icon',
   ...props
-}: PiMacbookSolidProps): JSX.Element {
+}: PiMacbookSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

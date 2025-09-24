@@ -16,7 +16,7 @@ export default function PiDumbbellStroke({
   className,
   ariaLabel = 'dumbbell icon',
   ...props
-}: PiDumbbellStrokeProps): JSX.Element {
+}: PiDumbbellStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

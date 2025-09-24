@@ -16,7 +16,7 @@ export default function PiMultipleCrossCancelCircleStroke({
   className,
   ariaLabel = 'multiple-cross-cancel-circle icon',
   ...props
-}: PiMultipleCrossCancelCircleStrokeProps): JSX.Element {
+}: PiMultipleCrossCancelCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

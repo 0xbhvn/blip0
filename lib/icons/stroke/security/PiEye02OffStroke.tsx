@@ -16,7 +16,7 @@ export default function PiEye02OffStroke({
   className,
   ariaLabel = 'eye-02-off icon',
   ...props
-}: PiEye02OffStrokeProps): JSX.Element {
+}: PiEye02OffStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

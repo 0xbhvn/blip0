@@ -16,7 +16,7 @@ export default function PiChocolateBarStroke({
   className,
   ariaLabel = 'chocolate-bar icon',
   ...props
-}: PiChocolateBarStrokeProps): JSX.Element {
+}: PiChocolateBarStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

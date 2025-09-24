@@ -16,7 +16,7 @@ export default function PiChefHatSolid({
   className,
   ariaLabel = 'chef-hat icon',
   ...props
-}: PiChefHatSolidProps): JSX.Element {
+}: PiChefHatSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

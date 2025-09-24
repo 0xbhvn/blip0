@@ -16,7 +16,7 @@ export default function PiPluginAddonPuzzleStroke({
   className,
   ariaLabel = 'plugin-addon-puzzle icon',
   ...props
-}: PiPluginAddonPuzzleStrokeProps): JSX.Element {
+}: PiPluginAddonPuzzleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

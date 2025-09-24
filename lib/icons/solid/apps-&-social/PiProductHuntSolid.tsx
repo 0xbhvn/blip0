@@ -16,7 +16,7 @@ export default function PiProductHuntSolid({
   className,
   ariaLabel = 'product-hunt icon',
   ...props
-}: PiProductHuntSolidProps): JSX.Element {
+}: PiProductHuntSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

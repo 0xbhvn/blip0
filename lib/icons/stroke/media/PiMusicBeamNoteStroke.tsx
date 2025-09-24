@@ -16,7 +16,7 @@ export default function PiMusicBeamNoteStroke({
   className,
   ariaLabel = 'music-beam-note icon',
   ...props
-}: PiMusicBeamNoteStrokeProps): JSX.Element {
+}: PiMusicBeamNoteStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

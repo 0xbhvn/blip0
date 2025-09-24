@@ -16,7 +16,7 @@ export default function PiEaselDefaultStroke({
   className,
   ariaLabel = 'easel-default icon',
   ...props
-}: PiEaselDefaultStrokeProps): JSX.Element {
+}: PiEaselDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

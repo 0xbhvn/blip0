@@ -16,7 +16,7 @@ export default function PiCalendarOffSolid({
   className,
   ariaLabel = 'calendar-off icon',
   ...props
-}: PiCalendarOffSolidProps): JSX.Element {
+}: PiCalendarOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

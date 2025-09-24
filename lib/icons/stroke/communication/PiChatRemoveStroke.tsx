@@ -16,7 +16,7 @@ export default function PiChatRemoveStroke({
   className,
   ariaLabel = 'chat-remove icon',
   ...props
-}: PiChatRemoveStrokeProps): JSX.Element {
+}: PiChatRemoveStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

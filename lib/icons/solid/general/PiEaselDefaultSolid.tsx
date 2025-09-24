@@ -16,7 +16,7 @@ export default function PiEaselDefaultSolid({
   className,
   ariaLabel = 'easel-default icon',
   ...props
-}: PiEaselDefaultSolidProps): JSX.Element {
+}: PiEaselDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

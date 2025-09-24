@@ -16,7 +16,7 @@ export default function PiListMusicNoteStroke({
   className,
   ariaLabel = 'list-music-note icon',
   ...props
-}: PiListMusicNoteStrokeProps): JSX.Element {
+}: PiListMusicNoteStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

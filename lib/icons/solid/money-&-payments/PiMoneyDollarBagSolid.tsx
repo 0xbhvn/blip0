@@ -16,7 +16,7 @@ export default function PiMoneyDollarBagSolid({
   className,
   ariaLabel = 'money-dollar-bag icon',
   ...props
-}: PiMoneyDollarBagSolidProps): JSX.Element {
+}: PiMoneyDollarBagSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

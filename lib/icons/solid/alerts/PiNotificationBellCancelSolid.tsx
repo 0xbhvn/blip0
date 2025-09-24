@@ -16,7 +16,7 @@ export default function PiNotificationBellCancelSolid({
   className,
   ariaLabel = 'notification-bell-cancel icon',
   ...props
-}: PiNotificationBellCancelSolidProps): JSX.Element {
+}: PiNotificationBellCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

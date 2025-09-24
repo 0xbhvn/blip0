@@ -16,7 +16,7 @@ export default function PiHardriveSolid({
   className,
   ariaLabel = 'hardrive icon',
   ...props
-}: PiHardriveSolidProps): JSX.Element {
+}: PiHardriveSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

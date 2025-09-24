@@ -16,7 +16,7 @@ export default function PiFloppy02Stroke({
   className,
   ariaLabel = 'floppy-02 icon',
   ...props
-}: PiFloppy02StrokeProps): JSX.Element {
+}: PiFloppy02StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

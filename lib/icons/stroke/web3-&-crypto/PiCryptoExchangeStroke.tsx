@@ -16,7 +16,7 @@ export default function PiCryptoExchangeStroke({
   className,
   ariaLabel = 'crypto-exchange icon',
   ...props
-}: PiCryptoExchangeStrokeProps): JSX.Element {
+}: PiCryptoExchangeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

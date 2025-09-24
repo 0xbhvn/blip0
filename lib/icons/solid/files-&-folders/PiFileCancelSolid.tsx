@@ -16,7 +16,7 @@ export default function PiFileCancelSolid({
   className,
   ariaLabel = 'file-cancel icon',
   ...props
-}: PiFileCancelSolidProps): JSX.Element {
+}: PiFileCancelSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

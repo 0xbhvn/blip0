@@ -16,7 +16,7 @@ export default function PiPodcastSolid({
   className,
   ariaLabel = 'podcast icon',
   ...props
-}: PiPodcastSolidProps): JSX.Element {
+}: PiPodcastSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

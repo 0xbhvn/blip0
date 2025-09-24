@@ -16,7 +16,7 @@ export default function PiIncognitoSolid({
   className,
   ariaLabel = 'incognito icon',
   ...props
-}: PiIncognitoSolidProps): JSX.Element {
+}: PiIncognitoSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

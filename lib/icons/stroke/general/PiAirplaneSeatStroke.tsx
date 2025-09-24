@@ -16,7 +16,7 @@ export default function PiAirplaneSeatStroke({
   className,
   ariaLabel = 'airplane-seat icon',
   ...props
-}: PiAirplaneSeatStrokeProps): JSX.Element {
+}: PiAirplaneSeatStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiSearchBigZoomOutSolid({
   className,
   ariaLabel = 'search-big-zoom-out icon',
   ...props
-}: PiSearchBigZoomOutSolidProps): JSX.Element {
+}: PiSearchBigZoomOutSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

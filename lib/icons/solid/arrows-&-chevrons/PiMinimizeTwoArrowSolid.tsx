@@ -16,7 +16,7 @@ export default function PiMinimizeTwoArrowSolid({
   className,
   ariaLabel = 'minimize-two-arrow icon',
   ...props
-}: PiMinimizeTwoArrowSolidProps): JSX.Element {
+}: PiMinimizeTwoArrowSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

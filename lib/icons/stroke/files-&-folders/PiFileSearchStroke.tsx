@@ -16,7 +16,7 @@ export default function PiFileSearchStroke({
   className,
   ariaLabel = 'file-search icon',
   ...props
-}: PiFileSearchStrokeProps): JSX.Element {
+}: PiFileSearchStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

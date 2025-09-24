@@ -16,7 +16,7 @@ export default function PiMagicWandStroke({
   className,
   ariaLabel = 'magic-wand icon',
   ...props
-}: PiMagicWandStrokeProps): JSX.Element {
+}: PiMagicWandStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

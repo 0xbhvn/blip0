@@ -16,7 +16,7 @@ export default function PiLogInLeftSolid({
   className,
   ariaLabel = 'log-in-left icon',
   ...props
-}: PiLogInLeftSolidProps): JSX.Element {
+}: PiLogInLeftSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

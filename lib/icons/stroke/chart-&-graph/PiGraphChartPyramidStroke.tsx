@@ -16,7 +16,7 @@ export default function PiGraphChartPyramidStroke({
   className,
   ariaLabel = 'graph-chart-pyramid icon',
   ...props
-}: PiGraphChartPyramidStrokeProps): JSX.Element {
+}: PiGraphChartPyramidStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

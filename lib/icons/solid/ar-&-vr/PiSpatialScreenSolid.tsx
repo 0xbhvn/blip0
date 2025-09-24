@@ -16,7 +16,7 @@ export default function PiSpatialScreenSolid({
   className,
   ariaLabel = 'spatial-screen icon',
   ...props
-}: PiSpatialScreenSolidProps): JSX.Element {
+}: PiSpatialScreenSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

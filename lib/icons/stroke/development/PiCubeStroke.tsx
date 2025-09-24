@@ -16,7 +16,7 @@ export default function PiCubeStroke({
   className,
   ariaLabel = 'cube icon',
   ...props
-}: PiCubeStrokeProps): JSX.Element {
+}: PiCubeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

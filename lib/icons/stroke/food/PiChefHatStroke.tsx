@@ -16,7 +16,7 @@ export default function PiChefHatStroke({
   className,
   ariaLabel = 'chef-hat icon',
   ...props
-}: PiChefHatStrokeProps): JSX.Element {
+}: PiChefHatStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

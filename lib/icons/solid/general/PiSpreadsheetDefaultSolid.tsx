@@ -16,7 +16,7 @@ export default function PiSpreadsheetDefaultSolid({
   className,
   ariaLabel = 'spreadsheet-default icon',
   ...props
-}: PiSpreadsheetDefaultSolidProps): JSX.Element {
+}: PiSpreadsheetDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

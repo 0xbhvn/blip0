@@ -16,7 +16,7 @@ export default function PiColorPaletteSolid({
   className,
   ariaLabel = 'color-palette icon',
   ...props
-}: PiColorPaletteSolidProps): JSX.Element {
+}: PiColorPaletteSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

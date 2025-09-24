@@ -16,7 +16,7 @@ export default function PiArchiveLockedStroke({
   className,
   ariaLabel = 'archive-locked icon',
   ...props
-}: PiArchiveLockedStrokeProps): JSX.Element {
+}: PiArchiveLockedStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

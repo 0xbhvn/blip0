@@ -16,7 +16,7 @@ export default function PiInboxFilledSolid({
   className,
   ariaLabel = 'inbox-filled icon',
   ...props
-}: PiInboxFilledSolidProps): JSX.Element {
+}: PiInboxFilledSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

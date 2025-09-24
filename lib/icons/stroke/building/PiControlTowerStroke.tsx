@@ -16,7 +16,7 @@ export default function PiControlTowerStroke({
   className,
   ariaLabel = 'control-tower icon',
   ...props
-}: PiControlTowerStrokeProps): JSX.Element {
+}: PiControlTowerStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

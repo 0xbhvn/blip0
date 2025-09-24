@@ -16,7 +16,7 @@ export default function PiFitnessTennisStroke({
   className,
   ariaLabel = 'fitness-tennis icon',
   ...props
-}: PiFitnessTennisStrokeProps): JSX.Element {
+}: PiFitnessTennisStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

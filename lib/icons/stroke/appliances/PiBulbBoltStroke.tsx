@@ -16,7 +16,7 @@ export default function PiBulbBoltStroke({
   className,
   ariaLabel = 'bulb-bolt icon',
   ...props
-}: PiBulbBoltStrokeProps): JSX.Element {
+}: PiBulbBoltStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiVideoCallOutgoingSolid({
   className,
   ariaLabel = 'video-call-outgoing icon',
   ...props
-}: PiVideoCallOutgoingSolidProps): JSX.Element {
+}: PiVideoCallOutgoingSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

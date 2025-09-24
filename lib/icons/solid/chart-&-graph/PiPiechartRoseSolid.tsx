@@ -16,7 +16,7 @@ export default function PiPiechartRoseSolid({
   className,
   ariaLabel = 'piechart-rose icon',
   ...props
-}: PiPiechartRoseSolidProps): JSX.Element {
+}: PiPiechartRoseSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

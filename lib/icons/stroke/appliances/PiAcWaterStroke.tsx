@@ -16,7 +16,7 @@ export default function PiAcWaterStroke({
   className,
   ariaLabel = 'ac-water icon',
   ...props
-}: PiAcWaterStrokeProps): JSX.Element {
+}: PiAcWaterStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

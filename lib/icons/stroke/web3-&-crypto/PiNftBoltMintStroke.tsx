@@ -16,7 +16,7 @@ export default function PiNftBoltMintStroke({
   className,
   ariaLabel = 'nft-bolt-mint icon',
   ...props
-}: PiNftBoltMintStrokeProps): JSX.Element {
+}: PiNftBoltMintStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

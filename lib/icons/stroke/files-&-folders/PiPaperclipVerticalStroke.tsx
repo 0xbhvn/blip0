@@ -16,7 +16,7 @@ export default function PiPaperclipVerticalStroke({
   className,
   ariaLabel = 'paperclip-vertical icon',
   ...props
-}: PiPaperclipVerticalStrokeProps): JSX.Element {
+}: PiPaperclipVerticalStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

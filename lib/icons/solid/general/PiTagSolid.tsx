@@ -16,7 +16,7 @@ export default function PiTagSolid({
   className,
   ariaLabel = 'tag icon',
   ...props
-}: PiTagSolidProps): JSX.Element {
+}: PiTagSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

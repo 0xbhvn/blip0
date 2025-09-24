@@ -16,7 +16,7 @@ export default function PiScissorsDefaultStroke({
   className,
   ariaLabel = 'scissors-default icon',
   ...props
-}: PiScissorsDefaultStrokeProps): JSX.Element {
+}: PiScissorsDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

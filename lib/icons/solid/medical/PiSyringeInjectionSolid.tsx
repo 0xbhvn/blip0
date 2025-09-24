@@ -16,7 +16,7 @@ export default function PiSyringeInjectionSolid({
   className,
   ariaLabel = 'syringe-injection icon',
   ...props
-}: PiSyringeInjectionSolidProps): JSX.Element {
+}: PiSyringeInjectionSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

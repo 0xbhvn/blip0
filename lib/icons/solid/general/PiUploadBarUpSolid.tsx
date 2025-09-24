@@ -16,7 +16,7 @@ export default function PiUploadBarUpSolid({
   className,
   ariaLabel = 'upload-bar-up icon',
   ...props
-}: PiUploadBarUpSolidProps): JSX.Element {
+}: PiUploadBarUpSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

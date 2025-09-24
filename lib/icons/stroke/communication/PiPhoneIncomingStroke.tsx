@@ -16,7 +16,7 @@ export default function PiPhoneIncomingStroke({
   className,
   ariaLabel = 'phone-incoming icon',
   ...props
-}: PiPhoneIncomingStrokeProps): JSX.Element {
+}: PiPhoneIncomingStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

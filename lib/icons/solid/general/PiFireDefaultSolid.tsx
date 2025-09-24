@@ -16,7 +16,7 @@ export default function PiFireDefaultSolid({
   className,
   ariaLabel = 'fire-default icon',
   ...props
-}: PiFireDefaultSolidProps): JSX.Element {
+}: PiFireDefaultSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

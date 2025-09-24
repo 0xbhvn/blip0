@@ -16,7 +16,7 @@ export default function PiUserBotSolid({
   className,
   ariaLabel = 'user-bot icon',
   ...props
-}: PiUserBotSolidProps): JSX.Element {
+}: PiUserBotSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

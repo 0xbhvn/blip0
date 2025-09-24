@@ -16,7 +16,7 @@ export default function PiFile02PdfFormatStroke({
   className,
   ariaLabel = 'file-02-pdf-format icon',
   ...props
-}: PiFile02PdfFormatStrokeProps): JSX.Element {
+}: PiFile02PdfFormatStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiCodeAISolid({
   className,
   ariaLabel = 'code-ai icon',
   ...props
-}: PiCodeAISolidProps): JSX.Element {
+}: PiCodeAISolidProps): React.ReactElement {
   return (
     <svg
       width={size}

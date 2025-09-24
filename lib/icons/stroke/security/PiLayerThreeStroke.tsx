@@ -16,7 +16,7 @@ export default function PiLayerThreeStroke({
   className,
   ariaLabel = 'layer-three icon',
   ...props
-}: PiLayerThreeStrokeProps): JSX.Element {
+}: PiLayerThreeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

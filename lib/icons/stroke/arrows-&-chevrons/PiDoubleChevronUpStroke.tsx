@@ -16,7 +16,7 @@ export default function PiDoubleChevronUpStroke({
   className,
   ariaLabel = 'double-chevron-up icon',
   ...props
-}: PiDoubleChevronUpStrokeProps): JSX.Element {
+}: PiDoubleChevronUpStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiNftProfileUser02Stroke({
   className,
   ariaLabel = 'nft-profile-user-02 icon',
   ...props
-}: PiNftProfileUser02StrokeProps): JSX.Element {
+}: PiNftProfileUser02StrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiPhotoImageSettingsSolid({
   className,
   ariaLabel = 'photo-image-settings icon',
   ...props
-}: PiPhotoImageSettingsSolidProps): JSX.Element {
+}: PiPhotoImageSettingsSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

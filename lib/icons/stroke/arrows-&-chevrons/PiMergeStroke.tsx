@@ -16,7 +16,7 @@ export default function PiMergeStroke({
   className,
   ariaLabel = 'merge icon',
   ...props
-}: PiMergeStrokeProps): JSX.Element {
+}: PiMergeStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

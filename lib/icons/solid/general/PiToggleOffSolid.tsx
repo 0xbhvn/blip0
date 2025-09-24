@@ -16,7 +16,7 @@ export default function PiToggleOffSolid({
   className,
   ariaLabel = 'toggle-off icon',
   ...props
-}: PiToggleOffSolidProps): JSX.Element {
+}: PiToggleOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

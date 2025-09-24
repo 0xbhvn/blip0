@@ -16,7 +16,7 @@ export default function PiGiftStarStroke({
   className,
   ariaLabel = 'gift-star icon',
   ...props
-}: PiGiftStarStrokeProps): JSX.Element {
+}: PiGiftStarStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

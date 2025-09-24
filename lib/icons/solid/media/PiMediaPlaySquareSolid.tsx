@@ -16,7 +16,7 @@ export default function PiMediaPlaySquareSolid({
   className,
   ariaLabel = 'media-play-square icon',
   ...props
-}: PiMediaPlaySquareSolidProps): JSX.Element {
+}: PiMediaPlaySquareSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

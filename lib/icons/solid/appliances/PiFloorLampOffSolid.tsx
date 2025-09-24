@@ -16,7 +16,7 @@ export default function PiFloorLampOffSolid({
   className,
   ariaLabel = 'floor-lamp-off icon',
   ...props
-}: PiFloorLampOffSolidProps): JSX.Element {
+}: PiFloorLampOffSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiArchiveHeartStroke({
   className,
   ariaLabel = 'archive-heart icon',
   ...props
-}: PiArchiveHeartStrokeProps): JSX.Element {
+}: PiArchiveHeartStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

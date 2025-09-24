@@ -16,7 +16,7 @@ export default function PiHomeWifiStroke({
   className,
   ariaLabel = 'home-wifi icon',
   ...props
-}: PiHomeWifiStrokeProps): JSX.Element {
+}: PiHomeWifiStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

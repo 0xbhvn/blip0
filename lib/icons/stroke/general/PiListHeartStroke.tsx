@@ -16,7 +16,7 @@ export default function PiListHeartStroke({
   className,
   ariaLabel = 'list-heart icon',
   ...props
-}: PiListHeartStrokeProps): JSX.Element {
+}: PiListHeartStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

@@ -16,7 +16,7 @@ export default function PiQuestionMarkCircleStroke({
   className,
   ariaLabel = 'question-mark-circle icon',
   ...props
-}: PiQuestionMarkCircleStrokeProps): JSX.Element {
+}: PiQuestionMarkCircleStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

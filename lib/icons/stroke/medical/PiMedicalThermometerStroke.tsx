@@ -16,7 +16,7 @@ export default function PiMedicalThermometerStroke({
   className,
   ariaLabel = 'medical-thermometer icon',
   ...props
-}: PiMedicalThermometerStrokeProps): JSX.Element {
+}: PiMedicalThermometerStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

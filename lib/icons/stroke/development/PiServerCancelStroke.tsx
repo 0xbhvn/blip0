@@ -16,7 +16,7 @@ export default function PiServerCancelStroke({
   className,
   ariaLabel = 'server-cancel icon',
   ...props
-}: PiServerCancelStrokeProps): JSX.Element {
+}: PiServerCancelStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}

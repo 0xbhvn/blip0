@@ -16,7 +16,7 @@ export default function PiKeyboardChevronDownSolid({
   className,
   ariaLabel = 'keyboard-chevron-down icon',
   ...props
-}: PiKeyboardChevronDownSolidProps): JSX.Element {
+}: PiKeyboardChevronDownSolidProps): React.ReactElement {
   return (
     <svg
       width={size}

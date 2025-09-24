@@ -16,7 +16,7 @@ export default function PiAnnotationDefaultStroke({
   className,
   ariaLabel = 'annotation-default icon',
   ...props
-}: PiAnnotationDefaultStrokeProps): JSX.Element {
+}: PiAnnotationDefaultStrokeProps): React.ReactElement {
   return (
     <svg
       width={size}
