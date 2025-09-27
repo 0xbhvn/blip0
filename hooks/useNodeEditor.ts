@@ -107,25 +107,25 @@ function createNodeData(
       } as NetworkNodeData;
     case NodeType.ADDRESS:
       return {
-        label: "Contract Address",
+        label: "Contract",
         address: "",
         isValid: false,
       } as AddressNodeData;
     case NodeType.EVENT_CONDITION:
       return {
-        label: "Event Condition",
+        label: "Event",
         signature: "",
         isValid: false,
       } as EventConditionNodeData;
     case NodeType.FUNCTION_CONDITION:
       return {
-        label: "Function Condition",
+        label: "Function",
         signature: "",
         isValid: false,
       } as FunctionConditionNodeData;
     case NodeType.TRANSACTION_CONDITION:
       return {
-        label: "Transaction Condition",
+        label: "Transaction",
         isValid: true,
       } as TransactionConditionNodeData;
     case NodeType.TRIGGER:

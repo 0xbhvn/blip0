@@ -123,7 +123,7 @@ export function MonitorConfigSidebar({
                 onChange={(e) =>
                   onNodeUpdate(node.id, {
                     config: { ...(node.data.config || {}), eventName: e.target.value },
-                    label: e.target.value || "Event Condition",
+                    label: e.target.value || "Event",
                   })
                 }
               />
@@ -157,7 +157,7 @@ export function MonitorConfigSidebar({
                 onChange={(e) =>
                   onNodeUpdate(node.id, {
                     config: { ...(node.data.config || {}), functionName: e.target.value },
-                    label: e.target.value || "Function Condition",
+                    label: e.target.value || "Function",
                   })
                 }
               />
@@ -209,7 +209,7 @@ export function MonitorConfigSidebar({
                 onValueChange={(value) =>
                   onNodeUpdate(node.id, {
                     config: { ...(node.data.config || {}), txType: value },
-                    label: `${value.charAt(0).toUpperCase() + value.slice(1)} Transaction`,
+                    label: value.charAt(0).toUpperCase() + value.slice(1),
                   })
                 }
               >
@@ -251,7 +251,7 @@ export function MonitorConfigSidebar({
                 onValueChange={(value) =>
                   onNodeUpdate(node.id, {
                     config: { ...(node.data.config || {}), type: value },
-                    label: `${value.charAt(0).toUpperCase() + value.slice(1)} Notification`,
+                    label: value.charAt(0).toUpperCase() + value.slice(1),
                   })
                 }
               >

@@ -57,7 +57,7 @@ export default function MonitorBuilderPage() {
         data: {
           id: "welcome",
           type: NodeType.NETWORK,
-          label: "Start by selecting a network",
+          label: "Network",
           config: {},
           isValid: false,
           isPlaceholder: true,
@@ -150,7 +150,7 @@ export default function MonitorBuilderPage() {
       data: {
         id: `node-${Date.now()}`,
         type: NodeType.ADDRESS,
-        label: "New Address",
+        label: "Contract",
         config: {},
         isValid: false,
       },
