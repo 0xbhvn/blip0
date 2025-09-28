@@ -10,6 +10,7 @@ import {
   Edge,
   OnNodesChange,
   OnEdgesChange,
+  OnConnect,
   NodeTypes,
   NodeMouseHandler,
   useReactFlow,
@@ -23,6 +24,7 @@ interface FlowWithControlsProps {
   nodeTypes?: NodeTypes;
   onNodesChange?: OnNodesChange;
   onEdgesChange?: OnEdgesChange;
+  onConnect?: OnConnect;
   onNodeClick?: NodeMouseHandler;
   onPaneClick?: () => void;
   centerOnInit?: boolean;
@@ -36,6 +38,7 @@ function FlowWithControls({
   nodeTypes,
   onNodesChange,
   onEdgesChange,
+  onConnect,
   onNodeClick,
   onPaneClick,
   centerOnInit = true,
@@ -67,6 +70,7 @@ function FlowWithControls({
       nodeTypes={nodeTypes}
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
       onNodeClick={onNodeClick}
       onPaneClick={onPaneClick}
       fitView={centerOnInit}
@@ -76,7 +80,7 @@ function FlowWithControls({
       }}
       preventScrolling={false}
       panOnScroll={true}
-      nodesConnectable={false}
+      nodesConnectable={true}
       elementsSelectable={false}
       proOptions={{ hideAttribution: true }}
     >
@@ -97,6 +101,7 @@ interface FlowCanvasProps {
   nodeTypes?: NodeTypes;
   onNodesChange?: OnNodesChange;
   onEdgesChange?: OnEdgesChange;
+  onConnect?: OnConnect;
   onNodeClick?: NodeMouseHandler;
   onPaneClick?: () => void;
   centerOnInit?: boolean;

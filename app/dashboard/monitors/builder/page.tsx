@@ -7,13 +7,23 @@ import { FlowCanvas } from "@/components/layout/flow-canvas";
 import { MonitorConfigSidebar } from "@/components/monitors/flow/MonitorConfigSidebar";
 import { useHeader } from "@/contexts/HeaderContext";
 import { useSidebar } from "@/components/ui/sidebar";
-import { useNodesState, useEdgesState, Node, Edge, NodeTypes } from "@xyflow/react";
+import { useNodesState, useEdgesState, Node, Edge, NodeTypes, Connection, addEdge } from "@xyflow/react";
 import { Button } from "@/components/ui/button";
-import { Save, Plus } from "lucide-react";
-import { NodeType, EditorNode } from "@/lib/types/nodeEditor";
+import { Save, Plus, Sparkles, ArrowRight } from "lucide-react";
+import { NodeType, EditorNode, CONNECTION_RULES } from "@/lib/types/nodeEditor";
 import { toast } from "sonner";
 import UnifiedNode from "@/components/monitors/flow/nodes/UnifiedNode";
-// import { CONNECTION_RULES } from "@/lib/types/nodeEditor"; // Will be used when connections are implemented
+import { getNextNodeSuggestion, findBestSourceNode, getConfigurationStatus } from "@/lib/utils/nodeSequence";
+import { getSmartNodePosition, getHorizontalLayout } from "@/lib/utils/autoLayout";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Badge } from "@/components/ui/badge";
 
 // Use the existing UnifiedNode for all node types
 const nodeTypes: NodeTypes = {
@@ -47,6 +57,16 @@ export default function MonitorBuilderPage() {
     setAutoFitTrigger((prev) => prev + 1);
   }, [leftSidebarOpen, rightSidebarOpen]);
 
+  // Get node suggestions
+  const nodeSuggestions = React.useMemo(() => {
+    return getNextNodeSuggestion(nodes);
+  }, [nodes]);
+
+  // Get configuration status
+  const configStatus = React.useMemo(() => {
+    return getConfigurationStatus(nodes);
+  }, [nodes]);
+
   // Initialize with a welcome node
   React.useEffect(() => {
     if (nodes.length === 0) {
@@ -74,14 +94,95 @@ export default function MonitorBuilderPage() {
       title: "Monitor Builder",
       actions: (
         <div className="flex items-center gap-2">
+          {/* Auto-layout button */}
           <Button
-            variant="outline"
+            variant="ghost"
             size="sm"
-            onClick={handleAddNode}
+            onClick={handleAutoLayout}
+            disabled={nodes.length <= 1}
           >
-            <Plus className="h-4 w-4 mr-1" />
-            Add Node
+            <Sparkles className="h-4 w-4 mr-1" />
+            Auto-layout
           </Button>
+
+          {/* Smart Add Node button with dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="outline"
+                size="sm"
+                className="relative"
+              >
+                <Plus className="h-4 w-4 mr-1" />
+                Add Node
+                {nodeSuggestions.length > 0 && nodeSuggestions[0].isRequired && (
+                  <Badge
+                    variant="destructive"
+                    className="absolute -top-2 -right-2 h-5 w-5 p-0 flex items-center justify-center"
+                  >
+                    !
+                  </Badge>
+                )}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-80">
+              <DropdownMenuLabel>Suggested Next Steps</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+
+              {nodeSuggestions.length > 0 ? (
+                nodeSuggestions.slice(0, 5).map((suggestion, index) => (
+                  <DropdownMenuItem
+                    key={suggestion.type}
+                    onClick={() => handleAddNode(suggestion.type)}
+                    className="flex flex-col items-start py-3"
+                  >
+                    <div className="flex items-center gap-2 w-full">
+                      <span className="font-medium">
+                        {index === 0 && <ArrowRight className="h-3 w-3 inline mr-1" />}
+                        {suggestion.label}
+                      </span>
+                      {suggestion.isRequired && (
+                        <Badge variant="destructive" className="ml-auto text-xs">
+                          Required
+                        </Badge>
+                      )}
+                      {index === 0 && !suggestion.isRequired && (
+                        <Badge variant="secondary" className="ml-auto text-xs">
+                          Recommended
+                        </Badge>
+                      )}
+                    </div>
+                    <span className="text-xs text-muted-foreground mt-1">
+                      {suggestion.description}
+                    </span>
+                  </DropdownMenuItem>
+                ))
+              ) : (
+                <DropdownMenuItem disabled>
+                  <span className="text-muted-foreground">
+                    Configuration complete! Ready to save.
+                  </span>
+                </DropdownMenuItem>
+              )}
+
+              {/* Show what's missing if configuration is incomplete */}
+              {!configStatus.isComplete && configStatus.missingRequired.length > 0 && (
+                <>
+                  <DropdownMenuSeparator />
+                  <div className="px-2 py-2">
+                    <p className="text-xs font-medium text-muted-foreground mb-1">
+                      Still needed:
+                    </p>
+                    <ul className="text-xs text-muted-foreground space-y-1">
+                      {configStatus.missingRequired.map((item, i) => (
+                        <li key={i}>• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              )}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       ),
       rightActions: (
@@ -96,7 +197,7 @@ export default function MonitorBuilderPage() {
       ),
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [monitorName, nodes.length]); // Only re-render when these change
+  }, [monitorName, nodes, nodeSuggestions, configStatus]); // Re-render when these change
 
   // Handle node click
   const handleNodeClick = React.useCallback((event: React.MouseEvent, node: Node) => {
@@ -113,52 +214,132 @@ export default function MonitorBuilderPage() {
     }
   }, [rightSidebarOpen]);
 
-  // Handle connections - TODO: Extend FlowCanvas to support connections
-  // const onConnect = React.useCallback((params: Connection) => {
-  //   const sourceNode = nodes.find(n => n.id === params.source);
-  //   const targetNode = nodes.find(n => n.id === params.target);
+  // Handle connections with validation
+  const onConnect = React.useCallback((params: Connection) => {
+    const sourceNode = nodes.find(n => n.id === params.source);
+    const targetNode = nodes.find(n => n.id === params.target);
 
-  //   if (!sourceNode || !targetNode) return;
+    if (!sourceNode || !targetNode) return;
 
-  //   // Validate connection using existing rules
-  //   const allowedTargets = CONNECTION_RULES[sourceNode.type as NodeType];
-  //   if (!allowedTargets || !Array.isArray(allowedTargets)) {
-  //     toast.error("Invalid source node type");
-  //     return;
-  //   }
-  //   if (!allowedTargets.includes(targetNode.type as NodeType)) {
-  //     toast.error("Invalid connection");
-  //     return;
-  //   }
+    // Validate connection using existing rules
+    const sourceRules = CONNECTION_RULES[sourceNode.type as NodeType];
+    if (!sourceRules) {
+      toast.error("Invalid source node type");
+      return;
+    }
+    if (!sourceRules.targetTypes.includes(targetNode.type as NodeType)) {
+      toast.error(`Cannot connect ${getNodeLabel(sourceNode.type as NodeType)} to ${getNodeLabel(targetNode.type as NodeType)}`);
+      return;
+    }
 
-  //   setEdges((eds) => addEdge({
-  //     ...params,
-  //     type: "smoothstep",
-  //     animated: true,
-  //   }, eds));
-  // }, [nodes, setEdges]);
+    // Check for duplicate connections
+    const isDuplicate = edges.some(
+      (e) => e.source === params.source && e.target === params.target
+    );
+    if (isDuplicate) {
+      toast.warning("This connection already exists");
+      return;
+    }
 
-  // Add new node
-  const handleAddNode = React.useCallback(() => {
-    const newNode: Node = {
-      id: `node-${Date.now()}`,
-      type: NodeType.ADDRESS,
-      position: {
-        x: 300 + Math.random() * 200,
-        y: 200 + Math.random() * 200
+    setEdges((eds) => addEdge({
+      ...params,
+      type: "smoothstep",
+      animated: true,
+      style: {
+        stroke: "#6b7280",
+        strokeWidth: 2,
       },
+    }, eds));
+
+    toast.success("Nodes connected");
+  }, [nodes, edges, setEdges]);
+
+  // Auto-layout function
+  const handleAutoLayout = React.useCallback(() => {
+    const layouted = getHorizontalLayout(nodes, edges);
+    setNodes(layouted.nodes);
+    setEdges(layouted.edges);
+    toast.success("Layout optimized");
+  }, [nodes, edges, setNodes, setEdges]);
+
+  // Add new node with intelligent positioning and auto-connection
+  const handleAddNode = React.useCallback((nodeType?: NodeType) => {
+    // If no type specified, use the first suggestion
+    const typeToAdd = nodeType || nodeSuggestions[0]?.type;
+
+    if (!typeToAdd) {
+      toast.info("Your monitor configuration is complete!");
+      return;
+    }
+
+    // Remove placeholder if adding the first real node
+    let currentNodes = nodes;
+    if (nodes.length === 1 && nodes[0].data && (nodes[0].data as any).isPlaceholder) {
+      currentNodes = [];
+      setNodes([]);
+    }
+
+    // Get smart position for the new node
+    const position = getSmartNodePosition(typeToAdd, currentNodes);
+
+    // Create the new node (ensure isPlaceholder is false/undefined for real nodes)
+    const newNodeId = `node-${Date.now()}`;
+    const newNode: Node = {
+      id: newNodeId,
+      type: typeToAdd,
+      position,
       data: {
-        id: `node-${Date.now()}`,
-        type: NodeType.ADDRESS,
-        label: "Contract",
+        id: newNodeId,
+        type: typeToAdd,
+        label: getNodeLabel(typeToAdd),
         config: {},
         isValid: false,
+        isPlaceholder: false,  // Explicitly set to false for real nodes
       },
     };
 
-    setNodes((nds) => [...nds, newNode]);
-    toast.success("Node added");
-  }, [setNodes]);
+    // Find best source node to connect to
+    const sourceNode = findBestSourceNode(typeToAdd, currentNodes, edges);
+
+    setNodes((nds) => [...(currentNodes === nds ? nds : currentNodes), newNode]);
+
+    // Auto-connect if we found a suitable source
+    if (sourceNode) {
+      const newEdge: Edge = {
+        id: `edge-${sourceNode.id}-${newNodeId}`,
+        source: sourceNode.id,
+        target: newNodeId,
+        type: "smoothstep",
+        animated: true,
+        style: {
+          stroke: "#6b7280",
+          strokeWidth: 2,
+        },
+      };
+      setEdges((eds) => [...eds, newEdge]);
+      toast.success(`Added ${getNodeLabel(typeToAdd)} and connected it`);
+    } else {
+      toast.success(`Added ${getNodeLabel(typeToAdd)}`);
+    }
+
+    // Auto-select the new node for configuration
+    setSelectedNode(newNode as EditorNode);
+    setRightSidebarOpen(true);
+  }, [nodes, edges, setNodes, setEdges, nodeSuggestions]);
+
+  // Helper function to get node labels
+  const getNodeLabel = (type: NodeType): string => {
+    switch (type) {
+      case NodeType.NETWORK: return "Network";
+      case NodeType.ADDRESS: return "Contract";
+      case NodeType.EVENT_CONDITION: return "Event";
+      case NodeType.FUNCTION_CONDITION: return "Function";
+      case NodeType.TRANSACTION_CONDITION: return "Transaction";
+      case NodeType.TRIGGER: return "Trigger";
+      case NodeType.NOTIFICATION: return "Notification";
+      default: return "Node";
+    }
+  };
 
   // Handle save
   const handleSave = React.useCallback(() => {
@@ -202,8 +383,38 @@ export default function MonitorBuilderPage() {
             onEdgesChange={onEdgesChange}
             onNodeClick={handleNodeClick}
             onPaneClick={handleCanvasClick}
+            onConnect={onConnect}
             autoFitTrigger={autoFitTrigger}
           />
+
+          {/* Configuration status overlay */}
+          {nodes.length === 1 && nodes[0].data && (nodes[0].data as any).isPlaceholder && (
+            <div className="absolute top-4 left-4 right-4 max-w-md mx-auto">
+              <div className="bg-background/95 backdrop-blur border rounded-lg p-4 shadow-lg">
+                <h3 className="font-semibold mb-2 flex items-center gap-2">
+                  <Sparkles className="h-4 w-4" />
+                  Welcome to Monitor Builder
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Let me guide you through creating your monitor. The typical flow is:
+                </p>
+                <ol className="text-sm space-y-1 mb-3">
+                  <li>1. Select a <strong>Network</strong> (Ethereum, Polygon, etc.)</li>
+                  <li>2. Add a <strong>Contract</strong> address to monitor</li>
+                  <li>3. Define <strong>Conditions</strong> (events, functions, or transactions)</li>
+                  <li>4. Set up <strong>Actions</strong> (triggers or notifications)</li>
+                </ol>
+                <Button
+                  size="sm"
+                  onClick={() => handleAddNode(NodeType.NETWORK)}
+                  className="w-full"
+                >
+                  <Plus className="h-4 w-4 mr-1" />
+                  Start with Network Selection
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Right sidebar for configuration - matching dashboard animation */}
