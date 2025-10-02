@@ -167,7 +167,7 @@ export function getSmartNodePosition(
 export function layoutNewNode(
   newNode: Node,
   existingNodes: Node[],
-  edges: Edge[],
+  _edges: Edge[],
 ): XYPosition {
   // If there are no existing nodes, place at default position
   if (existingNodes.length === 0) {

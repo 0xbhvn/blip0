@@ -130,33 +130,123 @@ export default function MonitorBuilderPage() {
               <DropdownMenuSeparator />
 
               {nodeSuggestions.length > 0 ? (
-                nodeSuggestions.slice(0, 5).map((suggestion, index) => (
-                  <DropdownMenuItem
-                    key={suggestion.type}
-                    onClick={() => handleAddNode(suggestion.type)}
-                    className="flex flex-col items-start py-3"
-                  >
-                    <div className="flex items-center gap-2 w-full">
-                      <span className="font-medium">
-                        {index === 0 && <ArrowRight className="h-3 w-3 inline mr-1" />}
-                        {suggestion.label}
-                      </span>
-                      {suggestion.isRequired && (
-                        <Badge variant="destructive" className="ml-auto text-xs">
-                          Required
-                        </Badge>
+                (() => {
+                  // Group suggestions by category
+                  const conditionSuggestions = nodeSuggestions.filter(s =>
+                    s.type === NodeType.EVENT_CONDITION ||
+                    s.type === NodeType.FUNCTION_CONDITION ||
+                    s.type === NodeType.TRANSACTION_CONDITION
+                  );
+                  const actionSuggestions = nodeSuggestions.filter(s =>
+                    s.type === NodeType.TRIGGER || s.type === NodeType.NOTIFICATION
+                  );
+                  const otherSuggestions = nodeSuggestions.filter(s =>
+                    s.type !== NodeType.EVENT_CONDITION &&
+                    s.type !== NodeType.FUNCTION_CONDITION &&
+                    s.type !== NodeType.TRANSACTION_CONDITION &&
+                    s.type !== NodeType.TRIGGER &&
+                    s.type !== NodeType.NOTIFICATION
+                  );
+
+                  // Count existing conditions for display
+                  const existingConditionCount = nodes.filter(n =>
+                    n.type === NodeType.EVENT_CONDITION ||
+                    n.type === NodeType.FUNCTION_CONDITION ||
+                    n.type === NodeType.TRANSACTION_CONDITION
+                  ).length;
+
+                  return (
+                    <>
+                      {/* Other suggestions (Network, Contract) */}
+                      {otherSuggestions.map((suggestion, _index) => (
+                        <DropdownMenuItem
+                          key={suggestion.type}
+                          onClick={() => handleAddNode(suggestion.type)}
+                          className="flex flex-col items-start py-3"
+                        >
+                          <div className="flex items-center gap-2 w-full">
+                            <span className="font-medium">
+                              <ArrowRight className="h-3 w-3 inline mr-1" />
+                              {suggestion.label}
+                            </span>
+                            {suggestion.isRequired && (
+                              <Badge variant="destructive" className="ml-auto text-xs">
+                                Required
+                              </Badge>
+                            )}
+                          </div>
+                          <span className="text-xs text-muted-foreground mt-1">
+                            {suggestion.description}
+                          </span>
+                        </DropdownMenuItem>
+                      ))}
+
+                      {/* Conditions section */}
+                      {conditionSuggestions.length > 0 && (
+                        <>
+                          {(otherSuggestions.length > 0 || existingConditionCount > 0) && <DropdownMenuSeparator />}
+                          <div className="px-2 py-1">
+                            <p className="text-xs font-medium text-muted-foreground">
+                              Monitor Conditions {existingConditionCount > 0 && `(${existingConditionCount} active)`}
+                            </p>
+                          </div>
+                          {conditionSuggestions.map((suggestion) => (
+                            <DropdownMenuItem
+                              key={suggestion.type}
+                              onClick={() => handleAddNode(suggestion.type)}
+                              className="flex flex-col items-start py-2 ml-2"
+                            >
+                              <div className="flex items-center gap-2 w-full">
+                                <Plus className="h-3 w-3" />
+                                <span className="font-medium">{suggestion.label}</span>
+                                {existingConditionCount === 0 && conditionSuggestions.indexOf(suggestion) === 0 && (
+                                  <Badge variant="secondary" className="ml-auto text-xs">
+                                    Recommended
+                                  </Badge>
+                                )}
+                              </div>
+                              <span className="text-xs text-muted-foreground mt-1 ml-5">
+                                {suggestion.description}
+                              </span>
+                            </DropdownMenuItem>
+                          ))}
+                        </>
                       )}
-                      {index === 0 && !suggestion.isRequired && (
-                        <Badge variant="secondary" className="ml-auto text-xs">
-                          Recommended
-                        </Badge>
+
+                      {/* Actions section */}
+                      {actionSuggestions.length > 0 && (
+                        <>
+                          <DropdownMenuSeparator />
+                          <div className="px-2 py-1">
+                            <p className="text-xs font-medium text-muted-foreground">
+                              Monitor Actions
+                            </p>
+                          </div>
+                          {actionSuggestions.map((suggestion) => (
+                            <DropdownMenuItem
+                              key={suggestion.type}
+                              onClick={() => handleAddNode(suggestion.type)}
+                              className="flex flex-col items-start py-2 ml-2"
+                            >
+                              <div className="flex items-center gap-2 w-full">
+                                <ArrowRight className="h-3 w-3" />
+                                <span className="font-medium">{suggestion.label}</span>
+                                {suggestion.isRequired && (
+                                  <Badge variant="destructive" className="ml-auto text-xs">
+                                    Required
+                                  </Badge>
+                                )}
+                              </div>
+                              <span className="text-xs text-muted-foreground mt-1 ml-5">
+                                {suggestion.description}
+                              </span>
+                            </DropdownMenuItem>
+                          ))}
+                        </>
                       )}
-                    </div>
-                    <span className="text-xs text-muted-foreground mt-1">
-                      {suggestion.description}
-                    </span>
-                  </DropdownMenuItem>
-                ))
+                    </>
+                  );
+                })()
               ) : (
                 <DropdownMenuItem disabled>
                   <span className="text-muted-foreground">
@@ -274,7 +364,7 @@ export default function MonitorBuilderPage() {
 
     // Remove placeholder if adding the first real node
     let currentNodes = nodes;
-    if (nodes.length === 1 && nodes[0].data && (nodes[0].data as any).isPlaceholder) {
+    if (nodes.length === 1 && nodes[0].data && (nodes[0].data as { isPlaceholder?: boolean }).isPlaceholder) {
       currentNodes = [];
       setNodes([]);
     }
@@ -388,7 +478,7 @@ export default function MonitorBuilderPage() {
           />
 
           {/* Configuration status overlay */}
-          {nodes.length === 1 && nodes[0].data && (nodes[0].data as any).isPlaceholder && (
+          {nodes.length === 1 && nodes[0].data && (nodes[0].data as { isPlaceholder?: boolean }).isPlaceholder && (
             <div className="absolute top-4 left-4 right-4 max-w-md mx-auto">
               <div className="bg-background/95 backdrop-blur border rounded-lg p-4 shadow-lg">
                 <h3 className="font-semibold mb-2 flex items-center gap-2">

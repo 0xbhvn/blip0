@@ -22,6 +22,7 @@ export interface BaseNodeData {
   isValid: boolean;
   validationErrors?: string[];
   isEditing?: boolean;
+  isPlaceholder?: boolean;
 }
 
 export interface NetworkNodeData extends BaseNodeData {

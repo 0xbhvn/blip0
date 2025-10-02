@@ -1,4 +1,4 @@
-import { NodeType, EditorNode, CONNECTION_RULES } from "@/lib/types/nodeEditor";
+import { NodeType, CONNECTION_RULES } from "@/lib/types/nodeEditor";
 import { Node, Edge } from "@xyflow/react";
 
 /**
@@ -26,10 +26,9 @@ export interface NodeSuggestion {
  */
 export function getNextNodeSuggestion(nodes: Node[]): NodeSuggestion[] {
   const suggestions: NodeSuggestion[] = [];
-  const existingTypes = new Set(nodes.map(n => n.type));
 
   // Remove placeholder nodes from consideration
-  const actualNodes = nodes.filter(n => !((n.data as any)?.isPlaceholder));
+  const actualNodes = nodes.filter(n => !(n.data as { isPlaceholder?: boolean })?.isPlaceholder);
   const actualTypes = new Set(actualNodes.map(n => n.type));
 
   // Debug logging
@@ -61,13 +60,18 @@ export function getNextNodeSuggestion(nodes: Node[]): NodeSuggestion[] {
     return suggestions; // Must have at least one address
   }
 
-  // Priority 3: At least one condition is required
-  const hasCondition = actualTypes.has(NodeType.EVENT_CONDITION) ||
-                      actualTypes.has(NodeType.FUNCTION_CONDITION) ||
-                      actualTypes.has(NodeType.TRANSACTION_CONDITION);
+  // Priority 3: Condition phase - support multiple conditions
+  const conditionTypes = [
+    NodeType.EVENT_CONDITION,
+    NodeType.FUNCTION_CONDITION,
+    NodeType.TRANSACTION_CONDITION
+  ];
 
-  if (!hasCondition) {
-    // Suggest conditions based on common use cases
+  const existingConditions = conditionTypes.filter(type => actualTypes.has(type));
+  const unusedConditions = conditionTypes.filter(type => !actualTypes.has(type));
+
+  // No conditions yet - suggest all three with equal priority
+  if (existingConditions.length === 0) {
     suggestions.push({
       type: NodeType.TRANSACTION_CONDITION,
       label: "Transaction",
@@ -89,30 +93,65 @@ export function getNextNodeSuggestion(nodes: Node[]): NodeSuggestion[] {
       priority: 70,
     });
 
-    return suggestions.slice(0, 3); // Show top 3 condition options
+    return suggestions;
   }
 
-  // Priority 4: Action nodes (trigger or notification)
+  // Has some conditions - suggest both remaining conditions AND actions
   const hasAction = actualTypes.has(NodeType.TRIGGER) ||
                    actualTypes.has(NodeType.NOTIFICATION);
 
+  // Add unused conditions with high priority for multi-condition monitors
+  unusedConditions.forEach((condType, index) => {
+    const conditionInfo: Record<NodeType, { label: string; desc: string }> = {
+      [NodeType.EVENT_CONDITION]: {
+        label: "Event",
+        desc: "Add event monitoring for specific contract events"
+      },
+      [NodeType.FUNCTION_CONDITION]: {
+        label: "Function",
+        desc: "Add function call monitoring"
+      },
+      [NodeType.TRANSACTION_CONDITION]: {
+        label: "Transaction",
+        desc: "Add transaction monitoring"
+      },
+      [NodeType.NETWORK]: { label: "", desc: "" }, // Dummy entries for other types
+      [NodeType.ADDRESS]: { label: "", desc: "" },
+      [NodeType.TRIGGER]: { label: "", desc: "" },
+      [NodeType.NOTIFICATION]: { label: "", desc: "" },
+    };
+
+    if (conditionInfo[condType].label) {
+      suggestions.push({
+        type: condType,
+        label: conditionInfo[condType].label + " Condition",
+        description: conditionInfo[condType].desc + " (combine multiple conditions)",
+        priority: 65 - index * 5, // Keep high priority: 65, 60, 55
+      });
+    }
+  });
+
+  // Also suggest actions but with slightly lower priority than unused conditions
   if (!hasAction) {
     suggestions.push({
       type: NodeType.TRIGGER,
       label: "Trigger",
       description: "Execute actions when conditions are met",
-      priority: 60,
-      isRequired: true,
+      priority: 50,
+      isRequired: existingConditions.length >= 2, // Only required after 2+ conditions
     });
 
     suggestions.push({
       type: NodeType.NOTIFICATION,
       label: "Notification",
       description: "Send alerts when conditions are met",
-      priority: 55,
+      priority: 45,
     });
+  }
 
-    return suggestions;
+  // Return sorted suggestions if we have any
+  if (suggestions.length > 0) {
+    return suggestions.sort((a, b) => b.priority - a.priority);
   }
 
   // Additional nodes (optional enhancements)
@@ -197,7 +236,7 @@ export function findBestSourceNode(
   // Find potential source nodes
   const potentialSources = existingNodes.filter(node =>
     targetRules.sourceTypes.includes(node.type as NodeType) &&
-    !((node.data as any)?.isPlaceholder)
+    !(node.data as { isPlaceholder?: boolean })?.isPlaceholder
   );
 
   if (potentialSources.length === 0) return null;
@@ -231,7 +270,7 @@ export function getConfigurationStatus(nodes: Node[]): {
   missingRequired: string[];
   suggestions: string[];
 } {
-  const actualNodes = nodes.filter(n => !((n.data as any)?.isPlaceholder));
+  const actualNodes = nodes.filter(n => !(n.data as { isPlaceholder?: boolean })?.isPlaceholder);
   const types = new Set(actualNodes.map(n => n.type));
 
   const missingRequired: string[] = [];
