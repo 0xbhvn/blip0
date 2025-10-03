@@ -3,7 +3,7 @@ import { Node, Edge, Position, XYPosition } from "@xyflow/react";
 import { NodeType } from "@/lib/types/nodeEditor";
 import { NODE_SEQUENCE } from "./nodeSequence";
 
-const nodeWidth = 320; // Matches standard node width (w-[320px])
+const nodeWidth = 240; // Matches standard node width (w-[240px])
 const nodeHeight = 48; // Matches standard node height (h-12)
 const nodeSpacing = { x: 50, y: 50 }; // Spacing between nodes
 

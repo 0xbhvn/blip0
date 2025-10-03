@@ -97,7 +97,7 @@ export const NODE = {
     },
     // Standard nodes (default for most node types)
     standard: {
-      width: WIDTH.md,      // 320px (current)
+      width: WIDTH.sm,      // 240px
       height: HEIGHT.xl,    // 48px (current)
       padding: SPACING[3],  // 12px
     },
@@ -226,7 +226,7 @@ export const NODE_SIZE_CLASSES: Record<NodeSizeVariant, {
     padding: 'px-3 py-2.5',         // More balanced padding
   },
   standard: {
-    container: 'w-[320px] h-12', // 320px x 48px - matches Lindy exactly
+    container: 'w-[240px] h-12', // 240px x 48px - compact width for better density
     padding: 'px-3 py-3',        // 12px horizontal, 12px vertical
   },
   large: {
