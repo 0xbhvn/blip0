@@ -66,8 +66,8 @@ export function BaseNode({
             position={targetPosition}
             className="!bg-transparent !border-0"
             style={{
-              width: 10,
-              height: 10,
+              width: 4,
+              height: 4,
             }}
           />
         </>
@@ -170,8 +170,8 @@ export function BaseNode({
             position={sourcePosition}
             className="!bg-transparent !border-0"
             style={{
-              width: 10,
-              height: 10,
+              width: 4,
+              height: 4,
             }}
           />
         </>

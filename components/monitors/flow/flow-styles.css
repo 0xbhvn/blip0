@@ -17,8 +17,8 @@
 
 /* Handle styling */
 .react-flow__handle {
-  width: 10px !important;
-  height: 10px !important;
+  width: 4px !important;
+  height: 4px !important;
   background: transparent !important;
   border: none !important;
   transition: all 150ms ease-out !important;
