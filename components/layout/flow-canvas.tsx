@@ -85,7 +85,7 @@ function FlowWithControls({
       elementsSelectable={false}
       proOptions={{ hideAttribution: true }}
       defaultEdgeOptions={{
-        type: "default",
+        type: "smoothstep",
         animated: false,
         style: {
           stroke: "#D7DBDF",

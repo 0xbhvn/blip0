@@ -387,7 +387,7 @@ export default function MonitorBuilderPage() {
         addEdge(
           {
             ...params,
-            type: "default",
+            type: "smoothstep",
             animated: false,
             style: {
               stroke: "#D7DBDF",
@@ -473,7 +473,7 @@ export default function MonitorBuilderPage() {
           id: `edge-${sourceNode.id}-${newNodeId}`,
           source: sourceNode.id,
           target: newNodeId,
-          type: "default",
+          type: "smoothstep",
           animated: false,
           style: {
             stroke: "#D7DBDF",
