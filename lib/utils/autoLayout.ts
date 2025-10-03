@@ -3,9 +3,9 @@ import { Node, Edge, Position, XYPosition } from "@xyflow/react";
 import { NodeType } from "@/lib/types/nodeEditor";
 import { NODE_SEQUENCE } from "./nodeSequence";
 
-const nodeWidth = 240; // Matches standard node width (w-[240px])
-const nodeHeight = 48; // Matches standard node height (h-12)
-const nodeSpacing = { x: 50, y: 50 }; // Spacing between nodes
+const nodeWidth = 320; // Matches standard node width (w-[320px], 16×20)
+const nodeHeight = 48; // Matches standard node height (h-12, 16×3)
+const nodeSpacing = { x: 64, y: 64 }; // Spacing between nodes (16×4) - aligned to 16px grid
 
 export function getLayoutedElements(
   nodes: Node[],

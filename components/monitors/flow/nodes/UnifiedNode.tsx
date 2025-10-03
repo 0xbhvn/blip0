@@ -24,35 +24,35 @@ function UnifiedNode(props: NodeProps) {
 
     switch (nodeType) {
       case NodeType.NETWORK:
-        return <GlobeNetwork size={14} />;
+        return <GlobeNetwork size={10} />;
 
       case NodeType.ADDRESS:
-        return <FileCode size={14} />;
+        return <FileCode size={10} />;
 
       case NodeType.EVENT_CONDITION:
-        return <LightningThunderElectricOn size={14} />;
+        return <LightningThunderElectricOn size={10} />;
 
       case NodeType.FUNCTION_CONDITION:
-        return <CodeAI size={14} />;
+        return <CodeAI size={10} />;
 
       case NodeType.TRANSACTION_CONDITION:
-        return <Exchange01 size={14} />;
+        return <Exchange01 size={10} />;
 
       case NodeType.TRIGGER:
-        return <ClockDefault size={14} />;
+        return <ClockDefault size={10} />;
 
       case NodeType.NOTIFICATION:
         // Special case: notification icon changes based on type
         const notificationData = props.data as unknown as NotificationNodeData;
         switch (notificationData.type) {
           case "email":
-            return <EnvelopeAI size={14} />;
+            return <EnvelopeAI size={10} />;
           case "webhook":
-            return <Globe size={14} />;
+            return <Globe size={10} />;
           case "slack":
-            return <ChatDefault size={14} />;
+            return <ChatDefault size={10} />;
           default:
-            return <NotificationBellOn size={14} />;
+            return <NotificationBellOn size={10} />;
         }
 
       default:

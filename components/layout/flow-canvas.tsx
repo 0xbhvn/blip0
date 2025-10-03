@@ -83,6 +83,8 @@ function FlowWithControls({
       panOnScroll={true}
       nodesConnectable={true}
       elementsSelectable={false}
+      snapToGrid={true}
+      snapGrid={[8, 8]}
       proOptions={{ hideAttribution: true }}
       defaultEdgeOptions={{
         type: "smoothstep",

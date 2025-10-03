@@ -89,23 +89,11 @@ export const RADIUS = {
 export const NODE = {
   // Size variants for different node types
   size: {
-    // Compact nodes (simple triggers, conditions)
+    // Compact nodes (default for all node types)
     compact: {
-      width: WIDTH.sm,      // 240px
-      height: HEIGHT.lg,    // 40px - matches dashboard button
+      width: WIDTH.md,      // 320px (16×20) - aligned to 16px grid
+      height: HEIGHT.xl,    // 48px (16×3) - aligned to 16px grid
       padding: SPACING[3],  // 12px
-    },
-    // Standard nodes (default for most node types)
-    standard: {
-      width: WIDTH.sm,      // 240px
-      height: HEIGHT.xl,    // 48px (current)
-      padding: SPACING[3],  // 12px
-    },
-    // Large nodes (complex configurations, multiple fields)
-    large: {
-      width: WIDTH.lg,      // 400px
-      height: HEIGHT.xxl,   // 56px
-      padding: SPACING[4],  // 16px
     },
   },
 
@@ -143,7 +131,7 @@ export const NODE = {
  * Can be used by buttons, nodes, cards, etc.
  */
 export type SizeVariant = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-export type NodeSizeVariant = 'compact' | 'standard' | 'large';
+export type NodeSizeVariant = 'compact';
 
 /**
  * Component size configuration
@@ -222,16 +210,8 @@ export const NODE_SIZE_CLASSES: Record<NodeSizeVariant, {
   padding: string;
 }> = {
   compact: {
-    container: 'w-[280px] h-11',    // 280px x 44px - slightly bigger for better readability
-    padding: 'px-3 py-2.5',         // More balanced padding
-  },
-  standard: {
-    container: 'w-[240px] h-12', // 240px x 48px - compact width for better density
+    container: 'w-[320px] h-12', // 320px x 48px (16×20 × 16×3) - perfectly aligned to 16px grid
     padding: 'px-3 py-3',        // 12px horizontal, 12px vertical
-  },
-  large: {
-    container: 'w-[400px] h-14', // 400px x 56px
-    padding: 'px-4 py-3.5',      // More balanced padding
   },
 } as const;
 

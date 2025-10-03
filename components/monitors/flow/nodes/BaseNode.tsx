@@ -32,7 +32,7 @@ export function BaseNode({
   type,
   statusBadge,
   showTriggerIndicator = false,
-  size = "compact", // Changed from "standard" to "compact" to match dashboard (40px height)
+  size = "compact", // 320px × 48px (16×20 × 16×3) - aligned to 16px grid
 }: BaseNodeProps) {
   const nodeData = data as unknown as BaseNodeData;
   const hasErrors =
