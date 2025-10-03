@@ -106,19 +106,21 @@
 
 /* Icon container styling */
 .node-icon-container {
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  border: 0.5px solid hsl(240 5% 84%);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 4px !important;
+  border: 0.5px solid hsl(215 20% 65% / 0.5) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  background: linear-gradient(135deg, #a79eb1 0%, #615f65 100%) !important;
 }
 
 .dark .node-icon-container {
-  border-color: hsl(240 3.7% 25%);
+  border-color: hsl(215 15% 40% / 0.5) !important;
+  background: linear-gradient(135deg, #4a4852 0%, #2d2c31 100%) !important;
 }
 
 /* Status badges */
