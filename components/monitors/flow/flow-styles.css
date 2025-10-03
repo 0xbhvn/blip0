@@ -1,4 +1,4 @@
-/* React Flow Custom Styles - Lindy-inspired design */
+/* React Flow Custom Styles */
 
 /* Base node styling overrides */
 .react-flow__node {
@@ -46,7 +46,7 @@
 }
 
 .handle-hover-indicator::after {
-  content: '';
+  content: "";
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -166,7 +166,7 @@
 }
 
 .trigger-indicator-bolt {
-  fill: hsl(33 100% 56%); /* FFA01C from Lindy */
+  fill: hsl(33 100% 56%); /* FFA01C */
   stroke: hsl(33 100% 56%);
 }
 

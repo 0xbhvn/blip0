@@ -77,8 +77,8 @@ export function BaseNode({
         className={cn(
           "flow-node-card",
           NODE_SIZE_CLASSES[size].container,
-          "rounded-xl border", // Premium rounded corners like Lindy
-          "shadow-sm", // Subtle shadow for depth
+          "rounded-xl border-[0.5px]", // Premium rounded corners
+          "shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]", // Bottom shadow only
           "transition-all duration-75",
           "cursor-pointer",
           "hover:border-blue-600", // Only border color changes on hover
@@ -93,13 +93,18 @@ export function BaseNode({
         <div className="h-full flex items-center overflow-hidden">
           <div className="flex flex-row items-center justify-between w-full gap-0">
             <div className="min-w-0 flex-1 flex items-center overflow-hidden">
-              <div className={cn("relative w-full overflow-hidden", NODE_SIZE_CLASSES[size].padding)}>
+              <div
+                className={cn(
+                  "relative w-full overflow-hidden",
+                  NODE_SIZE_CLASSES[size].padding,
+                )}
+              >
                 <div className="flex flex-row gap-2 w-full items-center justify-start">
                   {/* Icon */}
                   {icon && (
                     <div className="relative flex-shrink-0">
-                      <div className="node-icon-container w-5 h-5 rounded border border-zinc-200/50 dark:border-zinc-700/50 flex items-center justify-center bg-gradient-to-br from-zinc-50 to-white dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
-                        {icon}
+                      <div className="node-icon-container w-5 h-5 rounded border-[0.5px] border-zinc-200/50 dark:border-zinc-700/50 flex items-center justify-center bg-zinc-700 dark:bg-zinc-200 overflow-hidden">
+                        <div className="text-white dark:text-black">{icon}</div>
                       </div>
 
                       {/* Trigger indicator overlay */}
@@ -142,7 +147,9 @@ export function BaseNode({
 
                   {/* Status badge */}
                   {statusBadge !== undefined && (
-                    <div className="node-status-badge flex-shrink-0">{statusBadge}</div>
+                    <div className="node-status-badge flex-shrink-0">
+                      {statusBadge}
+                    </div>
                   )}
                 </div>
               </div>

@@ -16,7 +16,7 @@ import {
   EnvelopeAI,
   Globe,
   ChatDefault,
-} from "@/lib/icons";
+} from "@/lib/icons/solid";
 
 function UnifiedNode(props: NodeProps) {
   const getIcon = () => {
