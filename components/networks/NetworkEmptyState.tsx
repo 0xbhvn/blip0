@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Network } from "lucide-react";
+import { GlobeNetwork } from "@/lib/icons";
 import { useRouter } from "next/navigation";
 
 interface NetworkEmptyStateProps {
@@ -13,7 +13,7 @@ export function NetworkEmptyState({ isAdmin }: NetworkEmptyStateProps) {
 
   return (
     <div className="flex flex-col items-center justify-center py-12 text-center">
-      <Network className="mb-4 h-12 w-12 text-muted-foreground" />
+      <GlobeNetwork className="mb-4 h-12 w-12 text-muted-foreground" />
       <h3 className="mb-2 text-lg font-semibold">No Network Configurations</h3>
       <p className="mb-6 max-w-sm text-sm text-muted-foreground">
         {isAdmin

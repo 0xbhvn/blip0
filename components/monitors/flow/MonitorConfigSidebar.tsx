@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { X, Trash2 } from "lucide-react";
+import { MultipleCrossCancelDefault, DeleteDustbin01 } from "@/lib/icons";
 import {
   Sidebar,
   SidebarContent,
@@ -16,7 +16,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { EditorNode, NodeType } from "@/lib/types/nodeEditor";
@@ -25,7 +31,8 @@ import { cn } from "@/lib/utils";
 // Type helper for config access
 type ConfigType = Record<string, unknown>;
 
-interface MonitorConfigSidebarProps extends React.ComponentProps<typeof Sidebar> {
+interface MonitorConfigSidebarProps
+  extends React.ComponentProps<typeof Sidebar> {
   node: EditorNode | null;
   monitorName: string;
   isActive: boolean;
@@ -58,7 +65,10 @@ export function MonitorConfigSidebar({
             <div>
               <Label htmlFor="network">Network</Label>
               <Select
-                value={(node.data.config as ConfigType)?.network as string || "ethereum"}
+                value={
+                  ((node.data.config as ConfigType)?.network as string) ||
+                  "ethereum"
+                }
                 onValueChange={(value) =>
                   onNodeUpdate(node.id, {
                     config: { ...(node.data.config || {}), network: value },
@@ -89,10 +99,15 @@ export function MonitorConfigSidebar({
               <Input
                 id="address"
                 placeholder="0x..."
-                value={(node.data.config as ConfigType)?.address as string || ""}
+                value={
+                  ((node.data.config as ConfigType)?.address as string) || ""
+                }
                 onChange={(e) =>
                   onNodeUpdate(node.id, {
-                    config: { ...(node.data.config || {}), address: e.target.value },
+                    config: {
+                      ...(node.data.config || {}),
+                      address: e.target.value,
+                    },
                   })
                 }
               />
@@ -119,10 +134,15 @@ export function MonitorConfigSidebar({
               <Input
                 id="event"
                 placeholder="Transfer, Approval, etc."
-                value={(node.data.config as ConfigType)?.eventName as string || ""}
+                value={
+                  ((node.data.config as ConfigType)?.eventName as string) || ""
+                }
                 onChange={(e) =>
                   onNodeUpdate(node.id, {
-                    config: { ...(node.data.config || {}), eventName: e.target.value },
+                    config: {
+                      ...(node.data.config || {}),
+                      eventName: e.target.value,
+                    },
                     label: e.target.value || "Event",
                   })
                 }
@@ -133,10 +153,15 @@ export function MonitorConfigSidebar({
               <Textarea
                 id="filters"
                 placeholder='{"from": "0x...", "value": ">1000000"}'
-                value={(node.data.config as ConfigType)?.filters as string || ""}
+                value={
+                  ((node.data.config as ConfigType)?.filters as string) || ""
+                }
                 onChange={(e) =>
                   onNodeUpdate(node.id, {
-                    config: { ...(node.data.config || {}), filters: e.target.value },
+                    config: {
+                      ...(node.data.config || {}),
+                      filters: e.target.value,
+                    },
                   })
                 }
                 rows={4}
@@ -153,10 +178,16 @@ export function MonitorConfigSidebar({
               <Input
                 id="function"
                 placeholder="balanceOf, totalSupply, etc."
-                value={(node.data.config as ConfigType)?.functionName as string || ""}
+                value={
+                  ((node.data.config as ConfigType)?.functionName as string) ||
+                  ""
+                }
                 onChange={(e) =>
                   onNodeUpdate(node.id, {
-                    config: { ...(node.data.config || {}), functionName: e.target.value },
+                    config: {
+                      ...(node.data.config || {}),
+                      functionName: e.target.value,
+                    },
                     label: e.target.value || "Function",
                   })
                 }
@@ -165,7 +196,10 @@ export function MonitorConfigSidebar({
             <div>
               <Label htmlFor="condition">Condition</Label>
               <Select
-                value={(node.data.config as ConfigType)?.condition as string || "equals"}
+                value={
+                  ((node.data.config as ConfigType)?.condition as string) ||
+                  "equals"
+                }
                 onValueChange={(value) =>
                   onNodeUpdate(node.id, {
                     config: { ...(node.data.config || {}), condition: value },
@@ -188,10 +222,16 @@ export function MonitorConfigSidebar({
               <Input
                 id="value"
                 placeholder="1000000"
-                value={(node.data.config as ConfigType)?.expectedValue as string || ""}
+                value={
+                  ((node.data.config as ConfigType)?.expectedValue as string) ||
+                  ""
+                }
                 onChange={(e) =>
                   onNodeUpdate(node.id, {
-                    config: { ...(node.data.config || {}), expectedValue: e.target.value },
+                    config: {
+                      ...(node.data.config || {}),
+                      expectedValue: e.target.value,
+                    },
                   })
                 }
               />
@@ -205,7 +245,9 @@ export function MonitorConfigSidebar({
             <div>
               <Label htmlFor="txType">Transaction Type</Label>
               <Select
-                value={(node.data.config as ConfigType)?.txType as string || "any"}
+                value={
+                  ((node.data.config as ConfigType)?.txType as string) || "any"
+                }
                 onValueChange={(value) =>
                   onNodeUpdate(node.id, {
                     config: { ...(node.data.config || {}), txType: value },
@@ -230,10 +272,16 @@ export function MonitorConfigSidebar({
                 id="valueThreshold"
                 type="number"
                 placeholder="0.1"
-                value={(node.data.config as ConfigType)?.valueThreshold as string || ""}
+                value={
+                  ((node.data.config as ConfigType)
+                    ?.valueThreshold as string) || ""
+                }
                 onChange={(e) =>
                   onNodeUpdate(node.id, {
-                    config: { ...(node.data.config || {}), valueThreshold: e.target.value },
+                    config: {
+                      ...(node.data.config || {}),
+                      valueThreshold: e.target.value,
+                    },
                   })
                 }
               />
@@ -247,7 +295,9 @@ export function MonitorConfigSidebar({
             <div>
               <Label htmlFor="notificationType">Notification Type</Label>
               <Select
-                value={(node.data.config as ConfigType)?.type as string || "email"}
+                value={
+                  ((node.data.config as ConfigType)?.type as string) || "email"
+                }
                 onValueChange={(value) =>
                   onNodeUpdate(node.id, {
                     config: { ...(node.data.config || {}), type: value },
@@ -273,10 +323,16 @@ export function MonitorConfigSidebar({
                   id="webhookUrl"
                   type="url"
                   placeholder="https://..."
-                  value={(node.data.config as ConfigType)?.webhookUrl as string || ""}
+                  value={
+                    ((node.data.config as ConfigType)?.webhookUrl as string) ||
+                    ""
+                  }
                   onChange={(e) =>
                     onNodeUpdate(node.id, {
-                      config: { ...(node.data.config || {}), webhookUrl: e.target.value },
+                      config: {
+                        ...(node.data.config || {}),
+                        webhookUrl: e.target.value,
+                      },
                     })
                   }
                 />
@@ -289,10 +345,15 @@ export function MonitorConfigSidebar({
                   id="email"
                   type="email"
                   placeholder="user@example.com"
-                  value={(node.data.config as ConfigType)?.email as string || ""}
+                  value={
+                    ((node.data.config as ConfigType)?.email as string) || ""
+                  }
                   onChange={(e) =>
                     onNodeUpdate(node.id, {
-                      config: { ...(node.data.config || {}), email: e.target.value },
+                      config: {
+                        ...(node.data.config || {}),
+                        email: e.target.value,
+                      },
                     })
                   }
                 />
@@ -302,7 +363,11 @@ export function MonitorConfigSidebar({
         );
 
       default:
-        return <p className="text-sm text-muted-foreground">Select a node to configure</p>;
+        return (
+          <p className="text-sm text-muted-foreground">
+            Select a node to configure
+          </p>
+        );
     }
   };
 
@@ -322,7 +387,7 @@ export function MonitorConfigSidebar({
             onClick={onClose}
             className="h-8 w-8"
           >
-            <X className="h-4 w-4" />
+            <MultipleCrossCancelDefault className="h-4 w-4" />
           </Button>
         </div>
       </SidebarHeader>
@@ -363,7 +428,9 @@ export function MonitorConfigSidebar({
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <h4 className="text-sm font-medium">
-                    {node.type.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase())}
+                    {node.type
+                      .replace(/_/g, " ")
+                      .replace(/\b\w/g, (l) => l.toUpperCase())}
                   </h4>
                   <Button
                     variant="ghost"
@@ -371,7 +438,7 @@ export function MonitorConfigSidebar({
                     onClick={() => onNodeDelete(node.id)}
                     className="h-8 w-8 text-destructive hover:text-destructive"
                   >
-                    <Trash2 className="h-4 w-4" />
+                    <DeleteDustbin01 className="h-4 w-4" />
                   </Button>
                 </div>
                 {renderNodeConfig()}

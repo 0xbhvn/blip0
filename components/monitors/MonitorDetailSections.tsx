@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "@/lib/icons";
 import Link from "next/link";
 import { MonitorPausedBadge } from "@/components/monitors";
 import { formatMonitorDate } from "@/lib/helpers";

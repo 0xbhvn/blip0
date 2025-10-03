@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Pencil, Trash2, Globe, Cpu, Eye } from "lucide-react";
+import { PencilEdit, DeleteDustbin01, Globe, Server, EyeOn } from "@/lib/icons";
 import { NetworkResponse } from "@/lib/types";
 import { useNetworkMutations } from "@/hooks";
 import { useRouter } from "next/navigation";
@@ -26,7 +26,7 @@ export function NetworkCard({ network, isAdmin }: NetworkCardProps) {
     await deleteNetwork(network._id, network.name);
   };
 
-  const Icon = network.network_type === "EVM" ? Cpu : Globe;
+  const Icon = network.network_type === "EVM" ? Server : Globe;
 
   return (
     <Card className="relative hover:shadow-md transition-shadow">
@@ -42,7 +42,7 @@ export function NetworkCard({ network, isAdmin }: NetworkCardProps) {
           <div className="flex gap-1">
             <Link href={`/product/networks/${network._id}`}>
               <Button variant="ghost" size="icon" className="h-8 w-8">
-                <Eye className="h-4 w-4" />
+                <EyeOn className="h-4 w-4" />
               </Button>
             </Link>
             {isAdmin && (
@@ -53,7 +53,7 @@ export function NetworkCard({ network, isAdmin }: NetworkCardProps) {
                   onClick={handleEdit}
                   className="h-8 w-8"
                 >
-                  <Pencil className="h-4 w-4" />
+                  <PencilEdit className="h-4 w-4" />
                 </Button>
                 <Button
                   variant="ghost"
@@ -61,7 +61,7 @@ export function NetworkCard({ network, isAdmin }: NetworkCardProps) {
                   onClick={handleDelete}
                   className="h-8 w-8 text-destructive hover:text-destructive"
                 >
-                  <Trash2 className="h-4 w-4" />
+                  <DeleteDustbin01 className="h-4 w-4" />
                 </Button>
               </>
             )}

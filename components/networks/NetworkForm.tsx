@@ -24,7 +24,7 @@ import { useNetworkMutations } from "@/hooks";
 import { NetworkCreateInput } from "@/lib/types";
 import { DEFAULT_NETWORK } from "@/lib/constants";
 import { Id } from "@/convex/_generated/dataModel";
-import { Plus, Trash2 } from "lucide-react";
+import { PlusDefault, DeleteDustbin01 } from "@/lib/icons";
 
 interface NetworkFormProps {
   initialData?: NetworkCreateInput & { _id?: Id<"networks"> };
@@ -239,7 +239,7 @@ export function NetworkForm({ initialData, mode }: NetworkFormProps) {
                 size="icon"
                 onClick={() => removeRpcUrl(index)}
               >
-                <Trash2 className="h-4 w-4" />
+                <DeleteDustbin01 className="h-4 w-4" />
               </Button>
             </div>
           ))}
@@ -250,7 +250,7 @@ export function NetworkForm({ initialData, mode }: NetworkFormProps) {
             onClick={addRpcUrl}
             className="w-full"
           >
-            <Plus className="mr-2 h-4 w-4" />
+            <PlusDefault className="mr-2 h-4 w-4" />
             Add RPC URL
           </Button>
         </CardContent>

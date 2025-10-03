@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Check, Cloud, CloudOff, Loader2 } from "lucide-react";
+import {
+  CheckTickSingle,
+  CloudDefault,
+  CloudDisabled,
+  Spinner,
+} from "@/lib/icons";
 import { cn } from "@/lib/utils";
 
 export type SaveStatus = "idle" | "saving" | "saved" | "error" | "offline";
@@ -49,31 +54,31 @@ export function AutoSaveIndicator({
 
   const statusConfig = {
     idle: {
-      icon: Cloud,
+      icon: CloudDefault,
       text: "Ready",
       color: "text-muted-foreground",
       animate: false,
     },
     saving: {
-      icon: Loader2,
+      icon: Spinner,
       text: "Saving...",
       color: "text-blue-500",
       animate: true,
     },
     saved: {
-      icon: Check,
+      icon: CheckTickSingle,
       text: lastSaved ? `Saved ${relativeTime}` : "Saved",
       color: "text-green-500",
       animate: false,
     },
     error: {
-      icon: CloudOff,
+      icon: CloudDisabled,
       text: "Save failed",
       color: "text-destructive",
       animate: false,
     },
     offline: {
-      icon: CloudOff,
+      icon: CloudDisabled,
       text: "Offline",
       color: "text-orange-500",
       animate: false,

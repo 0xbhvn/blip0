@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Plus } from "lucide-react";
+import { PlusDefault } from "@/lib/icons";
 import { useNetworks } from "@/hooks";
 import { useHeader } from "@/contexts/HeaderContext";
 import { SidebarTrigger } from "@/components/ui/sidebar";
@@ -73,7 +73,7 @@ export function AppHeader({ className }: AppHeaderProps) {
               variant="outline"
               className="h-8 text-sm font-medium border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900"
             >
-              <Plus className="mr-2 h-4 w-4" /> New Monitor
+              <PlusDefault className="mr-2 h-4 w-4" /> New Monitor
             </Button>
           </Link>
         ) : isNetworks && !isNetworkDetail && isAdmin ? (
@@ -83,7 +83,7 @@ export function AppHeader({ className }: AppHeaderProps) {
               variant="outline"
               className="h-8 text-sm font-medium border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900"
             >
-              <Plus className="mr-2 h-4 w-4" /> New Network
+              <PlusDefault className="mr-2 h-4 w-4" /> New Network
             </Button>
           </Link>
         ) : isChat ? (

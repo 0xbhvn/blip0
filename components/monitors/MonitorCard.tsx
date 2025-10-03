@@ -12,7 +12,7 @@ import { MonitorResponse } from "@/lib/types";
 import { MonitorPausedBadge } from "./MonitorPausedBadge";
 import { MonitorStats } from "./MonitorStats";
 import Link from "next/link";
-import { Trash2, Eye } from "lucide-react";
+import { DeleteDustbin01, EyeOn } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import { formatMonitorDate } from "@/lib/helpers";
 
@@ -43,7 +43,7 @@ export function MonitorCard({
         <div className="mt-4 flex gap-2">
           <Link href={`/product/monitors/${monitor._id}`} className="flex-1">
             <Button variant="default" size="sm" className="w-full">
-              <Eye className="mr-2 h-4 w-4" /> Configure
+              <EyeOn className="mr-2 h-4 w-4" /> Configure
             </Button>
           </Link>
           {onDelete && (
@@ -52,7 +52,7 @@ export function MonitorCard({
               size="sm"
               onClick={() => onDelete(monitor._id, monitor.name)}
             >
-              <Trash2 className="h-4 w-4" />
+              <DeleteDustbin01 className="h-4 w-4" />
             </Button>
           )}
         </div>

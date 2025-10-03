@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Edit, Globe, Cpu } from "lucide-react";
+import { PencilEdit, Globe, Server } from "@/lib/icons";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function NetworkDetailPage() {
@@ -61,7 +61,7 @@ export default function NetworkDetailPage() {
     );
   }
 
-  const Icon = network.network_type === "EVM" ? Cpu : Globe;
+  const Icon = network.network_type === "EVM" ? Server : Globe;
 
   return (
     <>
@@ -70,7 +70,7 @@ export default function NetworkDetailPage() {
           <Button
             onClick={() => router.push(`/product/networks/${network._id}/edit`)}
           >
-            <Edit className="mr-2 h-4 w-4" />
+            <PencilEdit className="mr-2 h-4 w-4" />
             Edit Network
           </Button>
         )}

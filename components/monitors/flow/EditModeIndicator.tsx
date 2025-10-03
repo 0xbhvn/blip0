@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Edit3, Lock, Info } from "lucide-react";
+import { PencilEdit, LockClose, InformationCircle } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -51,9 +51,9 @@ export function EditModeIndicator({
                 className,
               )}
             >
-              <Lock className="h-3.5 w-3.5" />
+              <LockClose className="h-3.5 w-3.5" />
               <span>View Only</span>
-              <Info className="h-3 w-3" />
+              <InformationCircle className="h-3 w-3" />
             </div>
           </TooltipTrigger>
           <TooltipContent>
@@ -83,7 +83,7 @@ export function EditModeIndicator({
           >
             {isEditable ? (
               <>
-                <Edit3 className="h-3.5 w-3.5" />
+                <PencilEdit className="h-3.5 w-3.5" />
                 <span className="text-sm font-medium">
                   Edit Mode
                   {hasUnsavedChanges && (
@@ -93,7 +93,7 @@ export function EditModeIndicator({
               </>
             ) : (
               <>
-                <Lock className="h-3.5 w-3.5" />
+                <LockClose className="h-3.5 w-3.5" />
                 <span className="text-sm font-medium">Read Only</span>
               </>
             )}

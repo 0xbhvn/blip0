@@ -9,7 +9,7 @@ import {
   MonitorToggle,
   MonitorTitleDropdown,
 } from "@/components/monitors";
-import { Loader2, Play, Rocket } from "lucide-react";
+import { Spinner, PlayBig, RocketShip } from "@/lib/icons";
 import { useHeader } from "@/contexts/HeaderContext";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -47,7 +47,7 @@ export default function MonitorDetailsPage() {
                 // Test functionality will be implemented later
               }}
             >
-              <Play className="h-4 w-4 mr-2" />
+              <PlayBig className="h-4 w-4 mr-2" />
               Test
             </Button>
             <Button
@@ -57,7 +57,7 @@ export default function MonitorDetailsPage() {
                 // Deploy functionality will be implemented later
               }}
             >
-              <Rocket className="h-4 w-4 mr-2" />
+              <RocketShip className="h-4 w-4 mr-2" />
               Deploy
             </Button>
           </div>
@@ -73,7 +73,7 @@ export default function MonitorDetailsPage() {
   if (!monitor) {
     return (
       <div className="flex h-full items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+        <Spinner className="h-8 w-8 animate-spin text-muted-foreground" />
       </div>
     );
   }

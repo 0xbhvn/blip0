@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Switch } from "@/components/ui/switch";
-import { Cpu, Globe } from "lucide-react";
+import { Server, Globe } from "@/lib/icons";
 import { formatDistanceToNow } from "date-fns";
 
 export function NetworkList() {
@@ -129,7 +129,7 @@ export function NetworkList() {
           </TableHeader>
           <TableBody>
             {networks.map((network) => {
-              const Icon = network.network_type === "EVM" ? Cpu : Globe;
+              const Icon = network.network_type === "EVM" ? Server : Globe;
               const lastUpdated = formatDistanceToNow(
                 new Date(network._creationTime),
                 { addSuffix: true },

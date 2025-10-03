@@ -4,7 +4,7 @@ import * as React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ChatBubbleIcon, HomeIcon } from "@radix-ui/react-icons";
-import { Shield, Network, X } from "lucide-react";
+import { Shield, GlobeNetwork, MultipleCrossCancelDefault } from "@/lib/icons";
 import { Button } from "@/components/ui/button";
 import {
   Sidebar,
@@ -45,7 +45,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     {
       title: "Networks",
       href: "/product/networks",
-      icon: Network,
+      icon: GlobeNetwork,
     },
   ];
 
@@ -64,7 +64,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             onClick={toggleSidebar}
             className="h-9 w-9"
           >
-            <X className="h-5 w-5" />
+            <MultipleCrossCancelDefault className="h-5 w-5" />
           </Button>
         </div>
       </SidebarHeader>

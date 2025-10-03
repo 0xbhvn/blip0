@@ -7,7 +7,7 @@ import { monitorToFlow, hasFlowData } from "@/lib/helpers/flowConverter";
 import type { Doc } from "@/convex/_generated/dataModel";
 import { Node } from "@xyflow/react";
 import { Button } from "@/components/ui/button";
-import { Maximize2, Minimize2 } from "lucide-react";
+import { MaximizeTwoArrow, MinimizeTwoArrow } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 
 type Monitor = Doc<"monitors">;
@@ -99,9 +99,9 @@ export function MonitorFlowViewer({
                 title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
               >
                 {isFullscreen ? (
-                  <Minimize2 className="h-4 w-4" />
+                  <MinimizeTwoArrow className="h-4 w-4" />
                 ) : (
-                  <Maximize2 className="h-4 w-4" />
+                  <MaximizeTwoArrow className="h-4 w-4" />
                 )}
               </Button>
             )}

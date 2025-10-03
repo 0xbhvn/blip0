@@ -11,7 +11,7 @@ import { NodeType, EditorNode } from "@/lib/types/nodeEditor";
 import { MonitorCreateInput } from "@/lib/types/monitors";
 import { FloatingActionBar } from "./FloatingActionBar";
 import { Button } from "@/components/ui/button";
-import { Trash2 } from "lucide-react";
+import { DeleteDustbin01 } from "@/lib/icons";
 import { toast } from "sonner";
 import { Node, Edge, Connection } from "@xyflow/react";
 
@@ -494,7 +494,7 @@ export function MonitorFlowEditor({
                   className="shadow-lg"
                   title="Delete selected node (or press Delete key)"
                 >
-                  <Trash2 className="h-4 w-4 mr-1" />
+                  <DeleteDustbin01 className="h-4 w-4 mr-1" />
                   Delete Node
                 </Button>
               </Panel>

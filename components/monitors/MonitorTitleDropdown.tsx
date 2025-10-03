@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Edit2, Trash2 } from "lucide-react";
+import { ChevronDown, PencilEdit, DeleteDustbin01 } from "@/lib/icons";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -97,7 +97,7 @@ export function MonitorTitleDropdown({
               setIsDropdownOpen(false);
             }}
           >
-            <Edit2 className="mr-2 h-4 w-4" />
+            <PencilEdit className="mr-2 h-4 w-4" />
             Rename
           </DropdownMenuItem>
           <DropdownMenuSeparator />
@@ -108,7 +108,7 @@ export function MonitorTitleDropdown({
             }}
             className="text-destructive focus:text-destructive"
           >
-            <Trash2 className="mr-2 h-4 w-4" />
+            <DeleteDustbin01 className="mr-2 h-4 w-4" />
             Delete
           </DropdownMenuItem>
         </DropdownMenuContent>

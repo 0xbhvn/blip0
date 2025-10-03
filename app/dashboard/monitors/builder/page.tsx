@@ -17,7 +17,12 @@ import {
   addEdge,
 } from "@xyflow/react";
 import { Button } from "@/components/ui/button";
-import { Save, Plus, Sparkles, ArrowRight } from "lucide-react";
+import {
+  FloppyDefault,
+  PlusDefault,
+  SparkleAI01,
+  ArrowRight,
+} from "@/lib/icons";
 import { NodeType, EditorNode, CONNECTION_RULES } from "@/lib/types/nodeEditor";
 import { toast } from "sonner";
 import UnifiedNode from "@/components/monitors/flow/nodes/UnifiedNode";
@@ -118,7 +123,7 @@ export default function MonitorBuilderPage() {
             onClick={handleAutoLayout}
             disabled={nodes.length <= 1}
           >
-            <Sparkles className="h-4 w-4 mr-1" />
+            <SparkleAI01 className="h-4 w-4 mr-1" />
             Auto-layout
           </Button>
 
@@ -126,7 +131,7 @@ export default function MonitorBuilderPage() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm" className="relative">
-                <Plus className="h-4 w-4 mr-1" />
+                <PlusDefault className="h-4 w-4 mr-1" />
                 Add Node
                 {nodeSuggestions.length > 0 &&
                   nodeSuggestions[0].isRequired && (
@@ -224,7 +229,7 @@ export default function MonitorBuilderPage() {
                               className="flex flex-col items-start py-2 ml-2"
                             >
                               <div className="flex items-center gap-2 w-full">
-                                <Plus className="h-3 w-3" />
+                                <PlusDefault className="h-3 w-3" />
                                 <span className="font-medium">
                                   {suggestion.label}
                                 </span>
@@ -321,7 +326,7 @@ export default function MonitorBuilderPage() {
           onClick={handleSave}
           disabled={!monitorName || nodes.length === 0}
         >
-          <Save className="h-4 w-4 mr-1" />
+          <FloppyDefault className="h-4 w-4 mr-1" />
           Save Monitor
         </Button>
       ),
@@ -563,7 +568,7 @@ export default function MonitorBuilderPage() {
               <div className="absolute top-4 left-4 right-4 max-w-md mx-auto">
                 <div className="bg-background/95 backdrop-blur border rounded-lg p-4 shadow-lg">
                   <h3 className="font-semibold mb-2 flex items-center gap-2">
-                    <Sparkles className="h-4 w-4" />
+                    <SparkleAI01 className="h-4 w-4" />
                     Welcome to Monitor Builder
                   </h3>
                   <p className="text-sm text-muted-foreground mb-3">
@@ -592,7 +597,7 @@ export default function MonitorBuilderPage() {
                     onClick={() => handleAddNode(NodeType.NETWORK)}
                     className="w-full"
                   >
-                    <Plus className="h-4 w-4 mr-1" />
+                    <PlusDefault className="h-4 w-4 mr-1" />
                     Start with Network Selection
                   </Button>
                 </div>

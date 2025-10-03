@@ -14,20 +14,20 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import {
-  Maximize2,
-  Layout,
+  MaximizeTwoArrow,
+  LayoutGridTwoHorizontal,
   PlusCircle,
-  Network,
+  GlobeNetwork,
   MapPin,
-  Zap,
+  LightningThunderElectricOn,
   Code,
   Activity,
-  Bell,
+  NotificationBellOn,
   AlertCircle,
-  Undo2,
-  Redo2,
-  GitMerge,
-} from "lucide-react";
+  UturnLeft,
+  UturnRight,
+  GitBranch,
+} from "@/lib/icons";
 import { NodeType } from "@/lib/types/nodeEditor";
 import { cn } from "@/lib/utils";
 
@@ -48,7 +48,7 @@ const nodeTypeConfig = [
   {
     type: NodeType.NETWORK,
     label: "Network",
-    icon: Network,
+    icon: GlobeNetwork,
     description: "Monitor a blockchain network",
     color: "text-blue-500",
   },
@@ -62,7 +62,7 @@ const nodeTypeConfig = [
   {
     type: NodeType.EVENT_CONDITION,
     label: "Event",
-    icon: Zap,
+    icon: LightningThunderElectricOn,
     description: "Listen for contract events",
     color: "text-yellow-500",
   },
@@ -90,7 +90,7 @@ const nodeTypeConfig = [
   {
     type: NodeType.NOTIFICATION,
     label: "Notification",
-    icon: Bell,
+    icon: NotificationBellOn,
     description: "Configure alert notifications",
     color: "text-emerald-500",
   },
@@ -137,7 +137,7 @@ export function FlowControlPanel({
                 disabled={!canUndo}
                 className="h-8 w-8 p-0"
               >
-                <Undo2 className="h-4 w-4" />
+                <UturnLeft className="h-4 w-4" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>
@@ -154,7 +154,7 @@ export function FlowControlPanel({
                 disabled={!canRedo}
                 className="h-8 w-8 p-0"
               >
-                <Redo2 className="h-4 w-4" />
+                <UturnRight className="h-4 w-4" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>
@@ -175,7 +175,7 @@ export function FlowControlPanel({
                 onClick={onAutoConnect}
                 className="h-8 w-8 p-0"
               >
-                <GitMerge className="h-4 w-4" />
+                <GitBranch className="h-4 w-4" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>
@@ -193,7 +193,7 @@ export function FlowControlPanel({
               onClick={onAutoLayout}
               className="h-8 w-8 p-0"
             >
-              <Layout className="h-4 w-4" />
+              <LayoutGridTwoHorizontal className="h-4 w-4" />
             </Button>
           </TooltipTrigger>
           <TooltipContent>
@@ -210,7 +210,7 @@ export function FlowControlPanel({
               onClick={onFitView}
               className="h-8 w-8 p-0"
             >
-              <Maximize2 className="h-4 w-4" />
+              <MaximizeTwoArrow className="h-4 w-4" />
             </Button>
           </TooltipTrigger>
           <TooltipContent>
