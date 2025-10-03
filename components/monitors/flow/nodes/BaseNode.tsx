@@ -61,7 +61,6 @@ export function BaseNode({
         return "bg-amber-50/50 border-amber-300 dark:bg-amber-950/20 dark:border-amber-700";
 
       case NodeType.TRIGGER:
-      case NodeType.NOTIFICATION:
         return "bg-white border-zinc-300/60 dark:bg-zinc-900 dark:border-zinc-700";
 
       default:

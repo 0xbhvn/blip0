@@ -4,7 +4,6 @@ import React, { memo } from "react";
 import { NodeProps } from "@xyflow/react";
 import { BaseNode } from "./BaseNode";
 import { NodeType } from "@/lib/types/nodeEditor";
-import { NotificationNodeData } from "@/lib/types/nodeEditor";
 import {
   GlobeNetwork,
   FileCode,
@@ -12,10 +11,6 @@ import {
   CodeAI,
   Exchange01,
   ClockDefault,
-  NotificationBellOn,
-  EnvelopeAI,
-  Globe,
-  ChatDefault,
 } from "@/lib/icons/solid";
 
 function UnifiedNode(props: NodeProps) {
@@ -40,20 +35,6 @@ function UnifiedNode(props: NodeProps) {
 
       case NodeType.TRIGGER:
         return <ClockDefault size={10} />;
-
-      case NodeType.NOTIFICATION:
-        // Special case: notification icon changes based on type
-        const notificationData = props.data as unknown as NotificationNodeData;
-        switch (notificationData.type) {
-          case "email":
-            return <EnvelopeAI size={10} />;
-          case "webhook":
-            return <Globe size={10} />;
-          case "slack":
-            return <ChatDefault size={10} />;
-          default:
-            return <NotificationBellOn size={10} />;
-        }
 
       default:
         return null;

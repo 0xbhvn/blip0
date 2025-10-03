@@ -60,6 +60,17 @@ export function getNextNodeSuggestion(nodes: Node[]): NodeSuggestion[] {
     return suggestions; // Must have at least one address
   }
 
+  // After first contract, allow adding more contracts (up to 5)
+  const addressCount = actualNodes.filter(n => n.type === NodeType.ADDRESS).length;
+  if (addressCount < 5) {
+    suggestions.push({
+      type: NodeType.ADDRESS,
+      label: "Another Contract",
+      description: "Monitor multiple contracts (edges will merge at conditions)",
+      priority: 85, // High priority, but below conditions if none exist yet
+    });
+  }
+
   // Priority 3: Condition phase - support multiple conditions
   const conditionTypes = [
     NodeType.EVENT_CONDITION,

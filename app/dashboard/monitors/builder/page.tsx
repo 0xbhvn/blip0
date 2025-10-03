@@ -54,7 +54,6 @@ const nodeTypes: NodeTypes = {
   [NodeType.FUNCTION_CONDITION]: UnifiedNode,
   [NodeType.TRANSACTION_CONDITION]: UnifiedNode,
   [NodeType.TRIGGER]: UnifiedNode,
-  [NodeType.NOTIFICATION]: UnifiedNode,
 };
 
 export default function MonitorBuilderPage() {
@@ -89,6 +88,7 @@ export default function MonitorBuilderPage() {
   const configStatus = React.useMemo(() => {
     return getConfigurationStatus(nodes);
   }, [nodes]);
+
 
   // Initialize with a welcome node
   React.useEffect(() => {
@@ -159,17 +159,14 @@ export default function MonitorBuilderPage() {
                       s.type === NodeType.TRANSACTION_CONDITION,
                   );
                   const actionSuggestions = nodeSuggestions.filter(
-                    (s) =>
-                      s.type === NodeType.TRIGGER ||
-                      s.type === NodeType.NOTIFICATION,
+                    (s) => s.type === NodeType.TRIGGER,
                   );
                   const otherSuggestions = nodeSuggestions.filter(
                     (s) =>
                       s.type !== NodeType.EVENT_CONDITION &&
                       s.type !== NodeType.FUNCTION_CONDITION &&
                       s.type !== NodeType.TRANSACTION_CONDITION &&
-                      s.type !== NodeType.TRIGGER &&
-                      s.type !== NodeType.NOTIFICATION,
+                      s.type !== NodeType.TRIGGER,
                   );
 
                   // Count existing conditions for display
@@ -259,7 +256,7 @@ export default function MonitorBuilderPage() {
                           <DropdownMenuSeparator />
                           <div className="px-2 py-1">
                             <p className="text-xs font-medium text-muted-foreground">
-                              Monitor Actions
+                              Trigger
                             </p>
                           </div>
                           {actionSuggestions.map((suggestion) => (
@@ -431,6 +428,33 @@ export default function MonitorBuilderPage() {
         return;
       }
 
+      // Validate single-instance node types (conditions and trigger)
+      const conditionTypes = [
+        NodeType.EVENT_CONDITION,
+        NodeType.FUNCTION_CONDITION,
+        NodeType.TRANSACTION_CONDITION,
+      ];
+
+      if (conditionTypes.includes(typeToAdd)) {
+        // Check if this condition type already exists
+        const existingCondition = nodes.find((n) => n.type === typeToAdd);
+        if (existingCondition) {
+          toast.error(
+            `Only one ${getNodeLabel(typeToAdd)} node is allowed. You can configure multiple ${getNodeLabel(typeToAdd).toLowerCase()}s within the existing node.`
+          );
+          return;
+        }
+      }
+
+      if (typeToAdd === NodeType.TRIGGER) {
+        // Check if trigger already exists
+        const existingTrigger = nodes.find((n) => n.type === NodeType.TRIGGER);
+        if (existingTrigger) {
+          toast.error("Only one Trigger node is allowed per monitor.");
+          return;
+        }
+      }
+
       // Remove placeholder if adding the first real node
       let currentNodes = nodes;
       if (
@@ -461,17 +485,55 @@ export default function MonitorBuilderPage() {
         },
       };
 
-      // Find best source node to connect to
-      const sourceNode = findBestSourceNode(typeToAdd, currentNodes, edges);
+      // Find source nodes to connect to
+      // For condition nodes, connect ALL address nodes
+      const isConditionNode = [
+        NodeType.EVENT_CONDITION,
+        NodeType.FUNCTION_CONDITION,
+        NodeType.TRANSACTION_CONDITION,
+      ].includes(typeToAdd);
+
+      let sourceNodesToConnect: Node[] = [];
+      let targetNodesToConnect: Node[] = [];
+
+      if (isConditionNode) {
+        // Get ALL address nodes for condition nodes
+        sourceNodesToConnect = currentNodes.filter(
+          (n) => n.type === NodeType.ADDRESS && !(n.data as { isPlaceholder?: boolean })?.isPlaceholder
+        );
+      } else if (typeToAdd === NodeType.ADDRESS) {
+        // For contract nodes, connect to network as source
+        const sourceNode = findBestSourceNode(typeToAdd, currentNodes, edges);
+        if (sourceNode) {
+          sourceNodesToConnect = [sourceNode];
+        }
+
+        // Also auto-connect to ALL existing condition nodes as targets
+        targetNodesToConnect = currentNodes.filter((n) =>
+          [
+            NodeType.EVENT_CONDITION,
+            NodeType.FUNCTION_CONDITION,
+            NodeType.TRANSACTION_CONDITION,
+          ].includes(n.type as NodeType) && !(n.data as { isPlaceholder?: boolean })?.isPlaceholder
+        );
+      } else {
+        // For other nodes, use single best source
+        const sourceNode = findBestSourceNode(typeToAdd, currentNodes, edges);
+        if (sourceNode) {
+          sourceNodesToConnect = [sourceNode];
+        }
+      }
 
       setNodes((nds) => [
         ...(currentNodes === nds ? nds : currentNodes),
         newNode,
       ]);
 
-      // Auto-connect if we found a suitable source
-      if (sourceNode) {
-        const newEdge: Edge = {
+      // Auto-connect to all source nodes (incoming edges)
+      const newEdges: Edge[] = [];
+
+      if (sourceNodesToConnect.length > 0) {
+        const sourceEdges = sourceNodesToConnect.map((sourceNode) => ({
           id: `edge-${sourceNode.id}-${newNodeId}`,
           source: sourceNode.id,
           target: newNodeId,
@@ -488,9 +550,47 @@ export default function MonitorBuilderPage() {
             width: 20,
             height: 20,
           },
-        };
-        setEdges((eds) => [...eds, newEdge]);
-        toast.success(`Added ${getNodeLabel(typeToAdd)} and connected it`);
+        }));
+        newEdges.push(...sourceEdges);
+      }
+
+      // Auto-connect to all target nodes (outgoing edges)
+      if (targetNodesToConnect.length > 0) {
+        const targetEdges = targetNodesToConnect.map((targetNode) => ({
+          id: `edge-${newNodeId}-${targetNode.id}`,
+          source: newNodeId,
+          target: targetNode.id,
+          type: "smoothstep",
+          animated: false,
+          style: {
+            stroke: "#D7DBDF",
+            strokeWidth: 1,
+          },
+          markerEnd: {
+            type: MarkerType.Arrow,
+            color: "#D7DBDF",
+            strokeWidth: 1,
+            width: 20,
+            height: 20,
+          },
+        }));
+        newEdges.push(...targetEdges);
+      }
+
+      if (newEdges.length > 0) {
+        setEdges((eds) => [...eds, ...newEdges]);
+
+        if (sourceNodesToConnect.length > 1) {
+          toast.success(
+            `Added ${getNodeLabel(typeToAdd)} and connected to ${sourceNodesToConnect.length} contracts`
+          );
+        } else if (targetNodesToConnect.length > 0) {
+          toast.success(
+            `Added ${getNodeLabel(typeToAdd)} and connected to ${targetNodesToConnect.length} condition${targetNodesToConnect.length > 1 ? 's' : ''}`
+          );
+        } else {
+          toast.success(`Added ${getNodeLabel(typeToAdd)} and connected it`);
+        }
       } else {
         toast.success(`Added ${getNodeLabel(typeToAdd)}`);
       }
@@ -517,8 +617,6 @@ export default function MonitorBuilderPage() {
         return "Transaction";
       case NodeType.TRIGGER:
         return "Trigger";
-      case NodeType.NOTIFICATION:
-        return "Notification";
       default:
         return "Node";
     }
@@ -605,8 +703,7 @@ export default function MonitorBuilderPage() {
                       or transactions)
                     </li>
                     <li>
-                      4. Set up <strong>Actions</strong> (triggers or
-                      notifications)
+                      4. Set up a <strong>Trigger</strong>
                     </li>
                   </ol>
                   <Button

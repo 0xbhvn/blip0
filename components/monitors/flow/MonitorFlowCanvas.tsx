@@ -35,7 +35,6 @@ const nodeTypes = {
   [NodeType.FUNCTION_CONDITION]: UnifiedNode,
   [NodeType.TRANSACTION_CONDITION]: UnifiedNode,
   [NodeType.TRIGGER]: UnifiedNode,
-  [NodeType.NOTIFICATION]: UnifiedNode,
 };
 
 export interface MonitorFlowCanvasProps {
@@ -137,7 +136,6 @@ export function MonitorFlowCanvas({
       case NodeType.TRANSACTION_CONDITION:
         return "#f59e0b";
       case NodeType.TRIGGER:
-      case NodeType.NOTIFICATION:
         return "#10b981";
       default:
         return "#6b7280";
