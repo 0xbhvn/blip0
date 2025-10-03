@@ -415,6 +415,8 @@ export default function MonitorBuilderPage() {
     const layouted = getHierarchicalLayout(nodes, edges);
     setNodes(layouted.nodes);
     setEdges(layouted.edges);
+    // Trigger fitView to center the newly laid out nodes
+    setAutoFitTrigger((prev) => prev + 1);
     toast.success("Layout optimized");
   }, [nodes, edges, setNodes, setEdges]);
 

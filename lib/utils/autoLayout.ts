@@ -3,9 +3,9 @@ import { Node, Edge, Position, XYPosition } from "@xyflow/react";
 import { NodeType } from "@/lib/types/nodeEditor";
 import { NODE_SEQUENCE } from "./nodeSequence";
 
-const nodeWidth = 200;
-const nodeHeight = 100;
-const nodeSpacing = { x: 150, y: 100 }; // Spacing between nodes
+const nodeWidth = 320; // Matches standard node width (w-[320px])
+const nodeHeight = 48; // Matches standard node height (h-12)
+const nodeSpacing = { x: 50, y: 50 }; // Spacing between nodes
 
 export function getLayoutedElements(
   nodes: Node[],
@@ -24,8 +24,8 @@ export function getLayoutedElements(
     rankdir: direction,
     nodesep: isHorizontal ? nodeSpacing.x : nodeSpacing.y,
     ranksep: isHorizontal ? nodeSpacing.y : nodeSpacing.x,
-    marginx: 50,
-    marginy: 50,
+    marginx: 20,
+    marginy: 20,
   });
 
   nodes.forEach((node) => {
