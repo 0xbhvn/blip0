@@ -101,11 +101,11 @@ export function getSmartNodePosition(
   const typeIndex = NODE_SEQUENCE.indexOf(newNodeType);
 
   if (typeIndex === -1) {
-    // Type not in sequence, place it to the right of the last node
+    // Type not in sequence, place it below the last node
     const lastNode = existingNodes[existingNodes.length - 1];
     return {
-      x: lastNode.position.x + nodeSpacing.x,
-      y: lastNode.position.y,
+      x: lastNode.position.x,
+      y: lastNode.position.y + nodeSpacing.y,
     };
   }
 
@@ -113,21 +113,21 @@ export function getSmartNodePosition(
   let precedingNode: Node | null = null;
   for (let i = typeIndex - 1; i >= 0; i--) {
     const precedingType = NODE_SEQUENCE[i];
-    const nodesOfType = existingNodes.filter(n => n.type === precedingType);
+    const nodesOfType = existingNodes.filter((n) => n.type === precedingType);
     if (nodesOfType.length > 0) {
-      // Get the rightmost node of this type (for LR layout)
-      precedingNode = nodesOfType.reduce((rightmost, node) =>
-        node.position.x > rightmost.position.x ? node : rightmost
+      // Get the bottommost node of this type (for TB layout)
+      precedingNode = nodesOfType.reduce((bottommost, node) =>
+        node.position.y > bottommost.position.y ? node : bottommost,
       );
       break;
     }
   }
 
   if (precedingNode) {
-    // Position to the right of the preceding node
+    // Position below the preceding node
     return {
-      x: precedingNode.position.x + nodeSpacing.x,
-      y: precedingNode.position.y,
+      x: precedingNode.position.x,
+      y: precedingNode.position.y + nodeSpacing.y,
     };
   }
 
@@ -135,28 +135,28 @@ export function getSmartNodePosition(
   let followingNode: Node | null = null;
   for (let i = typeIndex + 1; i < NODE_SEQUENCE.length; i++) {
     const followingType = NODE_SEQUENCE[i];
-    const nodesOfType = existingNodes.filter(n => n.type === followingType);
+    const nodesOfType = existingNodes.filter((n) => n.type === followingType);
     if (nodesOfType.length > 0) {
-      // Get the leftmost node of this type
-      followingNode = nodesOfType.reduce((leftmost, node) =>
-        node.position.x < leftmost.position.x ? node : leftmost
+      // Get the topmost node of this type
+      followingNode = nodesOfType.reduce((topmost, node) =>
+        node.position.y < topmost.position.y ? node : topmost,
       );
       break;
     }
   }
 
   if (followingNode) {
-    // Position to the left of the following node
+    // Position above the following node
     return {
-      x: followingNode.position.x - nodeSpacing.x,
-      y: followingNode.position.y,
+      x: followingNode.position.x,
+      y: followingNode.position.y - nodeSpacing.y,
     };
   }
 
   // Default: position based on sequence index
   return {
-    x: defaultPosition.x + (typeIndex * nodeSpacing.x),
-    y: defaultPosition.y,
+    x: defaultPosition.x,
+    y: defaultPosition.y + typeIndex * nodeSpacing.y,
   };
 }
 
@@ -167,7 +167,6 @@ export function getSmartNodePosition(
 export function layoutNewNode(
   newNode: Node,
   existingNodes: Node[],
-  _edges: Edge[],
 ): XYPosition {
   // If there are no existing nodes, place at default position
   if (existingNodes.length === 0) {
@@ -178,13 +177,14 @@ export function layoutNewNode(
   const position = getSmartNodePosition(
     newNode.type as NodeType,
     existingNodes,
-    { x: 400, y: 300 }
+    { x: 400, y: 300 },
   );
 
   // Check for overlaps and adjust if necessary
-  const hasOverlap = existingNodes.some(node =>
-    Math.abs(node.position.x - position.x) < nodeWidth &&
-    Math.abs(node.position.y - position.y) < nodeHeight
+  const hasOverlap = existingNodes.some(
+    (node) =>
+      Math.abs(node.position.x - position.x) < nodeWidth &&
+      Math.abs(node.position.y - position.y) < nodeHeight,
   );
 
   if (hasOverlap) {
@@ -193,9 +193,10 @@ export function layoutNewNode(
     let attempts = 0;
     while (attempts < 5) {
       const testPosition = { x: position.x, y: position.y + offsetY };
-      const stillOverlaps = existingNodes.some(node =>
-        Math.abs(node.position.x - testPosition.x) < nodeWidth &&
-        Math.abs(node.position.y - testPosition.y) < nodeHeight
+      const stillOverlaps = existingNodes.some(
+        (node) =>
+          Math.abs(node.position.x - testPosition.x) < nodeWidth &&
+          Math.abs(node.position.y - testPosition.y) < nodeHeight,
       );
 
       if (!stillOverlaps) {
