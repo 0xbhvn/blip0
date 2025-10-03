@@ -5,7 +5,7 @@ import { NODE_SEQUENCE } from "./nodeSequence";
 
 const nodeWidth = 200;
 const nodeHeight = 100;
-const nodeSpacing = { x: 250, y: 150 }; // Spacing between nodes
+const nodeSpacing = { x: 150, y: 100 }; // Spacing between nodes
 
 export function getLayoutedElements(
   nodes: Node[],

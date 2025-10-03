@@ -14,6 +14,7 @@ import {
   NodeTypes,
   NodeMouseHandler,
   useReactFlow,
+  MarkerType,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { FlowControls } from "./flow-controls";
@@ -83,6 +84,21 @@ function FlowWithControls({
       nodesConnectable={true}
       elementsSelectable={false}
       proOptions={{ hideAttribution: true }}
+      defaultEdgeOptions={{
+        type: "default",
+        animated: false,
+        style: {
+          stroke: "#D7DBDF",
+          strokeWidth: 1,
+        },
+        markerEnd: {
+          type: MarkerType.Arrow,
+          color: "#D7DBDF",
+          strokeWidth: 1,
+          width: 20,
+          height: 20,
+        },
+      }}
     >
       <Background
         variant={BackgroundVariant.Dots}

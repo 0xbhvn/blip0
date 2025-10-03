@@ -15,6 +15,7 @@ import {
   NodeTypes,
   Connection,
   addEdge,
+  MarkerType,
 } from "@xyflow/react";
 import { Button } from "@/components/ui/button";
 import {
@@ -386,11 +387,18 @@ export default function MonitorBuilderPage() {
         addEdge(
           {
             ...params,
-            type: "smoothstep",
-            animated: true,
+            type: "default",
+            animated: false,
             style: {
-              stroke: "#6b7280",
-              strokeWidth: 2,
+              stroke: "#D7DBDF",
+              strokeWidth: 1,
+            },
+            markerEnd: {
+              type: MarkerType.Arrow,
+              color: "#D7DBDF",
+              strokeWidth: 1,
+              width: 20,
+              height: 20,
             },
           },
           eds,
@@ -465,11 +473,18 @@ export default function MonitorBuilderPage() {
           id: `edge-${sourceNode.id}-${newNodeId}`,
           source: sourceNode.id,
           target: newNodeId,
-          type: "smoothstep",
-          animated: true,
+          type: "default",
+          animated: false,
           style: {
-            stroke: "#6b7280",
-            strokeWidth: 2,
+            stroke: "#D7DBDF",
+            strokeWidth: 1,
+          },
+          markerEnd: {
+            type: MarkerType.Arrow,
+            color: "#D7DBDF",
+            strokeWidth: 1,
+            width: 20,
+            height: 20,
           },
         };
         setEdges((eds) => [...eds, newEdge]);
