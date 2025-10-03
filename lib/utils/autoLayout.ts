@@ -105,7 +105,7 @@ export function getSmartNodePosition(
     const lastNode = existingNodes[existingNodes.length - 1];
     return {
       x: lastNode.position.x,
-      y: lastNode.position.y + nodeSpacing.y,
+      y: lastNode.position.y + nodeHeight + nodeSpacing.y,
     };
   }
 
@@ -127,7 +127,7 @@ export function getSmartNodePosition(
     // Position below the preceding node
     return {
       x: precedingNode.position.x,
-      y: precedingNode.position.y + nodeSpacing.y,
+      y: precedingNode.position.y + nodeHeight + nodeSpacing.y,
     };
   }
 
@@ -149,14 +149,14 @@ export function getSmartNodePosition(
     // Position above the following node
     return {
       x: followingNode.position.x,
-      y: followingNode.position.y - nodeSpacing.y,
+      y: followingNode.position.y - nodeHeight - nodeSpacing.y,
     };
   }
 
   // Default: position based on sequence index
   return {
     x: defaultPosition.x,
-    y: defaultPosition.y + typeIndex * nodeSpacing.y,
+    y: defaultPosition.y + typeIndex * (nodeHeight + nodeSpacing.y),
   };
 }
 
