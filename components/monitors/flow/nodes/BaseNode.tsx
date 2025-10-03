@@ -103,7 +103,7 @@ export function BaseNode({
                   {/* Icon */}
                   {icon && (
                     <div className="relative flex-shrink-0">
-                      <div className="node-icon-container w-5 h-5 rounded border-[0.5px] border-zinc-200/50 dark:border-zinc-700/50 flex items-center justify-center bg-zinc-700 dark:bg-zinc-200 overflow-hidden">
+                      <div className="node-icon-container w-4 h-4 rounded border-[0.5px] border-zinc-200/50 dark:border-zinc-700/50 flex items-center justify-center bg-zinc-700 dark:bg-zinc-200 overflow-hidden">
                         <div className="text-white dark:text-black">{icon}</div>
                       </div>
 

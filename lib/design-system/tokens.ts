@@ -110,8 +110,8 @@ export const NODE = {
 
   // Icon configuration
   icon: {
-    size: 16,    // 16px icons (h-4 w-4)
-    containerSize: 24, // Icon container size
+    size: 10,    // 10px icons - 62.5% fill ratio, balanced
+    containerSize: 16, // Icon container size (w-4 h-4) - perfect 16px grid alignment
   },
 
   // Badge configuration
