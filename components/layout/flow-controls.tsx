@@ -4,12 +4,18 @@ import React from "react";
 import { Controls, ControlButton, useReactFlow } from "@xyflow/react";
 import {
   PlusDefault,
-  MinusDefault,
   MaximizeFourArrow,
   LockClose,
   LockOpen,
+  SparkleAI01,
 } from "@/lib/icons";
 import { cn } from "@/lib/utils";
+
+interface DropdownProps {
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  children?: React.ReactNode;
+}
 
 interface FlowControlsProps {
   className?: string;
@@ -25,6 +31,9 @@ interface FlowControlsProps {
     maxZoom?: number;
     duration?: number;
   };
+  onAutoLayout?: () => void;
+  disableAutoLayout?: boolean;
+  addNodeDropdown?: React.ReactNode;
 }
 
 export function FlowControls({
@@ -33,9 +42,29 @@ export function FlowControls({
   orientation = "horizontal",
   showInteractive = false,
   fitViewOptions = { maxZoom: 1.2, duration: 150 },
+  onAutoLayout,
+  disableAutoLayout = false,
+  addNodeDropdown,
 }: FlowControlsProps) {
-  const { zoomIn, zoomOut, fitView } = useReactFlow();
+  const { fitView } = useReactFlow();
   const [isLocked, setIsLocked] = React.useState(false);
+  const [dropdownOpen, setDropdownOpen] = React.useState(false);
+
+  // Clone the dropdown with open and onOpenChange props
+  const dropdownWithProps = addNodeDropdown ? (
+    React.cloneElement(addNodeDropdown as React.ReactElement<DropdownProps>, {
+      open: dropdownOpen,
+      onOpenChange: setDropdownOpen,
+      children: (
+        <ControlButton
+          title="Add Node"
+          aria-label="Add Node"
+        >
+          <PlusDefault />
+        </ControlButton>
+      ),
+    })
+  ) : null;
 
   return (
     <Controls
@@ -70,21 +99,19 @@ export function FlowControls({
         className,
       )}
     >
-      <ControlButton
-        onClick={() => zoomIn({ duration: 200 })}
-        title="Zoom in"
-        aria-label="Zoom in"
-      >
-        <PlusDefault />
-      </ControlButton>
+      {/* Add Node dropdown button */}
+      {dropdownWithProps}
 
-      <ControlButton
-        onClick={() => zoomOut({ duration: 200 })}
-        title="Zoom out"
-        aria-label="Zoom out"
-      >
-        <MinusDefault />
-      </ControlButton>
+      {onAutoLayout && (
+        <ControlButton
+          onClick={onAutoLayout}
+          disabled={disableAutoLayout}
+          title="Auto-layout"
+          aria-label="Auto-layout"
+        >
+          <SparkleAI01 />
+        </ControlButton>
+      )}
 
       <ControlButton
         onClick={() => fitView(fitViewOptions)}

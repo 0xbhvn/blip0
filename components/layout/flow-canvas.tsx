@@ -31,6 +31,9 @@ interface FlowWithControlsProps {
   centerOnInit?: boolean;
   initialZoom?: number;
   autoFitTrigger?: number;
+  onAutoLayout?: () => void;
+  disableAutoLayout?: boolean;
+  addNodeDropdown?: React.ReactNode;
 }
 
 function FlowWithControls({
@@ -45,6 +48,9 @@ function FlowWithControls({
   centerOnInit = true,
   initialZoom = 1.2,
   autoFitTrigger,
+  onAutoLayout,
+  disableAutoLayout,
+  addNodeDropdown,
 }: FlowWithControlsProps) {
   const { fitView } = useReactFlow();
 
@@ -108,7 +114,11 @@ function FlowWithControls({
         size={1}
         className="[&>pattern>circle]:fill-border dark:[&>pattern>circle]:fill-border"
       />
-      <FlowControls />
+      <FlowControls
+        onAutoLayout={onAutoLayout}
+        disableAutoLayout={disableAutoLayout}
+        addNodeDropdown={addNodeDropdown}
+      />
     </ReactFlow>
   );
 }
@@ -125,6 +135,9 @@ interface FlowCanvasProps {
   centerOnInit?: boolean;
   initialZoom?: number;
   autoFitTrigger?: number;
+  onAutoLayout?: () => void;
+  disableAutoLayout?: boolean;
+  addNodeDropdown?: React.ReactNode;
 }
 
 export function FlowCanvas(props: FlowCanvasProps) {
