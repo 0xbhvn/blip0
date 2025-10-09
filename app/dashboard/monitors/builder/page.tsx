@@ -132,6 +132,20 @@ export default function MonitorBuilderPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [monitorName, isActive, nodes]); // Re-render when these change
 
+  // Sync selectedNode with nodes array to prevent stale state
+  React.useEffect(() => {
+    if (selectedNode) {
+      const updatedNode = nodes.find((n) => n.id === selectedNode.id);
+      if (updatedNode && updatedNode !== selectedNode) {
+        setSelectedNode(updatedNode as EditorNode);
+      } else if (!updatedNode) {
+        // Node was deleted
+        setSelectedNode(null);
+        setRightSidebarOpen(false);
+      }
+    }
+  }, [nodes, selectedNode]);
+
   // Handle node click
   const handleNodeClick = React.useCallback(
     (event: React.MouseEvent, node: Node) => {
