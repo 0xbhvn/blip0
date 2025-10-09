@@ -10,12 +10,10 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarSeparator,
 } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
 import {
   Select,
   SelectContent,
@@ -34,10 +32,6 @@ type ConfigType = Record<string, unknown>;
 interface MonitorConfigSidebarProps
   extends React.ComponentProps<typeof Sidebar> {
   node: EditorNode | null;
-  monitorName: string;
-  isActive: boolean;
-  onMonitorNameChange: (name: string) => void;
-  onActiveChange: (active: boolean) => void;
   onNodeUpdate: (nodeId: string, updates: Partial<EditorNode["data"]>) => void;
   onNodeDelete: (nodeId: string) => void;
   onClose: () => void;
@@ -45,10 +39,6 @@ interface MonitorConfigSidebarProps
 
 export function MonitorConfigSidebar({
   node,
-  monitorName,
-  isActive,
-  onMonitorNameChange,
-  onActiveChange,
   onNodeUpdate,
   onNodeDelete,
   onClose,
@@ -322,34 +312,6 @@ export function MonitorConfigSidebar({
       <SidebarContent className="px-4">
         <ScrollArea className="h-full">
           <div className="space-y-6 py-4">
-            {/* Monitor Settings */}
-            <div>
-              <h4 className="text-sm font-medium mb-3">Monitor Settings</h4>
-              <div className="space-y-4">
-                <div>
-                  <Label htmlFor="monitorName">Monitor Name</Label>
-                  <Input
-                    id="monitorName"
-                    placeholder="My Monitor"
-                    value={monitorName}
-                    onChange={(e) => onMonitorNameChange(e.target.value)}
-                  />
-                </div>
-                <div className="flex items-center justify-between">
-                  <Label htmlFor="active" className="cursor-pointer">
-                    Active
-                  </Label>
-                  <Switch
-                    id="active"
-                    checked={isActive}
-                    onCheckedChange={onActiveChange}
-                  />
-                </div>
-              </div>
-            </div>
-
-            <SidebarSeparator />
-
             {/* Node Configuration */}
             {node && (
               <div>

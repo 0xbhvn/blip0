@@ -9,7 +9,7 @@ import React, {
 } from "react";
 
 interface HeaderContextValue {
-  title?: string;
+  title?: string | ReactNode;
   badge?: string;
   actions?: ReactNode;
   rightActions?: ReactNode;

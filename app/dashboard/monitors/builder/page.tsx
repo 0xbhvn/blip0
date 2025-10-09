@@ -18,6 +18,8 @@ import {
   MarkerType,
 } from "@xyflow/react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
 import { FloppyDefault } from "@/lib/icons";
 import { NodeType, EditorNode, CONNECTION_RULES } from "@/lib/types/nodeEditor";
 import { toast } from "sonner";
@@ -98,10 +100,24 @@ export default function MonitorBuilderPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Only run on mount
 
-  // Set header data
+  // Set header data with editable monitor name and toggle
   React.useEffect(() => {
     setHeaderData({
-      title: "Monitor Builder",
+      title: (
+        <Input
+          value={monitorName}
+          onChange={(e) => setMonitorName(e.target.value)}
+          placeholder="New Monitor"
+          style={{ width: `${Math.max(11, Math.min((monitorName || 'New Monitor').length, 40))}ch` }}
+          className="h-10 border-none shadow-none focus-visible:ring-0 px-0 text-lg font-bold"
+        />
+      ),
+      actions: (
+        <Switch
+          checked={isActive}
+          onCheckedChange={setIsActive}
+        />
+      ),
       rightActions: (
         <Button
           size="sm"
@@ -114,7 +130,7 @@ export default function MonitorBuilderPage() {
       ),
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [monitorName, nodes]); // Re-render when these change
+  }, [monitorName, isActive, nodes]); // Re-render when these change
 
   // Handle node click
   const handleNodeClick = React.useCallback(
@@ -480,10 +496,6 @@ export default function MonitorBuilderPage() {
         >
           <MonitorConfigSidebar
             node={selectedNode}
-            monitorName={monitorName}
-            isActive={isActive}
-            onMonitorNameChange={setMonitorName}
-            onActiveChange={setIsActive}
             onNodeUpdate={handleNodeUpdate}
             onNodeDelete={handleNodeDelete}
             onClose={() => {

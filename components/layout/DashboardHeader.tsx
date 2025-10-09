@@ -19,15 +19,19 @@ export function DashboardHeader() {
       <div className="flex flex-1 items-center gap-2 px-3">
         <SidebarTrigger />
         <Separator orientation="vertical" className="mr-2 h-4" />
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbPage className="line-clamp-1">
-                {title || "Dashboard"}
-              </BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        {typeof title === "string" || !title ? (
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbPage className="line-clamp-1">
+                  {title || "Dashboard"}
+                </BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        ) : (
+          title
+        )}
         {actions && <div className="flex items-center gap-2">{actions}</div>}
       </div>
       {rightActions && (
