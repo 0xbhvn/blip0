@@ -31,11 +31,6 @@ export function getNextNodeSuggestion(nodes: Node[]): NodeSuggestion[] {
   const actualNodes = nodes.filter(n => !(n.data as { isPlaceholder?: boolean })?.isPlaceholder);
   const actualTypes = new Set(actualNodes.map(n => n.type));
 
-  // Debug logging
-  console.log("getNextNodeSuggestion - nodes:", nodes);
-  console.log("getNextNodeSuggestion - actualNodes:", actualNodes);
-  console.log("getNextNodeSuggestion - actualTypes:", Array.from(actualTypes));
-
   // Priority 1: Required base nodes
   if (!actualTypes.has(NodeType.NETWORK)) {
     suggestions.push({

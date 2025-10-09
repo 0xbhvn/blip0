@@ -307,10 +307,9 @@ export function MonitorFlowEditor({
   }, []);
 
   // Handle node click - simplified since ReactFlow handles selection
-  const handleNodeClick = useCallback((event: React.MouseEvent, node: Node) => {
+  const handleNodeClick = useCallback((event: React.MouseEvent) => {
     event.stopPropagation();
     // ReactFlow will handle selection internally
-    console.log("Node clicked:", node.id);
   }, []);
 
   // Handle node double-click for editing
@@ -328,10 +327,8 @@ export function MonitorFlowEditor({
       // Update our custom selectedNodeId state based on ReactFlow's selection
       if (selectedNodes.length > 0) {
         selectNode(selectedNodes[0].id);
-        console.log("Selection changed - node selected:", selectedNodes[0].id);
       } else {
         selectNode(null);
-        console.log("Selection cleared");
       }
     },
     [selectNode],

@@ -269,12 +269,10 @@ export const useNodeEditor = create<NodeEditorState>()(
     },
 
     onNodesChange: (changes) => {
-      // Log changes for debugging
       const removeChanges = changes.filter(
         (change) => change.type === "remove",
       );
       if (removeChanges.length > 0) {
-        console.log("Nodes being removed:", removeChanges);
         // Show success toast for deletion
         if (removeChanges.length === 1) {
           toast.success("Node deleted");
@@ -315,17 +313,9 @@ export const useNodeEditor = create<NodeEditorState>()(
     },
 
     onConnect: (connection: Connection) => {
-      console.log("onConnect called with:", connection);
-      const { source, target, sourceHandle, targetHandle } = connection;
-      console.log("Connection details:", {
-        source,
-        target,
-        sourceHandle,
-        targetHandle,
-      });
+      const { source, target } = connection;
 
       if (!source || !target) {
-        console.log("Missing source or target");
         return;
       }
 
@@ -394,13 +384,11 @@ export const useNodeEditor = create<NodeEditorState>()(
     },
 
     validateConnection: (sourceId: string, targetId: string) => {
-      console.log("validateConnection called:", { sourceId, targetId });
       const state = get();
       const sourceNode = state.nodes.find((n) => n.id === sourceId);
       const targetNode = state.nodes.find((n) => n.id === targetId);
 
       if (!sourceNode || !targetNode) {
-        console.log("validateConnection: nodes not found");
         return false;
       }
 
@@ -409,11 +397,6 @@ export const useNodeEditor = create<NodeEditorState>()(
 
       // Check if connection is allowed
       if (!sourceRules.targetTypes.includes(targetNode.type as NodeType)) {
-        console.log("validateConnection: target type not allowed", {
-          sourceType: sourceNode.type,
-          targetType: targetNode.type,
-          allowedTargets: sourceRules.targetTypes,
-        });
         return false;
       }
 
@@ -423,7 +406,6 @@ export const useNodeEditor = create<NodeEditorState>()(
           (e) => e.target === targetId,
         ).length;
         if (existingConnections >= targetRules.maxConnections) {
-          console.log("validateConnection: max connections reached");
           return false;
         }
       }
@@ -433,11 +415,9 @@ export const useNodeEditor = create<NodeEditorState>()(
         (e) => e.source === sourceId && e.target === targetId,
       );
       if (isDuplicate) {
-        console.log("validateConnection: duplicate connection");
         return false;
       }
 
-      console.log("validateConnection: connection is valid");
       return true;
     },
 
