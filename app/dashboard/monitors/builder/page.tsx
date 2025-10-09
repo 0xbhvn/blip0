@@ -18,11 +18,7 @@ import {
   MarkerType,
 } from "@xyflow/react";
 import { Button } from "@/components/ui/button";
-import {
-  FloppyDefault,
-  PlusDefault,
-  SparkleAI01,
-} from "@/lib/icons";
+import { FloppyDefault } from "@/lib/icons";
 import { NodeType, EditorNode, CONNECTION_RULES } from "@/lib/types/nodeEditor";
 import { toast } from "sonner";
 import UnifiedNode from "@/components/monitors/flow/nodes/UnifiedNode";
@@ -474,47 +470,6 @@ export default function MonitorBuilderPage() {
             }
           />
 
-          {/* Configuration status overlay */}
-          {nodes.length === 1 &&
-            nodes[0].data &&
-            (nodes[0].data as { isPlaceholder?: boolean }).isPlaceholder && (
-              <div className="absolute top-4 left-4 right-4 max-w-md mx-auto">
-                <div className="bg-background/95 backdrop-blur border rounded-lg p-4 shadow-lg">
-                  <h3 className="font-semibold mb-2 flex items-center gap-2">
-                    <SparkleAI01 className="h-4 w-4" />
-                    Welcome to Monitor Builder
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Let me guide you through creating your monitor. The typical
-                    flow is:
-                  </p>
-                  <ol className="text-sm space-y-1 mb-3">
-                    <li>
-                      1. Select a <strong>Network</strong> (Ethereum, Polygon,
-                      etc.)
-                    </li>
-                    <li>
-                      2. Add a <strong>Contract</strong> address to monitor
-                    </li>
-                    <li>
-                      3. Define <strong>Conditions</strong> (events, functions,
-                      or transactions)
-                    </li>
-                    <li>
-                      4. Set up a <strong>Trigger</strong>
-                    </li>
-                  </ol>
-                  <Button
-                    size="sm"
-                    onClick={() => handleAddNode(NodeType.NETWORK)}
-                    className="w-full"
-                  >
-                    <PlusDefault className="h-4 w-4 mr-1" />
-                    Start with Network Selection
-                  </Button>
-                </div>
-              </div>
-            )}
         </div>
 
         {/* Right sidebar for configuration - matching dashboard animation */}
