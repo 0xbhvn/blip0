@@ -151,24 +151,29 @@ export function MonitorConfigSidebar({
                 <Select
                   value={
                     ((node.data.config as ConfigType)?.network as string) ||
-                    "ethereum"
+                    "stellar_mainnet"
                   }
-                  onValueChange={(value) =>
+                  onValueChange={(value) => {
+                    const networkLabels: Record<string, string> = {
+                      stellar_mainnet: "Stellar Mainnet",
+                      stellar_testnet: "Stellar Testnet",
+                    };
                     onNodeUpdate(node.id, {
                       config: { ...(node.data.config || {}), network: value },
-                      label: value.charAt(0).toUpperCase() + value.slice(1),
-                    })
-                  }
+                      label: networkLabels[value] || value,
+                    });
+                  }}
                 >
                   <SelectTrigger id="network" className="mt-1.5">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="ethereum">Ethereum</SelectItem>
-                    <SelectItem value="polygon">Polygon</SelectItem>
-                    <SelectItem value="arbitrum">Arbitrum</SelectItem>
-                    <SelectItem value="optimism">Optimism</SelectItem>
-                    <SelectItem value="base">Base</SelectItem>
+                    <SelectItem value="stellar_mainnet">
+                      Stellar Mainnet
+                    </SelectItem>
+                    <SelectItem value="stellar_testnet">
+                      Stellar Testnet
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -502,8 +507,8 @@ export function MonitorConfigSidebar({
                 type="number"
                 placeholder="0.1"
                 value={
-                  ((node.data.config as ConfigType)?.valueThreshold as string) ||
-                  ""
+                  ((node.data.config as ConfigType)
+                    ?.valueThreshold as string) || ""
                 }
                 onChange={(e) =>
                   onNodeUpdate(node.id, {
@@ -521,9 +526,7 @@ export function MonitorConfigSidebar({
 
       default:
         return (
-          <p className="text-sm text-slate-400">
-            Select a node to configure
-          </p>
+          <p className="text-sm text-slate-400">Select a node to configure</p>
         );
     }
   };
