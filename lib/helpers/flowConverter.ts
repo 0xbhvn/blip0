@@ -53,6 +53,9 @@ export function monitorToFlow(monitor: Monitor): FlowData {
         },
         data: {
           label: "Network",
+          config: {
+            network,
+          },
           networkSlug: network,
           isValid: true,
         } as NetworkNodeData & Record<string, unknown>,
@@ -79,8 +82,12 @@ export function monitorToFlow(monitor: Monitor): FlowData {
         },
         data: {
           label: "Contract Address",
-          address: address.address,
-          contractSpec: address.contract_spec,
+          config: {
+            contracts: [{
+              address: address.address,
+              contractSpec: address.contract_spec,
+            }],
+          },
           isValid: true,
         } as AddressNodeData & Record<string, unknown>,
       };
@@ -130,8 +137,12 @@ export function monitorToFlow(monitor: Monitor): FlowData {
           position: { x: conditionX, y: currentY },
           data: {
             label: "Transaction Condition",
-            status: transaction.status,
-            expression: transaction.expression,
+            config: {
+              transactions: [{
+                status: transaction.status,
+                expression: transaction.expression,
+              }],
+            },
             isValid: true,
           } as TransactionConditionNodeData & Record<string, unknown>,
         };
@@ -166,8 +177,12 @@ export function monitorToFlow(monitor: Monitor): FlowData {
           position: { x: conditionX, y: currentY },
           data: {
             label: "Event Condition",
-            signature: event.signature,
-            expression: event.expression,
+            config: {
+              events: [{
+                signature: event.signature,
+                expression: event.expression,
+              }],
+            },
             isValid: true,
           } as EventConditionNodeData & Record<string, unknown>,
         };
@@ -202,8 +217,12 @@ export function monitorToFlow(monitor: Monitor): FlowData {
           position: { x: conditionX, y: currentY },
           data: {
             label: "Function Condition",
-            signature: func.signature,
-            expression: func.expression,
+            config: {
+              functions: [{
+                signature: func.signature,
+                expression: func.expression,
+              }],
+            },
             isValid: true,
           } as FunctionConditionNodeData & Record<string, unknown>,
         };
@@ -316,40 +335,48 @@ export function flowToMonitor(
 
       case NodeType.ADDRESS:
         const addressData = node.data as AddressNodeData;
-        if (addressData.address) {
-          config.addresses.push({
-            address: addressData.address,
-            contract_spec: addressData.contractSpec,
+        if (addressData.config?.contracts) {
+          addressData.config.contracts.forEach((contract) => {
+            config.addresses.push({
+              address: contract.address,
+              contract_spec: contract.contractSpec,
+            });
           });
         }
         break;
 
       case NodeType.EVENT_CONDITION:
         const eventData = node.data as EventConditionNodeData;
-        if (eventData.signature && config.match_conditions?.events) {
-          config.match_conditions.events.push({
-            signature: eventData.signature,
-            expression: eventData.expression,
+        if (eventData.config?.events) {
+          eventData.config.events.forEach((event) => {
+            config.match_conditions?.events?.push({
+              signature: event.signature,
+              expression: event.expression,
+            });
           });
         }
         break;
 
       case NodeType.FUNCTION_CONDITION:
         const functionData = node.data as FunctionConditionNodeData;
-        if (functionData.signature && config.match_conditions?.functions) {
-          config.match_conditions.functions.push({
-            signature: functionData.signature,
-            expression: functionData.expression,
+        if (functionData.config?.functions) {
+          functionData.config.functions.forEach((func) => {
+            config.match_conditions?.functions?.push({
+              signature: func.signature,
+              expression: func.expression,
+            });
           });
         }
         break;
 
       case NodeType.TRANSACTION_CONDITION:
         const transactionData = node.data as TransactionConditionNodeData;
-        if (config.match_conditions?.transactions) {
-          config.match_conditions.transactions.push({
-            status: transactionData.status,
-            expression: transactionData.expression,
+        if (transactionData.config?.transactions) {
+          transactionData.config.transactions.forEach((transaction) => {
+            config.match_conditions?.transactions?.push({
+              status: transaction.status,
+              expression: transaction.expression,
+            });
           });
         }
         break;

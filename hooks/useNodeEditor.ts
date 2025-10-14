@@ -100,30 +100,42 @@ function createNodeData(
     case NodeType.NETWORK:
       return {
         label: "Network",
-        networkSlug: "",
+        config: {
+          network: "stellar_mainnet",
+        },
+        networkSlug: "stellar_mainnet",
         isValid: false,
       } as NetworkNodeData;
     case NodeType.ADDRESS:
       return {
         label: "Contract",
-        address: "",
+        config: {
+          contracts: [],
+        },
         isValid: false,
       } as AddressNodeData;
     case NodeType.EVENT_CONDITION:
       return {
         label: "Event",
-        signature: "",
+        config: {
+          events: [],
+        },
         isValid: false,
       } as EventConditionNodeData;
     case NodeType.FUNCTION_CONDITION:
       return {
         label: "Function",
-        signature: "",
+        config: {
+          functions: [],
+        },
         isValid: false,
       } as FunctionConditionNodeData;
     case NodeType.TRANSACTION_CONDITION:
       return {
         label: "Transaction",
+        config: {
+          transactions: [],
+        },
         isValid: true,
       } as TransactionConditionNodeData;
     case NodeType.TRIGGER:
@@ -143,29 +155,29 @@ function validateNodeData(node: EditorNode): string[] {
   switch (node.type) {
     case NodeType.NETWORK:
       const networkData = node.data as NetworkNodeData;
-      if (!networkData.networkSlug) {
+      if (!networkData.config?.network) {
         errors.push("Network selection is required");
       }
       break;
 
     case NodeType.ADDRESS:
       const addressData = node.data as AddressNodeData;
-      if (!addressData.address) {
-        errors.push("Address is required");
+      if (!addressData.config?.contracts || addressData.config.contracts.length === 0) {
+        errors.push("At least one contract address is required");
       }
       break;
 
     case NodeType.EVENT_CONDITION:
       const eventData = node.data as EventConditionNodeData;
-      if (!eventData.signature) {
-        errors.push("Event signature is required");
+      if (!eventData.config?.events || eventData.config.events.length === 0) {
+        errors.push("At least one event signature is required");
       }
       break;
 
     case NodeType.FUNCTION_CONDITION:
       const functionData = node.data as FunctionConditionNodeData;
-      if (!functionData.signature) {
-        errors.push("Function signature is required");
+      if (!functionData.config?.functions || functionData.config.functions.length === 0) {
+        errors.push("At least one function signature is required");
       }
       break;
 
@@ -510,40 +522,48 @@ export const useNodeEditor = create<NodeEditorState>()(
 
           case NodeType.ADDRESS:
             const addressData = node.data as AddressNodeData;
-            if (addressData.address) {
-              config.addresses.push({
-                address: addressData.address,
-                contract_spec: addressData.contractSpec,
+            if (addressData.config?.contracts) {
+              addressData.config.contracts.forEach((contract) => {
+                config.addresses.push({
+                  address: contract.address,
+                  contract_spec: contract.contractSpec,
+                });
               });
             }
             break;
 
           case NodeType.EVENT_CONDITION:
             const eventData = node.data as EventConditionNodeData;
-            if (eventData.signature && config.match_conditions?.events) {
-              config.match_conditions.events.push({
-                signature: eventData.signature,
-                expression: eventData.expression,
+            if (eventData.config?.events) {
+              eventData.config.events.forEach((event) => {
+                config.match_conditions?.events?.push({
+                  signature: event.signature,
+                  expression: event.expression,
+                });
               });
             }
             break;
 
           case NodeType.FUNCTION_CONDITION:
             const functionData = node.data as FunctionConditionNodeData;
-            if (functionData.signature && config.match_conditions?.functions) {
-              config.match_conditions.functions.push({
-                signature: functionData.signature,
-                expression: functionData.expression,
+            if (functionData.config?.functions) {
+              functionData.config.functions.forEach((func) => {
+                config.match_conditions?.functions?.push({
+                  signature: func.signature,
+                  expression: func.expression,
+                });
               });
             }
             break;
 
           case NodeType.TRANSACTION_CONDITION:
             const transactionData = node.data as TransactionConditionNodeData;
-            if (config.match_conditions?.transactions) {
-              config.match_conditions.transactions.push({
-                status: transactionData.status,
-                expression: transactionData.expression,
+            if (transactionData.config?.transactions) {
+              transactionData.config.transactions.forEach((transaction) => {
+                config.match_conditions?.transactions?.push({
+                  status: transaction.status,
+                  expression: transaction.expression,
+                });
               });
             }
             break;

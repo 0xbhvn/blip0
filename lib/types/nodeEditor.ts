@@ -22,36 +22,69 @@ export interface BaseNodeData {
   validationErrors?: string[];
   isEditing?: boolean;
   isPlaceholder?: boolean;
+  config?: Record<string, unknown>;
+}
+
+// Contract type for Address node
+export interface Contract {
+  address: string;
+  label?: string;
+  contractSpec?: object[];
+}
+
+// Event condition type
+export interface EventCondition {
+  signature: string;
+  expression?: string;
+}
+
+// Function condition type
+export interface FunctionCondition {
+  signature: string;
+  expression?: string;
+}
+
+// Transaction condition type
+export interface TransactionCondition {
+  status?: "Success" | "Failed";
+  expression?: string | null;
 }
 
 export interface NetworkNodeData extends BaseNodeData {
-  networkSlug: string;
+  config: {
+    network: string;
+  };
+  networkSlug?: string;
   networkName?: string;
   chainId?: number;
 }
 
 export interface AddressNodeData extends BaseNodeData {
-  address: string;
-  contractSpec?: object[];
+  config: {
+    contracts: Contract[];
+  };
 }
 
 export interface EventConditionNodeData extends BaseNodeData {
-  signature: string;
-  expression?: string;
+  config: {
+    events: EventCondition[];
+  };
 }
 
 export interface FunctionConditionNodeData extends BaseNodeData {
-  signature: string;
-  expression?: string;
+  config: {
+    functions: FunctionCondition[];
+  };
 }
 
 export interface TransactionConditionNodeData extends BaseNodeData {
-  status?: "Success" | "Failed";
-  expression?: string;
+  config: {
+    transactions: TransactionCondition[];
+  };
 }
 
 export interface TriggerNodeData extends BaseNodeData {
-  triggerId: string;
+  triggerId?: string;
   triggerName?: string;
 }
 
