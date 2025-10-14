@@ -496,10 +496,6 @@ export default function MonitorBuilderPage() {
             node={selectedNode}
             onNodeUpdate={handleNodeUpdate}
             onNodeDelete={handleNodeDelete}
-            onClose={() => {
-              setRightSidebarOpen(false);
-              setSelectedNode(null);
-            }}
           />
         </div>
       </div>

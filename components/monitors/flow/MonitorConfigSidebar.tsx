@@ -35,7 +35,6 @@ import {
 } from "@/lib/types/nodeEditor";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
-import { ContractList } from "./config/ContractList";
 import { ContractForm } from "./config/ContractForm";
 import { ConditionList } from "./config/ConditionList";
 import { ConditionCard } from "./config/ConditionCard";
@@ -45,7 +44,6 @@ interface MonitorConfigSidebarProps {
   node: EditorNode | null;
   onNodeUpdate: (nodeId: string, updates: Partial<EditorNode["data"]>) => void;
   onNodeDelete: (nodeId: string) => void;
-  onClose: () => void;
   className?: string;
 }
 
@@ -115,7 +113,7 @@ const getNodeDescription = (nodeType: NodeType) => {
     case NodeType.NETWORK:
       return "Choose which Stellar network to monitor: Mainnet or Testnet.";
     case NodeType.ADDRESS:
-      return "Specify the smart contract addresses to monitor. Optionally add contract specs or let them auto-fetch via SEP-48.";
+      return "Configure a single smart contract address to monitor. To monitor multiple contracts, add additional contract nodes. Contract specs can be provided or auto-fetched via SEP-48.";
     case NodeType.EVENT_CONDITION:
       return "Match contract events by signature and apply expression filters to event parameters. Add multiple events to monitor different conditions.";
     case NodeType.FUNCTION_CONDITION:
@@ -133,15 +131,10 @@ export function MonitorConfigSidebar({
   node,
   onNodeUpdate,
   onNodeDelete,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onClose,
   className,
 }: MonitorConfigSidebarProps) {
   // State for contract form
   const [contractFormOpen, setContractFormOpen] = React.useState(false);
-  const [editingContractIndex, setEditingContractIndex] = React.useState<
-    number | null
-  >(null);
 
   // State for condition forms
   const [eventFormOpen, setEventFormOpen] = React.useState(false);
@@ -158,61 +151,22 @@ export function MonitorConfigSidebar({
   const [editingTransactionIndex, setEditingTransactionIndex] =
     React.useState<number | null>(null);
 
-  // Contract handlers
-  const handleAddContract = () => {
-    setEditingContractIndex(null);
-    setContractFormOpen(true);
-  };
-
-  const handleEditContract = (index: number) => {
-    setEditingContractIndex(index);
+  // Contract handlers (single contract per node)
+  const handleEditContract = () => {
     setContractFormOpen(true);
   };
 
   const handleSaveContract = (contract: Contract) => {
     if (!node || node.type !== NodeType.ADDRESS) return;
 
-    const addressData = node.data as AddressNodeData;
-    const contracts = addressData.config?.contracts || [];
-
-    let updatedContracts: Contract[];
-    if (editingContractIndex !== null) {
-      updatedContracts = contracts.map((c, i) =>
-        i === editingContractIndex ? contract : c,
-      );
-    } else {
-      updatedContracts = [...contracts, contract];
-    }
-
-    const label =
-      updatedContracts.length === 1
-        ? updatedContracts[0].label || "1 Contract"
-        : `${updatedContracts.length} Contracts`;
+    // Each ADDRESS node contains exactly one contract
+    const label = contract.label || "Contract";
 
     onNodeUpdate(node.id, {
-      config: { contracts: updatedContracts },
+      config: { contracts: [contract] },
       label,
     });
-  };
-
-  const handleDeleteContract = (index: number) => {
-    if (!node || node.type !== NodeType.ADDRESS) return;
-
-    const addressData = node.data as AddressNodeData;
-    const contracts = addressData.config?.contracts || [];
-    const updatedContracts = contracts.filter((_, i) => i !== index);
-
-    const label =
-      updatedContracts.length === 0
-        ? "No Contracts"
-        : updatedContracts.length === 1
-          ? updatedContracts[0].label || "1 Contract"
-          : `${updatedContracts.length} Contracts`;
-
-    onNodeUpdate(node.id, {
-      config: { contracts: updatedContracts },
-      label,
-    });
+    setContractFormOpen(false);
   };
 
   // Event handlers
@@ -441,28 +395,63 @@ export function MonitorConfigSidebar({
 
       case NodeType.ADDRESS: {
         const addressData = node.data as AddressNodeData;
-        const contracts = addressData.config?.contracts || [];
+        const contract = addressData.config?.contracts?.[0];
 
         return (
           <>
-            <ContractList
-              contracts={contracts}
-              onAdd={handleAddContract}
-              onEdit={handleEditContract}
-              onDelete={handleDeleteContract}
-            />
+            <div className="space-y-4">
+              {contract ? (
+                <>
+                  <div className="rounded-lg border border-slate-6 bg-slate-2/50 p-4 space-y-3">
+                    <div className="flex items-start justify-between">
+                      <div className="space-y-1 flex-1 min-w-0">
+                        <h4 className="text-sm font-medium text-foreground">
+                          {contract.label || "Contract"}
+                        </h4>
+                        <p className="text-xs text-slate-400 font-mono break-all">
+                          {contract.address}
+                        </p>
+                      </div>
+                    </div>
+                    {contract.contractSpec && (
+                      <div className="pt-2 border-t border-slate-6">
+                        <p className="text-xs text-slate-400">
+                          ✓ Contract spec provided
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleEditContract}
+                    className="w-full"
+                  >
+                    <FileCode className="h-4 w-4 mr-2" />
+                    Edit Contract
+                  </Button>
+                </>
+              ) : (
+                <div className="rounded-lg border border-dashed border-slate-6 bg-slate-2/50 p-8 text-center">
+                  <p className="text-sm text-slate-400 mb-2">
+                    No contract configured yet
+                  </p>
+                  <Button
+                    variant="link"
+                    size="sm"
+                    onClick={handleEditContract}
+                    className="text-xs"
+                  >
+                    Configure Contract
+                  </Button>
+                </div>
+              )}
+            </div>
             <ContractForm
               open={contractFormOpen}
-              onClose={() => {
-                setContractFormOpen(false);
-                setEditingContractIndex(null);
-              }}
+              onClose={() => setContractFormOpen(false)}
               onSave={handleSaveContract}
-              initialData={
-                editingContractIndex !== null
-                  ? contracts[editingContractIndex]
-                  : undefined
-              }
+              initialData={contract}
             />
           </>
         );

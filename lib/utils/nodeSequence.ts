@@ -60,8 +60,8 @@ export function getNextNodeSuggestion(nodes: Node[]): NodeSuggestion[] {
   if (addressCount < 5) {
     suggestions.push({
       type: NodeType.ADDRESS,
-      label: "Another Contract",
-      description: "Monitor multiple contracts (edges will merge at conditions)",
+      label: "Contract",
+      description: "Add another contract to monitor (each contract gets its own node)",
       priority: 85, // High priority, but below conditions if none exist yet
     });
   }
@@ -157,8 +157,8 @@ export function getNextNodeSuggestion(nodes: Node[]): NodeSuggestion[] {
   if (actualNodes.filter(n => n.type === NodeType.ADDRESS).length < 5) {
     suggestions.push({
       type: NodeType.ADDRESS,
-      label: "Another Contract",
-      description: "Monitor multiple contracts",
+      label: "Contract",
+      description: "Add another contract to monitor",
       priority: 40,
     });
   }
