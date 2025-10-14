@@ -79,23 +79,22 @@ export default function MonitorBuilderPage() {
   }, [nodes]);
 
 
-  // Initialize with a welcome node
+  // Initialize with a Network node
   React.useEffect(() => {
     if (nodes.length === 0) {
-      const welcomeNode: Node = {
-        id: "welcome",
+      const initialNode: Node = {
+        id: "network-initial",
         type: NodeType.NETWORK,
         position: { x: 400, y: 300 },
         data: {
-          id: "welcome",
+          id: "network-initial",
           type: NodeType.NETWORK,
           label: "Network",
           config: {},
           isValid: false,
-          isPlaceholder: true,
         },
       };
-      setNodes([welcomeNode]);
+      setNodes([initialNode]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Only run on mount
@@ -269,21 +268,10 @@ export default function MonitorBuilderPage() {
         }
       }
 
-      // Remove placeholder if adding the first real node
-      let currentNodes = nodes;
-      if (
-        nodes.length === 1 &&
-        nodes[0].data &&
-        (nodes[0].data as { isPlaceholder?: boolean }).isPlaceholder
-      ) {
-        currentNodes = [];
-        setNodes([]);
-      }
-
       // Get smart position for the new node
-      const position = getSmartNodePosition(typeToAdd, currentNodes);
+      const position = getSmartNodePosition(typeToAdd, nodes);
 
-      // Create the new node (ensure isPlaceholder is false/undefined for real nodes)
+      // Create the new node
       const newNodeId = `node-${Date.now()}`;
       const newNode: Node = {
         id: newNodeId,
@@ -295,7 +283,6 @@ export default function MonitorBuilderPage() {
           label: getNodeLabel(typeToAdd),
           config: {},
           isValid: false,
-          isPlaceholder: false, // Explicitly set to false for real nodes
         },
       };
 
@@ -312,36 +299,33 @@ export default function MonitorBuilderPage() {
 
       if (isConditionNode) {
         // Get ALL address nodes for condition nodes
-        sourceNodesToConnect = currentNodes.filter(
-          (n) => n.type === NodeType.ADDRESS && !(n.data as { isPlaceholder?: boolean })?.isPlaceholder
+        sourceNodesToConnect = nodes.filter(
+          (n) => n.type === NodeType.ADDRESS
         );
       } else if (typeToAdd === NodeType.ADDRESS) {
         // For contract nodes, connect to network as source
-        const sourceNode = findBestSourceNode(typeToAdd, currentNodes, edges);
+        const sourceNode = findBestSourceNode(typeToAdd, nodes, edges);
         if (sourceNode) {
           sourceNodesToConnect = [sourceNode];
         }
 
         // Also auto-connect to ALL existing condition nodes as targets
-        targetNodesToConnect = currentNodes.filter((n) =>
+        targetNodesToConnect = nodes.filter((n) =>
           [
             NodeType.EVENT_CONDITION,
             NodeType.FUNCTION_CONDITION,
             NodeType.TRANSACTION_CONDITION,
-          ].includes(n.type as NodeType) && !(n.data as { isPlaceholder?: boolean })?.isPlaceholder
+          ].includes(n.type as NodeType)
         );
       } else {
         // For other nodes, use single best source
-        const sourceNode = findBestSourceNode(typeToAdd, currentNodes, edges);
+        const sourceNode = findBestSourceNode(typeToAdd, nodes, edges);
         if (sourceNode) {
           sourceNodesToConnect = [sourceNode];
         }
       }
 
-      setNodes((nds) => [
-        ...(currentNodes === nds ? nds : currentNodes),
-        newNode,
-      ]);
+      setNodes((nds) => [...nds, newNode]);
 
       // Auto-connect to all source nodes (incoming edges)
       const newEdges: Edge[] = [];

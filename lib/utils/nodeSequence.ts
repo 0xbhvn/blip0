@@ -103,8 +103,7 @@ export function getNextNodeSuggestion(nodes: Node[]): NodeSuggestion[] {
   }
 
   // Has some conditions - suggest both remaining conditions AND actions
-  const hasAction = actualTypes.has(NodeType.TRIGGER) ||
-                   actualTypes.has(NodeType.NOTIFICATION);
+  const hasAction = actualTypes.has(NodeType.TRIGGER);
 
   // Add unused conditions with high priority for multi-condition monitors
   unusedConditions.forEach((condType, index) => {
@@ -124,7 +123,6 @@ export function getNextNodeSuggestion(nodes: Node[]): NodeSuggestion[] {
       [NodeType.NETWORK]: { label: "", desc: "" }, // Dummy entries for other types
       [NodeType.ADDRESS]: { label: "", desc: "" },
       [NodeType.TRIGGER]: { label: "", desc: "" },
-      [NodeType.NOTIFICATION]: { label: "", desc: "" },
     };
 
     if (conditionInfo[condType].label) {
@@ -144,14 +142,7 @@ export function getNextNodeSuggestion(nodes: Node[]): NodeSuggestion[] {
       label: "Trigger",
       description: "Execute actions when conditions are met",
       priority: 50,
-      isRequired: existingConditions.length >= 2, // Only required after 2+ conditions
-    });
-
-    suggestions.push({
-      type: NodeType.NOTIFICATION,
-      label: "Notification",
-      description: "Send alerts when conditions are met",
-      priority: 45,
+      isRequired: existingConditions.length >= 1, // Required after at least one condition
     });
   }
 
@@ -188,16 +179,6 @@ export function getNextNodeSuggestion(nodes: Node[]): NodeSuggestion[] {
       label: "Function Condition",
       description: "Monitor function calls",
       priority: 30,
-    });
-  }
-
-  // Can add more actions
-  if (!actualTypes.has(NodeType.NOTIFICATION)) {
-    suggestions.push({
-      type: NodeType.NOTIFICATION,
-      label: "Notification",
-      description: "Add notification channel",
-      priority: 25,
     });
   }
 
@@ -298,11 +279,10 @@ export function getConfigurationStatus(nodes: Node[]): {
     missingRequired.push("At least one monitoring condition");
   }
 
-  const hasAction = types.has(NodeType.TRIGGER) ||
-                   types.has(NodeType.NOTIFICATION);
+  const hasAction = types.has(NodeType.TRIGGER);
 
   if (!hasAction) {
-    missingRequired.push("Action (trigger or notification)");
+    missingRequired.push("Trigger action");
   }
 
   // Suggestions for improvements

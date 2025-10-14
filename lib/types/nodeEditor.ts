@@ -12,7 +12,6 @@ export enum NodeType {
   TRANSACTION_CONDITION = "transactionCondition",
 
   // Action nodes
-  NOTIFICATION = "notification",
   TRIGGER = "trigger",
 }
 
@@ -51,11 +50,6 @@ export interface TransactionConditionNodeData extends BaseNodeData {
   expression?: string;
 }
 
-export interface NotificationNodeData extends BaseNodeData {
-  type: "email" | "webhook" | "slack";
-  configuration: Record<string, unknown>;
-}
-
 export interface TriggerNodeData extends BaseNodeData {
   triggerId: string;
   triggerName?: string;
@@ -71,7 +65,6 @@ export type EditorNode = Node & {
     | EventConditionNodeData
     | FunctionConditionNodeData
     | TransactionConditionNodeData
-    | NotificationNodeData
     | TriggerNodeData;
 };
 
@@ -101,25 +94,17 @@ export const CONNECTION_RULES: Record<NodeType, ConnectionRule> = {
   },
   [NodeType.EVENT_CONDITION]: {
     sourceTypes: [NodeType.ADDRESS],
-    targetTypes: [NodeType.TRIGGER, NodeType.NOTIFICATION],
+    targetTypes: [NodeType.TRIGGER],
   },
   [NodeType.FUNCTION_CONDITION]: {
     sourceTypes: [NodeType.ADDRESS],
-    targetTypes: [NodeType.TRIGGER, NodeType.NOTIFICATION],
+    targetTypes: [NodeType.TRIGGER],
   },
   [NodeType.TRANSACTION_CONDITION]: {
     sourceTypes: [NodeType.ADDRESS],
-    targetTypes: [NodeType.TRIGGER, NodeType.NOTIFICATION],
+    targetTypes: [NodeType.TRIGGER],
   },
   [NodeType.TRIGGER]: {
-    sourceTypes: [
-      NodeType.EVENT_CONDITION,
-      NodeType.FUNCTION_CONDITION,
-      NodeType.TRANSACTION_CONDITION,
-    ],
-    targetTypes: [],
-  },
-  [NodeType.NOTIFICATION]: {
     sourceTypes: [
       NodeType.EVENT_CONDITION,
       NodeType.FUNCTION_CONDITION,
@@ -159,6 +144,6 @@ export const NODE_PALETTE_CATEGORIES: NodePaletteCategory[] = [
   {
     name: "Actions",
     icon: "Bell",
-    nodes: [NodeType.TRIGGER, NodeType.NOTIFICATION],
+    nodes: [NodeType.TRIGGER],
   },
 ];
