@@ -81,15 +81,17 @@ const getNodeTypeLabel = (nodeType: NodeType) => {
 const getNodeTypeCategory = (nodeType: NodeType) => {
   switch (nodeType) {
     case NodeType.NETWORK:
-      return "Blockchain";
+      return "Network Selection";
     case NodeType.ADDRESS:
-      return "Contract";
+      return "Contract Target";
     case NodeType.EVENT_CONDITION:
+      return "Event Filter";
     case NodeType.FUNCTION_CONDITION:
+      return "Function Filter";
     case NodeType.TRANSACTION_CONDITION:
-      return "Condition";
+      return "Transaction Filter";
     case NodeType.TRIGGER:
-      return "Timer";
+      return "Notification Action";
     default:
       return "Configuration";
   }
@@ -99,17 +101,17 @@ const getNodeTypeCategory = (nodeType: NodeType) => {
 const getNodeDescription = (nodeType: NodeType) => {
   switch (nodeType) {
     case NodeType.NETWORK:
-      return "Select the blockchain network to monitor for smart contract events and transactions.";
+      return "Choose which Stellar network to monitor: Mainnet or Testnet.";
     case NodeType.ADDRESS:
-      return "Specify the smart contract address you want to monitor for events and function calls.";
+      return "Specify the smart contract address to monitor. Optionally add ABI or contract spec.";
     case NodeType.EVENT_CONDITION:
-      return "Configure which contract events to monitor and set up filters for specific conditions.";
+      return "Match contract events by signature and apply expression filters to event parameters.";
     case NodeType.FUNCTION_CONDITION:
-      return "Monitor smart contract function calls and set conditions based on return values.";
+      return "Monitor function calls with argument filters. Primarily used for Stellar contracts.";
     case NodeType.TRANSACTION_CONDITION:
-      return "Set up conditions for monitoring blockchain transactions with custom filters.";
+      return "Filter transactions by status (success/failed) and apply custom expression filters.";
     case NodeType.TRIGGER:
-      return "Configure the recurring schedule for when this monitor should execute.";
+      return "Send alerts via Slack, Email, Discord, Telegram, Webhook, or Script when conditions match.";
     default:
       return "Configure the settings for this monitoring node.";
   }
