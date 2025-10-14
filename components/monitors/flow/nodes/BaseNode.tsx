@@ -6,7 +6,6 @@ import { AlertCircle } from "@/lib/icons";
 import { BaseNodeData } from "@/lib/types/nodeEditor";
 import { NodeType } from "@/lib/types/nodeEditor";
 import { NODE_SIZE_CLASSES, NodeSizeVariant } from "@/lib/design-system/tokens";
-import { useTheme } from "next-themes";
 
 interface BaseNodeProps extends NodeProps {
   icon?: React.ReactNode;
@@ -35,20 +34,9 @@ export function BaseNode({
   showTriggerIndicator = false,
   size = "compact", // 320px × 48px (16×20 × 16×3) - aligned to 16px grid
 }: BaseNodeProps) {
-  const { theme } = useTheme();
   const nodeData = data as unknown as BaseNodeData;
   const hasErrors =
     nodeData.validationErrors && nodeData.validationErrors.length > 0;
-
-  // Icon container gradient based on theme
-  // Gradient flows from bottom-left (dark) to top-right (light) like Lindy
-  const iconGradient = theme === 'dark'
-    ? 'linear-gradient(135deg, #2d2c31 0%, #4a4852 100%)'  // darker → lighter
-    : 'linear-gradient(135deg, #615f65 0%, #a79eb1 100%)';  // darker → lighter
-
-  const iconBorder = theme === 'dark'
-    ? '0.5px solid hsl(215 15% 40% / 0.5)'
-    : '0.5px solid hsl(215 20% 65% / 0.5)';
 
   // Determine node style based on type
   const getNodeStyle = () => {
@@ -115,21 +103,9 @@ export function BaseNode({
                   {icon && (
                     <div className="relative flex-shrink-0">
                       <div
-                        className="node-icon-container"
-                        style={{
-                          width: '16px',
-                          height: '16px',
-                          borderRadius: '4px',
-                          border: iconBorder,
-                          overflow: 'hidden',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          flexShrink: 0,
-                          background: iconGradient
-                        }}
+                        className="node-icon-container w-4 h-4 rounded border border-zinc-200 dark:border-zinc-700 overflow-hidden flex items-center justify-center flex-shrink-0 bg-white dark:bg-zinc-900"
                       >
-                        <div className="text-white">{icon}</div>
+                        <div className="text-black dark:text-white">{icon}</div>
                       </div>
 
                       {/* Trigger indicator overlay */}
