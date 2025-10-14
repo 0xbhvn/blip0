@@ -25,7 +25,6 @@ import {
   FunctionConditionNodeData,
   TransactionConditionNodeData,
   TriggerNodeData,
-  NotificationNodeData,
 } from "@/lib/types/nodeEditor";
 import { MonitorCreateInput } from "@/lib/types/monitors";
 import { toast } from "sonner";
@@ -96,8 +95,7 @@ function createNodeData(
   | EventConditionNodeData
   | FunctionConditionNodeData
   | TransactionConditionNodeData
-  | TriggerNodeData
-  | NotificationNodeData {
+  | TriggerNodeData {
   switch (type) {
     case NodeType.NETWORK:
       return {
@@ -134,13 +132,6 @@ function createNodeData(
         triggerId: "",
         isValid: false,
       } as TriggerNodeData;
-    case NodeType.NOTIFICATION:
-      return {
-        label: "Notification",
-        type: "email",
-        configuration: {},
-        isValid: false,
-      } as NotificationNodeData;
     default:
       return { label: "Unknown", isValid: false } as BaseNodeData;
   }
@@ -182,28 +173,6 @@ function validateNodeData(node: EditorNode): string[] {
       const triggerData = node.data as TriggerNodeData;
       if (!triggerData.triggerId) {
         errors.push("Trigger selection is required");
-      }
-      break;
-
-    case NodeType.NOTIFICATION:
-      const notificationData = node.data as NotificationNodeData;
-      if (
-        notificationData.type === "email" &&
-        !notificationData.configuration?.email
-      ) {
-        errors.push("Email address is required");
-      }
-      if (
-        notificationData.type === "webhook" &&
-        !notificationData.configuration?.url
-      ) {
-        errors.push("Webhook URL is required");
-      }
-      if (
-        notificationData.type === "slack" &&
-        !notificationData.configuration?.channel
-      ) {
-        errors.push("Slack channel is required");
       }
       break;
   }
@@ -442,7 +411,7 @@ export const useNodeEditor = create<NodeEditorState>()(
           n.type === NodeType.TRANSACTION_CONDITION,
       );
       const hasAction = state.nodes.some(
-        (n) => n.type === NodeType.TRIGGER || n.type === NodeType.NOTIFICATION,
+        (n) => n.type === NodeType.TRIGGER,
       );
 
       if (!hasNetwork) {
@@ -457,7 +426,7 @@ export const useNodeEditor = create<NodeEditorState>()(
 
       if (!hasAction) {
         globalErrors.push(
-          "At least one action (trigger or notification) is required",
+          "At least one trigger is required",
         );
         isValid = false;
       }
@@ -591,11 +560,6 @@ export const useNodeEditor = create<NodeEditorState>()(
                 config.triggers.push(triggerId);
               }
             }
-            break;
-
-          case NodeType.NOTIFICATION:
-            // Handle notification configuration
-            // This would be processed based on the notification type
             break;
         }
       });

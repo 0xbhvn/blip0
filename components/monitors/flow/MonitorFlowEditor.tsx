@@ -242,7 +242,7 @@ export function MonitorFlowEditor({
         n.type === NodeType.TRANSACTION_CONDITION,
     );
     const actionNodes = nodes.filter(
-      (n) => n.type === NodeType.TRIGGER || n.type === NodeType.NOTIFICATION,
+      (n) => n.type === NodeType.TRIGGER,
     );
 
     let connectionsCreated = 0;

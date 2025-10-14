@@ -22,7 +22,6 @@ import {
   LightningThunderElectricOn,
   Code,
   Activity,
-  NotificationBellOn,
   AlertCircle,
   UturnLeft,
   UturnRight,
@@ -86,13 +85,6 @@ const nodeTypeConfig = [
     icon: AlertCircle,
     description: "Define trigger conditions",
     color: "text-green-500",
-  },
-  {
-    type: NodeType.NOTIFICATION,
-    label: "Notification",
-    icon: NotificationBellOn,
-    description: "Configure alert notifications",
-    color: "text-emerald-500",
   },
 ];
 

@@ -363,13 +363,6 @@ export function flowToMonitor(
           }
         }
         break;
-
-      case NodeType.NOTIFICATION:
-        // Handle notification configuration
-        // This would be processed based on the notification type
-        // For now, this is a placeholder as the actual implementation
-        // depends on how notifications are stored in your system
-        break;
     }
   });
 
@@ -398,7 +391,7 @@ export function validateFlowData(
       n.type === NodeType.TRANSACTION_CONDITION,
   );
   const hasAction = nodes.some(
-    (n) => n.type === NodeType.TRIGGER || n.type === NodeType.NOTIFICATION,
+    (n) => n.type === NodeType.TRIGGER,
   );
 
   if (!hasNetwork) {
@@ -410,7 +403,7 @@ export function validateFlowData(
   }
 
   if (!hasAction) {
-    errors.push("At least one action (trigger or notification) is required");
+    errors.push("At least one trigger is required");
   }
 
   // Validate individual nodes
@@ -463,7 +456,7 @@ export function autoLayoutFlow(
         n.type === NodeType.TRANSACTION_CONDITION,
     ),
     actions: nodes.filter(
-      (n) => n.type === NodeType.TRIGGER || n.type === NodeType.NOTIFICATION,
+      (n) => n.type === NodeType.TRIGGER,
     ),
   };
 
