@@ -184,19 +184,45 @@ export default function MonitorBuilderPage() {
         return;
       }
 
-      // Check for duplicate connections
-      const isDuplicate = edges.some(
+      // Check for duplicate connections (at least one edge exists)
+      const hasExistingConnection = edges.some(
         (e) => e.source === params.source && e.target === params.target,
       );
-      if (isDuplicate) {
+      if (hasExistingConnection) {
         toast.warning("This connection already exists");
         return;
       }
 
-      setEdges((eds) =>
-        addEdge(
-          {
-            ...params,
+      // Check if source is a condition node
+      const isConditionNode =
+        sourceNode.type === NodeType.EVENT_CONDITION ||
+        sourceNode.type === NodeType.FUNCTION_CONDITION ||
+        sourceNode.type === NodeType.TRANSACTION_CONDITION;
+
+      // If condition node, create N edges based on condition count
+      if (isConditionNode && targetNode.type === NodeType.TRIGGER) {
+        let conditionCount = 0;
+        const nodeData = sourceNode.data as EditorNode["data"];
+        if (sourceNode.type === NodeType.EVENT_CONDITION && "config" in nodeData) {
+          conditionCount = (nodeData.config as { events?: unknown[] })?.events?.length || 0;
+        } else if (sourceNode.type === NodeType.FUNCTION_CONDITION && "config" in nodeData) {
+          conditionCount = (nodeData.config as { functions?: unknown[] })?.functions?.length || 0;
+        } else if (sourceNode.type === NodeType.TRANSACTION_CONDITION && "config" in nodeData) {
+          conditionCount = (nodeData.config as { transactions?: unknown[] })?.transactions?.length || 0;
+        }
+
+        if (conditionCount === 0) {
+          toast.info("Add conditions first to create connections");
+          return;
+        }
+
+        // Create N edges
+        const newEdges: Edge[] = [];
+        for (let i = 0; i < conditionCount; i++) {
+          newEdges.push({
+            id: `${params.source}-c${i}-${params.target}`,
+            source: params.source!,
+            target: params.target!,
             type: "smoothstep",
             animated: false,
             style: {
@@ -210,12 +236,38 @@ export default function MonitorBuilderPage() {
               width: 20,
               height: 20,
             },
-          },
-          eds,
-        ),
-      );
+          });
+        }
 
-      toast.success("Nodes connected");
+        setEdges((eds) => [...eds, ...newEdges]);
+        toast.success(
+          `Created ${conditionCount} connection${conditionCount > 1 ? "s" : ""}`
+        );
+      } else {
+        // Regular single edge connection
+        setEdges((eds) =>
+          addEdge(
+            {
+              ...params,
+              type: "smoothstep",
+              animated: false,
+              style: {
+                stroke: "#D7DBDF",
+                strokeWidth: 1,
+              },
+              markerEnd: {
+                type: MarkerType.Arrow,
+                color: "#D7DBDF",
+                strokeWidth: 1,
+                width: 20,
+                height: 20,
+              },
+            },
+            eds,
+          ),
+        );
+        toast.success("Nodes connected");
+      }
     },
     [nodes, edges, setEdges],
   );
@@ -428,6 +480,78 @@ export default function MonitorBuilderPage() {
     router.push("/dashboard/monitors");
   }, [router]);
 
+  // Sync edges for condition nodes to match their condition count
+  const syncConditionEdges = React.useCallback(
+    (conditionNodeId: string) => {
+      const node = nodes.find((n) => n.id === conditionNodeId);
+      if (!node) return;
+
+      // Get condition count based on node type
+      let conditionCount = 0;
+      const nodeData = node.data as EditorNode["data"];
+      if (node.type === NodeType.EVENT_CONDITION && "config" in nodeData) {
+        conditionCount = (nodeData.config as { events?: unknown[] })?.events?.length || 0;
+      } else if (node.type === NodeType.FUNCTION_CONDITION && "config" in nodeData) {
+        conditionCount = (nodeData.config as { functions?: unknown[] })?.functions?.length || 0;
+      } else if (node.type === NodeType.TRANSACTION_CONDITION && "config" in nodeData) {
+        conditionCount = (nodeData.config as { transactions?: unknown[] })?.transactions?.length || 0;
+      } else {
+        return; // Not a condition node
+      }
+
+      // Find all trigger nodes this condition is connected to
+      const connectedTriggers = Array.from(
+        new Set(
+          edges
+            .filter(
+              (e) =>
+                e.source === conditionNodeId &&
+                nodes.find((n) => n.id === e.target)?.type === NodeType.TRIGGER
+            )
+            .map((e) => e.target)
+        )
+      );
+
+      if (connectedTriggers.length === 0 || conditionCount === 0) return;
+
+      // Update edges
+      setEdges((eds) => {
+        // Remove old edges from this condition to triggers
+        const filteredEdges = eds.filter(
+          (e) => !(e.source === conditionNodeId && connectedTriggers.includes(e.target))
+        );
+
+        // Create N new edges (one per condition) for each connected trigger
+        const newEdges: Edge[] = [];
+        connectedTriggers.forEach((triggerId) => {
+          for (let i = 0; i < conditionCount; i++) {
+            newEdges.push({
+              id: `${conditionNodeId}-c${i}-${triggerId}`,
+              source: conditionNodeId,
+              target: triggerId,
+              type: "smoothstep",
+              animated: false,
+              style: {
+                stroke: "#D7DBDF",
+                strokeWidth: 1,
+              },
+              markerEnd: {
+                type: MarkerType.Arrow,
+                color: "#D7DBDF",
+                strokeWidth: 1,
+                width: 20,
+                height: 20,
+              },
+            });
+          }
+        });
+
+        return [...filteredEdges, ...newEdges];
+      });
+    },
+    [nodes, edges, setEdges]
+  );
+
   // Handle node update from sidebar
   const handleNodeUpdate = React.useCallback(
     (nodeId: string, updates: Partial<EditorNode["data"]>) => {
@@ -438,8 +562,20 @@ export default function MonitorBuilderPage() {
             : node,
         ),
       );
+
+      // Sync edges if it's a condition node
+      const node = nodes.find((n) => n.id === nodeId);
+      if (
+        node &&
+        (node.type === NodeType.EVENT_CONDITION ||
+          node.type === NodeType.FUNCTION_CONDITION ||
+          node.type === NodeType.TRANSACTION_CONDITION)
+      ) {
+        // Defer sync to next tick to ensure state is updated
+        setTimeout(() => syncConditionEdges(nodeId), 0);
+      }
     },
-    [setNodes],
+    [setNodes, nodes, syncConditionEdges],
   );
 
   // Handle node delete
